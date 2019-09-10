@@ -21,8 +21,10 @@ This is a repo to record the SEP-FRE-TRAINING assignments.
 
 ### PostsViewer:
 
-- assignment_name: postsViewer
+* assignment_name 
+: postViewer
 
-- requirement:
+* requirement:
+    * requirement 1
+    * requirement 2
 
--
