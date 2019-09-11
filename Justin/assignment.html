@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="style/index.css" type="text/css" rel="stylesheet" />
+    <script src="script/assignment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div class = "navbar">
+    <h2>Justin's Work</h2>
+    <a href = "assignment.html">Home</a>
+    <a href = "https://www.instagram.com/justinbieber/">News</a>
+    <a href = "mailto: Justin.Seo1124" target="_top">Contact</a>
+    </div>
+</head>
+<body>
+        
+            <button type="button" onclick="btnShow()" class="btn-primary">Show Data</button>
+            <button type="button" onclick="btnHide()" class="btn-primary">Hide Data</button>
+
+            <table>
+
+                <tbody id="btnClass">
+                <tr><td>User Id</td><td>Title</td><td>Form</td></tr>
+                <div id = "actions" class="actionModal">
+                
+                
+                </div>
+                </tbody>
+            </table>
+            
+            <script>
+                    var modal = document.getElementById('actions');
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+            </script>
+            
+            
+</body>
+</html>
