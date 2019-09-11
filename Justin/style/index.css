@@ -1,0 +1,83 @@
+﻿*{
+    font-family:Calibri;
+}
+{box-sizing: border-box;}
+
+#btnClass{
+    visibility: hidden;
+
+}
+
+h2{
+    margin: 15px;
+}
+
+body{
+    margin-top:20px;
+}
+.navbar{
+    overflow:hidden;
+    background-color: cornflowerblue;
+    position: fixed;
+    top:0;
+    width:100%;
+}
+
+.navbar a{
+    float:left;
+    display:block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover{
+    background: #ddd;
+    color: black; 
+}
+
+table {
+    border-collapse:collapse;
+    width: 100%;
+    text-align: center;
+}
+    table td, table th{
+        border:1px solid black;
+        padding: 15px;
+        
+      
+    }
+    table tbody tr:nth-child(2n+1) {
+        background-color: #eee;
+    }
+.btn-primary{
+    position: relative;
+    margin-top: 90px;
+}
+
+.actionModal{
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left:35%;
+    top: 25%;
+    width: 30%;
+    height: 30%;
+    overflow: auto;
+    background-color:cornflowerblue;
+    text-align: center;
+}
+
+.commentModal{
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left:35%;
+    top: 25%;
+    width: 30%;
+    height: 30%;
+    overflow: auto;
+    background-color:cornflowerblue;
+}
