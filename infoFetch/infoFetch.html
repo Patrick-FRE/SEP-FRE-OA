@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Info Fetch</title>
+    <link rel="stylesheet" type="text/css" href="infoFetch.css">
+</head>
+
+<body>
+    <div class="sticky">
+        <h2>Info fetch spreadsheet</h2>
+        <button id="show" onclick="show()">show</button>
+        <button id="clear" onclick="hide()">clear</button>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="details">model1 text</p>
+        </div>
+
+    </div>
+
+    <div id="tablediv">
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Title</td>
+                    <td>Body</td>
+                    <td>Details</td>
+                    <td>Comments</td>
+                </tr>
+            </thead>
+            <tbody id="tblPost">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- The Comment Modal -->
+    <div id="commentModal" class="commentsModal">
+        <!-- Comment Modal content -->
+        <div class="modal-content1">
+            <span class="close1">&times;</span>
+            <p id="details1"></p>
+            <div id="tablediv1">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Body</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl1Post">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="infoFetch.js"> </script>
+</body>
+
+</html>
