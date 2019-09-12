@@ -15,13 +15,14 @@ button {
 /* nav */
 
 nav {
+    position: fixed;
     box-sizing: border-box;
+    width: 100%;
     height: 100px;
     padding: 10px;
-    background: white;
-    position: fixed;
-    width: 100%;
     border-bottom: 2px dotted black;
+    background: white;
+    z-index: 10;
 }
 
 /* body */
