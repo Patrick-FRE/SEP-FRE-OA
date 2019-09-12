@@ -1,0 +1,98 @@
+*{
+    box-sizing: border-box;
+    font-family: Calibri;
+}
+
+.button-area{
+    width: 50%;
+    border: 1px soild black;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: aqua;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.btn{
+    padding: 5px;
+    border: 1px solid brown;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: blue;
+}
+
+.table-area{
+    display: none;
+}
+
+thead tr td{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+table {
+    border-collapse:collapse;
+    width: 60%;
+    margin: auto;
+}
+    table td, table th {
+        border:1px solid black;
+        padding:5px;
+    }
+    table tbody tr:nth-child(2n+1) {
+        background-color:#eee;
+    }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  h3 span{
+      font-size: 15px;
+      font-style: italic;
+      font-weight: bold;
+  }
+
+  #comment-area{
+      margin-top: 20px; 
+      display: none;
+  }

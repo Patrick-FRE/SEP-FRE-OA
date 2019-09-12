@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch Table</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <script src = "script.js"> </script>
+    <div class = "button-area">
+        <button class = "btn" id = "show" onclick = "showTable()"> Display Table </button>
+        <button class = "btn" id = "hide" onclick = "hideTable()"> Hide Table </button>
+        <br>
+    </div>
+    <br>
+    <div class = "table-area">
+        <table>
+            <thead> 
+                <tr> 
+                    <td> ID </td> 
+                    <td> Title </td>
+                    <td> Body </td>
+                    <td> Detail </td> 
+                </tr>
+            </thead>
+            <tbody id="tblPost">
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <button class="close"> Close </button>
+          <div class = "panel">
+                <h3>ID: <span id = "id-name">  </span> </h3>
+                <h3>Title: <span id = "header">  </span> </h3>
+                <h3>Body: <span id = "body-content"> </span> </h3>
+                <button class = "btn" onclick = "showComment()"> Show Comment </button>
+                <button class = "btn" onclick = "hideComment()"> Hide Comment </button>
+                <div id = "comment-area">
+                    <table>
+                        <thead> 
+                            <tr> 
+                                <td> ID </td> 
+                                <td> Name </td>
+                                <td> Email </td>
+                                <td> Comment </td> 
+                            </tr>
+                        </thead>
+                        <tbody id="commentPost">
+                            
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+        </div>
+      
+    </div>
+</body>
+</html>
