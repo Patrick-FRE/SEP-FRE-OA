@@ -1,0 +1,25 @@
+{
+  "name": "SEP-FRE-OA-isaac",
+  "version": "1.0.0",
+  "description": "This is a repo to record the SEP-FRE-TRAINING assignments.",
+  "main": "app.js",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patrick-FRE/SEP-FRE-OA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Patrick-FRE/SEP-FRE-OA/issues"
+  },
+  "homepage": "https://github.com/Patrick-FRE/SEP-FRE-OA#readme"
+}
