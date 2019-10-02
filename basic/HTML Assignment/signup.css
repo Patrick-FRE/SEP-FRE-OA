@@ -18,7 +18,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-bottom: 20px;
+    margin-bottom: 200px;
 }
 
 h1 {
@@ -51,4 +51,17 @@ h1 {
     position: absolute;
     top: -50%;
     left: calc(50% - 50%);
+}
+
+#buttonbox {
+    margin-bottom: 200px;
+    left: 50%;
+}
+
+#button {
+    width: 150px;
+}
+
+#submit {
+    width: 150px;
 }
