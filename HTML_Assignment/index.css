@@ -1,0 +1,122 @@
+div{
+    /* position: absolute;
+    top: 15%;
+    left: 30%; */
+    display: grid;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+p{
+    font-size: 2em
+}
+form{
+    margin-left: 10px;
+}
+span{
+    font-size: 11pt;
+}
+a{
+    color: #5E9DD3;
+    text-decoration: none;
+}
+#shortleft{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:250px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+#shortright{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:250px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+#buttonleft{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    color: white;
+    height:50px;
+    width:270px;
+    background-color: #4890CD;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 1px;
+}
+#buttonright{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    color: white;
+    height:50px;
+    width:270px;
+    background-color: #62BC62;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding: 1px;
+}
+#long{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:535px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+.register{
+    border-radius: 5px;
+    padding: 0.2em;
+    color: white;
+    background-color: #4890CD;
+}
+.terms{
+    margin-left: 80px; 
+    text-align:left;
+}
+@media screen and (max-width: 600px) {
+    /* For mobile phones: */
+    #shortleft{
+        width:100%;
+    }
+    #shortright{
+        width:100%;
+        margin-left:0px;
+    }
+    #buttonleft{
+        width:100%;
+    }
+    #buttonright{
+        width:100%;
+        margin-left:0px;
+    }
+    #long{
+        width: 100%;
+    }
+    input {
+      width: 100%;
+    }
+
+}
