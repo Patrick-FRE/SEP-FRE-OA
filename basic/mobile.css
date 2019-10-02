@@ -1,0 +1,65 @@
+a {
+    text-decoration: none;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 300px;
+    justify-content: center;
+  }
+
+  .long-input input {
+    width: 240px;
+    border-radius: 4px;
+    border: 1px solid #DBDBDB;
+  }
+
+  .check{
+    width: 200px;
+  }
+
+  box.hint {
+    width: 220px;
+    font-size: 20px;
+  }
+
+  .hint {
+    width: 244px;
+    font-size: 13px;
+  }
+
+  .hint button{
+    width: 60px;
+    height: 18px;
+    border-radius: 10px;
+    background: orange;
+    color:white;
+  }
+
+  .btn{
+      margin-right: 10px;
+  }
+
+  .btn button{
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    height: 40px;
+    border-radius: 10px;
+    background: orange;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+  }
