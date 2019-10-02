@@ -1,0 +1,129 @@
+/* body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+a {
+    color: #1da1f2;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: none;
+}
+
+button {
+    color: white;
+    background-color: #1da1f2;
+        border-radius: 4px;
+}
+
+form {
+    padding: 40px;
+    margin: 40px;
+}
+
+input {
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 12px 20px; 
+
+}
+
+div {
+    text-align: center;
+    margin: 20px;
+   
+}
+
+span {
+    text-align: center;
+}
+
+#registerbtn {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+#signinbtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+div .inline {
+    display: inline;
+}
+
+.m {
+    width: 450px;
+}
+
+.name {
+    width:50%;
+    margin: auto;
+}
+
+
+
+
+ */
+
+form {
+    text-align: center;
+}
+
+ input[type=text], input[type=password] {
+     width: 60%;
+     padding: 15px;
+     margin: 5px 0 22px 0;
+     display: inline-block;
+     background-color: white;
+     border-radius: 4px;
+ }
+
+input.names {
+    width: 27%;
+}
+
+input.psws {
+    width: 27%;
+}
+
+ button {
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 30%;
+     opacity: 0.9;
+     border-radius: 4px;
+ }
+
+ .registerbtn {
+     background-color: #1da1f2;
+ }
+
+ .signinbtn {
+     background-color: #4CAF50;
+ }
+
+#checkbox {
+    padding: 50px;
+}
+
+#disbtn {
+    background-color: #1da1f2;
+    color: white;
+    width: 10%;
+    padding: 8px 0;
+}
+
+span.a {
+    display: inline-block;
+    width: 30%;   
+    text-align: justify;
+}
