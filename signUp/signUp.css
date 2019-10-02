@@ -1,0 +1,89 @@
+h1{
+    text-align: center;
+}
+div.container{
+    width: 40%;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+div.row{
+    margin-bottom: 10px; 
+}
+
+div.userName input{
+    width: 45%;
+}
+div.userName span{
+    width: 10%;
+}
+
+div.phoneNumber input{
+    width: 92%;
+}
+
+div.userEmail input{
+    width: 92%;
+}
+div.password input{
+    width: 45%;
+    
+}
+
+div.confirmation{
+    width: 92%;
+    display: flex;
+}
+
+div.confirmation .checkInfo{
+    width: 100px;
+}
+
+div.confirmation .info{
+    width: 450px;
+}
+div.btn button{
+    width: 45%;
+    height: 40px;
+    font-size: 1rem;
+}
+
+div.btn .register{
+    color: #FFFFFF;
+    background-color: #3256A8;
+}
+
+div.btn .signIn{
+    color: #FFFFFF;
+    background-color: #118C1D;
+}
+
+div.userName input {
+    height: 40px;
+    font-size: 1rem;
+}
+
+div.phoneNumber input{
+    height: 40px;
+    font-size: 1rem;
+}
+
+div.userEmail input{
+    height: 40px;
+    font-size: 1rem;
+}
+
+div.password input{
+    height: 40px;
+    font-size: 1rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+a.infoBtn{
+    background-color: #3256A8;
+    color: #FFFFFF;
+    padding: 2px;
+}
