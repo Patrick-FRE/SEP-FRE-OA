@@ -1,0 +1,126 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: url("waifu2x_scale.png");
+  background-size: cover;
+  background-color: #cccccc;
+}
+
+input {
+  border-radius: 5px;
+  height: 2rem;
+  font-weight: bold;
+}
+
+form {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 5px;
+}
+
+b {
+  color: #25c6ff;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup {
+  text-align: center;
+}
+
+.name, .mobile, .email,
+.pass, .legal, .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+#fname, #pass, #register {
+  margin-right: 1rem;
+}
+
+.legal label, .legal p {
+  font-size: 13px;
+}
+
+.legal label {
+  margin-right: 30px; 
+}
+
+.legal p {
+  margin: 0;
+}
+
+#mobile, #email {
+  width: 28rem;
+}
+
+#register {
+  background-color: #25c6ff;
+}
+
+#signin {
+  background-color: #6d7084; 
+}
+
+input[type=text],
+input[type=password] {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #25c6ff;
+}
+
+input[type=submit] {
+  border: none;
+  color: white;
+}
+
+input[type=text],
+input[type=password],
+input[type=submit] {
+  width: 13rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .name, .pass, .button {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .name input, .pass input,
+  .button input {
+    width: 85%;
+    margin-bottom: 15px;
+  }
+
+  #fname, #pass, #register {
+    margin-right: 0;
+  }
+
+  .mobile, .email {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  #mobile, #email {
+    width: 85%;
+  }
+
+  #break {
+    display: none;
+  }
+
+  .terms {
+    width: 70%;
+  }
+}
