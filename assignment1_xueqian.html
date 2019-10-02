@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>assignment1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .form_container {
+            width: 50%;
+            margin: auto;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .form_row { 
+            display: flex;
+        }
+
+        .form_item {
+            flex: 1 1 100%;
+            margin: 0.5rem 1rem;
+        }
+
+        .form_item input {
+            /* margin: 0.5rem 1rem; */
+            padding: 0.5rem;
+            width: 100%;
+        }
+
+        .agree-wrapper {
+            display: flex;
+            margin-top: 8px;
+        }
+
+        .form_row .agree {        
+            flex:1 1 40%;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 2.5rem; 
+            min-width: 2rem;
+        }
+
+        .terms {
+            font-size: 1.2rem;
+            display: inline-block;
+            padding:1px 4px;
+            border-radius: 3px;
+        }
+
+        .terms_conditions {
+            color: blue;
+        }
+
+        .register {
+            background-color: blue;
+            color: white;
+        }
+
+        .sign_in {
+            background-color: green;
+            color: white;
+        }
+
+        @media (max-width:500px) {
+            .form_row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form_container">
+    <form>
+        <h1>Sign Up</h1>
+        <div class="form_row">
+            <div class="form_item">
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="form_item">
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form_row">
+            <div class="form_item">
+                <input type="text" placeholder="Mobile No.">
+            </div>
+        </div>
+        <div class="form_row">
+            <div class="form_item">
+                <input type="text" placeholder="Email Address">
+            </div>
+        </div>
+        <div class="form_row">
+            <div class="form_item">
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="form_item">
+                <input type="password" placeholder="Confirm Password">
+            </div>
+        </div>
+        <div class="form_row">
+            <div class="agree-wrapper">
+                <input type="checkbox" id="agree" class="agree">I Agree<br>
+                <p class="terms">
+                    By clicking
+                    <span class="register">Register</span>, you agree to the
+                    <span class="terms_conditions">Terms and Conditions</span>
+                    set out by this site, including our Cookie Use
+                </p>
+            </div>
+        </div>
+        <div class="form_row">
+            <div class="form_item">
+                <input type="submit" class="register" value="Register">
+            </div>
+            <div class="form_item">
+                <input type="submit" class="sign_in" value="Sign In">        
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
