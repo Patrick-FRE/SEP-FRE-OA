@@ -1,0 +1,54 @@
+#body {
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    font-family: sans-serif;
+}
+
+.loginbox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: #000;
+    opacity: 0.7;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 20px;
+}
+
+h1 {
+    padding: 20px 0 20px 0;
+    text-align: center;
+    font-size: 40px;
+    border-bottom: 3px solid;
+    margin-bottom: 20px;
+}
+
+.sign {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    border-bottom: 1px solid #fff;
+}
+
+#term {
+    font-size: 15px;
+}
+
+#icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50%;
+    left: calc(50% - 50%);
+}
