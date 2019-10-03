@@ -1,103 +1,74 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="index.css">
-    <title>Sign Up Form</title>
-</head>
-<body>
-    <form action="">
-        <h1>Sign Up</h1>
-        <div class="name">
-            <div class="inline">
-                <input type="text" name="firstname" placeholder="First Name">
-            </div>
-            <div class="inline">
-                <input type="text" name="lastname" placeholder="Last Name">
-            </div>
-        </div>
-        <div class="middlediv">
-            <input class="m" type="text" name="mobile" placeholder="Mobile No.">
-        </div>
-        <div>
-            <input class="m" type="text" name="email" placeholder="Email Address">
-        </div>
-        <div>
-            <div class="inline">
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            <div class="inline">
-                <input type="password" name="confirmp" placeholder="Comfirm Password">
-            </div>
-        </div>
-        <div>
-            <div class="inline">
-                <label>
-                    <input type="checkbox" name="agree" id="agrebox"> I Agree
-                </label>
-            </div>
-            <div class="inline">
-                By clicking <button disabled>Register</button>, you agree to the <a href="">Terms and Conditions</a> set out by this site, including our Cooking Use.  
-            </div>
-        </div>
-        <div>
-            <span>
-                <input type="button" value="Register" id="registerbtn">
-            </span>
-            <span>
-                <input type="button" value="Sign In" id="signinbtn">
-            </span>
-        </div>
-    </form>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <title>Sign up</title>
 </head>
 <body>
-    <form action="">
-        <div class="container">
-            <h1>Sign Up</h1>
+    <div class="flex-container">
+        <form action="" class="signup">
 
-            
-            <input class="names" type="text" name="firstname" placeholder="First Name">
-            <input class="names" type="text" name="lastname" placeholder="Last Name">
+            <header class="header"> 
+                <h1 class="heading">Sign Up</h1>
+            </header>
 
-            <input type="text" name="phone" placeholder="Mobile No.">
-            <input type="text" name="email" placeholder="Email Address">
-
-            <br>
-
-            <input  class="psws" type="password" name="psw" placeholder="Password">
-            <input class="psws" type="password" name="psw-confirm" placeholder="Confirm Password">
-            
-            <br>
-
-            <span class="a">
-            <label id="checkbox">
-                <input type="checkbox" name="agree" style="margin-bottom: 15px"> I Agree
-            </label>
-            </span>
-            <span class="a">
-
-            <p>By clicking <button id="disbtn" disabled>Register</button>, you agree to the <a href="#">Terms and Conditions</a>set out by this site, including our Cookie Use.</p>
-            </span>
-
-            <div class="buttons">
-                <button type="submit" class="registerbtn">Register</button>
-                <button type="button" class="signinbtn">Sign In</button>
+            <div class="flex-row">
+                <div class="flex-item">
+                    <input type="text" class="firstname" placeholder="First Name">
+                </div>
+                <div class="flex-item">
+                    <input type="text" class="lastname" placeholder="Last Name">
+                </div>
             </div>
-            
-        </div>
-    </form>
+
+            <div class="flex-row">
+                <div class="flex-item">
+                    <input type="text" class="phone" placeholder="Mobile No.">
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="flex-item">
+                    <input type="text" class="email" placeholder="Email Address">
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="flex-item">
+                    <input type="password" class="psw" placeholder="Password">
+                </div>
+                <div class="flex-item">
+                    <input type="password" class="psw-confirm" placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="check-word">
+                    <div class="check">
+                        <input type="checkbox" class="agree" id="agree">
+                        <label for="agree">I Agree</label>
+                    </div>
+                    <p class="word">
+                        By clicking
+                        <span class="fakereg">Register</span>, you agree to the <a href="#" class="termsandcondition">Terms and Conditions</a>
+                        set out by this site, including our Cookie Use.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="flex-item">
+                    <input type="submit" value="Register" class="btn regbtn">
+                </div>
+                <div class="flex-item">
+                    <input type="button" value="Sign In" class="btn signbtn">
+                </div>
+            </div>
+
+        </form>
+    </div>
 </body>
 </html>
