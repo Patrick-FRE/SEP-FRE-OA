@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
 html, body {
   margin: 0;
   width: 100%;
@@ -5,12 +13,12 @@ html, body {
 }
 
 body {
-  background-image: url("waifu2x_scale.png");
   background-size: cover;
   background-color: #cccccc;
 }
 
-input {
+.row1 input, .row2 input,
+.button input {
   border-radius: 5px;
   height: 2rem;
   font-weight: bold;
@@ -21,8 +29,9 @@ form {
   border-radius: 5px;
 }
 
-b {
-  color: #25c6ff;
+h1 {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .flex-container {
@@ -37,12 +46,24 @@ b {
   text-align: center;
 }
 
-.name, .mobile, .email,
-.pass, .legal, .button {
+#badge {
+  color: #fff;
+  background-color: #4285f4;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.row1, .row2,
+.legal, .button {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
+}
+
+.row1 input, .row2 input,
+.button input {
+  flex-grow: 1;
 }
 
 #fname, #pass, #register {
@@ -66,39 +87,37 @@ b {
 }
 
 #register {
-  background-color: #25c6ff;
+  background-color: #4285f4;
 }
 
 #signin {
-  background-color: #6d7084; 
+  background-color: #00c851; 
 }
 
-input[type=text],
-input[type=password] {
+.row1 input, .row2 input,
+.button input {
   padding: 0.2rem 0.5rem;
-  border: 1px solid #25c6ff;
+  border: 1px solid #e0e0e0;
 }
 
-input[type=submit] {
+.button input {
   border: none;
   color: white;
 }
 
-input[type=text],
-input[type=password],
-input[type=submit] {
+.row1 input, .row2 input, 
+.button input {
   width: 13rem;
 }
 
 @media only screen and (max-width: 600px) {
-  .name, .pass, .button {
+  .row1, .row2, .button {
     flex-direction: column;
     align-items: center;
     margin: 0;
   }
 
-  .name input, .pass input,
-  .button input {
+  .row1 input, .button input {
     width: 85%;
     margin-bottom: 15px;
   }
@@ -107,9 +126,13 @@ input[type=submit] {
     margin-right: 0;
   }
 
-  .mobile, .email {
+  .row2 {
     margin: 0;
     margin-bottom: 15px;
+  }
+
+  .row2 input {
+    width: 85%;
   }
 
   #mobile, #email {

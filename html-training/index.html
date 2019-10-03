@@ -7,34 +7,34 @@
 
   <body>
     <div class="flex-container">
-    <form>
-      <h1 id="signup">Sign Up</h1>
+      <form>
+        <h1 id="signup">Sign Up</h1>
 
-      <div class="name">
-        <input type="text" id="fname" name="fname" placeholder="First Name">
-        <input type="text" id="lname" name="lname" placeholder="Last Name">
-      </div>
-
-      <div class="mobile"><input id="mobile" type="text" name="mobile" placeholder="Mobile No."></div>
-      <div class="email"><input id="email" type="text" name="email" placeholder="Email Address"></div>
-
-      <div class="pass">
-        <input type="password" id="pass" name="pass" placeholder="Password">
-        <input type="password" id="repass" name="repass" placeholder="Confirm Password">
-      </div>
-
-      <div class="legal">
-        <input type="checkbox" name="agree" id="agree"><label for="agree">I Agree</label>
-        <div class="terms">
-          <p> By clicking <b>Register</b>, you agree to the <a href="" target="_blank">Terms and Conditions</a><br id="break">set out by this site, including out Cookie Use.</p>
+        <div class="row1">
+          <input type="text" id="fname" name="fname" placeholder="First Name">
+          <input type="text" id="lname" name="lname" placeholder="Last Name">
         </div>
-      </div>
 
-      <div class="button">
-        <input id="register" type="submit" value="Register">
-        <input id="signin" type="submit" value="Sign In">
-      </div>
-    </form>
+        <div class="row2"><input id="mobile" type="text" name="mobile" placeholder="Mobile No."></div>
+        <div class="row2"><input id="email" type="text" name="email" placeholder="Email Address"></div>
+
+        <div class="row1">
+          <input type="password" id="pass" name="pass" placeholder="Password">
+          <input type="password" id="repass" name="repass" placeholder="Confirm Password">
+        </div>
+
+        <div class="legal">
+          <input type="checkbox" name="agree" id="agree"><label for="agree">I Agree</label>
+          <div class="terms">
+            <p> By clicking <b id="badge">Register</b>, you agree to the <a href="" target="_blank">Terms and Conditions</a><br id="break">set out by this site, including out Cookie Use.</p>
+          </div>
+        </div>
+
+        <div class="button">
+          <input id="register" type="submit" value="Register">
+          <input id="signin" type="submit" value="Sign In">
+        </div>
+      </form>
     </div>
   </body>
 </html>
