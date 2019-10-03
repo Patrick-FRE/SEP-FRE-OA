@@ -103,7 +103,7 @@ input.full{
 }
 @media screen and (max-width: 800px) {
     /* For mobile phones: */
-    form input{
+    form > input{
         grid-column: 1 / 5;
         width: 100%;
     }
