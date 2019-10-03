@@ -1,5 +1,6 @@
 p.terms{
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 100;
 }
 canvas{
   z-index:1;
@@ -13,6 +14,7 @@ a{
 h1{
   font-weight: 200;
   text-align: center;
+  margin-bottom: 3px;
 }
 form{
   /*position: absolute;*/
@@ -79,17 +81,22 @@ input:focus{
 .fourth-group1{
   display:inline-flex;
   width:20%;
+  font-family: sans-serif;
 }
 .fourth-group2{
   margin-left:10%;
   width:80%;
+  font-family:sans-serif;
 }
 
 
 .check{
   margin:0px;
   width:20px;
-  margin-top:5%;
+  margin-top:0%;
+}
+.check>input:focus{
+  box-shadow: 0px 0px white;
 }
 .check>p{
   padding-top: 75%;
@@ -126,7 +133,7 @@ input:focus{
   vertical-align: middle;
   box-sizing: border-box;
   color: white;
-  height: 25px;
+  height: 20px;
 }
 .fifth-group3>p{
   font-size: 20px;
@@ -134,7 +141,7 @@ input:focus{
   vertical-align: middle;
   box-sizing: border-box;
   color: white;
-  height:25px;
+  height:20px;
 }
 #inline-register{
   background-color: rgb(54, 145, 206);
@@ -142,6 +149,9 @@ input:focus{
   color: white;
   padding:3px;
   padding-top: 1px;
+}
+::placeholder{
+  color: rgba(119, 119, 119, 0.705);
 }
 
 @media (max-width: 600px) {
