@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root{
+            --color-primary:#4285F4;
+            --color-primary-dark:#0d47a1;
+            --color-success:#00C851;
+            --color-success-dark:#007E33;
+            --color-grey:#e0e0e0;
+            --color-grey-dark:#757575;
+        }
+
+        *,
+        *::before,
+        *::after{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        
+        .formContainer {
+            position: fixed;
+            width: 50%;
+            max-width: 50rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* height: 500px; */
+        }
+        .formHeader {
+            text-align: center;
+        }
+        .halfWrapper {
+            display: grid;
+            /* grid-gap: 2%; */
+            grid-template-columns: 50% 50%;
+        }
+        .halfBox {
+            border-radius: 5px;
+            padding: 2% 4%;
+            font-size: 150%;
+            text-align: center;
+        }
+        .halfWrapper input {
+            padding: 0.5rem;
+            width: 100%
+        }
+        .doubleWrapper {
+            display: grid;
+            /* grid-gap: 2%; */
+            grid-template-rows: 50% 50%;
+        }
+        .doubleBox {
+            border-radius: 5px;
+            padding: 2% 2%;
+            font-size: 150%;
+            text-align: center;
+        }
+        .doubleWrapper input {
+            padding: 0.5rem;
+            width: 100%;
+        }
+        .termsWrapper {
+            display: grid;
+            /* grid-gap: 2%; */
+            grid-template-columns: 25% 75%;
+        }
+        .termsWrapper box {
+            border-radius: 5px;
+            padding: 2% 2%;
+            /* text-align: center; */
+        }
+        .box--agree {
+            grid-column: 1 / 2;
+            font-size: 85%;
+            /* grid-row: 1 / 2; */
+        }
+        .box--terms {
+            grid-column: 2 / 3;
+            font-size: 85%;
+            /* grid-row: 1 / 2; */
+        }
+        .halfBox--leftHalf {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+        .halfBox--rightHalf {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+        .agreeWrapper {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* .agreeWrapper__label {
+            font-size: 90%
+        }  */
+        /* .box--terms p {
+            margin: 10%;
+        } */
+        .box__register {
+            background-color: var(--color-primary);
+            color: var(--color-grey);
+            border-radius: 3px;
+            padding: 0% 2%;
+            /* border: 1px solid var(--color-grey-dark);
+            outline: none; */
+        }
+        .box__termsAndConditions {
+            background-color: white;
+            color: var(--color-primary-dark);            
+        }
+        .halfBox__register {
+            background-color: var(--color-primary);
+            color: var(--color-grey);
+        }
+        .halfBox__signIn {
+            background-color: var(--color-success);
+            color: var(--color-grey);
+        }
+        .formInput {
+            border-radius: 5px;
+            border: 1px solid var(--color-grey);
+            outline: none;
+        }
+        .formInput:focus {
+            box-shadow: 0 0 2px 1px #88b8ff;
+        }
+        .form__a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .halfWrapper {
+                grid-template-columns: 100%;
+            }
+            .halfBox--leftHalf {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+            .halfBox--rightHalf {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+            .doubleBox {
+                padding: 2% 4%;
+            }
+            .agreeWrapper__label {
+                display: none;
+            }
+        }        
+    </style>
+</head>
+<body>
+    <div class="formContainer">
+        <form>
+            <div class="formHeader">
+                <h1>Sign Up</h1>
+            </div>
+            <div class="halfWrapper">
+                <div class="halfBox halfBox--leftHalf">
+                    <input type="text" class="formInput" placeholder="First Name">
+                </div>
+                <div class="halfBox halfBox--rightHalf">
+                    <input type="text" class="formInput" placeholder="Last Name">
+                </div>
+            </div>
+
+            <div class="doubleWrapper">
+                <div class="doubleBox doubleBox--first">
+                    <input type="text" class="formInput" placeholder="Mobile No.">
+                </div>
+                <div class="doubleBox doubleBox--second">
+                    <input type="text" class="formInput" placeholder="Email Address">
+                </div>
+            </div>
+
+            <div class="halfWrapper">
+                <div class="halfBox halfBox--leftHalf">
+                    <input type="text" class="formInput" placeholder="Password">
+                </div>
+                <div class="halfBox halfBox--rightHalf">
+                    <input type="text" class="formInput" placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <div class="termsWrapper">
+                <div class="box box--agree">
+                    <div class="agreeWrapper">
+                        <input type="checkbox"><label class="agreeWrapper__label"><b>&nbsp; I Agree</b></label>
+                    </div>                     
+                </div>
+                <div class="box box--terms">
+                    <p>
+                        By clicking
+                        <span class="box__register">Register</span>, you agree to the
+                        <span class="box__termsAndConditions"><a href="#" class="form__a">Terms and Conditions</a></span>
+                        set out by this site, including our Cookie Use
+                    </p>
+                </div>               
+            </div>
+
+            <div class="halfWrapper">
+                <div class="halfBox halfBox--leftHalf">
+                    <input type="submit" class="halfBox__register formInput" value="Register">
+                </div>
+                <div class="halfBox halfBox--rightHalf">
+                    <input type="submit" class="halfBox__signIn formInput" value="Sign in">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
