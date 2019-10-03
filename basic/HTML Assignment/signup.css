@@ -43,22 +43,22 @@ input[type='checkbox'] {
     outline: none;
 }
 
-.primary {
+.register {
     color: #fff;
-    background-color: rgb(148, 48, 168);
+    background-color: #4285F4;
 }
 
-.primary:active {
-    background-color: rgb(59, 22, 66);
+.register:active {
+    background-color: #0d47a1;
 }
 
-.success {
+.signin {
     color: #fff;
-    background-color: rgb(190, 33, 33);
+    background-color: #00C851;
 }
 
-.success:active {
-    background-color: rgb(92, 26, 26);
+.signin:active {
+    background-color: #007E33;
 }
 
 .form-signup {
@@ -86,12 +86,12 @@ input[type='checkbox'] {
     padding: 1rem;
     width: 100%;
     border-radius: 5px;
-    border: 1px solid #865252;
+    border: 1px solid #e0e0e0;
     outline: none;
 }
 
 .form-item input:focus {
-    box-shadow: 0 0 2px 1px #ca2268;
+    box-shadow: 0 0 2px 1px #757575;
 }
 
 .form-row .form-agree {
