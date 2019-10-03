@@ -116,7 +116,8 @@ input[type='checkbox'] {
 }
 
 .form-row .terms .badge-register {
-    background-color: rgb(148, 48, 168) display: inline-block;
+    background-color: rgb(148, 48, 168);
+    display: inline-block;
     color: #fff;
     padding: 1px 4px;
     border-radius: 3px;
