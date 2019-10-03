@@ -10,28 +10,63 @@
 </head>
 
 <body>
-    <img src="black-background.jpg" alt="black-background">
-    <form action="#" class="loginbox">
-        <h1 id="signup">Sign Up</h1>
-        <div>
-            <input type="text" id="firstname" placeholder="Enter First Name" class="sign" required>
-            <input type="text" id="lastname" placeholder="Last Name" class="sign" required>
-        </div>
-        <input type="text" id="mobile" placeholder="Mobile Number" class="sign" required>
-        <input type="text" id="email" placeholder="Email Address" class="sign" required>
-        <div>
-            <input type="password" id="pw" placeholder="Password" class="sign" required>
-            <input type="password" id="conpassword" placeholder="Confirm Password" class="sign" required>
-        </div>
-        <input type="checkbox" id="checkbox" required>
-        <span id="term">
-             By clicking <b>Register</b>, you agree to the <a href="#">Terms & Privacy</a>.
-        </span>
-        <div id="buttonbox">
-            <input type="submit" name="Sign Up" id="submit" value="Register">
-            <input type="button" id="button" value="Sign In">
-        </div>
+    <div class="form-container">
+        <form action="#" class="form-signup">
+            <header class="form-header">
+                <h1 class="heading">Sign Up</h1>
+            </header>
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="text" placeholder="Enter First Name" class="sign" required>
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="Last Name" class="sign" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="text" placeholder="phone" class="sign" required>
+                </div>
+
+            </div>
+            <div class="form-row form-item">
+                <!--test-->
+                <input type="text" placeholder="Email Address" class="sign" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="password" placeholder="Password" class="sign" required>
+                </div>
+                <div class="form-item">
+                    <input type="password" placeholder="Confirm Password" class="sign" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-agree">
+                    <div class="form-check-agree">
+                        <input type="checkbox" id="agree" class="agree" required>
+                        <label for="term">I Agree</label>
+                    </div>
+                    <p class="terms">
+                        <span class="badge-register">Register</span>, you agree to the
+                        <a href="#" class="conditions">Terms and Conditions</a> set out by this site, including our Cookie Use
+                    </p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="submit" name="Sign Up" value="Register">
+                </div>
+                <div class="form-item">
+                    <input type="button" value="Sign In">
+                </div>
+            </div>
+    </div>
     </form>
+    </div>
+
 </body>
 
 </html>
