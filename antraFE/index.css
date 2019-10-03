@@ -22,16 +22,19 @@ form{
   margin:auto;
 }
 input{
-  text-indent: 2rem;
+  text-indent: 1rem;
+  font-size: 1.2rem;
   width:100%;
-  height:35px;
+  height:45px;
   margin: 5px;
   border: 1px solid;
   border-radius: 4px;
+  border-color: rgb(167, 167, 167);
   overflow: hidden;
 }
 input:focus{
-  box-shadow: 2px;
+  box-shadow: -2px -2px 3px 0px rgb(80, 163, 218) , 2px 2px 3px 0px rgb(80, 163, 218);
+  outline: none;
 }
 .first-group{
   align-items: center;
@@ -44,7 +47,7 @@ input:focus{
   flex-grow: 9;
 }
 .first-group2{
-  flex-grow: 2;
+  flex-grow: 4;
 
 }
 .first-group3{
@@ -61,7 +64,7 @@ input:focus{
   flex-grow: 9;
 }
 .last-group2{
-  flex-grow: 2;
+  flex-grow: 4;
 
 }
 .last-group3{
@@ -89,7 +92,7 @@ input:focus{
   margin-top:5%;
 }
 .check>p{
-  padding-top: 50%;
+  padding-top: 75%;
 }
 .fifth-group{
   display: flex;
@@ -118,6 +121,7 @@ input:focus{
   cursor:grab;
 }
 .fifth-group1>p{
+  font-size: 20px;
   text-align: center;
   vertical-align: middle;
   box-sizing: border-box;
@@ -125,6 +129,7 @@ input:focus{
   height: 25px;
 }
 .fifth-group3>p{
+  font-size: 20px;
   text-align: center;
   vertical-align: middle;
   box-sizing: border-box;
@@ -135,6 +140,8 @@ input:focus{
   background-color: rgb(54, 145, 206);
   border-radius:5px;
   color: white;
+  padding:3px;
+  padding-top: 1px;
 }
 
 @media (max-width: 600px) {
