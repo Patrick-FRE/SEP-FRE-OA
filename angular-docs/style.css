@@ -31,4 +31,6 @@ html, body {
   padding: 80px 3rem 2rem;
   margin-left: 261px;
   z-index: 1;
+  box-sizing: border-box;
+  height: 100%;
 }
