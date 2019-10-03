@@ -5,51 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="../HTML Assignment/signup.css">
+    <title>Sign Up</title>
+    <link href="signupt.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="form-container">
-        <form action="#" class="form-signup">
-            <header class="form-header">
+        <form action="" class="form-signup">
+            <header class="form-signup__header">
                 <h1 class="heading">Sign Up</h1>
             </header>
             <div class="form-row">
                 <div class="form-item">
-                    <input type="text" placeholder="Enter First Name" class="sign" required>
+                    <input type="text" class="fname" placeholder="First Name" required>
                 </div>
                 <div class="form-item">
-                    <input type="text" placeholder="Last Name" class="sign" required>
+                    <input type="text" class="lname" placeholder="Last Name" required>
                 </div>
-
             </div>
             <div class="form-row">
                 <div class="form-item">
-                    <input type="text" placeholder="phone" class="sign" required>
-                </div>
-
-            </div>
-            <div class="form-row form-item">
-                <!--test-->
-                <input type="text" placeholder="Email Address" class="sign" required>
-            </div>
-
-            <div class="form-row">
-                <div class="form-item">
-                    <input type="password" placeholder="Password" class="sign" required>
-                </div>
-                <div class="form-item">
-                    <input type="password" placeholder="Confirm Password" class="sign" required>
+                    <input type="text" class="phone" placeholder="Mobile No." required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-agree">
-                    <div class="form-check-agree">
-                        <input type="checkbox" id="agree" class="agree" required>
-                        <label for="term">I Agree</label>
+                <div class="form-item">
+                    <input type="text" class="email" placeholder="Email Address" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="password" class="password" placeholder="Password" required>
+                </div>
+                <div class="form-item">
+                    <input type="password" class="repassword" placeholder="Confirm Password" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="agree-wrapper">
+                    <div class="check-agree">
+                        <input type="checkbox" id="agree" class="agree">
+                        <label for="agree">I Agree</label>
                     </div>
                     <p class="terms">
+                        By clicking
                         <span class="badge-register">Register</span>, you agree to the
                         <a href="#" class="conditions">Terms and Conditions</a> set out by this site, including our Cookie Use
                     </p>
@@ -57,16 +56,14 @@
             </div>
             <div class="form-row">
                 <div class="form-item">
-                    <input type="submit" name="Sign Up" value="Register">
+                    <input type="submit" class="btn primary" value="Register">
                 </div>
                 <div class="form-item">
-                    <input type="button" value="Sign In">
+                    <input type="button" class="btn success" value="Sign In">
                 </div>
             </div>
+        </form>
     </div>
-    </form>
-    </div>
-
 </body>
 
 </html>

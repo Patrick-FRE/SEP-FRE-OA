@@ -1,11 +1,29 @@
-* {
+/*
+ * @Author: Yuhan 
+ * @Date: 2018-04-02 22:20:22 
+ * @Last Modified by: Yuhan
+ * @Last Modified time: 2018-04-03 00:07:47
+ */
+
+:root {
+    --color-primary: #4285F4;
+    --color-primary-dark: #0d47a1;
+    --color-success: #00C851;
+    --color-success-dark: #007E33;
+    --color-grey: #e0e0e0;
+    --color-grey-dark: #757575;
+}
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: inherit
 }
 
 html {
-    font-size: 62.25%;
+    font-size: 62.25%
 }
 
 body {
@@ -13,11 +31,26 @@ body {
     box-sizing: border-box;
     font-family: sans-serif;
     background-image: url(black-background.jpg);
-    background-position: cover;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+
+/* common */
+
+.form-container {
+    position: fixed;
+    width: 100%;
+    max-width: 50rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hide {
@@ -48,24 +81,14 @@ body {
     background-color: var(--color-success-dark);
 }
 
-label {
-    display: none;
-    cursor: pointer;
-}
-
-input[type='checkbox'] {
-    cursor: pointer;
-}
-
 .form-signup {
     display: flex;
     flex-direction: column;
 }
 
-.form-signup .form-header {
+.form-signup .form-signup__header {
     text-align: center;
     margin: 5px 0;
-    color: white;
 }
 
 .form-signup .form-row {
@@ -75,12 +98,6 @@ input[type='checkbox'] {
 }
 
 .form-signup .form-row .form-item {
-    flex: 1 1 100%;
-    margin: 0.5rem 1rem;
-}
-
-.form-signup .form-row {
-    display: flex;
     flex: 1 1 100%;
     margin: 0.5rem 1rem;
 }
@@ -97,7 +114,7 @@ input[type='checkbox'] {
     box-shadow: 0 0 2px 1px #88b8ff;
 }
 
-.form-row .form-agree {
+.form-row .agree-wrapper {
     display: flex;
     margin-top: 8px;
 }
@@ -130,10 +147,10 @@ input[type='checkbox'] {
     .form-signup .form-row {
         flex-direction: column;
     }
-    .form-check-agree label {
+    .check-agree label {
         display: none;
     }
-    .form-check-agree {
+    .check-agree {
         display: flex;
         justify-content: center;
         align-items: center;
