@@ -31,6 +31,7 @@ body {
     padding: 80px 3rem 2rem;
     margin-left: 261px;
     min-height: 100vh;
+    overflow: auto;
 }
 
 .sidebar {
