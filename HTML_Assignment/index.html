@@ -8,19 +8,26 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <div>
-        <p>Sign Up</p>
+    <div class='container'>
+        <p><b>Sign Up</b></p>
         <form action="xxx" method="GET">
-            <input type="text" id='shortleft' name='firstname' placeholder="First Name">
-            <input type="text" id='shortright' name='lastname' placeholder="Last Name"></br>
-            <input type="text" id='long' name='mobilenumber' placeholder="Mobile No."></br>
-            <input type="text" id='long' name='emailaddress' placeholder="Email Address"></br>
-            <input type="text" id='shortleft' name='password' placeholder="Password">
-            <input type="text" id='shortright' name='confirmpassword' placeholder="Confirm Password"></br>
-            <input type="checkbox" name='checkbox'> <span><b>I Agree</b><span class='terms'> By clicking <span class='register'>Register</span>, you are agree to the <a href="www.google.com" target="_blank"> Terms and Conditions</a> set </br> out by this site, including our Cookie Use. </span></span></br>
-            <input type="button" id='buttonleft' name='register' value='Register'>
-            <input type="button" id='buttonright' name='signin' value='Sign In'></br>
+            <input type="text" name='firstname' placeholder="First Name">
+            <input type="text" name='lastname' placeholder="Last Name">
+            <input type="text" name='mobilenumber' class='full' placeholder="Mobile No.">
+            <input type="text" name='emailaddress' class='full' placeholder="Email Address">
+            <input type="text" name='password' placeholder="Password">
+            <input type="text" name='confirmpassword' placeholder="Confirm Password">
+            <div class="checkBox">
+                <input type="checkbox" name='checkbox' id='agree'>
+                <label for='agree'><b>I Agree</b></label>
+            </div>
+            <div  class="checkBoxRow">
+                By clicking <span class='register'>Register</span>, you are agree to the <a href="www.google.com" target="_blank"> Terms and Conditions</a> set out by this site, including our Cookie Use. </span>
+            </div>
+            <input type="button" name='register' class='registerBtn' value='Register'>
+            <input type="button" id='buttonright' class='signUpBtn' name='signin' value='Sign In'>
         </form>
     </div>
+
 </body>
 </html>

@@ -1,0 +1,306 @@
+div{
+    /* position: absolute;
+    top: 15%;
+    left: 30%; */
+    display: grid;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+p{
+    font-size: 2em
+}
+form{
+    display: grid;
+    margin-left: 10px;
+}
+span{
+    font-size: 11pt;
+}
+a{
+    color: #5E9DD3;
+    text-decoration: none;
+}
+#shortleft{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:250px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+#shortright{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:250px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+#buttonleft{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    color: white;
+    height:50px;
+    width:270px;
+    background-color: #4890CD;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 1px;
+}
+#buttonright{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    color: white;
+    height:50px;
+    width:270px;
+    background-color: #62BC62;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding: 1px;
+}
+#long{
+    border-radius: 10px;
+    /* border-radius: 25px; */
+    font-size:12pt;
+    height:50px;
+    width:535px;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+.register{
+    border-radius: 5px;
+    padding: 0.2em;
+    color: white;
+    background-color: #4890CD;
+}
+.terms{
+    margin-left: 80px; 
+    text-align:left;
+}
+@media screen and (max-width: 600px) {
+    /* For mobile phones: */
+    #shortleft{
+        width:100%;
+    }
+    #shortright{
+        width:100%;
+        margin-left:0px;
+    }
+    #buttonleft{
+        width:100%;
+    }
+    #buttonright{
+        width:100%;
+        margin-left:0px;
+    }
+    #long{
+        width: 100%;
+    }
+    input {
+      width: 100%;
+    }
+
+}
+
+<span><b>I Agree</b><span class='terms'> By clicking <span class='register'>Register</span>, you are agree to the <a href="www.google.com" target="_blank"> Terms and Conditions</a> set out by this site, including our Cookie Use. </span></span>
+
+
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    position: fixed;
+    left: 25%;
+    /* display: grid; */
+    text-align: center;
+    width:500px;
+    height: 500px;
+}
+p{
+    font-size: 2em
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+    grid-gap:20px;
+}
+form input{
+    border:1px solid #e0e0e0;
+    outline:none;
+    border-radius: 5px;
+    padding: 15px;
+    height: 50px;
+}
+form input:focus{
+    box-shadow: 0 0 2px 1px #88b8ff;
+}
+
+input.full{
+    grid-column: 1 / 3;
+    width: 100%;
+}
+
+.registerBtn, .signUpBtn{
+    color: white;
+    font-size: 12px;
+}
+.registerBtn{
+    background-color: #4890CD;
+}
+
+.signUpBtn{
+    background-color: #62BC62;
+}
+form div{ 
+    width: 100%;
+    height: 50px;
+    padding: 0px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.checkBoxRow{
+    grid-column: 1 / span 3;
+}
+
+
+.register{
+    border-radius: 5px;
+    padding: 0.2em;
+    color: white;
+    background-color: #4890CD;
+}
+
+.terms{
+    margin-left: 80px; 
+    text-align:left;
+}
+
+span{
+    font-size: 11pt;
+}
+a{
+    color: #5E9DD3;
+    text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+    /* For mobile phones: */
+    input{
+        grid-column: 1 / 3;
+        width: 100%;
+    }
+
+}
+
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    position: fixed;
+    left: 25%;
+    /* display: grid; */
+    text-align: center;
+    width:500px;
+    height: 500px;
+}
+p{
+    font-size: 2em
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    grid-gap:20px;
+}
+form input{
+    grid-column: span 2 / span 2;
+    border:1px solid #e0e0e0;
+    outline:none;
+    border-radius: 5px;
+    padding: 15px;
+    height: 50px;
+}
+form input:focus{
+    box-shadow: 0 0 2px 1px #88b8ff;
+}
+
+input.full{
+    grid-column: 1 / 5;
+    width: 100%;
+}
+
+.registerBtn, .signUpBtn{
+    color: white;
+    font-size: 12px;
+}
+.registerBtn{
+    background-color: #4890CD;
+}
+
+.signUpBtn{
+    background-color: #62BC62;
+}
+form div{ 
+    width: 100%;
+    height: 30px;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+.checkBoxCol1{
+    text-align: left;
+    grid-column: 1 / 2;
+}
+.checkBoxCol2{
+    text-align: left;
+    grid-column: 2 / 5;
+}
+
+.register{
+    border-radius: 5px;
+    padding: 0.2em;
+    color: white;
+    background-color: #4890CD;
+}
+
+.terms{
+    margin-left: 80px; 
+    text-align:left;
+}
+
+span{
+    font-size: 11pt;
+}
+a{
+    color: #5E9DD3;
+    text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+    /* For mobile phones: */
+    input{
+        grid-column: 1 / 5;
+        width: 100%;
+    }
+
+}

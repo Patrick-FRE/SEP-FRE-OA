@@ -1,122 +1,111 @@
-div{
-    /* position: absolute;
-    top: 15%;
-    left: 30%; */
-    display: grid;
-    text-align: center;
-    margin-top: 2px;
-    margin-bottom: 2px;
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 p{
     font-size: 2em
 }
-form{
-    margin-left: 10px;
-}
 span{
-    font-size: 11pt;
+    font-size: 12pt;
 }
 a{
     color: #5E9DD3;
     text-decoration: none;
 }
-#shortleft{
-    border-radius: 10px;
-    /* border-radius: 25px; */
-    font-size:12pt;
-    height:50px;
-    width:250px;
-    /* margin-top: 2em;
-    margin-bottom: 2em; */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 15px;
+form{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    grid-gap:10px;
 }
-#shortright{
-    border-radius: 10px;
-    /* border-radius: 25px; */
-    font-size:12pt;
-    height:50px;
-    width:250px;
-    /* margin-top: 2em;
-    margin-bottom: 2em; */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
-    padding-left: 15px;
+form input{
+    grid-column: span 2 / span 2;
+    border:1px solid #e0e0e0;
+    outline:none;
+    border-radius: 5px;
+    padding: 15px;
+    height: 50px;
 }
-#buttonleft{
-    border-radius: 10px;
-    /* border-radius: 25px; */
-    font-size:12pt;
+
+form div{ 
+    width: 100%;
+    height: 50px;
+    padding: 0px;
+}
+
+form input:focus{
+    box-shadow: 0 0 2px 1px #88b8ff;
+}
+
+input.full{
+    grid-column: 1 / 5;
+    width: 100%;
+}
+
+
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    /* display: grid; */
+    text-align: center;
+    width:500px;
+    height: 500px;
+}
+.registerBtn, .signUpBtn{
     color: white;
-    height:50px;
-    width:270px;
+    font-size: 12px;
+}
+.registerBtn{
     background-color: #4890CD;
-    /* margin-top: 2em;
-    margin-bottom: 2em; */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 1px;
 }
-#buttonright{
-    border-radius: 10px;
-    /* border-radius: 25px; */
-    font-size:12pt;
-    color: white;
-    height:50px;
-    width:270px;
+
+.signUpBtn{
     background-color: #62BC62;
-    /* margin-top: 2em;
-    margin-bottom: 2em; */
-    margin-top: 5px;
-    margin-bottom: 5px;
+}
+.checkBox{
+    font-size: 13px;
+    text-align: left;
+    vertical-align: middle;
+}
+.checkBox input{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+}
+/* 
+.checkBox span{
+    display: inline-block;
     margin-left: 10px;
-    padding: 1px;
+    margin-bottom: 40px
+} */
+.checkBoxRow{
+    font-size: 12px;
+    grid-column: 2 / 5;
+    text-align: left;
 }
-#long{
-    border-radius: 10px;
-    /* border-radius: 25px; */
-    font-size:12pt;
-    height:50px;
-    width:535px;
-    /* margin-top: 2em;
-    margin-bottom: 2em; */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 15px;
+
+.checkBoxRow a{
+    color: #0000EE;
 }
+
+
 .register{
     border-radius: 5px;
+    font-size: 11px;
     padding: 0.2em;
     color: white;
     background-color: #4890CD;
 }
+
 .terms{
     margin-left: 80px; 
     text-align:left;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     /* For mobile phones: */
-    #shortleft{
-        width:100%;
-    }
-    #shortright{
-        width:100%;
-        margin-left:0px;
-    }
-    #buttonleft{
-        width:100%;
-    }
-    #buttonright{
-        width:100%;
-        margin-left:0px;
-    }
-    #long{
+    form input{
+        grid-column: 1 / 5;
         width: 100%;
-    }
-    input {
-      width: 100%;
     }
 
 }
