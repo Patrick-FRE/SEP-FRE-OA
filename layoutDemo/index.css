@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #1976d2;
+  --color-white: #fff;
+}
+
+/* CSS RESET */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-size: 1.6rem;
+}
+
+/* HEADER */
+
+header.header {
+  background-color: var(--color-primary);
+  min-height: 6.4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.content-wrap {
+  width: 100%;
+  height: 100%;
+  padding-top: 6.4rem;
+  display: flex;
+  overflow: hidden;
+}
+
+.content-wrap nav.side-nav {
+  flex: 0 0 26rem;
+  background-color: #fff;
+  box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+}
+.content-wrap .content {
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+.content-page {
+  min-height: 200vh;
+}
