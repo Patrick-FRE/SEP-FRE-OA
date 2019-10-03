@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,27 @@
     <title>Augular</title>
 
     <style>
-        *{
+        * {
             margin: 0px;
             padding: 0px;
+            box-sizing: border-box;
         }
 
-        /* body{
-            height: 1000px;
-        } */
-
-        header,nav,main{
+        header,nav {
             position: absolute;
         }
 
-        nav{
+        nav {
             height: calc(100% - 64px);
         }
 
-        main{
-            height: calc(100% - 64px);
-            width: calc(100% - 64px);
+        main {
+            height: 100%;
+            padding-left: 300px;
+            width: 100%;
         }
 
-        .page-header{
+        .page-header {
             position: fixed;
             top: 0px;
             left: 0px;
@@ -39,25 +38,24 @@
             z-index: 1;
         }
 
-        .page-nav{
+        .page-nav {
             position: fixed;
-            top:64px;
-            width: 300px; 
+            top: 64px;
+            width: 300px;
             height: 100%;
             z-index: 1;
             box-shadow: 2px 2px 2px #888888;
         }
 
-         .page-container{
+        .page-container {
             position: relative;
-            top: 64px;
-            left: 300px;
-            height: 100%;
             width: 100%;
-            z-index: -1;
-        } 
+            top: 64px;
+            height: 1000px;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="page-header">HEADER</div>
@@ -68,8 +66,8 @@
     <main>
         <div class="page-container">
             CONTENT
-
         </div>
     </main>
 </body>
+
 </html>
