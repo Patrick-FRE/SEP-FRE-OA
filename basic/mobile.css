@@ -1,65 +1,70 @@
+html {
+  font-size: 62.25%
+}
+
 a {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
-  form {
-    margin: 0 auto;
-    width: 80%;
-  }
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+}
 
-  h1 {
-    text-align: center;
-  }
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
 
-  .box {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 300px;
-    justify-content: center;
-  }
+.form-container .form-header {
+  text-align: center;
+}
 
-  .long-input input {
-    width: 240px;
-    border-radius: 4px;
-    border: 1px solid #DBDBDB;
-  }
+.form-container .form-row {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .check{
-    width: 200px;
-  }
+.form-row .form-item {
+  flex: 1 1 100%;
+  margin: 0.5rem 0.5rem;
+}
 
-  box.hint {
-    width: 220px;
-    font-size: 20px;
-  }
+.form-row .form-item input {
+  flex: 1 1 100%;
+  width: 100%;
+  height: 4rem;
+  border-radius: 4px;
+  border: 1px solid #DBDBDB;
+}
 
-  .hint {
-    width: 244px;
-    font-size: 13px;
-  }
+.form-row .form-consent-box {
+  display: flex;
+}
 
-  .hint button{
-    width: 60px;
-    height: 18px;
-    border-radius: 10px;
-    background: orange;
-    color:white;
-  }
+.form-consent-box .form-consent {
+  flex: 1 1 30%;
+  margin: 0 1rem;
+}
 
-  .btn{
-      margin-right: 10px;
-  }
+.form-hint button {
+  width: 60px;
+  height: 20px;
+  border-radius: 10px;
+  background: orange;
+  color: white;
+}
 
-  .btn button{
-    width: 200px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    height: 40px;
-    border-radius: 10px;
-    background: orange;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-  }
+.form-item button {
+  flex: 1 1 100%;
+  width: 100%;
+  height: 4rem;
+  border-radius: 10px;
+  background: orange;
+  color: white;
+  cursor: pointer;
+}
