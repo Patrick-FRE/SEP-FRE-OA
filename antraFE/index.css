@@ -1,7 +1,10 @@
 p.terms{
   font-size: 14px;
 }
-
+canvas{
+  z-index:1;
+  position: absolute;
+}
 a{
   color: rgb(80, 163, 218);
   display: inline;
@@ -12,16 +15,23 @@ h1{
   text-align: center;
 }
 form{
-  width:400px;
+  /*position: absolute;*/
+  z-index:2;
+  width:600px;
+  /*left:calc((100% - 600px) / 2);*/
   margin:auto;
 }
 input{
-  width:80%;
-  padding:12px 20px;
+  text-indent: 2rem;
+  width:100%;
+  height:35px;
   margin: 5px;
   border: 1px solid;
   border-radius: 4px;
   overflow: hidden;
+}
+input:focus{
+  box-shadow: 2px;
 }
 .first-group{
   align-items: center;
@@ -34,7 +44,7 @@ input{
   flex-grow: 9;
 }
 .first-group2{
-  flex-grow: 8;
+  flex-grow: 2;
 
 }
 .first-group3{
@@ -51,14 +61,14 @@ input{
   flex-grow: 9;
 }
 .last-group2{
-  flex-grow: 8;
+  flex-grow: 2;
 
 }
 .last-group3{
   flex-grow: 9;
 }
 .middle-group{
-  width: 450px;
+  width: 100%;
 }
 .fourth-group{
   display:flex;
@@ -76,7 +86,7 @@ input{
 .check{
   margin:0px;
   width:20px;
-  margin-top:25%;
+  margin-top:5%;
 }
 .check>p{
   padding-top: 50%;
@@ -109,16 +119,25 @@ input{
 }
 .fifth-group1>p{
   text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
   color: white;
-  height: 30px;
+  height: 25px;
 }
 .fifth-group3>p{
   text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
   color: white;
-  height:30px;
+  height:25px;
+}
+#inline-register{
+  background-color: rgb(54, 145, 206);
+  border-radius:5px;
+  color: white;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .first-group{
     display:block;
   }
@@ -133,5 +152,17 @@ input{
   }
   .middle-group{
     width: 100%;
+  }
+  .fifth-group1{
+    height: 40px;
+  }
+  .fifth-group1>p{
+    padding-top: 10px;
+  }
+  .fifth-group3>p{
+    padding-top: 10px;
+  }
+  .fifth-group3{
+    height: 40px;
   }
 }
