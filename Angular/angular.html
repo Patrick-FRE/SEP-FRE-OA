@@ -12,16 +12,21 @@
             padding: 0px;
         }
 
-        body{
+        /* body{
             height: 1000px;
-        }
+        } */
 
         header,nav,main{
             position: absolute;
         }
 
+        nav{
+            height: calc(100% - 64px);
+        }
+
         main{
-            width: calc(100% - 300px);
+            height: calc(100% - 64px);
+            width: calc(100% - 64px);
         }
 
         .page-header{
@@ -38,7 +43,7 @@
             position: fixed;
             top:64px;
             width: 300px; 
-            height: 460px;
+            height: 100%;
             z-index: 1;
             box-shadow: 2px 2px 2px #888888;
         }
@@ -47,6 +52,7 @@
             position: relative;
             top: 64px;
             left: 300px;
+            height: 100%;
             width: 100%;
             z-index: -1;
         } 
