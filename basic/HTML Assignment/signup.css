@@ -34,9 +34,6 @@ input[type='checkbox'] {
     cursor: pointer;
 }
 
-
-/* common */
-
 .form-container {
     position: fixed;
     width: 100%;
@@ -148,4 +145,12 @@ input[type='checkbox'] {
         justify-content: center;
         align-items: center;
     }
+}
+
+.heading {
+    color: white;
+}
+
+p {
+    color: white;
 }
