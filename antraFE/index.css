@@ -12,9 +12,10 @@ a{
   text-decoration: none;
 }
 h1{
-  font-weight: 200;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 3px;
+  font-family: sans-serif;
 }
 form{
   /*position: absolute;*/
@@ -23,7 +24,7 @@ form{
   /*left:calc((100% - 600px) / 2);*/
   margin:auto;
 }
-input{
+.ordinary-input{
   text-indent: 1rem;
   font-size: 1.2rem;
   width:100%;
@@ -34,7 +35,7 @@ input{
   border-color: rgb(167, 167, 167);
   overflow: hidden;
 }
-input:focus{
+.ordinary-input:focus{
   box-shadow: -2px -2px 3px 0px rgb(80, 163, 218) , 2px 2px 3px 0px rgb(80, 163, 218);
   outline: none;
 }
@@ -77,6 +78,7 @@ input:focus{
 }
 .fourth-group{
   display:flex;
+  transform: -webkit-translateY(5px);
 }
 .fourth-group1{
   display:inline-flex;
@@ -93,13 +95,12 @@ input:focus{
 .check{
   margin:0px;
   width:20px;
-  margin-top:0%;
+  margin-top:25%;
+  border-radius: 0;
 }
-.check>input:focus{
-  box-shadow: 0px 0px white;
-}
-.check>p{
-  padding-top: 75%;
+
+.check-p{
+  padding-top: 10%;
 }
 .fifth-group{
   display: flex;
@@ -114,10 +115,10 @@ input:focus{
   border-radius: 5px;
 }
 .fifth-group2{
-  flex-grow: 1;
+  flex-grow: 2;
 }
 .fifth-group3{
-  background-color: rgb(41, 175, 81);
+  background-color: rgb(73, 199, 111);
   flex-grow: 9;
   border-radius:5px;
 }
@@ -149,6 +150,9 @@ input:focus{
   color: white;
   padding:3px;
   padding-top: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 13px;
 }
 ::placeholder{
   color: rgba(119, 119, 119, 0.705);
