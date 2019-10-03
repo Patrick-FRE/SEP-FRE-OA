@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Augular</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            height: 1000px;
+        }
+
+        header,nav,main{
+            position: absolute;
+        }
+
+        main{
+            width: calc(100% - 300px);
+        }
+
+        .page-header{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 64px;
+            background: rgb(25, 118, 210);
+            z-index: 1;
+        }
+
+        .page-nav{
+            position: fixed;
+            top:64px;
+            width: 300px; 
+            height: 460px;
+            z-index: 1;
+            box-shadow: 2px 2px 2px #888888;
+        }
+
+         .page-container{
+            position: relative;
+            top: 64px;
+            left: 300px;
+            width: 100%;
+            z-index: -1;
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <div class="page-header">HEADER</div>
+    </header>
+    <nav>
+        <div class="page-nav">NAV</div>
+    </nav>
+    <main>
+        <div class="page-container">
+            CONTENT
+
+        </div>
+    </main>
+</body>
+</html>
