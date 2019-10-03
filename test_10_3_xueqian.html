@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pageHeader {
+            display: grid;
+            grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+            height: 10%;
+            background-color: #4285F4;
+        }
+        .headerMenu {
+            padding: 2% 8%;
+            font-size: 125%;
+            text-align: center;
+            grid-column: 1/2;
+            color: white;
+        }
+        .headerAngular {
+            padding: 2% 4%;
+            font-size: 250%;
+            text-align: center;
+            grid-column: 2/5;
+            color: white;
+        }
+        .headerFeatures {
+            padding: 2% 4%;
+            font-size: 125%;
+            text-align: center;
+            grid-column: 5/7;
+            color: white;
+        }
+        .headerDocs {
+            padding: 2% 4%;
+            font-size: 125%;
+            text-align: center;
+            grid-column: 7/9;
+            color: white;
+        }
+        .headerResources {
+            padding: 2% 4%;
+            font-size: 125%;
+            text-align: center;
+            grid-column: 9/11;
+            color: white;
+        }
+        
+        .leftContainer {
+            position: fixed;
+            width: 20%;
+            top: 10%;
+            height: 90%;
+            background-color: grey;
+        }
+
+        .leftMenu {
+            display: grid;
+            grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+            
+        }
+
+        .docContainer {
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            background-color: grey;
+            height: 90%;
+            width: 70%;
+            overflow: scroll;
+        }
+
+        .docContent {
+            position: relative;
+            width: 90%;
+            height: 2000px;
+            background-color: antiquewhite;
+        }
+    </style>  
+</head>
+<body>
+    <div class="pageHeader">
+        <div class="headerMenu">
+            ABC
+        </div>
+        <div class="headerAngular">
+            Angular
+        </div>
+        <div class="headerFeatures">
+            FEATURES
+        </div>
+        <div class="headerDocs">
+            DOCS
+        </div>
+        <div class="headerResources">
+            RESOURCES
+        </div>
+    </div>
+    <div class="leftContainer">
+
+    </div>
+    <div class="docContainer">
+        <div class="docContent">
+            content
+        </div>
+    </div>
+</body>
+</html>
