@@ -6,11 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         .pageHeader {
+            position: fixed;
+            width: 100%;
             display: grid;
             grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
             height: 10%;
             background-color: #4285F4;
+            z-index: 2;
         }
         .headerMenu {
             padding: 2% 8%;
@@ -64,18 +70,20 @@
 
         .docContainer {
             position: absolute;
-            top: 10%;
+            /* top: 10%; */
             left: 25%;
             background-color: grey;
             height: 90%;
             width: 70%;
-            overflow: scroll;
+            height: 100%;
+            /* overflow: scroll; */
         }
 
         .docContent {
             position: relative;
             width: 90%;
-            height: 2000px;
+            top: 15%;
+            /* height: 2000px; */
             background-color: antiquewhite;
         }
     </style>  
