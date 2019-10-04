@@ -33,4 +33,5 @@ html, body {
   z-index: 1;
   box-sizing: border-box;
   height: 100%;
+  overflow: scroll;
 }
