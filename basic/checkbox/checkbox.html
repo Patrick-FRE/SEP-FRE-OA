@@ -11,19 +11,19 @@
     <div class="container">
         <h1 class="header">Check the options below</h1>
         <div class="option">
-            <input type="checkbox" class="checkbox">
+            <input type="checkbox" onchange="checking(why)" name="check[]" class="checkbox" id="why">
             <span class="checkbox-item">Why</span>
         </div>
         <div class="option">
-            <input type="checkbox" class="checkbox">
+            <input type="checkbox" onchange="checking(when)" class="checkbox" value="when" id="when">
             <span class="checkbox-item">When</span>
         </div>
         <div class="option">
-            <input type="checkbox" class="checkbox">
+            <input type="checkbox" onchange="checking(what)" class="checkbox" value="what" id="what">
             <span class="checkbox-item">What</span>
         </div>
         <div class="option">
-            <input type="checkbox" class="checkbox">
+            <input type="checkbox" onchange="checking(how)" class="checkbox" value="how" id="how">
             <span class="checkbox-item">How</span>
         </div>
     </div>
