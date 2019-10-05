@@ -1,0 +1,23 @@
+header{
+  position: fixed;
+  height: 150px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: aqua;
+  text-align: center;
+}
+.gridHolder{
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border:1px solid rgb(131, 131, 131);
+}
+.gridHolder>div>div{
+  height: 10px;
+  width: 10px;
+  margin: 2px;
+  background-color: antiquewhite;
+}
