@@ -17,6 +17,12 @@
 function checking() {
     var checkbox = document.querySelectorAll("input:checked")
     for (var i = 0; i < checkbox.length; i++){
-        
+        if (i < 3){
+            console.log(i)
+        }
+        else{
+            alert("NO");
+            checkbox = false;
+        }
     }
 }
