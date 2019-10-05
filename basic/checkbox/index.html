@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" onclick="sayHello()" value="click"/>
+    <input type="button" id="color-button" value="changecolor">
+    <p id="message"></p>
+    <script>
+        function sayHello(){
+            document.getElementById("message").innerHTML = "Hello World";
+        }
+        // var input = document.addEventListener("click", function(){
+
+
+        //     document.
+        // })
+        var color = document.getElementById("color-button")
+        color.addEventListener("click", function(){
+            document.getElementById("message").style.color="red";
+        })
+    </script>
+</body>
+</html>
