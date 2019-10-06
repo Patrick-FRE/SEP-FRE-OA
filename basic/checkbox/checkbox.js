@@ -49,7 +49,6 @@
 //     document.getElementById("how").id = count
 // }
 
-var count = 0;
 var storage = [];
 function checking (){
     if (count > 2){
