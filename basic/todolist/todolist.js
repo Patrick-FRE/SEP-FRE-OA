@@ -1,9 +1,9 @@
-// function adding() {
-//     var x = document.getElementById("input-bar").value
-//     document.getElementById("addedtodo").innerHTML = x  
-// }
 
+var ul = document.getElementById("list");
 var input = document.getElementById("input-bar");
+var random = document.createElement("button");
+random.id = 0;
+
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
@@ -11,53 +11,23 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-// function adding() {
-//     var ul = document.getElementById("list");
-//     var li = document.createElement("li");
-//     var txtval = document.getElementById("input-bar").value
-//     var txtnode = document.createTextNode(txtval);
-//     li.appendChild(txtnode);
-//     ul.appendChild(li);
-// }
-// keydown input[type="text"] function(event, template) {
-//     if ((27 === event.which) || (13 === event.which)) {
-//         event.preventDefault();
-//         event.currentTarget.value = "";
-//     }
-// }
-// function removeItem(){
-// 	var ul = document.getElementById("list");
-//   var input = document.getElementById("input-bar");
-//   var item = document.getElementById(input.value);
-//   ul.removeChild(item);
-// }
+function remove_item(id) {
+    document.getElementById(id).remove();
+}
+
+var count = 0;
 function adding() {
-    var ul = document.getElementById("list");
     var li = document.createElement("li");
-    var txtval = document.getElementById("input-bar").value
-    var txtnode = document.createTextNode(txtval);
-    li.appendChild(txtnode);
+    var txtnode = document.createTextNode(input.value);
     var button = document.createElement("button");
+    button.id = count;
     button.innerHTML = "Done!";
-    button.onclick = function removeitem(){
-        var fake_btn = document.getElementsByClassName("fake-btn");
-        var numb_fake_btn = fake_btn.length;
-        for (var i = 0; i < numb_fake_btn; i++){
-            console.log(i)
-        }
+    button.setAttribute("class", count);
+    button.addEventListener("click", function() {remove_item(parseInt(button.id))});
 
-        // ul.removeChild(ul.lastChild);
-
-        // var ul = document.getElementById("list");
-        // var input = document.getElementById("input-bar");
-        // var item = document.getElementById(input.value);
-        // ul.removeitem(txtnode);
-    }
+    li.appendChild(txtnode);
     li.appendChild(button);
-    var count = 0
-    count += 1
-    botton.id = "fake-"+ count
-
-    // li.setAttribute("class","fake-btn");
+    li.id = count;
     ul.appendChild(li);
+    count += 1;
 }
