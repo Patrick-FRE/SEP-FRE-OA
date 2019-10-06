@@ -1,8 +1,6 @@
 
 var ul = document.getElementById("list");
 var input = document.getElementById("input-bar");
-var random = document.createElement("button");
-random.id = 0;
 
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -11,9 +9,7 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-function remove_item(id) {
-    document.getElementById(id).remove();
-}
+
 
 var count = 0;
 function adding() {
@@ -30,4 +26,7 @@ function adding() {
     li.id = count;
     ul.appendChild(li);
     count += 1;
+}
+function remove_item(id) {
+    document.getElementById(id).remove();
 }

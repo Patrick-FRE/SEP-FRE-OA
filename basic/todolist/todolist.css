@@ -12,14 +12,15 @@ html, body{
     position: fixed;
     left: 0;
     width: 100%;
-    background-color: black;
-
+    background-color: rgb(29, 24, 109);
     height: 100px;
     
 }
 .todo-icon{
     position: fixed;
     left: 3%;
+    color: white;
+    font-size: 2rem;
 }
 .content-background{
     position: fixed;
