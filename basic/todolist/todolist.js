@@ -4,12 +4,10 @@ var input = document.getElementById("input-bar");
 
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
-   event.preventDefault();
    document.getElementById("btn").click();
+   document.getElementById("input-bar").value = ""
   }
 });
-
-
 
 var count = 0;
 function adding() {
@@ -18,7 +16,7 @@ function adding() {
     var button = document.createElement("button");
     button.id = count;
     button.innerHTML = "Done!";
-    button.setAttribute("class", count);
+    button.setAttribute("class", "fake-btn");
     button.addEventListener("click", function() {remove_item(parseInt(button.id))});
 
     li.appendChild(txtnode);

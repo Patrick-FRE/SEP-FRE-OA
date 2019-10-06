@@ -22,6 +22,7 @@ html, body{
     color: white;
     font-size: 2rem;
 }
+
 .content-background{
     position: fixed;
     top: 100px;
@@ -57,4 +58,9 @@ html, body{
 }
 .fake-btn {
     margin-left: 7px;
+    margin-top: 2px;
+}
+#list{
+    position: absolute;
+    left: 11%;
 }
