@@ -40,8 +40,13 @@ function adding() {
     var button = document.createElement("button");
     button.innerHTML = "Done!";
     button.onclick = function removeitem(){
-        var fake_btn = document.getElementsByClassName("fake-btn")
-        ul.removeChild(ul.lastChild);
+        var fake_btn = document.getElementsByClassName("fake-btn");
+        var numb_fake_btn = fake_btn.length;
+        for (var i = 0; i < numb_fake_btn; i++){
+            console.log(i)
+        }
+
+        // ul.removeChild(ul.lastChild);
 
         // var ul = document.getElementById("list");
         // var input = document.getElementById("input-bar");
@@ -49,6 +54,10 @@ function adding() {
         // ul.removeitem(txtnode);
     }
     li.appendChild(button);
-    li.setAttribute("class","fake-btn");
+    var count = 0
+    count += 1
+    botton.id = "fake-"+ count
+
+    // li.setAttribute("class","fake-btn");
     ul.appendChild(li);
 }
