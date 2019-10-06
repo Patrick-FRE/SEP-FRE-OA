@@ -12,7 +12,8 @@ html, body{
     position: fixed;
     left: 0;
     width: 100%;
-    background-color: gray;
+    background-color: black;
+
     height: 100px;
     
 }
@@ -37,8 +38,12 @@ html, body{
     width: 50%;
     left: 25%;
     height: 500px;
-    background-color: gray;
-    opacity: 0.8;
+    background-image: url(../todolist/2.jpg);
+    z-index: 10;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
     margin-top: 100px;
     overflow: auto;
 }
