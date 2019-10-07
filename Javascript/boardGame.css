@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html, body{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+table,td{
+    border: 1px solid black;
+}
+td{
+    width: 50px;
+    height: 50px;
+}
+.boardstyle{
+    width: 500px;
+    height: 500px
+}
+.start, .reset{
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+}
