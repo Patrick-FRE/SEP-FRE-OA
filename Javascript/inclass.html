@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="click" />
+    <p></p>
+
+    <script>
+        
+        function sayHello1(){
+            var text = document.createTextNode('Say Hello!')
+            var p = document.getElementsByTagName('p')[0]
+            p.appendChild(text)
+            // p.setAttribute("style","color:red");
+            p.style.color = 'red'
+        }
+        function sayHello2(){
+            var text = `<span>Say Hello!</span>`
+            var p = document.getElementsByTagName('p')[0]
+            p.innerHTML = text;
+        }
+        function sayHello3(){
+            const input = document.querySelector("input[type='button']");
+            const p = document.querySelector("p");
+            input.addEventListener('click',()=>{
+                p.innerHTML = `<span>Say Hello!</span>`;
+                p.style.color = 'red';
+            })
+        }
+        sayHello3();
+    </script>
+</body>
+
+</html>
