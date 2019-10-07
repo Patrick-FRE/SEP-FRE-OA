@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="click" />
+    <input type="button" value="changeColor" />
+    <p class="output"></p>
+
+    <script>
+      var myInput = document.querySelector("input[type='button']");
+
+      var myOutput = document.querySelector("p.output");
+      myInput.addEventListener("click", () => {
+        myOutput.innerHTML = "<h1>Hello</h1>";
+        
+      });
+
+
+    </script>
+  </body>
+</html>
