@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul li{
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            background: skyblue;
+        }
+
+        .header-wrap {
+            font-size: 32px;
+            font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .header-wrap input {
+            width: 350px;
+            height: 32px;
+            font-size: 32px;
+            font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            color: #fff;
+            vertical-align: bottom;
+            background-color: skyblue;
+            border-top: 1px solid transparent;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-bottom: 2px solid #fff;
+        }
+
+        .header-wrap input:focus {
+            outline: none;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            padding-top:100px; 
+            color: #fff;
+            background: #ddd;
+        }
+
+        .item{
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            color: #fff;
+            font-weight: 800;
+            vertical-align: baseline;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .btn{
+            width: 60px;
+            height: 28px;
+            font-size: 16px;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-wrap">
+            <label for="event">Todo List:</label>
+            <input type="text" id="event">
+        </div>
+    </header>
+    <main>
+        <div class="content-wrap">
+                <ul class="content-list">
+                    
+                </ul>
+        </div>
+    </main>
+
+    <script>
+        var input = document.querySelector("#event"),
+            list = document.querySelectorAll(".content-list")[0],
+            item = document.querySelectorAll(".item");
+
+        input.addEventListener("keypress", function (event) {
+            var x = event.keyCode;
+            if (x == 13) {
+                process();
+            }
+        })
+
+        function process() {
+            var li = document.createElement("li"),
+                button = document.createElement("button"),
+                value = document.createTextNode(input.value),
+                btnValue = document.createTextNode("delete");
+
+            li.className = "item";
+            button.className = "btn";
+            button.addEventListener("click", function () {
+                list.removeChild(li);
+            })
+
+            li.appendChild(value);
+            button.appendChild(btnValue);
+            li.appendChild(button);
+            list.insertBefore(li, list.childNodes[0]);
+        }
+    </script>
+</body>
+
+</html>
