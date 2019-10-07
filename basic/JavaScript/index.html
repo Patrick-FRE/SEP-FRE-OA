@@ -7,21 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="button" onclick="sayHello()" value="click"/>
-    <input type="button" id="color-button" value="changecolor">
-    <p id="message"></p>
+    <p>Typing with one character behind</p>
+    <input type="text" id = "u-txt">
+    <p id= "b-txt"></p>
     <script>
-        function sayHello(){
-            document.getElementById("message").innerHTML = "Hello World";
-        }
-        // var input = document.addEventListener("click", function(){
-
-
-        //     document.
-        // })
-        var color = document.getElementById("color-button")
-        color.addEventListener("click", function(){
-            document.getElementById("message").style.color="red";
+        input = document.querySelector("#u-txt")
+        output = document.querySelector("#b-txt")
+        input.addEventListener("keyup", function () {
+            output.innerText = input.value
         })
     </script>
 </body>
