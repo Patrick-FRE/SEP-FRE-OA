@@ -9,45 +9,68 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sign Up</h1>
-        <form>
-            <div class="row userName">
-                <input  type="text" placeholder="First Name"/>
-                <span></span>
-                <input  type="text" placeholder="Last Name"/>
-            </div>
+        <form class="form-signUp">
+            <header class="header">
+                <h1>Sign Up</h1>
+            </header>
 
-            <div class="row phoneNumber"> 
-                <input type="text" placeholder="Mobile No."/>
-            </div>
-            
-            <div class="row userEmail">
-                <input type="email" placeholder="Email Address"/>
-            </div>
-
-            <div class="row password">
-                <input type="password" placeholder="Password"/>
-                <input type="password" placeholder="Comfirm Password"/>
-            </div>
-            
-            <div class="row confirmation" >
-                <div class="checkInfo" >
-                    <input type="checkbox" ><span>I Agree</span>
+            <div class="row">
+                <div class="item">
+                    <input  type="text" placeholder="First Name"/>
                 </div>
 
-                <div class="info">
-                    By clicking <a href="#nowhere" class="infoBtn">Register</a>, you need to agree the <a href="#nowhere">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                <div class="item">
+                    <input  type="text" placeholder="Last Name"/>
+                </div>  
+            </div>
+
+            <div class="row"> 
+                <div class="item">
+                    <input type="text" placeholder="Mobile No."/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="item">
+                    <input type="email" placeholder="Email Address"/>
                 </div>
             </div>
 
-            <div class="row btn">
-                <button class="register">Register</button>
-                <button class="signIn">Sign In</button>
+            <div class="row">
+                <div class="item">
+                    <input type="password" placeholder="Password"/>
+                </div>
+
+                <div class="item">
+                    <input type="password" placeholder="Comfirm Password"/>
+                </div>  
+            </div>
+            
+            <div class="row">
+                <div class="agree-wrapper">
+                    <div class="check-agree">
+                        <input type="checkbox" id="agree" class="agree">
+                        <label for="agree">I Agree</label>
+                    </div>
+                    <p class="terms">
+                        By clicking
+                        <span class="badge-register">Register</span>, you agree to the
+                        <a href="#" class="conditions">Terms and Conditions</a>
+                        set out by this site, including our Cookie Use
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item">
+                    <button class="register">Register</button>
+                </div>
+                <div class="item">
+                    <button class="signIn">Sign In</button>
+                </div>     
             </div>
            
         </form>
-    </div>
-    
-    
+    </div>  
 </body>
 </html>

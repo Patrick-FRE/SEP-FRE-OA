@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input  type="button" onclick="sayHello()" value="click"/>
+    <p id="sayHello"></p>
+
+    <script>
+        function sayHello(){
+            var x = document.getElementById("sayHello");
+            if (x.innerHTML === "Hello!!") {
+                x.innerHTML = " ";
+            } else {
+                x.innerHTML = "Hello!!";
+                x.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
+
