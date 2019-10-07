@@ -1,0 +1,16 @@
+.loadingContainer{
+  position: relative;
+  margin:auto;
+  height:500px;
+  width: 800px;
+  border: 1px solid rgb(0,0,0,0.3);
+  border-radius: 2px;
+
+}
+.loadingContainer>p{
+  text-align: center;
+}
+canvas{
+  width: 100%;
+  height: 100%;
+}

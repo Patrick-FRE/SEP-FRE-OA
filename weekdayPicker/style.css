@@ -1,0 +1,31 @@
+.pickerContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.dateInput{
+  display: block;
+  width: 100px;
+  height: 30px;
+  overflow: scroll;
+  
+}
+#choose-from{
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgb(0,0,0,0.1)
+}
+.chooseFrom>a{
+  display: block;
+  text-align: center;
+  height: 50px;
+  width: 80px;
+
+}
+.chooseFrom>a:hover{
+  background-color: rgb(0,0,0,0.3);
+}

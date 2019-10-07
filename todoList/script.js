@@ -23,7 +23,10 @@ inputElement.addEventListener('keypress',(e)=>{
 })
 
 var myList=[];
-myList = Array(myList)
+myList = Array(myList);
+var doneList=[];
+doneList=Array(doneList);
+
 function addItem(value, myList){
   myList.unshift(value)
 }
@@ -37,16 +40,22 @@ function renderList(myList){
 }
 
 function handleRemove(e){
-  var last_id=Number(e.id[e.id.length-1]);
+  var last_id=Number(e.id.slice(7));
+  console.log(e);
+  // add exit style
   addStyleText=`#li-${last_id}{animation: disolve 1s ease-in 0s 1 normal forwards}`;
   deleteStyleText=`#li-${last_id}{animation: none}`;
   pendingStyle=document.createElement('style');
   pendingStyle.type="text/css";
   pendingStyle.innerText=addStyleText;
-  console.log(pendingStyle);
   document.head.appendChild(pendingStyle);
+  //get element in mylist and store in doneList
+  doneList.push("<li>"+myList[last_id]+"</li>");
+  
+
 
   setTimeout(()=>{
+    //delete method
     myList.splice(last_id,1);
     readyList=renderList(myList);
     var htmlList=document.getElementById("list-items");
@@ -55,5 +64,8 @@ function handleRemove(e){
     document.getElementById("header-input-todo").value="";
     pendingStyle.innerText=deleteStyleText;
     document.head.appendChild(pendingStyle);
+    //render donelist to the page
+    var done=document.getElementById("done-list");
+    done.innerHTML = doneList.join("");
   },1000);
 }
