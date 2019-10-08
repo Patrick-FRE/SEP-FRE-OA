@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body {
+            background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        } */
+        button {
+            float: right;
+        }
+
+        input {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+        }
+
+        ul {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+        }
+
+        button {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="input-value">
+    <ul id="item-list"></ul>
+
+    <script>
+        var input = document.querySelector("input");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                addItem();
+            }
+        });
+
+        function addItem() {
+            var inputValue = document.querySelectorAll(".input-value")[0].value;
+            var iElement = document.createElement("li");
+            var iText = document.createTextNode(inputValue);
+            iElement.appendChild(iText);
+            var l = document.querySelector("#item-list");
+            l.insertBefore(iElement, l.childNodes[0]);
+            
+            document.querySelector(".input-value").value = "";
+
+            var iClose = document.createElement("button");
+            var closeText = document.createTextNode("delete");
+            iClose.className = "close-item";
+            iClose.onclick = function() {
+                this.parentElement.style.display = "none";
+            }
+            iClose.appendChild(closeText);            
+            iElement.appendChild(iClose);
+        }
+    </script>
+</body>
+</html>
