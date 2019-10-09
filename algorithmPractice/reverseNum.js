@@ -222,12 +222,12 @@ readline.question(`pls input           :`, (input) => {
   out=input; */
 
   //20
-  out=[];
+  /* out=[];
   len=Number(input);
   for(let i=0; i<len;i++){
     out.push(Math.floor(Math.random()*10))
   }
-  out=out.join("");
+  out=out.join(""); */
 
   //21
   //assume sub array length less than array length
@@ -251,6 +251,20 @@ readline.question(`pls input           :`, (input) => {
     }
   })
   out=input[out[0]]; */
+
+  //24
+  //
+  input=input.split(",");
+  for (let i =0; i<input.length; i++){
+    for (let j=i+1; j<input.length;j++){
+      let temp=input[i];
+      if(input[i]>input[j]){
+        input[i]=input[j];
+        input[j]=temp;
+      }
+    }
+  }
+  out=input.join(",");
 
 
 
