@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="../testing/todo_test.css">
+</head>
+<body>
+    <header>
+        <h1>
+            How much was the food?
+        </h1>
+    </header>
+    <div>
+        <input type="text" placeholder="Enter" id="bill">
+    </div>
+    <h3>
+        Choose your tip
+    </h3>
+    <select name="tip" id="tip">
+        <option selected disabled>Select</option>
+        <option value="0.05">Terrible-5%</option>
+        <option value="0.1">Bad-10%</option>
+        <option value="0.15">Ok-15%</option>
+        <option value="0.2">Good-20%</option>
+    </select>
+</br>
+    <button id="calculate">Calculate!</button>
+    <h4>
+        Total Tip
+    </h4>
+    <div>
+        <input type="text" id="input_tip">
+    </div>
+    <h4>
+        Total amount
+    </h4>
+    <div>
+        <input type="text" id="input_total">
+    </div>
+    <script src="../testing/tip_test.js"></script>
+</body>
+</html>

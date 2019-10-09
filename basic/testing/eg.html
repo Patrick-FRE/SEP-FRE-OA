@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkbox</title>
+</head>
+<body>
+    <h1>
+        checkbox
+    </h1>
+    <div>
+        <input type="checkbox" onclick="checking(this)" id="why"><span>why</span>
+    </div>
+    <div>
+        <input type="checkbox" onclick="checking(this)" id="what"><span>what</span>
+    </div>
+    <div>
+        <input type="checkbox" onclick="checking(this)" id="how"><span>how</span>
+    </div>
+    <div>
+        <input type="checkbox" onclick="checking(this)" id="when"><span>when</span>
+    </div>
+</body>
+    <script>
+        
+        queue = [];
+        
+        function checking(id){
+            queue.push(id)
+            if(queue.length === 3){
+                queue[0].checked = false
+                queue.shift()
+            }
+        }
+    </script>
+</html>

@@ -1,6 +1,6 @@
 
 var ul = document.getElementById("list");
-var input = document.getElementById("input-bar");
+var input = document.getElementById("input-bar")
 
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -9,22 +9,27 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-var count = 0;
+var btn_count = 0;
+var li_count = 0;
 function adding() {
     var li = document.createElement("li");
     var txtnode = document.createTextNode(input.value);
     var button = document.createElement("button");
-    button.id = count;
+    
+    li.id = li_count;
+    button.id = btn_count;
     button.innerHTML = "Done!";
-    button.setAttribute("class", "fake-btn");
-    button.addEventListener("click", function() {remove_item(parseInt(button.id))});
 
     li.appendChild(txtnode);
     li.appendChild(button);
-    li.id = count;
+
+    
     ul.appendChild(li);
-    count += 1;
-}
-function remove_item(id) {
-    document.getElementById(id).remove();
+
+    button.addEventListener("click", function(){
+      if (button.id == li.id){
+        li.remove()
+    }});
+    btn_count += 1;
+    li_count += 1;
 }
