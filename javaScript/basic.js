@@ -227,5 +227,184 @@
 
 // const foo = function() {}.bind(this);
 
-var a = [];
-console.log(typeof a);
+// var a = [];
+// console.log(typeof a);
+
+// var a = new Number(5);
+// console.log(typeof a);
+
+// class A {
+//   constructor(lname, age) {
+//     this.age = age;
+//   }
+//   move() {
+//     console.log("move");
+//   }
+
+//   get lastName() {
+//     console.log("get called");
+//     return this._lastName;
+//   }
+
+//   set lastName(value) {
+//     console.log("set called");
+//     this._lastName = value;
+//   }
+// }
+
+// var a = new A("lin", 26);
+// a.lastName = "lin";
+// a.lastName;
+
+//console.log(A.lastName);
+
+// console.log(A);
+// class A {}
+
+// var hey = (res, reject) => {
+//   res();
+//   reject();
+// };
+// class PromiseP {
+//   constructor(cb) {
+//     cb(this.resolve, this.reject);
+//   }
+
+//   resolve() {
+//     console.log("res");
+//   }
+//   reject() {
+//     console.log("rej");
+//   }
+// }
+
+// var p = new PromiseP(hey);
+
+// function myAjaxCall(url) {
+//   return new Promise((res, rej) => {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open("GET", url);
+//     xhr.onload = () => res(xhr.responseText);
+//     xhr.onerror = () => rej(xhr.response);
+//     xhr.send();
+//   });
+// }
+// var a = myAjaxCall("https://placeholder.typicode.com/todos/1");
+// a.then(data => {
+//   console.log(data);
+// }).catch(error => {
+//   console.log(error);
+// });
+// function secondCall(val) {
+//   console.log(val);
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("second call");
+//     }, 5000);
+//   });
+// }
+
+// var a = myAjaxCall();
+// a.then(data => {
+//   console.log("data:");
+//   console.log(data);
+// });
+//console.log(a);
+// patrick = "patrick@@@@";
+
+// const myString = `
+// hey
+// ${patrick}
+// hey""""
+// |<><><>
+// `;
+
+// const myString2 = "\n" + "hey" + "\n" + patrick;
+
+// console.log(myString);
+
+// let ind = 100;
+// let foo = {
+//   ["answer" + ind](x) {
+//     return ind === x;
+//   }
+// };
+
+// foo["answer100"+100]
+// foo.answer100
+
+// console.log(foo);
+
+// class Player {}
+
+// class TTTPlayer extends Player {}
+
+// var a = new TTTPlayer();
+
+// console.log(a instanceof Object);
+// var obj = { a: "1", b: "2", c: "3" };
+
+// // for (let n in obj) {
+// //   console.log(obj[n]);
+// // }
+// if (!Object.prototype.forEach) {
+//   Object.defineProperty(Object.prototype, "forEach", {
+//     value: function(callback, thisArg) {
+//       if (this == null) {
+//         throw new TypeError("Not an object");
+//       }
+//       thisArg = thisArg || global;
+//       for (var key in this) {
+//         if (this.hasOwnProperty(key)) {
+//           callback.call(thisArg, this[key], key, this);
+//         }
+//       }
+//     }
+//   });
+// }
+
+// obj.forEach(item => {
+//   console.log(item);
+// });
+
+// var a = [1, 3, 4];
+// var more = [3, 4, 5];
+// // var b = a.concat(more);
+// // console.log(b);
+// // console.log(a === b);
+// var c = [...a, "hey", ...more];
+// console.log(c);
+// console.log(c === a);
+
+// var a = { name: { value: "5" }, hey: "hey", c: 6 };
+
+// const name = a.name;
+// const hey = a.hey;
+// const c = a.c;
+
+// const { name, hey, c } = a;
+
+// var b = { ...a, hey: "heyP" };
+// console.log(b);
+// console.log(b.name === a.name);
+
+// function foo(name, ...input) {
+//   //console.log(arguments);
+//   console.log(input);
+// }
+
+// foo("hello", "hey");
+// function init() {
+//   var a = {
+//     foo: function() {
+//       console.log(this);
+//     }.bind(this),
+//     foo2: () => {
+//       console.log(this);
+//     }
+//   };
+
+//   a.foo();
+//   // a.foo2();
+// }
+// init();

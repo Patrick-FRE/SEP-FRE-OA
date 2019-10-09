@@ -26,6 +26,7 @@ const UIController = (function() {
 })();
 
 const TTTGameController = (function() {
+  ``;
   return {
     gameName: "Tic Tac Toe"
   };
