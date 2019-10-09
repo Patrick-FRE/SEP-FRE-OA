@@ -1,12 +1,17 @@
-let state = {
-    message: "show message",
-}
 
 
-document.querySelector("h2").textContent = state.message;
+// var inputElement = document.querySelector("input");
+// inputElement.addEventListener("keyup", e => {
+//     console.log(e.target.value);
+// })
 
-document.querySelector("input").addEventListener("keypress", function(event){
-    if(event.which === 13 && this.value !== ""){
-       
-    }
-}.bind(state));
+// function myAjaxCall(url){
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open("GET", url);
+//         xhr.onload = () => resolve(xhr.responseText);
+//         xhr.onerror = () => reject(xhr.statusText);
+//         xhr.send();
+//     });
+// }
+
