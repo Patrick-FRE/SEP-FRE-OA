@@ -25,7 +25,7 @@ function adding(){
     ul.appendChild(li)
     button.addEventListener("click", function (){
         if(li.id === button.id){
-            li.parentNode.removeChild(li)
+            li.remove()
         }
     })
     btn_count += 1

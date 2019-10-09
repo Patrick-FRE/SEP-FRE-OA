@@ -4,35 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>checkbox</title>
+    <title>tip cal</title>
 </head>
 <body>
-    <h1>
-        checkbox
-    </h1>
     <div>
-        <input type="checkbox" onclick="checking(this)" id="why"><span>why</span>
+        <h1>
+            How much was it?
+        </h1>
+    </br>
+        <input type="text" id="input">
+        <select id="select">
+            <option selected disable>Select</option>
+            <option value="0.05">bad</option>
+            <option value="0.1">ok</option>
+        </select>
+    </br>
+        <button id="btn" onclick="cal()">Calculate!</button>
+        <div>
+            Total Tip
+            <div id="tip">
+
+            </div>
+        </div>
+    </br>
+        <div>
+            Total Bil
+            <div id="bill">
+
+            </div>
+        </div>
     </div>
-    <div>
-        <input type="checkbox" onclick="checking(this)" id="what"><span>what</span>
-    </div>
-    <div>
-        <input type="checkbox" onclick="checking(this)" id="how"><span>how</span>
-    </div>
-    <div>
-        <input type="checkbox" onclick="checking(this)" id="when"><span>when</span>
-    </div>
+<script>
+    function cal(){
+    var input = +document.getElementById("input").value;
+    var select  = +document.getElementById("select").value;
+
+    var tip = input * select;
+    var total = input + tip;
+    
+    document.getElementById("tip").innerHTML = tip;
+    document.getElementById("bill").innerHTML = total;
+    }
+</script>
 </body>
-    <script>
-        
-        queue = [];
-        
-        function checking(id){
-            queue.push(id)
-            if(queue.length === 3){
-                queue[0].checked = false
-                queue.shift()
-            }
-        }
-    </script>
 </html>
