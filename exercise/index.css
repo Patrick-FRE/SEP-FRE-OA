@@ -1,0 +1,13 @@
+div.main{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+div.main *{
+    margin: 3px;
+}
+
+h1{
+    margin: 0;
+}
