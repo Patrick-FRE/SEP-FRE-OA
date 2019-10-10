@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <!-- <script src="test.js"></script> -->
+</head>
+<body>
+    <div class="container">
+        <h1>Hello</h1>
+        <!-- <input type="text" name="text" id="text"> -->
+        <!-- <select name="select" id="select">
+            <option value="Default">--Please Choose an Option--</option>
+            <option value="Patrick">Patrick</option>
+            <option value="Qicheng">Qicheng</option>
+            <option value="World">World</option>
+        </select> -->
+        <input type="checkbox" name="check1" id="check1">
+        <label for="check1">Patrick</label>
+        <input type="checkbox" name="check2" id="check2">
+        <label for="check2">Qicheng</label>
+        <input type="checkbox" name="check3" id="check3">
+        <label for="check3">World</label>
+        <button id="btn">say</button>
+        <div id='show'></div>
+        <button id='like'>like</button>
+        <button id='dislike'>dislike</button>
+        <div id='showlike'>0</div>
+        <input type="text" name="price" id="price" placeholder="enter the price">
+        <input type="text" name="rate" id="rate" placeholder="enter the rate">
+        <input type="text" name="total" id="total" value="0">
+        <button id='caculate'>caculate</button>
+    </div>
+    <script>
+    // var state = {
+    //     'text':'Hello World!'
+    // }
+
+    function myf(){
+        var btn = document.querySelector('#btn');
+        // console.log(text);
+        btn.addEventListener('click',function(){
+                // state.text = this.value;
+                // console.log(state.text);
+                var select = document.querySelector('select');
+                var preText = document.querySelector('h1').innerText;
+                var text;
+                if(select.value == 'Default')
+                    text = 'Please Choose an Option';
+                else
+                    text = preText + ' ' + select.value;
+                //console.log(text);
+                var div = document.querySelector('#show');
+                var textNode = document.createTextNode(text);
+                div.innerHTML = text;
+        })
+    };
+    function pop(){
+        var select = document.querySelector('select');
+        // console.log(text);
+        select.addEventListener('change',function(){
+                // state.text = this.value;
+                // console.log(state.text);
+                alert(event.target.value);
+        })
+    }
+    var a = [];
+    function checkCheckbox(){
+        var checks = document.querySelectorAll('input[type=checkbox]');
+        for(let i = 0; i < checks.length; i++)
+            checks[i].addEventListener('change', function(){
+                if(event.target.checked)
+                    a.push(event.target)
+                if(a.length == checks.length)
+                {
+                    // let firstCheck = document.querySelector('#'+a[0]);
+                    firstCheck = a.shift();
+                    firstCheck.checked = false;
+                }
+            })
+    }
+
+
+    function showCheck(){
+        var btn = document.querySelector('#btn');
+        // console.log(text);
+        btn.addEventListener('click',function(){
+                // state.text = this.value;
+                // console.log(state.text);
+                var checks = document.querySelectorAll('input[type=checkbox]');
+                var labels = document.querySelectorAll('label');
+                console.log(labels);
+                var text = "";
+                var flag = 0;
+                for(let i = 0; i < checks.length; i++)
+                    if(checks[i].checked)
+                    {    
+                        flag = 1;
+                        console.log(checks[i]);
+                        text += 'Hello ' + labels[i].innerText + '<br>';
+                    }
+                // var preText = document.querySelector('h1').innerText;
+                // var text;
+                // if(select.value == 'Default')
+                //     text = 'Please Choose an Option';
+                // else
+                //     text = preText + ' ' + select.value;
+                //console.log(text);
+                if(flag == 0)
+                    text = "Please select something!";
+                var div = document.querySelector('#show');
+                var textNode = document.createTextNode(text);
+                div.innerHTML = text;
+        })
+    }
+    function likeDislike(){
+        const likebtn = document.querySelector('#like');
+        const dislikebtn = document.querySelector('#dislike');
+        likebtn.addEventListener('click',function(){
+            var curVal = +document.querySelector('#showlike').innerText + 1;
+            document.querySelector('#showlike').innerText = ""+curVal;
+        })
+        dislikebtn.addEventListener('click',function(){
+            var curVal = +document.querySelector('#showlike').innerText - 1;
+            document.querySelector('#showlike').innerText = ""+curVal;
+        })
+    }
+    function caculate(){
+        const cacubtn = document.querySelector('#caculate');
+        cacubtn.addEventListener('click',function(){
+            var price = +document.querySelector('#price').value;
+            var rate = +document.querySelector('#rate').value;
+            var total = price*(1+rate);
+            document.querySelector('#total').value = total;
+
+        })
+    }
+
+
+    showCheck();
+    checkCheckbox();
+    likeDislike();
+    caculate();
+    </script>
+</body>
+</html>

@@ -14,7 +14,7 @@
             <input type="text" name="inputAdd" id="inputAdd">
             <button id="fetch" value="fetch">Fetch</button>
         </header>
-        <div class='menu'>
+        <div class='menu' id='menu'>
             <ul id="myUL">
             </ul>
         </div>
@@ -39,11 +39,12 @@
                     let text = input.value;
                     var node = document.createTextNode(text);
                     var li = document.createElement('li');
-                    var btn = document.createElement('input');
-                    btn.type = 'button';
-                    btn.value = 'Delete';
-                    btn.id = ""+id;
-                    btn.onclick = function() {clickEvent(this.id)};   //mark!!!!!!!!
+                    var btn = document.createElement('button');
+                    btn.innerText = 'Delete';
+                    // btn.type = 'button';
+                    // btn.value = 'Delete';
+                    // btn.id = ""+id;
+                    // btn.onclick = function() {clickEvent(this.id)};   //mark!!!!!!!!
                     li.appendChild(node);
                     li.appendChild(btn);
                     ul.appendChild(li);
@@ -52,11 +53,16 @@
                 }
             })
         }
-        function clickEvent(id){
+        function clickEvent(){
             // var btn = document.querySelector('#button'+id);    // ??????
-            var btn = document.getElementById(id);
-            btn.parentElement.parentElement.removeChild(btn.parentElement);    //compare to display none, this could be better!
-            console.log(btn);
+            var menu = document.getElementById('menu');
+            menu.addEventListener('click',function(){
+                console.log(event.target.tagName);
+                if(event.target.tagName == 'BUTTON')
+                    event.target.parentElement.parentElement.removeChild(event.target.parentElement);
+            })
+            // btn.parentElement.parentElement.removeChild(btn.parentElement);    //compare to display none, this could be better!
+            // console.log(btn);
         }
         function myFetch(){
             var id = 0;
@@ -107,7 +113,7 @@
 
         todo();
         myFetch();
-
+        clickEvent();
     </script>
 
 </body>

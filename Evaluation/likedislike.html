@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <p>Click the button to add a new element to the array.</p>
+
+  <button id="like" onclick="love()">like</button>
+  <button id='dislike' onclick="nolike()">dislike</button>
+  <span>0</span>
+  <script type="text/javascript">
+
+    var like = document.getElementById('like');
+    var dislike = document.getElementById('dislike');
+    var ospan = document.getElementsByTagName('span')[0];
+    var num = parseInt(ospan.innerHTML);
+    function love() {
+      num++;
+      ospan.innerHTML = num;
+    }
+    function nolike() {
+      num--;
+      ospan.innerHTML = num;
+    }
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container > *{
+    flex: 1 1 1;
+}
+h1, select, button,input,label{
+    display: inline-block;
+    margin: 5px;
+}
+#show{
+    flex-basis: 100%;
+    text-align: center;
+}
