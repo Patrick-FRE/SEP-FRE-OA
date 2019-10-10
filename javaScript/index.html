@@ -183,13 +183,49 @@
     <div class="output"></div>
 
     <script>
+      // class
+
+      class MessageQueue {
+        constructor(size = 2) {
+          this.size = size;
+          this.queue = [];
+        }
+
+        push(element) {
+          this.queue.push(element);
+          if (this.queue.length > this.size) {
+            this.pop();
+          }
+        }
+
+        pop() {
+          const popElement = this.queue.shift();
+          popElement.checked = false;
+        }
+
+        remove(element) {
+          this.queue = this.queue.filter(item => {
+            return item !== element;
+          });
+        }
+        getMessage() {
+          return this.queue
+            .map(item => {
+              return item.value;
+            })
+            .join(" ");
+        }
+      }
+
       // elements
       const DomString = {
+        inputBar: ".inputBar",
         selectElement: "#target-select",
         btnSayHello: ".btnSayHello",
         output: ".output",
         checkboxName: ".checkboxName"
       };
+      const inputBar = document.querySelector(".inputBar");
       const selectElement = document.querySelector(DomString.selectElement);
       const btnSayHello = document.querySelector(DomString.btnSayHello);
       const output = document.querySelector(DomString.output);
@@ -199,9 +235,26 @@
       // event setup
       eventSetup();
       function eventSetup() {
-        btnSayHelloClick();
+        //btnSayHelloClick();
         //selectChange();
+        inputBarClicked();
       }
+      function inputBarClicked() {
+        const myQueue = new MessageQueue(2);
+        inputBar.addEventListener("click", () => {
+          if (event.target.className === DomString.checkboxName.slice(1)) {
+            if (event.target.checked) {
+              myQueue.push(event.target);
+            } else {
+              myQueue.remove(event.target);
+            }
+          }
+          if (event.target.className === DomString.btnSayHello.slice(1)) {
+            renderOutput(myQueue.getMessage());
+          }
+        });
+      }
+
       function btnSayHelloClick() {
         btnSayHello.addEventListener("click", () => {
           console.log(checkboxNameList);
