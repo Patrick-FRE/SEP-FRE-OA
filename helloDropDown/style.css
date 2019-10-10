@@ -1,0 +1,17 @@
+.dropContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1 1 1 1;
+}
+select{
+  text-align: center;
+  vertical-align: middle;
+  width: 30%;
+  height: 20px;
+  margin-top: 15px;
+}
+button{
+  height: 20px;
+  
+}

@@ -252,9 +252,8 @@ readline.question(`pls input           :`, (input) => {
   })
   out=input[out[0]]; */
 
-  //24
-  //
-  input=input.split(",");
+  //24//bugs 
+  /* input=input.split(",");
   for (let i =0; i<input.length; i++){
     for (let j=i+1; j<input.length;j++){
       let temp=input[i];
@@ -264,8 +263,57 @@ readline.question(`pls input           :`, (input) => {
       }
     }
   }
-  out=input.join(",");
+  out=input.join(","); */
 
+  //25
+  /* input=input.split(',');
+  var len=0;
+  var ind=0;
+  input.forEach(element => {
+    if(element.length>len){
+      ind=input.indexOf(element);
+    }
+  });
+  out=input[ind];
+ */
+
+ //26
+ 
+/*  var lengthOfLongestSubstring = function(s) {
+    
+  let map = {}
+  let start = 0
+  let maxLen = 0
+  let arr = s.split('')
+  
+  for (i=0; i < s.length; i++) {
+      let current = map[arr[i]]
+      if (current!=null && start <= current) {
+          start = current + 1
+      } else {
+          maxLen = Math.max(maxLen, i - start + 1)
+      }
+      
+      map[arr[i]] = i
+  }
+  
+  return maxLen
+  
+  
+};
+out=lengthOfLongestSubstring(input); */
+
+
+//27 left and right pointer /binary search
+
+//28 dont understand
+
+//29
+/* var myfun=function fun(){
+  return fun.name;
+}
+out=myfun();
+ */
 
 
   console.log(out);
