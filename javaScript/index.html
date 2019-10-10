@@ -1,0 +1,238 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="click" />
+    <input type="button" value="changeColor" />
+    <p class="output"></p>
+
+    <script>
+      var myInput = document.querySelector("input[type='button']");
+
+      var myOutput = document.querySelector("p.output");
+      myInput.addEventListener("click", () => {
+        myOutput.innerHTML = "<h1>Hello</h1>";
+        
+      });
+
+
+    </script>
+  </body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <div id="demo">
+      <div>
+        <div>hey</div>
+      </div>
+      <div></div>
+    </div>
+    <script>
+      var rootElement = document.querySelector("body");
+
+      function getDeepest(element) {
+        console.log(element.children);
+        console.log(element.childNodes);
+        let res = 0;
+
+        function DFStravser(element, deep) {
+          if (!element.children) {
+            res = Math.max(res, deep);
+          }else{
+            element.children.foreach(child=>{
+              DFStravser()
+            })
+        
+          }
+        }
+      }
+
+      getDeepest(rootElement);
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+    <input type="text" />
+
+    <script>
+      // Step 1
+      var state = {
+        helloMsg: "hello"
+      };
+
+      // Step 2
+      var inputElement = document.querySelector("input");
+      inputElement.value = state.helloMsg;
+      inputElement.addEventListener("keyup", e => {
+        console.log(e.target.value);
+        state.helloMsg = e.target.value;
+      });
+
+      // Step 3
+      var _helloMsg;
+      Object.defineProperty(state, "helloMsg", {
+        configurable: true,
+        enumerable: true,
+        get() {
+          return _helloMsg;
+        },
+        set(newValue) {
+          _helloMsg = newValue;
+          callbackFn();
+        }
+      });
+      var h1Element = document.querySelector("h1");
+      function callbackFn() {
+        inputElement.value = state.helloMsg;
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function myAjaxCall(url) {
+      //   return new Promise((res, rej) => {
+      //     const xhr = new XMLHttpRequest();
+      //     xhr.open("GET", url);
+      //     xhr.onload = () => res(xhr.responseText);
+      //     xhr.onerror = () => rej(xhr);
+      //     xhr.send();
+      //   });
+      // }
+      // var a = myAjaxCall("https://placeholder.typicode.com/todos/1");
+      // a.then(data => {
+      //   console.log(data);
+      // }).catch(error => {
+      //   console.log(error);
+      // });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 30px;
+      }
+
+      .inputBar,
+      .output {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputBar">
+      <span>Hello</span>
+      <!-- <select name="targetName" id="target-select">
+        <option value="">--Please choose an option--</option>
+        <option value="patrick">patrick</option>
+        <option value="yifan">yifan</option>
+        <option value="xueqian">xueqian</option>
+      </select> -->
+      <input
+        type="checkbox"
+        id="patrick"
+        class="checkboxName"
+        value="patrick"
+      />
+      <label for="patrick">patrick</label>
+      <input type="checkbox" id="yifan" class="checkboxName" value="yifan" />
+      <label for="yifan">yifan</label>
+      <input
+        type="checkbox"
+        id="xueqian"
+        class="checkboxName"
+        value="xueqian"
+      />
+      <label for="xueqian">xueqian</label>
+
+      <button class="btnSayHello">SayHello</button>
+    </div>
+    <div class="output"></div>
+
+    <script>
+      // elements
+      const DomString = {
+        selectElement: "#target-select",
+        btnSayHello: ".btnSayHello",
+        output: ".output",
+        checkboxName: ".checkboxName"
+      };
+      const selectElement = document.querySelector(DomString.selectElement);
+      const btnSayHello = document.querySelector(DomString.btnSayHello);
+      const output = document.querySelector(DomString.output);
+      const checkboxNameList = document.querySelectorAll(
+        DomString.checkboxName
+      );
+      // event setup
+      eventSetup();
+      function eventSetup() {
+        btnSayHelloClick();
+        //selectChange();
+      }
+      function btnSayHelloClick() {
+        btnSayHello.addEventListener("click", () => {
+          console.log(checkboxNameList);
+          const output = Array.from(checkboxNameList)
+            .map(checkbox => {
+              return checkbox.checked ? checkbox.value : "";
+            })
+            .join(" ");
+          // if (output) {
+          //   renderOutput(output);
+          // } else {
+          //   renderErrorMsg();
+          // }
+          render(output);
+        });
+      }
+      function renderErrorMsg() {
+        output.innerHTML = "Error";
+      }
+      // function selectChange() {
+      //   selectElement.addEventListener("change", () => {
+      //     console.log(event);
+      //   });
+      // }
+
+      // DOM change
+      function renderOutput(tmp) {
+        // console.log(selectElement.value);
+        // output.innerHTML = "Hello " + selectElement.value;
+        output.innerHTML = "Hello " + tmp;
+      }
+    </script>
+  </body>
+</html>
