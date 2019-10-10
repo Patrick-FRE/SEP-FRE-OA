@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOMtraverse</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Header <span> Hello Guys</span></h1>
+      </div>
+    </header>
+    <main>
+      <section id="section">
+        <h2>Section-1</h2>
+        <div>
+          <ul>
+            <li>
+              item1
+            </li>
+            <li>
+              item2
+              <ul>
+                <li>
+                  item2-1
+                </li>
+                <li>item2-2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>Section-2</h2>
+        <div>
+          <ul>
+            <li>
+              item1
+              <ul>
+                <li>
+                  itme1-1
+                </li>
+                <li>
+                  item1-2
+                </li>
+                <li>
+                  item1-3
+                </li>
+              </ul>
+            </li>
+            <li>
+              item2
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      var section = document.getElementById("section");
+      console.log(section.getElementsByTagName("li"));
+
+      const targetElement = document.querySelector("body");
+      //   // traversAllChildren(targetElement);
+      traverse(targetElement, 0);
+      function traverse(element, depth) {
+        console.log(element, depth);
+        for (let i = 0; i < element.children.length; i++) {
+          let d = depth;
+          traverse(element.children[i], ++d);
+        }
+      }
+    </script>
+  </body>
+</html>
