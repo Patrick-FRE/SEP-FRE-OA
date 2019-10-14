@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <button id= 'addleft'>add</button>
+    <div id = 'leftshow'>
+        <ul id = 'leftul'>
+
+        </ul>
+    </div>
+    <button id='gorigth'>go right</button>
+    <button id='goleft'>go left</button>
+    <br>
+    <input type="text" id="input2">
+    <button id= 'addright'>add</button>
+    <div id = 'leftshow'>
+        <ul id = 'rightul'>
+
+        </ul>
+    </div>
+
+    <script>
+        function addItem(){
+            const add1 = document.querySelector('#addleft');
+            const input1 = document.querySelector('#input1');
+            const ul1 = document.querySelector('#leftul');
+            const add2 = document.querySelector('#addright');
+            const input2 = document.querySelector('#input2');
+            const ul2 = document.querySelector('#rightul');
+            add1.addEventListener('click',function(){
+                // console.log("hello");
+                let li = document.createElement('li');
+                // li.id = 'leftli';
+                let check1 = document.createElement('input');
+                check1.type = 'checkbox';
+                let text = document.createTextNode(input1.value);
+                li.appendChild(check1);
+                li.appendChild(text);
+                ul1.appendChild(li);
+            })
+            add2.addEventListener('click',function(){
+                // console.log("hello");
+                let li = document.createElement('li');
+                // li.id = 'rightli';
+                let check2 = document.createElement('input');
+                check2.type = 'checkbox';
+                let text = document.createTextNode(input2.value);
+                li.appendChild(check2);
+                li.appendChild(text);
+                ul2.appendChild(li);
+            })
+        }
+        function goRightLeft(){
+            const goRight = document.querySelector('#gorigth');
+            const leftul = document.querySelector('#leftul');
+            const rightul = document.querySelector('#rightul');
+            var a  = []
+            goRight.addEventListener('click',function(){
+                console.log(leftul);
+                const li = leftul.children;
+                console.log(li);
+                for(let i  = 0; i < li.length; i++)
+                {
+                    const lic = li[i].children;
+                    console.log(lic);
+                    for(let j = 0; j < lic.length; j++){
+                        if(lic[j].checked == true)
+                        {   
+                            console.log(lic[j].parentElement); 
+                            a.push(lic[j].parentElement);
+                        }
+                    }
+                }
+                for(let i = 0; i < a.length; i++)
+                    rightul.appendChild(a[i]);
+                console.log(rightul);
+                    
+
+            })
+        }
+        addItem();
+        goRightLeft();
+    </script>
+</body>
+</html>

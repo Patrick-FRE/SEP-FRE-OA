@@ -57,6 +57,7 @@ function myf(){
     }
     
     const test = x();
+    test();
     // test();
     // test();
     // test();
@@ -71,3 +72,12 @@ function myf(){
     }
     console.log(add(5)(6)(7));
     
+    var x = {
+        name:"name"
+    }
+    var y = {
+        name:"name"
+    }
+    // var y = x;
+
+    console.log(y == x);
