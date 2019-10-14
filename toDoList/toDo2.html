@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        main {
+            flex: 1;
+            background-color: ;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-wrap">
+            <label for="event">Todo List:</label>
+            <input type="text" id = "input">
+        </div>
+    </header>
+    <main>
+        <div class="content-wrap">
+            <ul class="content-list"></ul>
+        </div>
+    </main>
+
+    <script>
+        var input = document.querySelector("#input"),
+            list = document.querySelector(".content-list");
+
+        input.addEventListener("keypress", function(e){
+            var key = e.keyCode;
+            if(key == 13){
+                // console.log("hi");
+                foo();
+            }
+        })
+
+        function foo(){
+            var li = document.createElement("li");
+                
+            li.innerHTML = input.value;
+
+            var btn = document.createElement("button");
+            btn.innerHTML = "delete";
+            li.appendChild(btn);
+            list.insertBefore(li, list.children[0]);
+
+            btn.addEventListener("click", function(){
+                list.removeChild(li);
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
