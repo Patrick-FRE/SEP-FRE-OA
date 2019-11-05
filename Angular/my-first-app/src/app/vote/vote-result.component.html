@@ -1,0 +1,5 @@
+<p>Item 1 selected {{item1_counter}}</p>
+<p>Item 2 selected {{item2_counter}}</p>
+<app-vote [item1]="'apple'" [item2]="'orange'" (selectEvent)="updateCounter($event)"></app-vote>
+<app-vote [item1]="'red'" [item2]="'blue'" (selectEvent)="updateCounter($event)"></app-vote>
+<app-vote [item1]="'car'" [item2]="'bike'" (selectEvent)="updateCounter($event)"></app-vote>

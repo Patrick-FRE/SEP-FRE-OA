@@ -1,0 +1,27 @@
+    <div class="form-group">
+    <label>Product Name</label>
+    <input type="text" [(ngModel)]="product.name" appColorChange>
+    </div>
+    <div class="form-group">
+    <label>Description</label>
+    <input type="text" [(ngModel)]="product.description" appColorChange>
+    </div>
+    <div class="form-group">
+    <label>Stock</label>
+    <input type="text" [(ngModel)]="product.stock" appColorChange>
+    </div>
+    <div class="form-group">
+    <label>Price</label>
+    <input type="text" [(ngModel)]="product.price" appColorChange>
+    </div>
+    <div class="form-group">
+    <label>Discount</label>
+    <input type="text" [(ngModel)]="product.discount" appColorChange>
+    </div>
+    <div class="form-group">
+    <label>CreateDate</label>
+    <input type="date" [(ngModel)]="product.createDate">
+    </div>
+    <button (click)="editItem()">Save Item</button>
+    <button (click)="addItem()">Add Item</button>
+    <app-product-list [product_list] = "product_list" (selectEvent)="updateItem($event)"></app-product-list>

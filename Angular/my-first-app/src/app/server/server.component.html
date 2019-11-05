@@ -1,0 +1,19 @@
+<!-- <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">Left</button>
+        <button type="button" class="btn btn-default">Middle</button>
+        <button type="button" class="btn btn-default">Right</button>
+    </div> -->
+<!-- <ul>
+    <li>{{name}}</li>
+    <li>{{age}}</li>
+    <li>{{status}}</li>
+</ul> -->
+<!-- Assignment 1 Components -->
+<!-- <input type="text" [(ngModel)] = "username" (input) = "disBtn()">
+<p>{{username}}</p>
+<button [disabled] = "username === ''" (click)="username = ''">Check</button> -->
+
+<!-- Assignment 2 Directives -->
+<button (click)="onBtnClick()">Display Details</button>
+<p *ngIf="btnClick">My Dear</p>
+<p *ngFor="let i of btnArr" [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{change:flag}">{{index-1}}</p>

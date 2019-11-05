@@ -1,0 +1,52 @@
+<!-- <p>reactive-form works!</p> -->
+<div class="container">
+    <div class="col-xs-4">
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+            <label for="id">ID</label>
+            <input type="text" formControlName = "id" id="id" class="form-control">
+            <label for="name">Name</label>
+            <input type="text" formControlName = "name" class="form-control" id="name">
+            <label>UserName</label>
+            <input type="text" formControlName = "username" class="form-control">
+            <label>Email</label>
+            <input type="text" formControlName = "email" class="form-control">
+        
+            <div formGroupName = "address" class="form-group" >
+                <label>Street</label>
+                <input type="text" formControlName = "street" class="form-control">
+                <label>Suite</label>
+                <input type="text" formControlName = "suite" class="form-control">
+                <label>City</label>
+                <input type="text" formControlName = "city" class="form-control">
+                <label>Zipcode</label>
+                <input type="text" formControlName = "zipcode" class="form-control">
+                <div formGroupName = "geo" class="form-group">
+                    <label>Latitude</label>
+                    <input type="text" formControlName = "lat" class="form-control">
+                    <label>Longtitude</label>
+                    <input type="text" formControlName = "lng" class="form-control"> 
+                </div>
+            </div>
+
+            <label>Phone</label>
+            <input type="text" formControlName = "phone" class="form-control">
+            <label>Website</label>
+            <input type="text" formControlName = "website" class="form-control">
+            <div formGroupName = "company" class="form-group">
+                <label>Company Name</label>
+                <input type="text" formControlName = "name" class="form-control">
+                <label>Catch Phrase</label>
+                <input type="text" formControlName = "catchPhrase" class="form-control"> 
+                <label>BS</label>
+                <input type="text" formControlName = "bs" class="form-control">
+            </div>
+            <input type="submit" value="Submit" class="btn btn-default" [disabled] = "!productForm.valid">
+        </form>
+    </div>
+    <div class="col-xs-6">
+        <!-- <app-reactive-form-response></app-reactive-form-response> -->
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- {{productForm.value | json}} -->
+<!-- {{productForm.valueChanges | async | json}} -->

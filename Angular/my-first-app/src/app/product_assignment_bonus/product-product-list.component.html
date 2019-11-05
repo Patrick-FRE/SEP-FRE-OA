@@ -1,0 +1,10 @@
+<ul>
+        <li *ngFor = "let p of product_list; let i = index;">{{"name: " + p.name}} <br>
+                                                                {{"description: " + p.description}} <br>
+                                                                {{"stock: " + p.stock}} <br>
+                                                                {{"price: " + p.price}} <br>
+                                                                {{"disPrice: " + (p.price | discount: p.discount )}} <br>
+                                                                {{"createDate: " + p.createDate}}  <br>
+                                                                <input type="button" value="edit" (click)="editItem(i)">
+                                                                </li>
+    </ul>

@@ -53,14 +53,6 @@ var $ = (function() {
           item.style[attr] = value;
         });
       }
-
-      ajax(obj){
-        var url = obj.url;
-        console.log(url);
-        fetch(url)
-        .then(response => response.json())
-        .then(json => obj.success(json));
-      }
     }
   
     var instance = function(selector) {
@@ -70,28 +62,36 @@ var $ = (function() {
   
     return instance;
   })();
+
+$.ajax = function(obj){
+  var url = obj.url;
+  console.log(url);
+  fetch(url)
+  .then(response => response.json())
+  .then(json => obj.success(json));
+}
   
-  $(document).ready(function() {
-    //   var a = document.getElementById("p");
-    //   var btn = document.querySelector(".btn");
-    //   btn.addEventListener("click", () => {
-    //     a.style.display = "none";
-    //   });
-    console.log("jquery works");
-    console.log($);
-  
-    // by Jquery
-    var a = $("#p");
-    var btn = $(".btn");
-    console.log(a);
-    console.log(btn);
-  
-    btn.click(() => {
-      //console.log("click");
-      const div = document.querySelector('#div1');
-      a.toggle();
-      a.ajax({url: "https://jsonplaceholder.typicode.com/todos/1", success: function(result){
-            div.innerHTML = JSON.stringify(result);  //How to make it $ sign?
-      }});
-    });
+$(document).ready(function() {
+  //   var a = document.getElementById("p");
+  //   var btn = document.querySelector(".btn");
+  //   btn.addEventListener("click", () => {
+  //     a.style.display = "none";
+  //   });
+  console.log("jquery works");
+  console.log($);
+
+  // by Jquery
+  var a = $("#p");
+  var btn = $(".btn");
+  console.log(a);
+  console.log(btn);
+
+  btn.click(() => {
+    //console.log("click");
+    const div = document.querySelector('#div1');
+    a.toggle();
+    $.ajax({url: "https://jsonplaceholder.typicode.com/todos/1", success: function(result){
+          div.innerHTML = JSON.stringify(result);  //How to make it $ sign?
+    }});
   });
+});

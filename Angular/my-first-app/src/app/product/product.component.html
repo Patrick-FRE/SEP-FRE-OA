@@ -1,0 +1,51 @@
+<!-- <p>product works!</p>
+<p>{{"1+1 = " + (1+1)}}</p>
+<h1>{{title}}</h1>
+<input type="text" [(ngModel)]="item" #tempItem>
+<input type="button" (click)="addItem(tempItem.value)" value="save" [style.color]="'red'">
+<input type="button" value="show" (click)="toggleList()">
+<ul *ngIf = "visible">
+    <li *ngFor = "let p of product_list; let i = index;">{{(i+1) +". " + p | uppercase | lowercase}}</li>
+</ul>
+<div>
+    Item: {{item}}
+</div>
+<input type="date" (change)="0" name="date_time" id="date_time" #datetime>
+<div>
+    {{datetime.value | date:'MM/dd/yyyy'}}
+</div> -->
+<div class="form-group">
+<label>Product Name</label>
+<input type="text" [(ngModel)]="product.name" appColorChange>
+</div>
+<div class="form-group">
+<label>Description</label>
+<input type="text" [(ngModel)]="product.description" appColorChange>
+</div>
+<div class="form-group">
+<label>Stock</label>
+<input type="text" [(ngModel)]="product.stock" appColorChange>
+</div>
+<div class="form-group">
+<label>Price</label>
+<input type="text" [(ngModel)]="product.price" appColorChange>
+</div>
+<div class="form-group">
+<label>Discount</label>
+<input type="text" [(ngModel)]="product.discount" appColorChange>
+</div>
+<div class="form-group">
+<label>CreateDate</label>
+<input type="date" [(ngModel)]="product.createDate">
+</div>
+<button (click)="addItem()">Add Item</button>
+<ul>
+    <li *ngFor = "let p of product_list; let i = index;">{{"name: " + p.name}} <br>
+                                                            {{"description: " + p.description}} <br>
+                                                            {{"stock: " + p.stock}} <br>
+                                                            {{"price: " + p.price}} <br>
+                                                            {{"disPrice: " + (p.price | discount: p.discount )}} <br>
+                                                            {{"createDate: " + p.createDate}}
+
+                                                            </li>
+</ul>
