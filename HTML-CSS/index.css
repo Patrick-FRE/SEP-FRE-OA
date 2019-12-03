@@ -3,6 +3,11 @@
   margin-bottom: 10px;
 }
 
+.word {
+  color: white;
+  border-radius: 3px;
+}
+
 .box-border {
   border: hidden;
   text-align: center;
