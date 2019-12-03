@@ -1,0 +1,86 @@
+body{
+    text-align: center;
+    font-family: arial;
+}
+
+form{
+    margin-top: 10%;
+}
+
+.name input{
+    height: 40px;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.password input{
+    height: 40px;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.contact input{
+    height: 40px;
+    width: 424px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+
+.agree{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 32px;
+    padding: 2px;
+}
+
+.agreebox{
+    width:80px;
+}
+
+.agree label{
+    font-size: 0.8em;
+}
+
+.agree p{
+    margin: 0;
+    width: 340px;
+    font-size: 0.8em;
+}
+
+a{
+    text-decoration: none;
+}
+
+.submit button{
+    height: 40px;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+#register{
+    background-color:#0080ff;
+    color:white;
+}
+
+.submit #register{
+    font-size:18px;
+}
+
+#signin{
+    background-color:#00cc00;
+    color:white;
+    font-size:18px;
+}
