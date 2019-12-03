@@ -13,6 +13,12 @@
     margin-right: auto;
     background-color:white;
 }
+.row-width-8{
+    position: relative;
+    width:80%;
+    height:40px;
+    margin:auto;
+}
 .half-row-right{
     display: inline-block;
     width: 48%;
@@ -24,12 +30,6 @@
     width: 48%;
     position: absolute;
     left: 0px;;
-}
-.row-width-8{
-    position: relative;
-    width:80%;
-    height:40px;
-    margin:auto;
 }
 .row-agree-left{
     display:inline-block;
@@ -43,48 +43,48 @@
     position: absolute;
     right: 0px;
 }
-
 input{
     height:26px;
 }
 .row-width-10{
     width: 100%;
 }
-
 .form-btn{
     height: 30px;
     color: white;
 }
-
 .color-green{
     background-color: green;
 }
 .color-blue{
     background-color: blue;
 }
-
-
 @media (min-width:992px){
     .container{
         width: 960px;
     }
 }
-/* @media (max-width:768px){
+@media (max-width:768px){
     .container{
         width:740px;
     }
-    .row-width-8{
-    position: relative;
-    width:80%;
-    height:80px;
-    margin:auto;
-}
+    .two-columns{
+        position: relative;
+        width:80%;
+        margin:auto;
+        height: 80px;  
+    }
+
     .half-row-left{
         display: block;
         width:100%;
+        position: static;
+        height: 40px;;
     }
     .half-row-right{
         display: block;
         width:100%;
+        position: static;
+        height:40px;
     }
-} */
+}
