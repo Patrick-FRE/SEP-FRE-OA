@@ -1,0 +1,153 @@
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.box-border {
+  border: hidden;
+  text-align: center;
+}
+
+input:hover {
+  border-color: blue;
+  border-style: solid;
+  border-width: thin;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+}
+
+.first {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 250px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.last {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 250px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.Mobile {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 525px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.Email {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 525px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.pass {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 250px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.confirm {
+  display: inline-block;
+  font-weight: bold;
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  width: 250px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.dot {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 30px;
+  width: 10px;
+  margin-right: 20px;
+  margin-top: 6px;
+  margin-bottom: 1px;
+}
+
+.text {
+  display: inline-block;
+  width: 400px;
+  margin-left: 30px;
+  margin-top: 6px;
+  margin-bottom: 1px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.register {
+  display: inline-block;
+  font-weight: bold;
+  background-color: blue;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  color: white;
+  width: 250px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+}
+
+.sign {
+  display: inline-block;
+  font-weight: bold;
+  background-color: green;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  color: white;
+  width: 250px;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 6px;
+  border-radius: 6px;
+}
