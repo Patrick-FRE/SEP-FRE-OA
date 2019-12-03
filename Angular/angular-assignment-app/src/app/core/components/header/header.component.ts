@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-core-component',
-  templateUrl: './core-component.component.html',
-  styleUrls: ['./core-component.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class CoreComponentComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   postPage(){
     this.router.navigate(['post']);

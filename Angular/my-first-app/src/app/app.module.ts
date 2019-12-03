@@ -18,6 +18,7 @@ import { ProductAddProductComponent } from './product_assignment_bonus/product-a
 import { ProductProductListComponent } from './product_assignment_bonus/product-product-list.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { LimitLengthPipe } from './shared/pipe/limit-length.pipe';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LimitLengthPipe } from './shared/pipe/limit-length.pipe';
     ProductProductListComponent,
     PostListComponent,
     LimitLengthPipe,
-    routingComponents
+    routingComponents,
+    LikeComponent
 
   ],
   imports: [

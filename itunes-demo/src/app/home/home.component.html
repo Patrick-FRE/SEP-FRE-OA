@@ -1,0 +1,13 @@
+<!-- <p>home works!</p> -->
+<header class="header">
+    <div>
+        <input type="text" [(ngModel)]="text">
+        <button (click) = "search()">Search</button>
+    </div>
+</header>
+<div class="home">
+    <div class="cart" *ngFor="let album of collectionCensoredNameList; let i = index;">
+        <app-album [collectionCensoredName]="collectionCensoredNameList[i]" [artworkUrl100]="artworkUrl100List[i]"></app-album>
+    </div>
+</div>
+

@@ -7,17 +7,15 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
-import { PostComponentComponent } from './post-component/post-component.component';
-import { CoreComponentComponent } from './core-component/core-component.component';
 import { LimitLengthPipe } from './shared/pipes/limit-length.pipe';
 import { ModalComponent } from './backdrop/modal.component';
+import { CoreModule } from './core/core.module';
+import { PostModule } from './post/post.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
-    PostComponentComponent,
-    CoreComponentComponent,
     LimitLengthPipe,
     ModalComponent
   ],
@@ -26,7 +24,9 @@ import { ModalComponent } from './backdrop/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    CoreModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

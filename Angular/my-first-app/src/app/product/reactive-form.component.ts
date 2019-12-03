@@ -21,8 +21,8 @@ export class ReactiveFormComponent implements OnInit {
   //tmpData:string;
   productForm = this.formbuilder.group({
                 id:["",Validators.required], 
-                name:["",Validators.required],
-                username:["",Validators.required],
+                name:["name",Validators.required],
+                username:["username",Validators.required],
                 email:["",Validators.required],
                 address: this.formbuilder.group({
                          street:[""],
@@ -70,5 +70,7 @@ export class ReactiveFormComponent implements OnInit {
     
     // console.log(this.productForm.status);
   }
+
+
 
 }
