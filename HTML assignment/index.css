@@ -1,0 +1,73 @@
+form {
+  justify-content: center;
+}
+form .mobile {
+  width: 97.5%;
+}
+form .email {
+  width: 97.5%;
+}
+
+/*
+input {
+    display: block
+}*/
+button.register {
+  background: deepskyblue;
+}
+
+button.signIn {
+  background: greenyellow;
+}
+
+div#head {
+  display: flex;
+  justify-content: center;
+}
+div#body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button {
+  width: 111px;
+}
+
+@media (min-width: 600px) {
+  div .all {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 960px) {
+  div .all {
+    flex: 0 0 33%;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(130, 130, 134);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  top: -5px;
+  size: 10px;
+  left: 105%;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
