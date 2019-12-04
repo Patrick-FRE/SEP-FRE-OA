@@ -13,26 +13,50 @@
   </head>
   <body>
     <div class="all">
-    <div id="head">
-      <h1>Sign up</h1>
+      <div id="head">
+        <h1>Sign up</h1>
+      </div>
+      <div id="body">
+        <section class="form">
+          <form>
+            <input type="text" placeholder="First name" /><input
+              type="text"
+              placeholder="Last name"
+            />
+            <br />
+            <input
+              class="mobile"
+              type="text"
+              placeholder="Mobile number"
+            /><br />
+            <input
+              class="email"
+              type="email"
+              placeholder="Email address"
+            /><br />
+            <input type="password" placeholder="Password" /><input
+              type="password"
+              placeholder="Confirm password"
+            /><br />
+            <div>
+              <div class="agree-wrapper">
+                <input type="checkbox" />
+                <label for="agree">I Agree</label>
+                <p>
+                  By clicking
+                  <span>Register</span>, you agree to the
+                  <a href="#">Terms and Conditions </a>
+                  set out by this site, including our Cookie use.
+                </p>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section class="button">
+          <button type="submit" class="register">Register</button
+          ><button class="signIn">Sign in</button>
+        </section>
+      </div>
     </div>
-    <div id='body'>
-      <section class='form'>
-        <form>
-         <input type="text" placeholder="First name"><input type='text' placeholder="Last name"> <br>
-        <input class ='mobile' type="text" placeholder="Mobile number"><br>
-        <input class ='email' type='email' placeholder="Email address"><br>
-        <input type="password" placeholder="Password"><input type='password' placeholder="Confirm password"><br>
-        <div class='tooltip'>
-        <input   type="checkbox">I Agree <br>
-        <span class="tooltiptext">By clicking register, you agree to the Terms and Conditions set out by this site, including our Cookie use.</span>
-        </div>
-      </form> 
-    </section>
-    <section class='button'> 
-      <button type="submit" class="register">Register</button><button class='signIn'>Sign in</button>
-        </section> 
-    </div>
-  </div>
   </body>
 </html>
