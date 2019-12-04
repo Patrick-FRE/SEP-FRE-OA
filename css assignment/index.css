@@ -1,3 +1,98 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit
+}
+
 html {
-    color: red;
+    font-size: 62.25%
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* margin: 0; */
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+/*common css*/
+header {
+    background-color: #000;
+    /* position: fixed; */
+    /* z-index: 2; */
+    display: flex;
+    margin: 0 4em;
+    padding: 10px;
+    width: calc(100vw - 8em);
+    color: #fff;
+    /* border-radius: 0 0 1em 1em; */
+
+}
+
+nav {
+    display: flex;
+}
+
+.nav-items {
+    height: 1.5em;
+    margin: 0 1.5em 0 0;
+}
+
+.nav-items a {
+    font-size: 1.3em;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav-items a:hover {
+    color: #202b47;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: #d3d3d3;
+
+}
+
+footer {
+    background-color: #0b4d14;
+    /* position: fixed; */
+    /* z-index: 2; */
+    display: flex;
+    margin: 0 4em;
+    padding: 10px;
+    width: calc(100vw - 8em);
+    color: #fff;
+    /* border-radius: 0 0 1em 1em; */
+
+}
+
+
+.nav-items2 {
+    height: 1.5em;
+    margin: 0 1.5em 0 0;
+}
+
+.nav-items2 a {
+    font-size: 1.3em;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav-items2 a:hover {
+    color: #202b47;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: #d3d3d3;
+
 }
