@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <style>
+        html,
+        body,
+        main {
+            width: 100%;
+        }
+
+        .col-4 {
+                float: left;
+                width: calc(100%/3);
+            }
+
+        @media screen and(max-width: 800px) {
+            .col-md-12 {
+                float: left;
+                width: calc(100%/1);
+                background: red;
+
+            }
+
+            .col-md-11 {
+                float: left;
+                width: calc(11/12*100%);
+                background: blue;
+            }
+
+            .col-md-10 {
+                float: left;
+                width: calc(10/12*100%);
+                background: white;
+            }
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="col-4 col-md-12 ">
+                This is div1.
+            </div>
+            <div class="col-4 col-md-11">
+                This is div2.
+            </div>
+            <div class="col-4 col-md-10">
+                This is div3.
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
