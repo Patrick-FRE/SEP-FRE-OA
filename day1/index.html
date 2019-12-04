@@ -13,24 +13,24 @@
     <body>
         <div class="main">
             <h1 class="head">Sign Up</h1>
-            <form>
+            <form action="" method="POST">
                
                 <div class="form-field">
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
+                    <input type="text" name="firstname" placeholder="First Name" required>
+                    <input type="text" name="lastname" placeholder="Last Name" required>
                 </div>
 
                 <div class="form-field item2">
-                    <input type="tel" placeholder="Mobile No.">
+                    <input type="tel" name="phone" placeholder="Mobile No.">
+                </div>
+                
+                <div class="form-field" >
+                    <input type="email" name="emailaddress" placeholder="Email Address" required>
                 </div>
                 
                 <div class="form-field">
-                    <input type="email" placeholder="Email Address">
-                </div>
-                
-                <div class="form-field">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="confirmPass" placeholder="Confirm Password" required>
                 </div>
                 
                 <div class="form-field agreeCheckbox">
