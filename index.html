@@ -2,42 +2,42 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <link href="./signup.css" rel="stylesheet" type="text/css">
         <title>Sign Up Forms</title>
     </head>
     <body>
         <form>
             <h1>Sign Up</h1>
-            <section class="inputinfo">
-                <input type="text" name="firstname" placeholder="First Name" required>
+            <div class="shortinput">
+                <input type="text" name="firstname" placeholder="First Name" required >
                 <input type="text" name="lastname" placeholder="Last Name" required>
-            </section>
-            <!-- <br> -->
-            <section class="inputinfo wideinput">
+            </div>
+            <div class="wideinput">
                 <input type="tel" name="mobileNo" placeholder="Mobile No.">
-            </section>
-            <!-- <br> -->
-            <section class="inputinfo wideinput">
+            </div>
+            <div class="wideinput">
                 <input type="email" name="emailAdd" placeholder="Email Address">
-            </section>
-            <!-- <br> -->
-            <section class="inputinfo">
+            </div>
+            <div class="shortinput">
                 <input type="password" name="userpw" placeholder="Password">
                 <input type="password" name="confirmpw" placeholder="Confirm Password">
-            </section>
-            <!-- <br> -->
-            <section class="agree">
-                <input type="checkbox" name="agree">I Agree
-                <p>By clicking 
-                    <span style= "background:blue; color:white">Register</span>, you agree to the 
+            </div>
+            <div class="agree">
+                <div class="agreecheck">
+                    <input type="checkbox" name="agree">
+                    <label for="agree">I Agree</label>
+                </div>
+                <p >By clicking 
+                    <span class="regword">Register</span>, you agree to the 
                 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">Terms and Condictions</a>
                     set out by this site, including our Cookie Use.
                 </p>
-            </section>
-            <section>
-                <input type="submit" name="register" value="Regiser" style="background: blue; color:white">
-                <input type="submit" name="signin" value="Sign In" style="background: greenyellow; color: white">
-            </section>
+            </div>
+            <div class="buttons">
+                <input class ="register" type="button" name="register" value="Regiser">
+                <input class ="signin" type="button" name="signin" value="Sign In">
+            </div>
         </form>
     </body>
 </html>
