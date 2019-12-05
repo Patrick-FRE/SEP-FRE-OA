@@ -12,51 +12,60 @@
     <title>Antra assignment day 1</title>
   </head>
   <body>
-    <div class="all">
-      <div id="head">
-        <h1>Sign up</h1>
-      </div>
-      <div id="body">
-        <section class="form">
-          <form>
-            <input type="text" placeholder="First name" /><input
-              type="text"
-              placeholder="Last name"
-            />
-            <br />
-            <input
-              class="mobile"
-              type="text"
-              placeholder="Mobile number"
-            /><br />
-            <input
-              class="email"
-              type="email"
-              placeholder="Email address"
-            /><br />
-            <input type="password" placeholder="Password" /><input
-              type="password"
-              placeholder="Confirm password"
-            /><br />
-            <div>
-              <div class="agree-wrapper">
-                <input type="checkbox" />
-                <label for="agree">I Agree</label>
-                <p>
-                  By clicking
-                  <span>Register</span>, you agree to the
-                  <a href="#">Terms and Conditions </a>
-                  set out by this site, including our Cookie use.
-                </p>
-              </div>
+    <div class="container">
+      <form class="signup">
+        <header class="Header">
+          <h1>Sign Up</h1>
+        </header>
+        <div class="formRow">
+          <div class="formItem">
+            <input type="text" placeholder="First Name" />
+          </div>
+          <div class="formItem">
+            <input type="text" placeholder="Last Name" />
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="formItem">
+            <input type="text" placeholder="Mobile Number" />
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="formItem">
+            <input type="text" placeholder="Email Address" />
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="formItem">
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="formItem">
+            <input type="password" placeholder="Confirm Password" />
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="wrapper">
+            <div class="agree">
+              <input type="checkbox" id="agree" />
+              <label for="agree">I Agree</label>
             </div>
-          </form>
-        </section>
-        <section class="button">
-          <button type="submit" class="register">Register</button
-          ><button class="signIn">Sign in</button>
-        </section>
-      </div>
+            <p class="terms">
+              By clicking
+              <span class="badge">Register</span>, you agree to the
+              <a href="#" class="conditions">Terms and Conditions</a>
+              set out by this site, including our Cookie Use
+            </p>
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="formItem">
+            <input type="submit" class="register" value="Register" />
+          </div>
+          <div class="formItem">
+            <input type="button" class="signIn" value="Sign In" />
+          </div>
+        </div>
+      </form>
     </div>
   </body>
 </html>
