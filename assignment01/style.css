@@ -1,86 +1,100 @@
-body{
-    text-align: center;
-    font-family: arial;
+
+:root{
+    --color-primary:#4285F4;
+    --color-primary-dark:#0d47a1;
+    --color-success:#00C851;
+    --color-success-dark:#007E33;
+    --color-grey:#e0e0e0;
+    --color-grey-dark:#757575;
 }
 
-form{
-    margin-top: 10%;
-}
-
-.name input{
-    height: 40px;
-    width: 200px;
-    padding: 5px;
-    margin: 10px;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
-}
-
-.password input{
-    height: 40px;
-    width: 200px;
-    padding: 5px;
-    margin: 10px;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
-}
-
-.contact input{
-    height: 40px;
-    width: 424px;
-    padding: 5px;
-    margin: 10px;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
-}
-
-
-.agree{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 32px;
-    padding: 2px;
-}
-
-.agreebox{
-    width:80px;
-}
-
-.agree label{
-    font-size: 0.8em;
-}
-
-.agree p{
+*, *::before, *::after{
     margin: 0;
-    width: 340px;
-    font-size: 0.8em;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-a{
-    text-decoration: none;
+body{
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
-.submit button{
-    height: 40px;
-    width: 200px;
+/* main style */
+.form-container{
+    position: fixed;
+    width: 100%;
+    max-width: 40rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.form-signup{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-signup header{
+    text-align: center;
+    padding: 10px;
+}
+
+form .form-row{
+    display: flex;
+    justify-content: center;
+}
+
+.form-item{
+    flex: 1 1 100%;
     padding: 5px;
-    margin: 10px;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
 }
 
-#register{
-    background-color:#0080ff;
-    color:white;
+.form-item input, .form-item button{
+    height: 3em;
+    width: 100%;
+    padding: 5px;
 }
 
-.submit #register{
-    font-size:18px;
+label{
+    cursor: pointer;
 }
 
-#signin{
-    background-color:#00cc00;
-    color:white;
-    font-size:18px;
+input[type='checkbox']{
+    cursor:pointer;
 }
+
+.agree-wrapper{
+    display: flex;
+}
+
+.check-agree{
+    width: 30%;
+}
+
+.btn{
+    border:none;
+    background-color: var(--color-grey-dark);
+    outline: none;
+}
+
+.primary{
+    color: #fff;
+    background-color:var(--color-primary);
+}
+.primary:active{
+    background-color: var(--color-primary-dark);
+}
+.success{
+    color:#fff;
+    background-color:var(--color-success);
+}
+.success:active{
+    background-color: var(--color-success-dark);
+}
+
+
+
+
+
+
+
