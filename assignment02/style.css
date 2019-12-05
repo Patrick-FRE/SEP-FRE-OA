@@ -73,6 +73,10 @@ body{
     justify-content: space-around;
 }
 
+.content-column{
+    padding: 10px 0;
+}
+
 .footer{
     position: fixed;
     bottom: 0;
@@ -103,3 +107,8 @@ body{
     /* flex: 1 1 100%; */
 }
 
+@media only screen and (max-width: 800px){
+    .content-paragragh{
+        flex-direction: column;
+    }
+}
