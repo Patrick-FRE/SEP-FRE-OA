@@ -1,18 +1,36 @@
-*,
+/* *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: inherit
+} */
+* {
+    box-sizing: border-box;
 }
 
 html {
     font-size: 62.25%
 }
 
+p,
+h4 {
+    line-height: 1.5em;
+}
+
+h2 {
+    margin-left: 3em;
+
+}
+
+h4 {
+    margin-left: 4.5em;
+    font-size: 15px;
+}
+
 body {
     font-size: 1.6rem;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     font-family: sans-serif;
     /* margin: 0; */
 }
@@ -41,6 +59,7 @@ header {
 
 nav {
     display: flex;
+    margin-left: 5em;
 }
 
 .nav-items {
@@ -49,7 +68,7 @@ nav {
 }
 
 .nav-items a {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #fff;
     text-decoration: none;
     padding: 5px;
@@ -74,8 +93,14 @@ footer {
     color: #fff;
     /* border-radius: 0 0 1em 1em; */
 
+
 }
 
+footer nav {
+    /* display: flex;
+    align-items: flex-start; */
+    /* justify-content: space-between; */
+}
 
 .nav-items2 {
     height: 1.5em;
@@ -83,10 +108,17 @@ footer {
 }
 
 .nav-items2 a {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #fff;
     text-decoration: none;
     padding: 5px;
+}
+
+.nav-items3 {
+    display: flex;
+    height: 1.5em;
+    margin: 0 1.5em 0 0;
+    align-items: flex-end;
 }
 
 .nav-items2 a:hover {
@@ -95,4 +127,63 @@ footer {
     background-color: #fff;
     box-shadow: #d3d3d3;
 
+}
+
+#about {
+    background-color: #c6bfbf;
+    margin: 0 4em;
+    padding: 10px;
+    width: calc(100vw - 8em);
+}
+
+
+.wrap {
+    display: flex;
+    /* flex-wrap: wrap; */
+
+}
+
+.par {
+    /* flex-basis: 100%; */
+
+}
+
+section {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#content-header {
+    /* text-align: center; */
+    position: relative;
+    /* margin: 60px 0; */
+    display: flex;
+}
+
+/* #content-header:after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    width: 60px;
+    height: 1px;
+    background-color: #f39c12;
+    left: 50%;
+    margin-left: -30px;
+} */
+
+.content {
+    /* width: calc(100% - 2.5em); */
+    /* margin-left: 2.5em; */
+    text-align: left;
+    font-style: italic;
+    margin: 0 7em 2em 8em;
+    /* padding: 10px; */
+    /* width: calc(100vw - 8em);
+     */
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 15px;
 }
