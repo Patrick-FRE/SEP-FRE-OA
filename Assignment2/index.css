@@ -9,7 +9,7 @@
 *::after{
     margin:0;
     padding:0;
-    box-sizing: inherit
+    box-sizing: inherit;
 }
 
 html{
@@ -22,3 +22,67 @@ body{
     font-family: Arial;
 }
 
+.top{
+    background-color: var(--color-black);
+    width: 100%;
+    height: 6rem;
+    /* position: fixed; */
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+.top-nav{
+    position: relative;
+    left: 10%;
+}
+.top-nav-wrapper{
+    display: flex;
+    
+}
+.nav-item, .nav-item a{
+    padding: 1em;
+    display: inline;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+.topic{
+    display: block;
+    background-color: var(--color-gray);
+}
+.topic-row{
+    display: flex;
+    padding: 1.5rem;
+}
+.content{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    width: 50%;
+    left: 25%;
+    padding: 30px 20px;
+}
+.content-col{
+    padding: 10px 10px;
+}
+footer{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--color-green);
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+}
+.bottom-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;  
+}
+.bottom-nav-wrapper{
+    width: 24%;
+    display: flex;
+    justify-content: space-between;
+}
