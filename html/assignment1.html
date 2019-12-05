@@ -10,9 +10,60 @@
 </head>
 
 <body>
-    <div class='container'>
-        <h1 class='text-center'>Sign Up</h1>
+    <div class='form-container'>
         <form action="" method='GET'>
+            <h1 class='text-center'>Sign Up</h1>
+            <div class="form-row">
+                <div class='form-item'>
+                    <input type="text" name='firstname' maxlength='30' placeholder="Firstname">
+                </div>
+                <div class='form-item'>
+                    <input type="text" name='lastname' maxlength='30' placeholder="Lastname">
+                </div>
+            </div>
+            <div class='form-row'>
+                <div class='form-item'>
+                    <input type="text" name='phone' maxlength="12" placeholder="Phone">
+                </div>
+            </div>
+            <div class='form-row'>
+                <div class='form-item'>
+                    <input type="email" name="email" placeholder="email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class='form-item'>
+                    <input type="password" name="password" placeholder="password">
+                </div>
+                <div class='form-item'>
+                    <input type="password" name='passwrod1' placeholder="confirm password">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class='form-agree'>
+                    <input type="checkbox" name="agree" id='agree'>
+                    <label for="agree">I Agree</label>
+                </div>
+                <div class='form-agree'>
+                    <span>
+                        By clicking
+                        <a href="" class='badge-register'>Register</a>
+                        , you agree to the
+                        <a href="" class='terms'>Terms and Conditions</a>
+                        set out by this site, including our Cookie Use.
+                    </span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class='form-item'>
+                    <input type="submit" class='btn btn-primary' name="Register" value='Register'>
+                </div>
+                <div class='form-item'>
+                    <input type="submit" class='btn btn-success' name='Sign in' value='Sign in'>
+                </div>
+            </div>
+        </form>
+        <!-- <form action="" method='GET'>
             <div class="row-width-8 two-columns">
                 <div class='half-row-left text-left'>
                     <input class='row-width-10' type="text" name='firstname' maxlength='30' placeholder="Firstname">
@@ -52,7 +103,7 @@
                     <input class='form-btn color-green row-width-10' type="submit" name='Sign in' value='Sign in'>
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
 
 </body>

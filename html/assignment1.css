@@ -1,4 +1,89 @@
+
+:root{
+    --color-primary:#4285F4;
+    --color-primary-dark:#0d47a1;
+    --color-success:#00C851;
+    --color-success-dark:#007E33;
+    --color-grey:#e0e0e0;
+    --color-grey-dark:#757575;
+}
+*, *::before, *::after{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+.btn{
+    border: none;
+    background-color: var(--color-grey-dark);
+}
+.btn-primary{
+    color:white;
+    background-color: var(--color-primary);
+}
+.btn-primary:active{
+    background-color: var(--color-primary-dark);
+}
+.btn-success{
+    color: white;
+    background-color: var(--color-success);
+}
+.btn-success:active{
+    background-color: var(--color-success-dark);
+}
 .text-center{
+    text-align:center;
+}
+.form-container{
+    width: 100%;
+    max-width: 50rem;
+    margin: auto;
+}
+.form-row{
+    display: flex;
+    margin: 0.1rem;
+    width: 100%;
+}
+.form-item{
+    margin: 0.5rem 1rem;
+    width: 100%;
+}
+.form-item input{
+    width: 100%;
+    padding: 1rem;
+    border:1px solid var(--color-grey);
+    border-radius: 5px;
+    outline: none;
+}
+.form-item input:focus{
+    box-shadow: 0 0 2px 1px #88b8ff;
+}
+.form-agree{
+    margin: 0.5rem 1rem;
+    min-width: 6rem;
+}
+.form-agree label{
+    font-weight: bold;
+}
+.form-agree span a{
+    text-decoration: none;
+}
+.form-agree .badge-register{
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1px;
+    border-radius: 3px;
+}
+@media (max-width:600px){
+    .form-row{
+        flex-direction: column;
+    }
+    .form-item{
+        width: auto;
+    }
+}
+
+/* .text-center{
     text-align:center;
 }
 .text-left{
@@ -87,4 +172,4 @@ input{
         position: static;
         height:40px;
     }
-}
+} */
