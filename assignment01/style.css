@@ -92,6 +92,10 @@ input[type='checkbox']{
     background-color: var(--color-success-dark);
 }
 
+span{
+    background-color: var(--color-primary-dark);
+    color: white;
+}
 
 
 
