@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.25%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+}
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.form {
+  width: 40%;
+}
+.form-title {
+  text-align: center;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.row-item {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 10px;
+}
+input {
+  flex-grow: 1;
+  min-height: 50px;
+  border: 1px solid #ddd;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+.row-item input:focus {
+  box-shadow: 0 0 2px 2px skyblue;
+}
+
+.agree-wrapper {
+  display: flex;
+}
+
+.agree-check {
+  width: 30%;
+  margin-left: 10px;
+}
+
+.register-label {
+  padding: 2px 12px;
+  background-color: #4285f4;
+  border-radius: 4px;
+}
+
+.register-button {
+  background-color: #4285f4;
+  color: white;
+}
+
+.signin-button {
+  background-color: #00c851;
+  color: white;
+}
+
+input:visited {
+  outline: none;
+}
+
+label:hover {
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+}
