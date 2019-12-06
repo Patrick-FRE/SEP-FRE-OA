@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+
+
+.container {
+    position: fixed;
+
+    max-width: 150rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px #ccc solid;
+}
+
+
+
+.signUp-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    margin-top: 5px;
+    font-size: 1rem;
+
+}
+
+.form-item {
+    display: flex;
+    margin: 1rem;
+}
+
+.submit {
+    display: flex;
+    background: lightblue;
+
+}
+
+.sign {
+    display: flex;
+    background: lightgreen;
+    align-items: flex-end;
+}
+
+.heading {
+    text-align: center;
+    margin: 0.1rem;
+}
+
+.term-register {
+    background: lightblue;
+    display: inline-block;
+    color: black;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.terms {
+    font-size: 1rem;
+}
+
+.form-item-2 {
+    display: flex;
+    margin: 1rem;
+    align-items: left;
+}

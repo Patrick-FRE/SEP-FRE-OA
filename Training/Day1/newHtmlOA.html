@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Example</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="submit" class="signUp-container">
+        <header class="heading">Sign Up</header>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="text" class="lastName" placeholder="last name" />
+          </div>
+          <div class="form-item">
+            <input type="text" class="firstName" placeholder="first name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="text" class="phoneNumber" placeholder="Phone number" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="text" class="email" placeholder="Email" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="text" class="password" placeholder="Password" />
+          </div>
+          <div class="form-item">
+            <input
+              type="text"
+              class="confirmPass"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="checkbox" id="agree" class="agree" />
+            <label for="Agree">I agree</label>
+          </div>
+          <div class="form-item">
+            <p class="terms">
+              By Clicking <span class="term-register">Register</span>, you are
+              agree to the site <a href="#">terms and conditions</a>.
+            </p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <input type="submit" class="btn submit" value="Register" />
+          </div>
+          <div class="form-item-2">
+            <input type="button" class="btn sign" value="Sign In" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
