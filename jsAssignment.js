@@ -282,7 +282,7 @@ function kthSelect(arr, lo, hi, k) {
     if (lo == hi) {
         return arr[lo];
     }
-    var pivotIdx = partitionedIdx(arr, lo, hi, lo);
+    var pivotIdx = partition(arr, lo, hi, lo);
     if (k == pivotIdx) {
         return arr[k];
     } else if (k < pivotIdx) {
@@ -308,9 +308,9 @@ function partition(arr, lo, hi, pivotIdx) {
             storeIdx++;
         }
     }
-    console.log(storeIdx);
+    // console.log(storeIdx);
     swap(arr, storeIdx, hi);
-    console.log(storeIdx);
+    // console.log(storeIdx);
     return storeIdx;
 }
 var myArr = [1,3,4,2,5];
@@ -321,6 +321,13 @@ var partitionedIdx = partition(myArr, 0, myArr.length-1, 1);
 console.log("partitionedIdx: ", partitionedIdx);
 test.number(partitionedIdx).is(2);
 // test.value(myArr).isEqualTo([1,4,3,2,5]);
-
+var s0 = kthSelect(myArr, 0, myArr.length-1, 0);
+test.value(s0).is(1);
+var s1 = kthSelect(myArr, 0, myArr.length-1, 1);
+test.value(s1).is(2);
+var s2 = kthSelect(myArr, 0, myArr.length-1, 2);
+test.value(s2).is(3);
+var s3 = kthSelect(myArr, 0, myArr.length-1, 3);
+test.value(s3).is(4);
 var func11 = (arr)=> {
 }
