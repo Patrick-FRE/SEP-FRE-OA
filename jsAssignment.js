@@ -4,7 +4,7 @@ var test = require('unit.js');
 1. Write a JavaScript function that reverse a number. Example x = 32243;
 Expected Output : 34223
  */
-var func1 = function myReverse(num) {
+func1 = (num) => {
     var ansArr = [];
     while (num != 0) {
         ansArr.push(num % 10);
@@ -27,7 +27,7 @@ test.number(func1(0)).is(0);
 2. Write a JavaScript function that checks whether a passed string is palindrome or not?
 A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
  */
-var func2 = function isPalindrome(str) {
+func2 =  (str) => {
     var len = str.length;
     var i = 0, j = len-1;
     while (i < j) {
@@ -49,13 +49,14 @@ test.value(func2("adbd  a")).is(true);
  * 3. Write a JavaScript function that generates all combinations of a string. Example string : 'dog'
 Expected Output : d,do,dog,o,og,g
  */
-function dfs (str, cur, idx, len, ans) {
+dfs =  (str, cur, idx, len, ans) => {
     if (idx == len) return;
     dfs(str, cur, idx+1, len, ans);
     ans.push(cur + str.charAt(idx));
     dfs(str, cur + str.charAt(idx), idx+1, len, ans);
 }
-var func3 = function generateCombination(str) {
+
+func3 = (str) => {
     var ans = [];
     var len = str.length;
     for (var i = 0; i < len; i++) {
@@ -72,7 +73,7 @@ test.array(func3("Antra")).is(['A','An','Ant', 'Antr','Antra','n', 'nt','ntr', '
 Expected Output : 'abeemrstw'
 Assume punctuation and numbers symbols are not included in the passed string
  */
-var func4 = function alphabeticalOrder(str) {
+func4  = (str) => {
     var bucket = new Array(26);
     var len = str.length;
     for (var i = 0; i < 26; i++) {
@@ -98,7 +99,7 @@ test.string(func4("iaoue")).is("aeiou");
 Example string : 'the quick brown fox'
 Expected Output : 'The Quick Brown Fox '
  */
-var func5 = function(str) {
+func5 = (str) => {
     var ans = str;
     var len = str.length;
     var i = 0;
@@ -122,7 +123,7 @@ test.string(func5("the great wall is great ")).is("The Great Wall Is Great ");
  *  Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. Example string : 'Web Development Tutorial'
 Expected Output : 'Development'
  */
-function splitStrToWordList(str) {
+splitStrToWordList = (str) =>{
     var len = str.length;
     var i = 0, j = 0;
     var ans = [];
@@ -137,7 +138,8 @@ function splitStrToWordList(str) {
     while (i < len);
     return ans;
 }
-var func6 = function(str) {
+
+func6 = (str) => {
     var wordList = splitStrToWordList(str);
     var maxLen = 0;
     var ans = "";
@@ -159,7 +161,7 @@ test.string(func6("the quick brown fox")).is("quick");
 Example string : 'The quick brown fox'
 Expected Output : 5
  */
-var func7 = function(str) {
+func7 = (str) => {
     var vowels = ['a', 'e', 'i', 'o', 'u'];
     var len = str.length;
     var ans = 0;
@@ -179,7 +181,7 @@ test.number(func7("united states of america")).is(10);
  * 8.Write a JavaScript function that accepts a number as a parameter and check the number is prime or not.
 Note : A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
  */
-var func8 = (num) => {
+func8 = (num) => {
     if (num == 1) return false;
     for (let j = 3; j * j <= num; j+=2) {
         if (num % j === 0)  {
@@ -246,7 +248,7 @@ Expected Output : 2,4
  * @param {number} hi the right most index of the numbers range
  * @param {number} k the kth smallest 
  */
-function kthSelect(arr, lo, hi, k) {
+kthSelect = (arr, lo, hi, k) => {
     var pivot = arr[hi];
     if (lo == hi) {
         return arr[lo];
@@ -261,13 +263,13 @@ function kthSelect(arr, lo, hi, k) {
     }
 }
 
-function swap(arr, idx1, idx2) {
+swap = (arr, idx1, idx2) => {
     var temp =  arr[idx1];
     arr[idx1] = arr[idx2];
     arr[idx2] = temp;
 }
 
-function partition(arr, lo, hi, pivotIdx) {
+partition = (arr, lo, hi, pivotIdx) =>{
     var pivotValue = arr[pivotIdx];
     swap(arr, pivotIdx, hi);
     var storeIdx = lo;
