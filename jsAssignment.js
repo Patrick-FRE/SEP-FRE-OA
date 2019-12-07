@@ -519,7 +519,41 @@ test.array(func19([1,11,5,-3,4,5,7, 6,23], -1)).is([1,11,5,4,5,7, 6,23]);
      }
      return ans;
  }
- console.log(func20(8));
- console.log(func20(11));
- console.log(func20(0));
- console.log(func20(3));
+//  console.log(func20(8));
+//  console.log(func20(11));
+//  console.log(func20(0));
+//  console.log(func20(3));
+
+ /**
+  * 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2) combinations in an array. 
+  * Sample array : [1, 2, 3] and subset length is 2
+    Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]]
+  */
+ 
+  dfs = (arr, len, curLen, curIdx, curArr, ans) => {
+        if (curLen == len) {
+            ans.push(curArr);
+            return;
+        }
+        //pruning to make the algo more efficient
+        if (curIdx == arr.length || arr.length - curIdx < len - curLen) {
+            return;
+        } 
+        dfs(arr, len, curLen + 1,curIdx + 1, curArr.concat([arr[curIdx]]), ans);
+        dfs(arr, len, curLen,curIdx + 1, curArr, ans);
+  }
+  
+  func21 = (arr, len) => {
+        ans = [];
+        dfs(arr, len, 0, 0, [], ans);
+        return ans;
+  }
+  var test21 = func21([1,2,3,4], 3);
+  test21.sort();
+  test.array(test21).is([ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]);
+  test21 = func21([1,2,3,4], 1);
+  test21.sort();
+  test.array(test21).is([[1], [2], [3], [4]]);
+  test21 = func21([1,2,3,4], 2);
+  test21.sort();
+  test.array(test21).is([ [ 1, 2], [ 1, 3], [ 1, 4 ], [ 2,3], [2,4],[3,4]]);
