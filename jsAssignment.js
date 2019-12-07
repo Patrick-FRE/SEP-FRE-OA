@@ -330,4 +330,13 @@ test.value(s2).is(3);
 var s3 = kthSelect(myArr, 0, myArr.length-1, 3);
 test.value(s3).is(4);
 var func11 = (arr)=> {
+    var ans = [];
+    ans.push(kthSelect(arr, 0, arr.length-1, 1));
+    ans.push(kthSelect(arr, 0, arr.length-1, arr.length-2));
+    return ans;
 }
+
+var test11 = [1,2,3,4,5,7];
+test.array(func11(test11)).is([2, 5]);
+test11 = [1,2,3,4,5,7,11,1];
+test.array(func11(test11)).is([1, 7]);
