@@ -15,7 +15,6 @@ var func1 = function myReverse(num) {
     for (var i = 0; i < len; i++) {
         ans =  ans *10 + ansArr[i];
     }
-    // console.log("ans is: ", ans);
     return ans;
 }
 
@@ -28,7 +27,6 @@ A palindrome is word, phrase, or sequence that reads the same backward as forwar
  */
 var func2 = function isPalindrome(str) {
     var len = str.length;
-    console.log(len);
     var i = 0, j = len-1;
     while (i < j) {
         while (i < j && str.charAt(i) == ' ') i++;
@@ -74,7 +72,6 @@ Assume punctuation and numbers symbols are not included in the passed string
  */
 var func4 = function alphabeticalOrder(str) {
     var bucket = new Array(26);
-    console.log(bucket);
     var len = str.length;
     for (var i = 0; i < 26; i++) {
         bucket[i] = 0;
@@ -84,13 +81,11 @@ var func4 = function alphabeticalOrder(str) {
         
         bucket[idx] += 1;
     }
-    console.log(bucket);
     var ans = "";
     for (var i = 0; i < 26; i++) {
         for (var j = 0; j < bucket[i]; j++)
             ans += String.fromCharCode('a'.charCodeAt(0) + i);
     }
-    console.log(ans);
     return ans;
 }
 // console.log(func4("webmaster"));
@@ -140,7 +135,6 @@ function splitStrToWordList(str) {
 }
 var func6 = function(str) {
     var wordList = splitStrToWordList(str);
-    console.log(wordList);
     var maxLen = 0;
     var ans = "";
     for (let i = 0; i < wordList.length; i++) {
@@ -171,7 +165,7 @@ var func7 = function(str) {
     }
     return ans;
 }
-console.log(func7("The quick brown fox"));
+// console.log(func7("The quick brown fox"));
 /**
 test.value(val);
 test.object(val);
@@ -243,40 +237,14 @@ test.number(arr3d[1][1]).isEqualTo(1);
 test.number(arr3d[2][2]).isEqualTo(1);
 
 /**
- * 11.Write a JavaScript function which will take an array of numbers stored and find the second 
- * lowest and second greatest numbers, respectively.
-    Sample array : [1,2,3,4,5]
-    Expected Output : 2,4
+ * 11. Write a JavaScript function which will take an array of numbers stored and find the second lowest and second greatest numbers, respectively.
+Sample array : [1,2,3,4,5]
+Expected Output : 2,4
+ * @param {arr} arr the target arr
+ * @param {number} lo the left most index of the numbers range
+ * @param {number} hi the right most index of the numbers range
+ * @param {number} k the kth smallest 
  */
-// function partition(list, left, right, pivotIndex)
-// pivotValue := list[pivotIndex]
-// swap list[pivotIndex] and list[right]  // Move pivot to end
-// storeIndex := left
-// for i from left to right-1
-//     if list[i] < pivotValue
-//         swap list[storeIndex] and list[i]
-//         increment storeIndex
-// swap list[right] and list[storeIndex]  // Move pivot to its final place
-// return storeIndex
-
-  // Returns the k-th smallest element of list within left..right inclusive
-  // (i.e. left <= k <= right).
-//   function select(list, left, right, k)
-//      if left = right        // If the list contains only one element,
-//          return list[left]  // return that element
-//      pivotIndex  := ...     // select a pivotIndex between left and right,
-//                             // e.g., left + floor(rand() % (right - left + 1))
-//      pivotIndex  := partition(list, left, right, pivotIndex)
-//      // The pivot is in its final sorted position
-//      if k = pivotIndex
-//          return list[k]
-//      else if k < pivotIndex
-//          return select(list, left, pivotIndex - 1, k)
-//      else
-//          return select(list, pivotIndex + 1, right, k)
-
-
-
 function kthSelect(arr, lo, hi, k) {
     var pivot = arr[hi];
     if (lo == hi) {
@@ -308,19 +276,12 @@ function partition(arr, lo, hi, pivotIdx) {
             storeIdx++;
         }
     }
-    // console.log(storeIdx);
     swap(arr, storeIdx, hi);
-    // console.log(storeIdx);
     return storeIdx;
 }
 var myArr = [1,3,4,2,5];
-// swap(myArr, 1,2);
-console.log(myArr);
-// test.array(myArr).is([1, 4, 3, 2, 5]);
 var partitionedIdx = partition(myArr, 0, myArr.length-1, 1);
-console.log("partitionedIdx: ", partitionedIdx);
 test.number(partitionedIdx).is(2);
-// test.value(myArr).isEqualTo([1,4,3,2,5]);
 var s0 = kthSelect(myArr, 0, myArr.length-1, 0);
 test.value(s0).is(1);
 var s1 = kthSelect(myArr, 0, myArr.length-1, 1);
