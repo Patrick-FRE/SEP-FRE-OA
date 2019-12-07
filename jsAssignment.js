@@ -735,3 +735,12 @@ func28 = (cb) => {
     return cb instanceof Function
 }
 test.value(func28(() => {})).is(true);
+
+/**
+* 29.Write a JavaScript function to get the function name.
+ */
+//note arrow function will not pass
+function func29 (){
+    return arguments.callee.name;
+}
+test.value(func29()).is("func29");
