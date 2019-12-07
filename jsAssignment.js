@@ -605,3 +605,24 @@ func23 = (str) => {
 }
 test.string(func23('abacddbec')).is("e");
 test.string(func23('abcdegabcgkgalg')).is("d");
+
+/**
+ * 24. Write a JavaScript function to apply Bubble Sort algorithm.
+ */
+func24 = (arr) => {
+    let len = arr.length;
+    for (let  i = 0; i < len-1; i++) {
+        for (let j = 0; j < len-1-i; j++) {
+            if (arr[j] > arr[j+1]) {
+                swap(arr, j, j+1);
+            }
+        }
+    }
+    return arr;
+}
+test.array(func24([7, 4, 5, 2])).is([2,4,5,7]);
+test.array(func24([2,3,1,8,11,7,-9,23,8])).is([ -9, 1, 2, 3, 7, 8, 8, 11, 23 ]);
+test.array(func24([3,-1])).is([-1, 3]);
+/**
+ * 
+ */
