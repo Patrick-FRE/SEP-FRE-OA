@@ -197,14 +197,115 @@ class Person {
 // console.log(myAdd(5)(6)(5)); //output:16
 // myNewAdd(5, 5)(6, 7)(5, 5); // 33
 
-Array.prototype.myReduce = function(cb, init) {
-  let result = init;
-  this.forEach(item => {
-    result = cb(result, item);
-  });
-  return result;
-};
-let res = [1, 2, 3].myReduce((acc, cur) => {
-  return (acc += cur);
-}, 0);
-console.log(res);
+// Array.prototype.myReduce = function(cb, init) {
+//   let result = init;
+//   this.forEach(item => {
+//     result = cb(result, item);
+//   });
+//   return result;
+// };
+// let res = [1, 2, 3].myReduce((acc, cur) => {
+//   return (acc += cur);
+// }, 0);
+// console.log(res);
+
+//day4
+
+//IIFE closure
+// const Controller = (function() {
+//   return {
+//     init: () => {
+//       console.log("init");
+//     }
+//   };
+// })();
+// console.log(Controller);
+
+//curruing
+
+// function foo(msg) {
+//   console.log(msg);
+// }
+
+// function fooMsg(fn) {
+//   fn.sayhi = function() {
+//     console.log("hi");
+//   };
+//   return fn;
+// }
+
+// let myNewFoo = fooMsg(foo)("test");
+
+// console.log(myNewFoo);
+
+// deconstructing
+// Array.prototype.myMap = function(func) {
+//   let newArr = [];
+//   this.forEach((element, index, array) => {
+//     newArr.push(func(element, index, array));
+//   });
+//   return newArr;
+// };
+// let res = [1, 2, 3].myMap(num => num * 2);
+// console.log(res);
+
+// let res = [1, 2, 3].myMap((num, index, array) => {
+//   console.log(index);
+//   console.log(array);
+//   return num * 2;
+// });
+// console.log(res);
+
+// function foo() {
+//   for (let i = 0; i < 10; i++) {
+//     (function() {
+//       let j = i;
+//       setTimeout(() => {
+//         console.log(j);
+//       }, 2000);
+//     })();
+//     // console.log(i)
+//   }
+// }
+// foo();
+var res;
+function getData(cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status === 200) {
+      console.log(xhr);
+      res = xhr.response;
+      cb(xhr.response);
+    }
+
+    xhr.open("get", "https://jsonplaceholder.typicode.com/todos/1", true);
+    xhr.send();
+  };
+}
+
+function useData(res) {
+  console.log("useData");
+  console.log(res);
+}
+getData(useData);
+
+var res;
+function getData(cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status === 200) {
+      console.log(xhr);
+      res = xhr.response;
+      cb(xhr.response);
+    }
+
+    xhr.open("get", "https://jsonplaceholder.typicode.com/todos/1", true);
+    xhr.send();
+  };
+}
+
+function useData(res) {
+  console.log("useData");
+  console.log(res);
+}
+getData(useData);

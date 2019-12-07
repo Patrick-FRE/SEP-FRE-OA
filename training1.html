@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <input type="text" value="hi" /><input />
+    <script>
+      var res;
+      function getData(cb) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(xhr);
+            cb(xhr.response);
+          }
+        };
+      }
+
+      function getDataB(cb) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          console.log("hi");
+
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(xhr);
+            cb(xhr.response);
+          }
+        };
+        xhr.open("get", "https://jsonplaceholder.typicode.com/todos/1", true);
+        xhr.send();
+      }
+
+      function useData(res) {
+        console.log("useData");
+        console.log(res);
+      }
+      // getData(getDataB(useData));
+
+      var p = new Promise((resolve, reject) => {
+        getData(resolve, reject);
+      }).then(val => {
+        new Promise((resolve, reject) => {
+          getDataB(resolve);
+        }).then(data => {
+          useData(data);
+        });
+      });
+
+      console.log(p);
+    </script>
+  </body>
+</html>
