@@ -331,3 +331,25 @@ test.value(func12(111)).is(false);
 test.value(func12(486)).is(false);
 test.value(func12(496)).is(true);
 test.value(func12(8128)).is(true);
+
+/**
+ * 13. Write a JavaScript function to compute the factors of a positive integer.
+ */
+var func13 = (num) => {
+    var ans = [];
+    for (let i = 1; i * i <= num; i++) {
+        if (num % i == 0) {
+            ans.push(i);
+            if (i * i != num) {
+                ans.push(num / i);
+            }
+        }
+    }
+    return ans;
+}
+var test13 = func13(24);
+test13.sort((o1, o2) => {return o1 - o2;});
+test.array(test13).is([1,2,3,4,6,8,12,24]);
+test13 = func13(15);
+test13.sort((o1, o2) => {return o1 - o2;});
+test.array(test13).is([1,3,5,15]);
