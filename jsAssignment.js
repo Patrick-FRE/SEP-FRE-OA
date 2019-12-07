@@ -18,7 +18,9 @@ var func1 = function myReverse(num) {
     return ans;
 }
 
-// console.log(func1(2314))
+test.number(func1(1234)).is(4321);
+test.number(func1(32243)).is(34223);
+test.number(func1(0)).is(0);
 
 /***
  * 
@@ -39,9 +41,10 @@ var func2 = function isPalindrome(str) {
     return true;
 }
 
-// console.log(func2("madam"));
-// console.log(func2("nurses run"));
-// console.log(func2("abac"));
+test.value(func2("madam")).is(true);
+test.value(func2("nurses run")).is(true);
+test.value(func2("abac")).is(false);
+test.value(func2("adbd  a")).is(true);
 /**
  * 3. Write a JavaScript function that generates all combinations of a string. Example string : 'dog'
 Expected Output : d,do,dog,o,og,g
