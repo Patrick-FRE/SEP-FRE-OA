@@ -492,3 +492,34 @@ test.array(func19([1,11,5,-3,4,5,7], 3)).is([11,5,4,5,7]);
 test.array(func19([], 3)).is([]);
 test.array(func19([1,11,5,-3,4,5,7,23], 100)).is([]);
 test.array(func19([1,11,5,-3,4,5,7, 6,23], -1)).is([1,11,5,4,5,7, 6,23]);
+
+/**
+ * 20.Write a JavaScript function that generates a string id (specified length) of random characters. 
+ * Sample character list : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+ */
+
+ func20 = (len) => {
+     let ans = "";
+     let chars = [];
+     for (let  i = 48; i < 58; i++) {
+         chars.push(String.fromCharCode(i));
+     }
+     for (let i = 65; i < 91; i++) {
+        chars.push(String.fromCharCode(i));
+     }
+     for (let i = 97; i < 123; i++) {
+        chars.push(String.fromCharCode(i));
+     }
+     let tot = chars.length;
+     test.number(tot).is(62);
+     for (let i = 0; i < len; i++) {
+         //Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9
+         let idx  = Math.floor(Math.random() * tot);
+         ans += chars[idx];
+     }
+     return ans;
+ }
+ console.log(func20(8));
+ console.log(func20(11));
+ console.log(func20(0));
+ console.log(func20(3));
