@@ -474,3 +474,21 @@ test.number(func18([1,2,4,4,5,7,9], 11)).is(-1);
 test.number(func18([1,2,4,4,5,7,9], 5)).is(4);
 test.number(func18([], 5)).is(-1);
 test.number(func18([2,5,6,7,11,23], 23)).is(5);
+
+/**
+ * 19. Write a JavaScript function that returns array elements larger than a number.
+ */
+func19 = (arr, num) => {
+    ans = [];
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+        if (arr[i] > num) {
+            ans.push(arr[i]);
+        }
+    }
+    return ans;
+}
+test.array(func19([1,11,5,-3,4,5,7], 3)).is([11,5,4,5,7]);
+test.array(func19([], 3)).is([]);
+test.array(func19([1,11,5,-3,4,5,7,23], 100)).is([]);
+test.array(func19([1,11,5,-3,4,5,7, 6,23], -1)).is([1,11,5,4,5,7, 6,23]);
