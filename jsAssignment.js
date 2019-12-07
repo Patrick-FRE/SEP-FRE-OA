@@ -613,16 +613,35 @@ func24 = (arr) => {
     let len = arr.length;
     for (let  i = 0; i < len-1; i++) {
         for (let j = 0; j < len-1-i; j++) {
-            if (arr[j] > arr[j+1]) {
+            if (arr[j] < arr[j+1]) {
                 swap(arr, j, j+1);
             }
         }
     }
     return arr;
 }
-test.array(func24([7, 4, 5, 2])).is([2,4,5,7]);
-test.array(func24([2,3,1,8,11,7,-9,23,8])).is([ -9, 1, 2, 3, 7, 8, 8, 11, 23 ]);
-test.array(func24([3,-1])).is([-1, 3]);
+test.array(func24([7, 4, 5, 2])).is([7, 5, 4, 2]);
+test.array(func24([2,3,1,8,11,7,-9,23,8])).is([23, 11, 8,8,7,3,2,1,-9]);
+test.array(func24([3,-1])).is([3, -1]);
+test.array(func24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]))
+        .is([3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 1]);
 /**
- * 
+ * 25. Write a JavaScript function that accept a list of country names as input and returns the longest country name as output.
+    Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])
+    Expected output : "United States of America"
  */
+func25 = (arr) => {
+    let len = arr.length;
+    let maxLen = 0; 
+    let ans = "";
+    for (let i = 0; i < len; i++) {
+        if (arr[i].length > maxLen) {
+            maxLen = arr[i].length;
+            ans = arr[i];
+        }
+    }
+    return  ans;
+}
+test.string(func25(["Australia", "Germany", "United States of America"])).is("United States of America");
+test.string(func25(["Australia",  "United States of America"])).is("United States of America");
+test.string(func25(["Australia", "Germany", "China"])).is("Australia");
