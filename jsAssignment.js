@@ -448,3 +448,29 @@ func17 = (str) => {
 test.value(func17("baccbccccc")).is({'a': 1, 'b': 2, 'c': 7});
 test.value(func17("defgw")).is({'d': 1, 'e': 1, 'f':1, 'g':1, 'w':1});
 test.value(func17("")).is({});
+
+/**
+* 18. Write a function for searching JavaScript arrays with a binary search.
+Note : A binary search searches by splitting an array into smaller and smaller chunks until it finds the desired value.
+ */
+func18 = (arr, tar) => {
+    let len = arr.length;
+    if (len == 0) {
+        return -1;
+    }
+    let l = 0, r = arr.length-1;
+    while (l < r) {
+        let mid = parseInt((l + r + 1) /2);
+        if (arr[mid] > tar) {
+            r = mid-1;
+        }else {
+            l = mid;
+        }
+    }
+    if (arr[l] == tar) return l;
+    else return -1;
+}
+test.number(func18([1,2,4,4,5,7,9], 11)).is(-1);
+test.number(func18([1,2,4,4,5,7,9], 5)).is(4);
+test.number(func18([], 5)).is(-1);
+test.number(func18([2,5,6,7,11,23], 23)).is(5);
