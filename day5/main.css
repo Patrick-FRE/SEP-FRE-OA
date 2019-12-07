@@ -1,0 +1,83 @@
+
+
+/* reset */
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size:80%;
+}
+
+.table-container{
+    width:50rem;
+    margin:auto;
+}
+
+.btn{
+    width: 10em;
+    height: 3em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary{
+    background-color:green;
+} 
+
+.danger{
+    background-color:red;
+}
+
+/* header */
+.table-header{
+    background-color:darkgray;
+    height:5rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    position:fixed;
+    top:0;
+    width:50rem;
+}   
+/*main table*/
+.table-main{
+    margin-top:5rem;
+}
+
+
+.tb{
+    font-size:1.5em;
+}
+
+.tb caption{
+    font-size:2em;
+    margin:5px;
+}
+.tb , .tb-row , .tb-col{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.tb{
+    width:100%;
+}
+
+.tb-row:nth-child(even){
+    background-color:darkgray;
+}
+
+.td-row, .tb-col{
+    padding:15px;
+    text-align: center;
+}
+
+
+
