@@ -726,3 +726,12 @@ test.array(func27("abracadabra")).is(["aca", "ada"]);
 test.array(func27("abcdcbe")).is(["bcdcb"]);
 test.array(func27("abcdcba")).is(["abcdcba"]);
 test.array(func27("abcdcbagkhihkg")).is(["abcdcba", "gkhihkg"]);
+
+/**
+ * 28.Write a JavaScript program to pass a 'JavaScript function' as parameter.
+ */
+func28 = (cb) => {
+    // console.log(cb instanceof Function);
+    return cb instanceof Function
+}
+test.value(func28(() => {})).is(true);
