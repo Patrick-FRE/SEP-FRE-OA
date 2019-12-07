@@ -645,3 +645,34 @@ func25 = (arr) => {
 test.string(func25(["Australia", "Germany", "United States of America"])).is("United States of America");
 test.string(func25(["Australia",  "United States of America"])).is("United States of America");
 test.string(func25(["Australia", "Germany", "China"])).is("Australia");
+
+/**
+ * 26.Write a JavaScript function to find longest substring in a given a string without repeating characters.
+ */
+func26 = (str) => {
+    ans = "";
+    let len = str.length;
+    let i = 0, j = 0, maxLen = 0;
+    lastIndexes = {};
+    let flag = -1;
+    while (j < len) {
+        let ch = str.charAt(j);
+        if (lastIndexes[ch] != undefined) {
+            let lastPos = lastIndexes[ch];
+            for (let k = i; k <= lastPos; k++) {
+                delete lastIndexes[str.charAt(k)];
+            }
+            i =  lastPos + 1;
+        }
+        lastIndexes[ch] = j;
+        if (j - i + 1 > maxLen) {
+            maxLen = j - i +1;
+            ans = str.substring(i, j+1);
+        }
+        j++;
+    }
+    return ans;
+}
+test.string(func26("abcdcagh")).is("dcagh");
+test.string(func26("abdcagh")).is("bdcagh");
+test.string(func26("abcdefghijklmnopa")).is("abcdefghijklmnop");
