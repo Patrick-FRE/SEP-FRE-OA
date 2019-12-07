@@ -65,9 +65,8 @@ var func3 = function generateCombination(str) {
     }
     return ans;
 }
-
-// console.log(func3("dog"));
-
+test.array(func3("dog")).is(['d', 'do', 'dog', 'o', 'og', 'g' ]);
+test.array(func3("Antra")).is(['A','An','Ant', 'Antr','Antra','n', 'nt','ntr', 'ntra','t','tr','tra','r','ra','a'])
 /**
  * 4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Example string : 'webmaster'
 Expected Output : 'abeemrstw'
@@ -91,8 +90,9 @@ var func4 = function alphabeticalOrder(str) {
     }
     return ans;
 }
-// console.log(func4("webmaster"));
-
+test.string(func4("webmaster")).is("abeemrstw");
+test.string(func4("patrick")).is("acikprt");
+test.string(func4("iaoue")).is("aeiou");
 /**
  * 5. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case.
 Example string : 'the quick brown fox'
@@ -116,7 +116,8 @@ var func5 = function(str) {
     return ans;
 }
 
-// console.log(func5("the quick brown fox"));
+test.string(func5("the quick brown fox")).is('The Quick Brown Fox');
+test.string(func5("the great wall is great ")).is("The Great Wall Is Great ");
 /**
  *  Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. Example string : 'Web Development Tutorial'
 Expected Output : 'Development'
@@ -148,8 +149,10 @@ var func6 = function(str) {
     }
     return ans;
 };
-// console.log(func6("Web Development Tutorial"));
 
+test.string(func6("Web Development Tutorial")).is("Development");
+test.string(func6("the great wall is great")).is("great"); 
+test.string(func6("the quick brown fox")).is("quick");
 /**
  * 7. Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string. 
  * Note : As the letter 'y' can be regarded as both a vowel and a consonant, we do not count 'y' as vowel here.
@@ -168,14 +171,9 @@ var func7 = function(str) {
     }
     return ans;
 }
-// console.log(func7("The quick brown fox"));
-/**
-test.value(val);
-test.object(val);
-test.string(val);
-test.number(val);
- */
-test.number(func7("The quick brown fox")).isEqualTo(5);
+test.number(func7("The quick brown fox")).is(5);
+test.number(func7("aeiou")).is(5);
+test.number(func7("united states of america")).is(10);
 
 /**
  * 8.Write a JavaScript function that accepts a number as a parameter and check the number is prime or not.
