@@ -429,4 +429,22 @@ test.string(func16("abbacgatyas")).is("abcgtys");
 test.string(func16("")).is("");
 test.string(func16("aaaaaacccccccgggggg")).is("acg");
 
- 
+/**
+ * 17.Write a JavaScript function to get the number of occurrences of each letter in specified string.
+ */
+func17 = (str) => {
+    let occurrences = {};
+    let len = str.length;
+    for (let i = 0; i < len; i++) {
+        let ch = str.charAt(i);
+        if (occurrences[ch] == undefined) {
+            occurrences[ch] = 1;
+        } else {
+            occurrences[ch] += 1;
+        }
+    }
+    return occurrences;
+}
+test.value(func17("baccbccccc")).is({'a': 1, 'b': 2, 'c': 7});
+test.value(func17("defgw")).is({'d': 1, 'e': 1, 'f':1, 'g':1, 'w':1});
+test.value(func17("")).is({});
