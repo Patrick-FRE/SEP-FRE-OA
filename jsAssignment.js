@@ -301,3 +301,33 @@ var test11 = [1,2,3,4,5,7];
 test.array(func11(test11)).is([2, 5]);
 test11 = [1,2,3,4,5,7,11,1];
 test.array(func11(test11)).is([1, 7]);
+
+/**
+ * 12. Write a JavaScript function which says whether a number is perfect.
+According to Wikipedia : In number theory, a perfect number is a positive integer that is equal to the sum 
+of its proper positive divisors, that is, the sum of its positive divisors excluding the number itself 
+(also known as its aliquot sum). Equivalently, a perfect number is a number that is half the sum of all of
+ its positive divisors (including itself).
+Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6. 
+Equivalently, the number 6 is equal to half the sum of all its positive divisors: ( 1 + 2 + 3 + 6 ) / 2 = 6. 
+The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by the perfect numbers 496 and 8128.
+ */
+
+var func12 = (num) => {
+    if (num < 6) return false;
+    var tot = 0;
+    for (let j = 1; j * j <= num; j++) {
+        if (num % j == 0) {
+            tot += j;
+            if (j * j != num) tot += num / j;
+        } 
+    }
+    return tot == num * 2;  
+}
+
+test.value(func12(6)).is(true);
+test.value(func12(28)).is(true);
+test.value(func12(111)).is(false);
+test.value(func12(486)).is(false);
+test.value(func12(496)).is(true);
+test.value(func12(8128)).is(true);
