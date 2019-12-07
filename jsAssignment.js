@@ -676,3 +676,53 @@ func26 = (str) => {
 test.string(func26("abcdcagh")).is("dcagh");
 test.string(func26("abdcagh")).is("bdcagh");
 test.string(func26("abcdefghijklmnopa")).is("abcdefghijklmnop");
+
+/**
+ * 27.Write a JavaScript function that returns the longest palindrome in a given string.
+Note: According to Wikipedia "In computer science, the longest palindromic substring or longest symmetric factor problem is
+ the problem of finding a maximum-length contiguous substring of a given string that is also a palindrome. For example, the 
+ longest palindromic substring of "bananas" is "anana". The longest palindromic substring is not guaranteed to be unique; 
+ for example, in the string "abracadabra", there is no palindromic substring with length greater than three, but there are
+two palindromic substrings with length three, namely, "aca" and "ada".
+In some applications it may be necessary to return all maximal palindromic substrings (that is, all substrings that are 
+themselves palindromes and cannot be extended to larger palindromic substrings) rather than returning only one substring
+ or returning the maximum length of a palindromic substring.
+ */
+
+func27 = (str) => {
+    let ans = [];
+    let len = str.length, maxLen = 0;
+    for (let i = 0; i < len; i++) {
+        let str1 = "", str2 = "", len1 = 1, len2 = 1;
+        let j = i-1, k = i+1;
+        while (j >= 0 && k < len && str.charAt(j) == str.charAt(k)) {
+            j--; k++;
+        }
+        len1 = k - j -1;
+        if (len1 > maxLen) {
+            ans = [str.substring(j +1, k)];
+            maxLen = len1;
+        } else if (len1 == maxLen) {
+            ans.push(str.substring(j+1, k));
+        }
+        
+        j = i, k = i+1;
+        while (j >= 0 && k < len && str.charAt(j) == str.charAt(k)) {
+            j--; k++;
+        }
+        len2 = k -j -1;
+        if (len2 > maxLen) {
+            ans = [str.substring(j +1, k)];
+            maxLen = len2;
+        } else if (len2 == maxLen) {
+            ans.push(str.substring(j+1, k));
+        }
+    }
+    return ans;
+}
+
+test.array(func27("bananas")).is(["anana"]);
+test.array(func27("abracadabra")).is(["aca", "ada"]);
+test.array(func27("abcdcbe")).is(["bcdcb"]);
+test.array(func27("abcdcba")).is(["abcdcba"]);
+test.array(func27("abcdcbagkhihkg")).is(["abcdcba", "gkhihkg"]);
