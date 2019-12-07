@@ -377,3 +377,27 @@ var func14 = (num, coins) => {
 test.array(func14(46, [25, 10, 5, 2, 1])).is([25, 10, 10, 1]);
 test.array(func14(13, [25, 10, 5, 2, 1])).is([10,2,1]);
 test.array(func14(235, [100, 25, 10, 5, 2, 1])).is([100, 100, 25, 10]);
+
+/**
+ * 15. Write a JavaScript function to compute the value of bn where n is the exponent and b is the bases.
+ *  Accept b and n from the user and display the result.
+ */
+ myPow = (exponent, bases) => {
+    var ans = 1;
+    while (exponent != 0) {
+        ans *= bases;
+        exponent--;
+    }
+    return ans;
+}
+var func15 = () => {
+    var exponent = document.getElementById('textboxExpo').value;
+    var bases = document.getElementById('textboxBase').value;
+    var display = document.getElementById("resultBox");
+    var ans = myPow(exponent, bases);
+    display.value = ans;
+}
+
+test.value(myPow(3,3)).is(27.0);
+test.value(myPow(4,2)).is(16.0);
+test.value(myPow(5,2)).is(32.0);
