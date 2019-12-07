@@ -401,3 +401,32 @@ var func15 = () => {
 test.value(myPow(3,3)).is(27.0);
 test.value(myPow(4,2)).is(16.0);
 test.value(myPow(5,2)).is(32.0);
+
+/**
+ * 16. Write a JavaScript function to extract unique characters from a string. 
+ * Example string : "thequickbrownfoxjumpsoverthelazydog"
+   Expected Output : "thequickbrownfxjmpsvlazydg"
+ */
+func16 = (str) => {
+    let len = str.length;
+    let bits = new Array(26);
+    for (let i = 0; i < 26; i++) {
+        bits[i] = false;
+    }
+    let ans = "";
+    for (let i = 0; i < len; i++) {
+        let ch = str.charAt(i);
+        let idx = ch.charCodeAt(0) - 'a'.charCodeAt(0);
+        if (bits[idx] == false) {
+            ans += ch;
+            bits[idx] = true;
+        }
+    }
+    return ans;
+}
+test.string(func16("thequickbrownfoxjumpsoverthelazydog")).is("thequickbrownfxjmpsvlazydg");
+test.string(func16("abbacgatyas")).is("abcgtys");
+test.string(func16("")).is("");
+test.string(func16("aaaaaacccccccgggggg")).is("acg");
+
+ 
