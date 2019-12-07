@@ -557,3 +557,26 @@ test.array(func19([1,11,5,-3,4,5,7, 6,23], -1)).is([1,11,5,4,5,7, 6,23]);
   test21 = func21([1,2,3,4], 2);
   test21.sort();
   test.array(test21).is([ [ 1, 2], [ 1, 3], [ 1, 4 ], [ 2,3], [2,4],[3,4]]);
+
+/**
+ * 22. Write a JavaScript function that accepts two arguments, a string and a letter and the function will 
+ * count the number of occurrences of the specified letter within the string.
+Sample arguments : 'microsoft.com', 'o'
+Expected output : 3
+ */
+func22 = (str, ch) => {
+    if (str == "" || ch == undefined) return  0;
+    let len = str.length;
+    let ans = 0;
+    for (let i = 0; i < len; i++) {
+        if (str.charAt(i) == ch) {
+            ans++;
+        }
+    }
+    return ans;
+}
+
+test.number(func22("microsoft.com", 'o')).is(3);
+test.number(func22("antra.com", 'o')).is(1);
+test.number(func22("", 'o')).is(0);
+test.number(func22("google and facebook", 'e')).is(2);
