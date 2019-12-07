@@ -353,3 +353,27 @@ test.array(test13).is([1,2,3,4,6,8,12,24]);
 test13 = func13(15);
 test13.sort((o1, o2) => {return o1 - o2;});
 test.array(test13).is([1,3,5,15]);
+
+
+/**
+ *  14. Write a JavaScript function to convert an amount to coins. Sample function : amountTocoins(46, [25, 10, 5, 2, 1])
+Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
+Output : 25, 10, 10, 1
+ */
+var func14 = (num, coins) => {
+    var ans = [];
+    coins.sort((o1, o2) => {return o2 - o1;});
+    if (coins.length == 0) return ans;
+    for (let i = 0; i < coins.length; i++) {
+        var times = parseInt(num / coins[i]);
+        for (let j = 0; j < times; j++) {
+            ans.push(coins[i]);
+        }
+        num -= times * coins[i];
+    }
+    if (num == 0) return ans;
+    else return [];
+}
+test.array(func14(46, [25, 10, 5, 2, 1])).is([25, 10, 10, 1]);
+test.array(func14(13, [25, 10, 5, 2, 1])).is([10,2,1]);
+test.array(func14(235, [100, 25, 10, 5, 2, 1])).is([100, 100, 25, 10]);
