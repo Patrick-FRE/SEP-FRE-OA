@@ -580,3 +580,28 @@ test.number(func22("microsoft.com", 'o')).is(3);
 test.number(func22("antra.com", 'o')).is(1);
 test.number(func22("", 'o')).is(0);
 test.number(func22("google and facebook", 'e')).is(2);
+
+/**
+ * 23 Write a JavaScript function to find the first not repeated character. Sample arguments : 'abacddbec'
+Expected output : 'e'
+ */
+func23 = (str) => {
+    let cnts = new Array(26);
+    for (let i = 0; i < cnts.length; i++) {
+        cnts[i] = 0;
+    }
+    for (let i = 0; i < str.length; i++) {
+        let ch = str.charAt(i);
+        cnts[ch.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        let ch = str.charAt(i);
+        if (cnts[ch.charCodeAt(0) - 'a'.charCodeAt(0)] == 1) {
+            return ch;
+        }
+    }
+    return "";
+}
+test.string(func23('abacddbec')).is("e");
+test.string(func23('abcdegabcgkgalg')).is("d");
