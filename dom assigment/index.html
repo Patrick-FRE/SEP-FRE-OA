@@ -12,14 +12,15 @@
     />
   </head>
   <body>
-    <div>
-      <button onclick="request()">produce</button>
+    <header>
+      <div class="wrapBtn">
+        <button onclick="request()">produce</button>
+        <button onclick="clearTable()">clear</button>
+      </div>
+    </header>
+    <div class="header">
+      <div id="tableSet"></div>
     </div>
-    <div>
-      <button onclick="clearTable()">clear</button>
-    </div>
-    <div class="header"></div>
-    <div id="tableSet"></div>
+    <script src="index.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>
