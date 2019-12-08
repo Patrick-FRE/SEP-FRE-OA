@@ -1,6 +1,7 @@
 //format code on mac: shift + option + F
 document.getElementById("fetch").addEventListener("click", generateTable);
 document.getElementById("clear").addEventListener("click", clearTable);
+
 function clearTable() {
     let table = document.getElementById("dtable");
     if (table == null) return;
@@ -10,9 +11,10 @@ function clearTable() {
     }
     location.reload();
 }
+
 function generateTable() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+    xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(this.response);
             let body = document.getElementsByTagName("body")[0];
