@@ -1,0 +1,23 @@
+#buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#fetch, #clear {
+        color: black;
+        padding: 4px;
+        /* background-color: violet; */
+        margin: 20px;
+}
+#dtable {
+    width: 80%;
+}
+#dtable.th{
+        background-color: #4CAF50;
+        color: white;
+}
+#dtable.tr:nth-child(even) {background-color: #f2f2f2;}
+#dtable.th, #dtable.td, #dtable.tr {
+    padding: 6px;
+    text-align: center;
+  }

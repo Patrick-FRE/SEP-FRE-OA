@@ -4,6 +4,7 @@ function clearTable() {
     let table = document.getElementById("dtable");
     // table. parentNode. removeChild(table);
     // var Parent = document.getElementById(tableID);
+    if (table == null) return;
     console.log(table.rows.length);
     for(let i = table.rows.length; i > 0;i--)
     {
@@ -23,10 +24,22 @@ function generateTable ()  {
                     // console.log("data length: ", data.length)
                     // userId: 1, id: 1, title: 
                     let body = document.getElementsByTagName("body")[0];
+                    if (document.getElementById('dtable') != null) {
+                        console.log("the table already exists!");
+                        return;
+                    }
                     let table = document.createElement('table');
                     table.setAttribute("id", "dtable");
                     // var table = document.getElementById("table");
-                    for (let i = 0; i < 100; i++){
+                    
+                    let row = table.insertRow(0);
+                    let th0 = row.insertCell(0);
+                    let th1 = row.insertCell(1);
+                    let th2 = row.insertCell(2);
+                    th0.innerHTML = "user id";
+                    th1.innerHTML = "id";
+                    th2.innerHTML = "title";
+                    for (let i = 1; i <= 100; i++){
                         let row = table.insertRow(i);
                         let userId = row.insertCell(0);
                         let id = row.insertCell(1);
@@ -36,6 +49,7 @@ function generateTable ()  {
                         title.innerHTML = data[i].title;
                     }
                     body.appendChild(table);
+                    // location.reload();
                     // var row = table.insertRow(0);
                     // var cell1 = row.insertCell(0);
                     // var cell2 = row.insertCell(1);
