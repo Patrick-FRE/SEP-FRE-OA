@@ -33,18 +33,12 @@ button {
   padding: 1em;
   margin: 0 3em;
 }
-.header {
-  /* position: relative;
-  width: 1000px;
-  margin: 1rem auto; */
-}
 #tableSet {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 th,
 td {
   text-align: center;
