@@ -97,7 +97,7 @@ const Model = (function() {
       this.id = toDoIdCounter++;
     }
     generateTmp() {
-      return `<li>${this.content} <button onclick="Controller.hanlderRemove(${this.id})">Remove</button></li>`;
+      return `<li>${this.content} <button class="btnRemove" id="btn-${this.id}">Remove</button></li>`;
     }
   }
 
@@ -161,6 +161,13 @@ const Controller = (function(view, model) {
     document
       .querySelector(view.DOMString.inputForm)
       .addEventListener("submit", hanlderOnsubmit);
+    document
+      .querySelector(view.DOMString.todoList)
+      .addEventListener("click", () => {
+        if (event.target.className === "btnRemove") {
+          console.log(event.target.id.substring(4));
+        }
+      });
   }
   function hanlderRemove(id) {
     console.log("remove");
