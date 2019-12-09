@@ -2,43 +2,45 @@
 <html>
 
 <head>
-    <!-- <rel link="" style="" -->
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div class="sign-up-title">
-        <h1>Sign Up</h1>
-    </div>
-    <div class="form-div">
-        <form action="app.js" class="form">
-            <div class="form-name">
-                <label><input type="text" placeholder="First Name" required> </label>
-                <label><input type="text" placeholder="Last Name" required></label>
+    <form action="app.js" class="form">
+        <div class="sign-up-title">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="form-name">
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Last Name" required>
+        </div>
+        <div class="form-phone">
+            <label><input type="text" placeholder="Mobile No." required></label>
+        </div>
+        <div class="form-email">
+            <label><input type="text" placeholder="Email Address" required></label>
+        </div>
+        <div class="form-password">
+            <input type="text" placeholder="Password" required>
+            <input type="text" placeholder="Confirm Password" required>
+        </div>
+        <div class="form-terms">
+            <div class="agree-check">
+                <input type="checkbox" name="agree">
+                <label for="agree">I Agree</label>
             </div>
-            <div class="form-phone">
-                <label><input type="text" placeholder="Mobile No." required></label>
-            </div>
-            <div class="form-email">
-                <label><input type="text" placeholder="Email Address" required></label>
-            </div>
-            <div class="form-password">
-                <label><input type="text" placeholder="Password" required></label>
-                <label><input type="text" placeholder="Confirm Password" required></label>
-            </div>
-            <div class="form-terms">
-                <label><input type="checkbox"> I Agree</label>
-                <p>
-                    By clicking <text id="register-text">Register</text>, you agree to the
-                    <a id="terms-conditions-text" href="#">Terms and Conditions</a> set out by this set, including our Coockie use. </p>
-            </div>
+            <p>
+                By clicking <text id="register-text">Register</text>, you agree to the
+                <a id="terms-conditions-text" href="#">Terms and Conditions</a> set out by this set, including our Coockie use.
+            </p>
+        </div>
 
-            <div class="submit-buttons">
-                <button type="submit" id="register-button">Register</button>
-                <button type="button" id="signin-button">Sign In</button>
-            </div>
-        </form>
-
-    </div>
+        <div class="submit-buttons">
+            <button type="submit" id="register-button">Register</button>
+            <button type="button" id="signin-button">Sign In</button>
+        </div>
+    </form>
 </body>
 
 </html>
