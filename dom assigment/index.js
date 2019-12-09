@@ -44,17 +44,12 @@ function makeTable(dataSet) {
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
     let td4 = document.createElement("td");
-    // console.log(dataSet, "dataset");
+
     td1.innerText = dataSet[i].userId;
     td2.innerText = dataSet[i].id;
     td3.innerText = dataSet[i].title;
     td4.innerText = dataSet[i].body;
 
-    // for (let j = 0; j < 4; j++) {
-    //     // const cell = document.createElement("td");
-    //     cells.userId = document.createElement('td')
-
-    // }
     row.appendChild(td1);
     row.appendChild(td2);
     row.appendChild(td3);

@@ -17,10 +17,13 @@ header {
   height: 50px;
   width: 100%;
   background-color: aqua;
-  /* position: fixed; */
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
 }
 .wrapBtn {
   width: 300px;
@@ -45,4 +48,11 @@ td {
 }
 table {
   width: 100%;
+}
+.header {
+  /* position: relative; */
+  /* top: 50px; */
+
+  /* padding-top: 50px; */
+  margin-top: 50px;
 }
