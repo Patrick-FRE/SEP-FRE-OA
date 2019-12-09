@@ -1,24 +1,43 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
-
 
 .container {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.button-wrapper {}
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button-wrapper {
+}
 
-.button-1 {}
+.button-1 {
+  background-color: #008cba;
+}
 
-.button-2 {}
+.button-2 {
+  background-color: #f44336;
+}
 
-.content {}
+.content {
+}
 
-.contetn-table {}
+.contetn-table {
+  width: 100%;
+  background-color: #f1f1c1;
+}

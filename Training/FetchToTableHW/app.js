@@ -1,13 +1,28 @@
-//const pass = document.getElementById('fetchAPI');
-
 document
   .getElementById('fetchAPI')
   .addEventListener('click', fetchFromEndPoint);
 document.getElementById('delete').addEventListener('click', close);
 const table = document.getElementById('content-table');
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
 
-function fetchFromEndPoint() {
-  fetch('https://jsonplaceholder.typicode.com/todos/1')
+// const fetchPromise = someUrl =>
+//   new Promise((res, rej) => {
+//     response = fetch('https://jsonplaceholder.typicode.com/todos/1');
+//     if (response) {
+//       res(console.log('Response!'));
+//     } else {
+//       rej(console.log('Reject!'));
+//     }
+//   });
+// const getURL = new Promise((res,rej) =>{
+//   if(fetch(url)){
+//     console.log("promise fulfill");
+//     return res.json()
+//   }
+
+// })
+async function fetchFromEndPoint() {
+  await fetch(url)
     .then(res => {
       return res.json();
     })
