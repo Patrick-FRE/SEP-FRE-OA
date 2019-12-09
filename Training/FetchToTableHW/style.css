@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+.container {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-wrapper {}
+
+.button-1 {}
+
+.button-2 {}
+
+.content {}
+
+.contetn-table {}
