@@ -1,0 +1,53 @@
+.sign-up-title {
+    text-align: center;
+    font-size: large;
+}
+
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+.form-name input,
+.form-password input {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 190px;
+    height: 30px;
+}
+
+.form-phone input,
+.form-email input {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 400px;
+    height: 30px;
+}
+
+.form-terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 5px;
+}
+
+.agree-check {
+    width: 80px;
+}
+
+.agree-check label {
+    font-size: 0.8em;
+}
+
+.form-terms p {
+    margin: 0px, 10px;
+    width: 350px;
+    font-size: 0.8em;
+    text-align: left;
+}
