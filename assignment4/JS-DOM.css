@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+#content-table {
+    width: 70%;
+    border-spacing: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    min-width: 100px;
+}
+
+th, td {
+    text-align: center;
+    padding: 20px;
+}
+
+.header-button {
+    margin: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgb(45, 83, 139);
+    border-radius: 5px;
+    color: white;
+    outline: none;
+}
