@@ -1,4 +1,3 @@
-
 var test = require('unit.js');
 /**
 1. Write a JavaScript function that reverse a number. Example x = 32243;
@@ -13,7 +12,7 @@ func1 = (num) => {
     var len = ansArr.length;
     var ans = 0;
     for (var i = 0; i < len; i++) {
-        ans =  ans *10 + ansArr[i];
+        ans = ans * 10 + ansArr[i];
     }
     return ans;
 }
@@ -27,9 +26,10 @@ test.number(func1(0)).is(0);
 2. Write a JavaScript function that checks whether a passed string is palindrome or not?
 A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
  */
-func2 =  (str) => {
+func2 = (str) => {
     var len = str.length;
-    var i = 0, j = len-1;
+    var i = 0,
+        j = len - 1;
     while (i < j) {
         while (i < j && str.charAt(i) == ' ') i++;
         while (i < j && str.charAt(j) == ' ') j--;
@@ -49,31 +49,31 @@ test.value(func2("adbd  a")).is(true);
  * 3. Write a JavaScript function that generates all combinations of a string. Example string : 'dog'
 Expected Output : d,do,dog,o,og,g
  */
-dfs =  (str, cur, idx, len, ans) => {
+dfs = (str, cur, idx, len, ans) => {
     if (idx == len) return;
-    dfs(str, cur, idx+1, len, ans);
+    dfs(str, cur, idx + 1, len, ans);
     ans.push(cur + str.charAt(idx));
-    dfs(str, cur + str.charAt(idx), idx+1, len, ans);
+    dfs(str, cur + str.charAt(idx), idx + 1, len, ans);
 }
 
 func3 = (str) => {
     var ans = [];
     var len = str.length;
     for (var i = 0; i < len; i++) {
-        for (var j = i+1; j <=len; j++) {
+        for (var j = i + 1; j <= len; j++) {
             ans.push(str.substring(i, j));
         }
     }
     return ans;
 }
-test.array(func3("dog")).is(['d', 'do', 'dog', 'o', 'og', 'g' ]);
-test.array(func3("Antra")).is(['A','An','Ant', 'Antr','Antra','n', 'nt','ntr', 'ntra','t','tr','tra','r','ra','a'])
-/**
- * 4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Example string : 'webmaster'
-Expected Output : 'abeemrstw'
-Assume punctuation and numbers symbols are not included in the passed string
- */
-func4  = (str) => {
+test.array(func3("dog")).is(['d', 'do', 'dog', 'o', 'og', 'g']);
+test.array(func3("Antra")).is(['A', 'An', 'Ant', 'Antr', 'Antra', 'n', 'nt', 'ntr', 'ntra', 't', 'tr', 'tra', 'r', 'ra', 'a'])
+    /**
+     * 4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Example string : 'webmaster'
+    Expected Output : 'abeemrstw'
+    Assume punctuation and numbers symbols are not included in the passed string
+     */
+func4 = (str) => {
     var bucket = new Array(26);
     var len = str.length;
     for (var i = 0; i < 26; i++) {
@@ -81,7 +81,7 @@ func4  = (str) => {
     }
     for (var i = 0; i < len; i++) {
         var idx = str.charAt(i).charCodeAt(0) - 'a'.charCodeAt(0);
-        
+
         bucket[idx] += 1;
     }
     var ans = "";
@@ -107,9 +107,9 @@ func5 = (str) => {
     do {
         while (i < len && str.charAt(i) == ' ') i++;
         if (i >= len) return ans;
-        ans = ans.substring(0, i) + str.substring(i, i+1).toUpperCase() + ans.substring(i+1);
+        ans = ans.substring(0, i) + str.substring(i, i + 1).toUpperCase() + ans.substring(i + 1);
         // ans.replaceAt(i, str.substring(i, i+1).toUpperCase());
-        j = i+1;
+        j = i + 1;
         while (j < len && str.charAt(j) != ' ') j++;
         if (j >= len) return ans;
         i = j + 1;
@@ -123,15 +123,16 @@ test.string(func5("the great wall is great ")).is("The Great Wall Is Great ");
  *  Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. Example string : 'Web Development Tutorial'
 Expected Output : 'Development'
  */
-splitStrToWordList = (str) =>{
+splitStrToWordList = (str) => {
     var len = str.length;
-    var i = 0, j = 0;
+    var i = 0,
+        j = 0;
     var ans = [];
     do {
-        while (i < len && str.charAt(i) == ' ')i++;
+        while (i < len && str.charAt(i) == ' ') i++;
         if (i >= len) break;
         j = i;
-        while (j < len && str.charAt(j) != ' ')j++;
+        while (j < len && str.charAt(j) != ' ') j++;
         ans.push(str.substring(i, j));
         i = j;
     }
@@ -153,7 +154,7 @@ func6 = (str) => {
 };
 
 test.string(func6("Web Development Tutorial")).is("Development");
-test.string(func6("the great wall is great")).is("great"); 
+test.string(func6("the great wall is great")).is("great");
 test.string(func6("the quick brown fox")).is("quick");
 /**
  * 7. Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string. 
@@ -183,10 +184,10 @@ Note : A prime number (or a prime) is a natural number greater than 1 that has n
  */
 func8 = (num) => {
     if (num == 1) return false;
-    for (let j = 3; j * j <= num; j+=2) {
-        if (num % j === 0)  {
+    for (let j = 3; j * j <= num; j += 2) {
+        if (num % j === 0) {
             return false;
-           }
+        }
     }
     return true;
 }
@@ -200,29 +201,29 @@ test.value(func8(11)).isEqualTo(true);
 Note : There are six possible values that typeof returns: object, boolean, function, number, string, and undefined.
  */
 
- var func9 = (arg) => {
+var func9 = (arg) => {
     return typeof arg;
- }
+}
 
- var a;
- test.string(typeof a).isEqualTo("undefined");
- a = 11;
- test.value(typeof a).isEqualTo("number");
- a = true;
- test.value(typeof a).isEqualTo("boolean");
- a = ()=>{console.log("hello world!")};
- test.string(typeof a).isEqualTo("function");
+var a;
+test.string(typeof a).isEqualTo("undefined");
+a = 11;
+test.value(typeof a).isEqualTo("number");
+a = true;
+test.value(typeof a).isEqualTo("boolean");
+a = () => { console.log("hello world!") };
+test.string(typeof a).isEqualTo("function");
 
- /**
-  * 10. Write a JavaScript function which returns the n rows by n columns identity matrix.
-  */
+/**
+ * 10. Write a JavaScript function which returns the n rows by n columns identity matrix.
+ */
 
-var func10 = (n)  => {
+var func10 = (n) => {
     var arr = new Array(n);
     for (let i = 0; i < n; i++) {
         arr[i] = new Array(n);
     }
-    for (let i = 0;i < n; i++) {
+    for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             if (i === j) {
                 arr[i][j] = 1;
@@ -257,19 +258,19 @@ kthSelect = (arr, lo, hi, k) => {
     if (k == pivotIdx) {
         return arr[k];
     } else if (k < pivotIdx) {
-        return kthSelect(arr, lo, pivotIdx-1, k);
+        return kthSelect(arr, lo, pivotIdx - 1, k);
     } else {
-        return kthSelect(arr, pivotIdx+1, hi, k);
+        return kthSelect(arr, pivotIdx + 1, hi, k);
     }
 }
 
 swap = (arr, idx1, idx2) => {
-    var temp =  arr[idx1];
+    var temp = arr[idx1];
     arr[idx1] = arr[idx2];
     arr[idx2] = temp;
 }
 
-partition = (arr, lo, hi, pivotIdx) =>{
+partition = (arr, lo, hi, pivotIdx) => {
     var pivotValue = arr[pivotIdx];
     swap(arr, pivotIdx, hi);
     var storeIdx = lo;
@@ -282,27 +283,27 @@ partition = (arr, lo, hi, pivotIdx) =>{
     swap(arr, storeIdx, hi);
     return storeIdx;
 }
-var myArr = [1,3,4,2,5];
-var partitionedIdx = partition(myArr, 0, myArr.length-1, 1);
+var myArr = [1, 3, 4, 2, 5];
+var partitionedIdx = partition(myArr, 0, myArr.length - 1, 1);
 test.number(partitionedIdx).is(2);
-var s0 = kthSelect(myArr, 0, myArr.length-1, 0);
+var s0 = kthSelect(myArr, 0, myArr.length - 1, 0);
 test.value(s0).is(1);
-var s1 = kthSelect(myArr, 0, myArr.length-1, 1);
+var s1 = kthSelect(myArr, 0, myArr.length - 1, 1);
 test.value(s1).is(2);
-var s2 = kthSelect(myArr, 0, myArr.length-1, 2);
+var s2 = kthSelect(myArr, 0, myArr.length - 1, 2);
 test.value(s2).is(3);
-var s3 = kthSelect(myArr, 0, myArr.length-1, 3);
+var s3 = kthSelect(myArr, 0, myArr.length - 1, 3);
 test.value(s3).is(4);
-var func11 = (arr)=> {
+var func11 = (arr) => {
     var ans = [];
-    ans.push(kthSelect(arr, 0, arr.length-1, 1));
-    ans.push(kthSelect(arr, 0, arr.length-1, arr.length-2));
+    ans.push(kthSelect(arr, 0, arr.length - 1, 1));
+    ans.push(kthSelect(arr, 0, arr.length - 1, arr.length - 2));
     return ans;
 }
 
-var test11 = [1,2,3,4,5,7];
+var test11 = [1, 2, 3, 4, 5, 7];
 test.array(func11(test11)).is([2, 5]);
-test11 = [1,2,3,4,5,7,11,1];
+test11 = [1, 2, 3, 4, 5, 7, 11, 1];
 test.array(func11(test11)).is([1, 7]);
 
 /**
@@ -323,9 +324,9 @@ var func12 = (num) => {
         if (num % j == 0) {
             tot += j;
             if (j * j != num) tot += num / j;
-        } 
+        }
     }
-    return tot == num * 2;  
+    return tot == num * 2;
 }
 
 test.value(func12(6)).is(true);
@@ -351,11 +352,11 @@ var func13 = (num) => {
     return ans;
 }
 var test13 = func13(24);
-test13.sort((o1, o2) => {return o1 - o2;});
-test.array(test13).is([1,2,3,4,6,8,12,24]);
+test13.sort((o1, o2) => { return o1 - o2; });
+test.array(test13).is([1, 2, 3, 4, 6, 8, 12, 24]);
 test13 = func13(15);
-test13.sort((o1, o2) => {return o1 - o2;});
-test.array(test13).is([1,3,5,15]);
+test13.sort((o1, o2) => { return o1 - o2; });
+test.array(test13).is([1, 3, 5, 15]);
 
 
 /**
@@ -365,7 +366,7 @@ Output : 25, 10, 10, 1
  */
 var func14 = (num, coins) => {
     var ans = [];
-    coins.sort((o1, o2) => {return o2 - o1;});
+    coins.sort((o1, o2) => { return o2 - o1; });
     if (coins.length == 0) return ans;
     for (let i = 0; i < coins.length; i++) {
         var times = parseInt(num / coins[i]);
@@ -378,14 +379,14 @@ var func14 = (num, coins) => {
     else return [];
 }
 test.array(func14(46, [25, 10, 5, 2, 1])).is([25, 10, 10, 1]);
-test.array(func14(13, [25, 10, 5, 2, 1])).is([10,2,1]);
+test.array(func14(13, [25, 10, 5, 2, 1])).is([10, 2, 1]);
 test.array(func14(235, [100, 25, 10, 5, 2, 1])).is([100, 100, 25, 10]);
 
 /**
  * 15. Write a JavaScript function to compute the value of bn where n is the exponent and b is the bases.
  *  Accept b and n from the user and display the result.
  */
- myPow = (exponent, bases) => {
+myPow = (exponent, bases) => {
     var ans = 1;
     while (exponent != 0) {
         ans *= bases;
@@ -401,9 +402,9 @@ var func15 = () => {
     display.value = ans;
 }
 
-test.value(myPow(3,3)).is(27.0);
-test.value(myPow(4,2)).is(16.0);
-test.value(myPow(5,2)).is(32.0);
+test.value(myPow(3, 3)).is(27.0);
+test.value(myPow(4, 2)).is(16.0);
+test.value(myPow(5, 2)).is(32.0);
 
 /**
  * 16. Write a JavaScript function to extract unique characters from a string. 
@@ -448,8 +449,8 @@ func17 = (str) => {
     }
     return occurrences;
 }
-test.value(func17("baccbccccc")).is({'a': 1, 'b': 2, 'c': 7});
-test.value(func17("defgw")).is({'d': 1, 'e': 1, 'f':1, 'g':1, 'w':1});
+test.value(func17("baccbccccc")).is({ 'a': 1, 'b': 2, 'c': 7 });
+test.value(func17("defgw")).is({ 'd': 1, 'e': 1, 'f': 1, 'g': 1, 'w': 1 });
 test.value(func17("")).is({});
 
 /**
@@ -461,22 +462,23 @@ func18 = (arr, tar) => {
     if (len == 0) {
         return -1;
     }
-    let l = 0, r = arr.length-1;
+    let l = 0,
+        r = arr.length - 1;
     while (l < r) {
-        let mid = parseInt((l + r + 1) /2);
+        let mid = parseInt((l + r + 1) / 2);
         if (arr[mid] > tar) {
-            r = mid-1;
-        }else {
+            r = mid - 1;
+        } else {
             l = mid;
         }
     }
     if (arr[l] == tar) return l;
     else return -1;
 }
-test.number(func18([1,2,4,4,5,7,9], 11)).is(-1);
-test.number(func18([1,2,4,4,5,7,9], 5)).is(4);
+test.number(func18([1, 2, 4, 4, 5, 7, 9], 11)).is(-1);
+test.number(func18([1, 2, 4, 4, 5, 7, 9], 5)).is(4);
 test.number(func18([], 5)).is(-1);
-test.number(func18([2,5,6,7,11,23], 23)).is(5);
+test.number(func18([2, 5, 6, 7, 11, 23], 23)).is(5);
 
 /**
  * 19. Write a JavaScript function that returns array elements larger than a number.
@@ -491,75 +493,92 @@ func19 = (arr, num) => {
     }
     return ans;
 }
-test.array(func19([1,11,5,-3,4,5,7], 3)).is([11,5,4,5,7]);
+test.array(func19([1, 11, 5, -3, 4, 5, 7], 3)).is([11, 5, 4, 5, 7]);
 test.array(func19([], 3)).is([]);
-test.array(func19([1,11,5,-3,4,5,7,23], 100)).is([]);
-test.array(func19([1,11,5,-3,4,5,7, 6,23], -1)).is([1,11,5,4,5,7, 6,23]);
+test.array(func19([1, 11, 5, -3, 4, 5, 7, 23], 100)).is([]);
+test.array(func19([1, 11, 5, -3, 4, 5, 7, 6, 23], -1)).is([1, 11, 5, 4, 5, 7, 6, 23]);
 
 /**
  * 20.Write a JavaScript function that generates a string id (specified length) of random characters. 
  * Sample character list : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
  */
 
- func20 = (len) => {
-     let ans = "";
-     let chars = [];
-     for (let  i = 48; i < 58; i++) {
-         chars.push(String.fromCharCode(i));
-     }
-     for (let i = 65; i < 91; i++) {
-        chars.push(String.fromCharCode(i));
-     }
-     for (let i = 97; i < 123; i++) {
-        chars.push(String.fromCharCode(i));
-     }
-     let tot = chars.length;
-     test.number(tot).is(62);
-     for (let i = 0; i < len; i++) {
-         //Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9
-         let idx  = Math.floor(Math.random() * tot);
-         ans += chars[idx];
-     }
-     return ans;
- }
-//  console.log(func20(8));
-//  console.log(func20(11));
-//  console.log(func20(0));
-//  console.log(func20(3));
-
- /**
-  * 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2) combinations in an array. 
-  * Sample array : [1, 2, 3] and subset length is 2
-    Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]]
-  */
- 
-  dfs = (arr, len, curLen, curIdx, curArr, ans) => {
-        if (curLen == len) {
-            ans.push(curArr);
-            return;
+func20 = (len) => {
+        let ans = "";
+        let chars = [];
+        for (let i = 48; i < 58; i++) {
+            chars.push(String.fromCharCode(i));
         }
-        //pruning to make the algo more efficient
-        if (curIdx == arr.length || arr.length - curIdx < len - curLen) {
-            return;
-        } 
-        dfs(arr, len, curLen + 1,curIdx + 1, curArr.concat([arr[curIdx]]), ans);
-        dfs(arr, len, curLen,curIdx + 1, curArr, ans);
-  }
-  
-  func21 = (arr, len) => {
-        ans = [];
-        dfs(arr, len, 0, 0, [], ans);
+        for (let i = 65; i < 91; i++) {
+            chars.push(String.fromCharCode(i));
+        }
+        for (let i = 97; i < 123; i++) {
+            chars.push(String.fromCharCode(i));
+        }
+        let tot = chars.length;
+        test.number(tot).is(62);
+        for (let i = 0; i < len; i++) {
+            //Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9
+            let idx = Math.floor(Math.random() * tot);
+            ans += chars[idx];
+        }
         return ans;
-  }
-  var test21 = func21([1,2,3,4], 3);
-  test21.sort();
-  test.array(test21).is([ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]);
-  test21 = func21([1,2,3,4], 1);
-  test21.sort();
-  test.array(test21).is([[1], [2], [3], [4]]);
-  test21 = func21([1,2,3,4], 2);
-  test21.sort();
-  test.array(test21).is([ [ 1, 2], [ 1, 3], [ 1, 4 ], [ 2,3], [2,4],[3,4]]);
+    }
+    //  console.log(func20(8));
+    //  console.log(func20(11));
+    //  console.log(func20(0));
+    //  console.log(func20(3));
+
+/**
+ * 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2) combinations in an array. 
+ * Sample array : [1, 2, 3] and subset length is 2
+   Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]]
+ */
+
+dfs = (arr, len, curLen, curIdx, curArr, ans) => {
+    if (curLen == len) {
+        ans.push(curArr);
+        return;
+    }
+    //pruning to make the algo more efficient
+    if (curIdx == arr.length || arr.length - curIdx < len - curLen) {
+        return;
+    }
+    dfs(arr, len, curLen + 1, curIdx + 1, curArr.concat([arr[curIdx]]), ans);
+    dfs(arr, len, curLen, curIdx + 1, curArr, ans);
+}
+
+func21 = (arr, len) => {
+    ans = [];
+    dfs(arr, len, 0, 0, [], ans);
+    return ans;
+}
+var test21 = func21([1, 2, 3, 4], 3);
+test21.sort();
+test.array(test21).is([
+    [1, 2, 3],
+    [1, 2, 4],
+    [1, 3, 4],
+    [2, 3, 4]
+]);
+test21 = func21([1, 2, 3, 4], 1);
+test21.sort();
+test.array(test21).is([
+    [1],
+    [2],
+    [3],
+    [4]
+]);
+test21 = func21([1, 2, 3, 4], 2);
+test21.sort();
+test.array(test21).is([
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [2, 3],
+    [2, 4],
+    [3, 4]
+]);
 
 /**
  * 22. Write a JavaScript function that accepts two arguments, a string and a letter and the function will 
@@ -568,7 +587,7 @@ Sample arguments : 'microsoft.com', 'o'
 Expected output : 3
  */
 func22 = (str, ch) => {
-    if (str == "" || ch == undefined) return  0;
+    if (str == "" || ch == undefined) return 0;
     let len = str.length;
     let ans = 0;
     for (let i = 0; i < len; i++) {
@@ -614,20 +633,20 @@ test.string(func23('abcdegabcgkgalg')).is("d");
  */
 func24 = (arr) => {
     let len = arr.length;
-    for (let  i = 0; i < len-1; i++) {
-        for (let j = 0; j < len-1-i; j++) {
-            if (arr[j] < arr[j+1]) {
-                swap(arr, j, j+1);
+    for (let i = 0; i < len - 1; i++) {
+        for (let j = 0; j < len - 1 - i; j++) {
+            if (arr[j] < arr[j + 1]) {
+                swap(arr, j, j + 1);
             }
         }
     }
     return arr;
 }
 test.array(func24([7, 4, 5, 2])).is([7, 5, 4, 2]);
-test.array(func24([2,3,1,8,11,7,-9,23,8])).is([23, 11, 8,8,7,3,2,1,-9]);
-test.array(func24([3,-1])).is([3, -1]);
+test.array(func24([2, 3, 1, 8, 11, 7, -9, 23, 8])).is([23, 11, 8, 8, 7, 3, 2, 1, -9]);
+test.array(func24([3, -1])).is([3, -1]);
 test.array(func24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]))
-        .is([3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 1]);
+    .is([3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 1]);
 /**
  * 25. Write a JavaScript function that accept a list of country names as input and returns the longest country name as output.
     Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])
@@ -635,7 +654,7 @@ test.array(func24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 2
  */
 func25 = (arr) => {
     let len = arr.length;
-    let maxLen = 0; 
+    let maxLen = 0;
     let ans = "";
     for (let i = 0; i < len; i++) {
         if (arr[i].length > maxLen) {
@@ -643,10 +662,10 @@ func25 = (arr) => {
             ans = arr[i];
         }
     }
-    return  ans;
+    return ans;
 }
 test.string(func25(["Australia", "Germany", "United States of America"])).is("United States of America");
-test.string(func25(["Australia",  "United States of America"])).is("United States of America");
+test.string(func25(["Australia", "United States of America"])).is("United States of America");
 test.string(func25(["Australia", "Germany", "China"])).is("Australia");
 
 /**
@@ -655,7 +674,9 @@ test.string(func25(["Australia", "Germany", "China"])).is("Australia");
 func26 = (str) => {
     ans = "";
     let len = str.length;
-    let i = 0, j = 0, maxLen = 0;
+    let i = 0,
+        j = 0,
+        maxLen = 0;
     lastIndexes = {};
     let flag = -1;
     while (j < len) {
@@ -665,12 +686,12 @@ func26 = (str) => {
             for (let k = i; k <= lastPos; k++) {
                 delete lastIndexes[str.charAt(k)];
             }
-            i =  lastPos + 1;
+            i = lastPos + 1;
         }
         lastIndexes[ch] = j;
         if (j - i + 1 > maxLen) {
-            maxLen = j - i +1;
-            ans = str.substring(i, j+1);
+            maxLen = j - i + 1;
+            ans = str.substring(i, j + 1);
         }
         j++;
     }
@@ -694,31 +715,38 @@ themselves palindromes and cannot be extended to larger palindromic substrings) 
 
 func27 = (str) => {
     let ans = [];
-    let len = str.length, maxLen = 0;
+    let len = str.length,
+        maxLen = 0;
     for (let i = 0; i < len; i++) {
-        let str1 = "", str2 = "", len1 = 1, len2 = 1;
-        let j = i-1, k = i+1;
+        let str1 = "",
+            str2 = "",
+            len1 = 1,
+            len2 = 1;
+        let j = i - 1,
+            k = i + 1;
         while (j >= 0 && k < len && str.charAt(j) == str.charAt(k)) {
-            j--; k++;
+            j--;
+            k++;
         }
-        len1 = k - j -1;
+        len1 = k - j - 1;
         if (len1 > maxLen) {
-            ans = [str.substring(j +1, k)];
+            ans = [str.substring(j + 1, k)];
             maxLen = len1;
         } else if (len1 == maxLen) {
-            ans.push(str.substring(j+1, k));
+            ans.push(str.substring(j + 1, k));
         }
-        
-        j = i, k = i+1;
+
+        j = i, k = i + 1;
         while (j >= 0 && k < len && str.charAt(j) == str.charAt(k)) {
-            j--; k++;
+            j--;
+            k++;
         }
-        len2 = k -j -1;
+        len2 = k - j - 1;
         if (len2 > maxLen) {
-            ans = [str.substring(j +1, k)];
+            ans = [str.substring(j + 1, k)];
             maxLen = len2;
         } else if (len2 == maxLen) {
-            ans.push(str.substring(j+1, k));
+            ans.push(str.substring(j + 1, k));
         }
     }
     return ans;
@@ -740,10 +768,10 @@ func28 = (cb) => {
 test.value(func28(() => {})).is(true);
 
 /**
-* 29.Write a JavaScript function to get the function name.
+ * 29.Write a JavaScript function to get the function name.
  */
 //note arrow function will not pass
-function func29 (){
+function func29() {
     return arguments.callee.name;
 }
 test.value(func29()).is("func29");
