@@ -23,7 +23,9 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
 .button-wrapper {
+  display: flex;
 }
 
 .button-1 {
@@ -35,6 +37,7 @@
 }
 
 .content {
+  display: flex
 }
 
 .contetn-table {
