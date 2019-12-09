@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale=1.0>
+        <meta name="keywords" content="HTML,CSS"> 
+        <link href="./style.css" rel="stylesheet" type="text/css">
+        <title>Show me the table</title>
+    </head>
+    <body>
+        <header>
+            <!-- <button type="button" onclick="document.getElementById('table_data').innerHTML = Date()">Fetch</button> -->
+            <button type="button" id="getData">Fetch</button>
+            <button type="button" id="clearData">Clear</button>
+        </header>
+        <table class="main-table">
+            <tr class="table-row">
+                <th class="table-col">USER ID</th>
+                <th class="table-col">ID</th>
+                <th class="table-col">TITLE</th>
+            </tr>
+            <tbody id="main-table">
+
+            </tbody>
+        </table>
+
+        <script src="fetch.js"></script>
+    </body>
+</html>
