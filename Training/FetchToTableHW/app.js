@@ -1,53 +1,100 @@
-document
-  .getElementById('fetchAPI')
-  .addEventListener('click', fetchFromEndPoint);
-document.getElementById('delete').addEventListener('click', close);
-const table = document.getElementById('content-table');
+console.log('App.js is loading');
 const url = 'https://jsonplaceholder.typicode.com/todos/1';
+const REALurl = 'https://jsonplaceholder.typicode.com/posts';
+let posts = [];
+//getDOM element
+const getFetchElement = document.getElementById('fetchAPI');
+const getTableElement = document.getElementById('content-table');
+const getDeleteElement = document.getElementById('delete');
 
-// const fetchPromise = someUrl =>
-//   new Promise((res, rej) => {
-//     response = fetch('https://jsonplaceholder.typicode.com/todos/1');
-//     if (response) {
-//       res(console.log('Response!'));
-//     } else {
-//       rej(console.log('Reject!'));
-//     }
+//fetch data
+const fetchData = async () => {
+  console.log('starting fetching from: ' + REALurl);
+  let res = await fetch(REALurl);
+  let data = await res.json();
+  return data;
+};
+
+fetchData().then(data => {
+  posts = data;
+  console.log('sup fetching');
+  console.log(posts);
+});
+// const getData = () => {
+//   fetchData().then(data => {
+//     posts = data;
+//     console.log('Get DATA WAWA!!!');
 //   });
-// const getURL = new Promise((res,rej) =>{
-//   if(fetch(url)){
-//     console.log("promise fulfill");
-//     return res.json()
-//   }
+// };
 
-// })
-async function fetchFromEndPoint() {
-  await fetch(url)
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      console.log(data);
-      const content = `
-      <tr>
-          <th>id</th>
-          <th>title</th>
-          <th>body</th>
-      </tr>
-      `;
-      let post = data;
-      table.innerHTML += content;
-      table.innerHTML += `
-                     <tr>
-                     <td>${post.id}</td>
-                     <td>${post.title}</td>
-                     <td>${post.body}</td>
-                 </tr>
-              `;
-    })
-    .catch(error => console.log(error));
-}
+// getData();
 
-function close() {
-  table.innerHTML = '';
-}
+const fetchHandler = () => {
+  console.log('res is: ' + posts);
+  render(getTableElement, generatePost(posts));
+};
+
+const removeButtonHandler = id => {
+  console.log('This is removeButton Handler');
+  removeAction(id);
+  //update
+  console.log('posts after delete debugger: ' + posts.length);
+  render(getTableElement, generatePost(posts));
+};
+
+//render
+const render = (rootElement, tmp) => {
+  rootElement.innerHTML = tmp;
+};
+
+//TABLE RENDER
+const generatePost = data => {
+  let tmp = `<th>User ID</th>
+  <th>Title</th>
+  <th>Body</th>`;
+  console.log('rerendering');
+  data.forEach(post => {
+    tmp += `<tr>
+    <td>${post.userId}</td>
+    <td>${post.title}</td>
+    <td>${post.body}</td>
+    <td><button class="removeBtn" id="post-${post.id}"
+    type="button">Remove</button></td>
+    </tr>`;
+  });
+  return tmp;
+};
+
+const deleteHandler = () => {
+  console.log('Delete here');
+  posts = [];
+  render(getTableElement, generatePost(posts));
+};
+
+//Event Setup
+
+const eventHandler = () => {
+  getFetchElement.addEventListener('click', fetchHandler); //handle fetch
+  getDeleteElement.addEventListener('click', deleteHandler); //handle delete all clear
+  getTableElement.addEventListener('click', () => {
+    if (event.target.className === 'removeBtn') {
+      removeButtonHandler(event.target.id.substring(5));
+      console.log('Remove event handler being triggered');
+    }
+  });
+};
+
+eventHandler();
+
+//Delete Post
+const removeAction = id => {
+  console.log('This is removeAction!' + id);
+  console.dir(id);
+  posts = posts.filter(post => {
+    if (post.id == id) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+};

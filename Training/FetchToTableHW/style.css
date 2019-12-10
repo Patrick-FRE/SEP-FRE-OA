@@ -7,9 +7,8 @@
 }
 
 .container {
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
+  width: 60rem;
+  margin: auto;
 }
 
 .button {
@@ -25,7 +24,9 @@
 }
 
 .button-wrapper {
-  display: flex;
+  margin-top: 4rem;
+  background-color: lightblue;
+  text-align: center;
 }
 
 .button-1 {
@@ -40,7 +41,26 @@
   display: flex
 }
 
+.content-table {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+tr,
+td {
+  padding: 2rem;
+  text-align: center;
+}
+
 .contetn-table {
   width: 100%;
   background-color: #f1f1c1;
+}
+
+.removeBtn {
+  text-align: center;
+  background-color: red;
 }
