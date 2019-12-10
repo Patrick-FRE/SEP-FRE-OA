@@ -8,22 +8,29 @@
         <title>Show me the table</title>
     </head>
     <body>
-        <header>
-            <!-- <button type="button" onclick="document.getElementById('table_data').innerHTML = Date()">Fetch</button> -->
-            <button type="button" id="getData">Fetch</button>
-            <button type="button" id="clearData">Clear</button>
-        </header>
-        <table class="main-table">
-            <tr class="table-row">
-                <th class="table-col">USER ID</th>
-                <th class="table-col">ID</th>
-                <th class="table-col">TITLE</th>
-            </tr>
-            <tbody id="main-table">
+        <div class="table-container">
+            <header>
+                <button class="button" type="button" id="getData">Fetch</button>
+                <button class="button" type="button" id="clearData">Clear</button>
+            </header>
 
-            </tbody>
-        </table>
+            <table class="main-table">
+                <thead class="table-header">
+                        <tr class="table-row">
+                                <th class="table-col">USER ID</th>
+                                <th class="table-col">ID</th>
+                                <th class="table-col">TITLE</th>
+                        </tr>
+                </thead>
 
-        <script src="fetch.js"></script>
+                <tbody class="table-body" id="table-content">
+                
+                </tbody>
+            </table>
+            
+        </div>
+
+
+        <script src="newfetch.js"></script>
     </body>
 </html>
