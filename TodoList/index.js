@@ -1,25 +1,54 @@
 console.log("App is working");
 
-// State
-let userInput = "dfsfs";
-let todoList = [];
+// DOM element
+let userInputElement = document.querySelector(".inputBar");
+let todoListElement = document.querySelector(".todoList");
 
+// State
+const state = {};
+Object.defineProperty(state, "todoList", {
+  get() {
+    return this._todoList;
+  },
+  set(val) {
+    console.log("set todoList");
+    console.log(val);
+    this._todoList = val;
+    render(todoListElement, generateTodoListTmp());
+    localStorage.setItem("todoList", JSON.stringify(state.todoList));
+    console.log(this);
+  }
+});
+
+// Object.defineProperty(state, "userInput", {
+//   get() {
+//     return this._userInput;
+//   },
+//   set(val) {
+//     console.log("set todoList");
+//     console.log(val);
+//     this._todoList = val;
+//     render(todoListElement, generateTodoListTmp());
+//     localStorage.setItem("todoList", JSON.stringify(state.todoList));
+//     console.log(this);
+//   }
+// });
+
+state.todoList = [];
+
+let userInput = "";
 // Model
 let toDoIdCounter = 1;
 
 class ToDo {
-  constructor(content) {
+  constructor(content, id) {
     this.content = content;
-    this.id = toDoIdCounter++;
+    this.id = id ? id : toDoIdCounter++;
   }
   generateTmp() {
     return `<li>${this.content} <button onclick="hanlderRemove(${this.id})">Remove</button></li>`;
   }
 }
-
-// DOM element
-let userInputElement = document.querySelector(".inputBar");
-let todoListElement = document.querySelector(".todoList");
 
 // Setup Event
 eventSetup();
@@ -30,7 +59,7 @@ function eventSetup() {
 // UI Tmp
 function generateTodoListTmp() {
   let resTmp = "";
-  todoList.forEach(itemToDo => {
+  state.todoList.forEach(itemToDo => {
     resTmp += itemToDo.generateTmp();
   });
   return resTmp;
@@ -43,12 +72,12 @@ function render(rootElement, tmp) {
 function handlerKeyup() {
   userInput = event.target.value;
   if (event.keyCode === 13) {
-    console.log("enter");
+    console.log("keyup Enter");
     // update State
+    console.log(userInput);
     addTodo(new ToDo(userInput));
     userInput = "";
     // update View
-    render(todoListElement, generateTodoListTmp());
     userInputElement.value = userInput;
   }
 }
@@ -68,11 +97,14 @@ function hanlderRemove(id) {
 // business logic
 
 function addTodo(todo) {
-  todoList.push(todo);
+  var tmp = [...state.todoList];
+  tmp.push(todo);
+  state.todoList = tmp;
+  console.log(state);
 }
 
 function removeTodo(id) {
-  todoList = todoList.filter(itemTodo => {
+  state.todoList = state.todoList.filter(itemTodo => {
     if (itemTodo.id === id) {
       return false;
     } else {
@@ -83,17 +115,32 @@ function removeTodo(id) {
 
 /// Set get
 
-let obj = {};
-Object.defineProperty(obj, "fisrtName", {
-  get() {
-    console.log("get");
-    return obj.name;
-  },
-  set(data) {
-    console.log("set");
-    obj.name = data;
-  }
-});
+// let obj = {};
+// Object.defineProperty(obj, "fisrtName", {
+//   get() {
+//     console.log("get");
+//     return obj.name;
+//   },
+//   set(data) {
+//     console.log("set");
+//     obj.name = data;
+//   }
+// });
 
-obj.fisrtName = { value: "Sam" };
-obj.fisrtName = { ...obj.fisrtName, value: "patrick" };
+// obj.fisrtName = { value: "Sam" };
+// obj.fisrtName = { ...obj.fisrtName, value: "patrick" };
+// function init() {
+//   if (localStorage.getItem("todoList")) {
+//     todoList = JSON.parse(localStorage.getItem("todoList")).map(item => {
+//       return new ToDo(item.content, item.id);
+//     });
+//     console.log(todoList);
+//     render(todoListElement, generateTodoListTmp());
+//   }
+//   toDoIdCounter =
+//     localStorage.getItem("todoList") &&
+//     localStorage.getItem("todoList").length > 0
+//       ? ++todoList[todoList.length - 1].id
+//       : 1;
+// }
+// init();
