@@ -1,18 +1,21 @@
+//state
+let post = [];
+
+
 const table = document.querySelector('.content-table');
 const open = document.querySelector('.form-fetch');
 const close = document.querySelector('.form-close');
-let post = null;
 
 async function getData(){
     let response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    console.log(response);
+    // console.log(response);
     let user = await response.json();
     return user;
 }
 
 getData().then(data => {
     post = data;
-    console.log(data)
+    console.log(data);
 });
 
 // function getData(cb){
@@ -37,22 +40,40 @@ getData().then(data => {
 // })
 
 open.addEventListener("click", e =>{
-    const html = `<tr>
+    render(table, generateUI(post));
+});
+
+function generateUI(p){
+    let html = `<tr>
         <th>id</th>
         <th>title</th>
         <th>body</th>
+        <th>status</th>
         </tr>`;
-    table.innerHTML += html;
 
-    post.forEach(element => {
-        table.innerHTML += `<tr>
+    p.forEach(element => {
+        html += `<tr">
         <td>${element.id}</td>
         <td>${element.title}</td>
         <td>${element.body}</td>
+        <td><button class="remove" id="${element.id}">Remove</remove></td>
     </tr>`;
     });
-});
+
+    return html;
+}
+
+table.addEventListener('click', e => {
+    if(e.target.classList.contains('remove')){
+        post = post.filter(item=> item.id != parseInt(e.target.id));
+        render(table, generateUI(post));
+    }
+})
 
 close.addEventListener("click", e =>{
-    table.innerHTML = ``;
+    render(table, ``);
 });
+
+function render(rootElement, tmp){
+    rootElement.innerHTML = tmp;
+}
