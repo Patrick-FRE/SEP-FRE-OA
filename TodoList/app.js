@@ -213,3 +213,5 @@ const Controller = (function(view, model) {
 })(View, Model);
 
 Controller.init();
+
+/// export

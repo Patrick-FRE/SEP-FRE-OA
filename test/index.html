@@ -25,5 +25,37 @@
         2-2
       </div>
     </div>
+    <script>
+      function myfetch(url) {
+        try {
+          return new Promise((res, rej) => {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                let result = {
+                  value: this.responseText,
+                  json: function() {
+                    return JSON.parse(this.value);
+                  }
+                };
+                res(result);
+              } else if (this.readyState == 4 && +this.status !== 200) {
+                rej("ERRRRRRRROR");
+              }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+          });
+        } catch (err) {
+          throw new Error(err);
+        }
+      }
+
+      console.log("fecth example");
+      myfetch("https://jsonplaceholder.typicode.com/todosdsfdsfds/1")
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err));
+    </script>
   </body>
 </html>

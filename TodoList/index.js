@@ -80,3 +80,20 @@ function removeTodo(id) {
     }
   });
 }
+
+/// Set get
+
+let obj = {};
+Object.defineProperty(obj, "fisrtName", {
+  get() {
+    console.log("get");
+    return obj.name;
+  },
+  set(data) {
+    console.log("set");
+    obj.name = data;
+  }
+});
+
+obj.fisrtName = { value: "Sam" };
+obj.fisrtName = { ...obj.fisrtName, value: "patrick" };
