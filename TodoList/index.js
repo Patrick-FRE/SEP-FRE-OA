@@ -12,38 +12,44 @@ Object.defineProperty(state, "todoList", {
   },
   set(val) {
     console.log("set todoList");
-    console.log(val);
     this._todoList = val;
     render(todoListElement, generateTodoListTmp());
     localStorage.setItem("todoList", JSON.stringify(state.todoList));
-    console.log(this);
   }
 });
 
-// Object.defineProperty(state, "userInput", {
-//   get() {
-//     return this._userInput;
-//   },
-//   set(val) {
-//     console.log("set todoList");
-//     console.log(val);
-//     this._todoList = val;
-//     render(todoListElement, generateTodoListTmp());
-//     localStorage.setItem("todoList", JSON.stringify(state.todoList));
-//     console.log(this);
-//   }
-// });
-
-state.todoList = [];
+Object.defineProperty(state, "toDoCounter", {
+  get() {
+    return this._toDoCounter;
+  },
+  set(val) {
+    console.log("set todoCounter");
+    this._toDoCounter = val;
+    localStorage.setItem("toDoCounter", JSON.stringify(state.toDoCounter));
+  }
+});
+Object.defineProperty(state, "userInput", {
+  get() {
+    return this._userInput;
+  },
+  set(val) {
+    console.log("set userInput");
+    this._userInput = val;
+    userInputElement.value = this._userInput;
+    localStorage.setItem("userInput", JSON.stringify(state.userInput));
+  }
+});
 
 let userInput = "";
-// Model
-let toDoIdCounter = 1;
+function toDoCounterIncreament() {
+  toDoIdCounter++;
+}
 
 class ToDo {
   constructor(content, id) {
     this.content = content;
-    this.id = id ? id : toDoIdCounter++;
+    this.id = id ? id : state.toDoCounter++;
+    console.log("counter", state.toDoCounter);
   }
   generateTmp() {
     return `<li>${this.content} <button onclick="hanlderRemove(${this.id})">Remove</button></li>`;
@@ -70,16 +76,17 @@ function render(rootElement, tmp) {
 
 // Event Handler
 function handlerKeyup() {
-  userInput = event.target.value;
+  state.userInput = event.target.value;
   if (event.keyCode === 13) {
     console.log("keyup Enter");
     // update State
-    console.log(userInput);
-    addTodo(new ToDo(userInput));
-    userInput = "";
-    // update View
-    userInputElement.value = userInput;
+    addTodo(new ToDo(state.userInput));
+    setUserInput("");
   }
+}
+
+function setUserInput(val) {
+  state.userInput = val;
 }
 
 function hanlderOnsubmit() {
@@ -144,3 +151,24 @@ function removeTodo(id) {
 //       : 1;
 // }
 // init();
+
+function init() {
+  // init ToDoList
+  if (localStorage.getItem("todoList")) {
+    console.log("init todolist");
+    state.todoList = JSON.parse(localStorage.getItem("todoList")).map(item => {
+      return new ToDo(item.content, item.id);
+    });
+  } else {
+    state.todoList = [];
+  }
+
+  // init Counter
+  if (localStorage.getItem("toDoCounter")) {
+    console.log(typeof localStorage.getItem("toDoCounter"));
+    state.toDoCounter = +JSON.parse(localStorage.getItem("toDoCounter"));
+  } else {
+    state.toDoCounter = 1;
+  }
+}
+init();

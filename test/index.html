@@ -26,36 +26,70 @@
       </div>
     </div>
     <script>
-      function myfetch(url) {
-        try {
-          return new Promise((res, rej) => {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                let result = {
-                  value: this.responseText,
-                  json: function() {
-                    return JSON.parse(this.value);
-                  }
-                };
-                res(result);
-              } else if (this.readyState == 4 && +this.status !== 200) {
-                rej("ERRRRRRRROR");
-              }
-            };
-            xhttp.open("GET", url, true);
-            xhttp.send();
-          });
-        } catch (err) {
-          throw new Error(err);
-        }
-      }
-
-      console.log("fecth example");
-      myfetch("https://jsonplaceholder.typicode.com/todosdsfdsfds/1")
+      fetch("https://jsonplaceholder.typicode.com/todos/1")
         .then(response => response.json())
-        .then(json => console.log(json))
-        .catch(err => console.log(err));
+        .then(json => console.log("getData1"));
+      fetch("https://jsonplaceholder.typicode.com/todos/2")
+        .then(response => response.json())
+        .then(json => console.log("getData2"));
+      fetch("https://jsonplaceholder.typicode.com/todos/3")
+        .then(response => response.json())
+        .then(json => console.log("getData3"));
+
+      new Promise((res, rej) => {
+        var result = [];
+        function ifAllDone() {
+          if (result.length === 3) {
+            res(result);
+          }
+        }
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+          .then(response => response.json())
+          .then(json => {
+            console.log("getData1");
+          });
+        fetch("https://jsonplaceholder.typicode.com/todos/2")
+          .then(response => response.json())
+          .then(json => {
+            console.log("getData2");
+            result.push(json);
+            ifAllDone();
+          });
+        fetch("https://jsonplaceholder.typicode.com/todos/3")
+          .then(response => response.json())
+          .then(json => {
+            console.log("getData3");
+            result.push(json);
+            ifAllDone();
+          });
+      }).then(data => {
+        foo(data[0], data[1], data[2]);
+      });
+
+      function foo(a, b, c) {
+        console.log(a, b, c);
+      }
+      fetch("https://jsonplaceholder.typicode.com/todos/1")
+        .then(response => response.json())
+        .then(data1 => {
+          console.log("getData1"); //10 s
+          fetch("https://jsonplaceholder.typicode.com/todos/2")
+            .then(response => response.json())
+            .then(data2 => {
+              console.log("getData2"); // 10s
+              fetch("https://jsonplaceholder.typicode.com/todos/3")
+                .then(response => response.json())
+                .then(data3 => {
+                  console.log("getData3"); // 10s
+                  foo(data1, data2, data3);
+                });
+            });
+        });
+
+      function foo(a, b, c) {
+        console.log("foo");
+        console.log(a, b, c);
+      }
     </script>
   </body>
 </html>
