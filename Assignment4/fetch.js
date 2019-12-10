@@ -27,16 +27,18 @@ function getData() {
                 col_2.setAttribute("class","table-col");
                 col_3.setAttribute("class","table-col");
 
-                //setting data
-                col_1.innerHTML=user.userId;
-                col_2.innerHTML=user.id;
-                col_3.innerHTML=user.title;
-
                 //append parent tag and child tag 
                 append(tbody , tr);
                 append(tr,col_1);
                 append(tr,col_2);
                 append(tr,col_3); 
+
+                //setting data
+                col_1.innerHTML=user.userId;
+                col_2.innerHTML=user.id;
+                col_3.innerHTML=user.title;
+
+                
             });      
     })
     .catch(err=>{
