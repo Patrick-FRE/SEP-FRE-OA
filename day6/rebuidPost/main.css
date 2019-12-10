@@ -1,0 +1,79 @@
+/* reset */
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size:80%;
+}
+
+.post-table__container{
+    width:50rem;
+    margin:auto;
+}
+
+.btn{
+    width: 10em;
+    height: 3em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary{
+    background-color:green;
+} 
+
+.danger{
+    background-color:red;
+}
+
+/* header */
+.post-table__header{
+    background-color:darkgray;
+    height:5rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    position:fixed;
+    top:0;
+    width:50rem;
+}   
+/*main table*/
+.post-table__main{
+    margin-top:5rem;
+}
+
+
+.post-table__table{
+    font-size:1.5em;
+}
+
+.post-table__table caption{
+    font-size:2em;
+    margin:5px;
+}
+.post-table__table , tr , td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.post-table__table{
+    width:100%;
+}
+
+tr:nth-child(even){
+    background-color:darkgray;
+}
+
+tr, td{
+    padding:15px;
+    text-align: center;
+}
+

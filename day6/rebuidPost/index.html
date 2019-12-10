@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description" content="Day1 assignment">
+        <meta name="keywords" content="HTML,CSS">
+        <meta name="author" content="Lijuan">
+        <title>Day 5 Get Data From Endpoint</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        
+    </head>
+
+    <body>
+        <div class="post-table__container">
+            <!-- header -->
+            <header class="post-table__header">
+                <button class="btn primary" id="fetchData" type="button">Fetch</button>
+                <button class="btn danger" id="clearData" type="button">Clear</button>
+            </header>
+
+            <!-- table -->
+            <main class="post-table__main">
+                <table class="post-table__table">
+                    <caption>User Info</caption>
+                    <thead>
+                    <tr class="tb-row tb-header">
+                        <th class="tb-col">USERID</th>
+                        <th class="tb-col">TITLE</th>
+                        <th class="tb-col">COMPLETED</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="post-table-content">
+
+                    </tbody>
+                    <!-- <tr class="tb-row ">
+                        <td class="tb-col"></td>
+                        
+                    </tr> -->
+                </table>
+            </main>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+
+</html>
