@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primary-purple-dark: #352f5b;
+    --color-primary-purple:  #423a6f;
+    --color-primary-purple-input:rgba(0,0,0,0.2);
+}
+
+
+body{
+    background-color: var(--color-primary-purple-dark);
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 70px;
+}
+
+
+.content{
+    margin-top:20px;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoList-wrapper, .done-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: var(--color-primary-purple);
+    min-height: 300px;
+}
+
+.addForm{
+    width: 100%;
+}
+
+.addForm input{
+    position: relative;
+    margin: 20px 0;
+    width: 80%;
+    left: 10%;
+    height: 28px;
+    background-color:var(--color-primary-purple-input);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.todos, .done{
+    width: 100%;
+}
+
+li{
+    margin: 20px;
+    height: 30px;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid rgba(0,0,0,.125);
+}
+
+.delete, .unfinished, .finished{
+    background-color: var(--color-primary-purple);
+    border: 1px solid var(--color-primary-purple-dark);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.delete:hover, .unfinished:hover, .finished:hover{
+    background-color:var(--color-primary-purple-dark);
+}
+
+.transfer{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color:var(--color-primary-purple);
+}
+
+.finished{
+    margin-bottom: 20px;
+}
+
