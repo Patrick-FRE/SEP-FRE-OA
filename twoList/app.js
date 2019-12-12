@@ -7,12 +7,28 @@ const todos = document.querySelector('.todos');
 const finishedButton = document.querySelector('.finished');
 const unfinishedButton = document.querySelector('.unfinished');
 const done = document.querySelector('.done');
+const edit = "edit";
+const update = "update";
 
 
-function generateUI(data){
+function generateUI(data, id){
     let html='';
     data.forEach((element,index) =>{
-        html += `<li><input type="checkbox" class="checkTodo" id="${index}"><span class="span" id="${index}">${element}</span><button class="delete" id="${index}">delete</button></li>`
+        if(index == id){
+            html += `<li>
+            <input type="checkbox" class="checkTodo" id="${index}">
+            <textarea class="span" id="${index}">${element}</textarea>
+            <button class="delete" id="${index}">delete</button>
+            <button class="${update}" id="${index}">${update}</button>
+            </li>`;
+        }else{
+            html += `<li>
+            <input type="checkbox" class="checkTodo" id="${index}">
+            <span class="span" id="${index}">${element}</span>
+            <button class="delete" id="${index}">delete</button>
+            <button class="${edit}" id="${index}">${edit}</button>
+            </li>`
+        } 
     })
     return html;
 }
@@ -35,6 +51,15 @@ todos.addEventListener('click', e=>{
     if(e.target.classList.contains('delete')){
         console.log(todoList);
         todoList = todoList.filter((element, index)=> index !== parseInt(e.target.id));
+        render(todos, generateUI(todoList));
+    }
+    if(e.target.classList.contains('edit')){
+        // console.log(e.target.id);
+        render(todos, generateUI(todoList, e.target.id));
+    }
+    if(e.target.classList.contains('update')){
+        const newTodo = e.target.parentElement.children[1].value;
+        todoList[+e.target.id] = newTodo;
         render(todos, generateUI(todoList));
     }
 })
@@ -79,5 +104,4 @@ unfinishedButton.addEventListener('click', e =>{
     doneList = doneList.filter((item, index) => !checkedIdList.includes(index.toString()));
     render(todos, generateUI(todoList));
     render(done, generateUI(doneList));
-
 })
