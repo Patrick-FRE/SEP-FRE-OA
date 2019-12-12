@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <input id='textBox' type="text" onkeyup="createLiTag()">
+        </div>
+    </header>
+    <div id='move-button'>
+        <div>
+            <button id='move-to-right' onclick="moveCheckedBox()">》》》</button>
+        </div>
+        <div>
+            <button id='move-to-left' onclick="moveCheckedBox()">《《《</button>
+        </div>
+    </div>
+    <div class='list-container'>
+        <ul id='leftList'>
+            <li><span><input type="text"><label for=""></label></span><button></button><button></button></li>
+        </ul>
+        <ul id='rightList'>
+        </ul>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+    padding: 10px;
+}
+li{
+    display: flex;
+    width: 100%;
+}
+li span{
+    flex-basis: 70%; 
+    display: flex;
+    align-items: center;
+}
+
+body{
+    width: 768px;
+    margin: 50px auto;
+}
+
+input{
+    padding: 0.5rem;
+}
+button{
+    padding: 5px;
+}
+header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#move-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#move-button div{
+    margin: 1rem;
+}
+.list-container{
+    display: flex;
+    justify-content: center;
+}
+.list-container ul{
+    flex-basis: 50%;
+}
+.list-container ul li{
+    margin: 5px;
+}
+.list-container ul li button{
+    margin: 0 5px;
+}
