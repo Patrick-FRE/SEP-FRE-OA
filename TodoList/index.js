@@ -40,6 +40,39 @@ Object.defineProperty(state, "userInput", {
   }
 });
 
+Object.defineProperty(state, "currentAction", {
+  get() {
+    return this._currentAction;
+  },
+  set(val) {
+    console.log("set currentAction");
+    console.log(val);
+
+    this._currentAction = val;
+    if (val.actionEvent) {
+      let buttonEdit = val.actionEvent.target;
+      let inputEdit = buttonEdit.parentElement.firstChild;
+      let inputLabel = inputEdit.nextSibling;
+      console.log(this._currentAction);
+      if (this._currentAction.actionName === "Edit") {
+        console.log("Edit action");
+        inputEdit.type = "text";
+        inputEdit.value = getTodoObjById(
+          this._currentAction.actionTagetId
+        ).content;
+        inputLabel.innerText = "";
+        buttonEdit.innerText = "Save";
+        this._currentAction.actionName = "Save";
+      } else if (this._currentAction.actionName === "Save") {
+        updateTodo(
+          this._currentAction.actionTagetId,
+          new ToDo(inputEdit.value)
+        );
+      }
+    }
+  }
+});
+
 let userInput = "";
 function toDoCounterIncreament() {
   toDoIdCounter++;
@@ -52,7 +85,7 @@ class ToDo {
     console.log("counter", state.toDoCounter);
   }
   generateTmp() {
-    return `<li>${this.content} <button onclick="hanlderRemove(${this.id})">Remove</button></li>`;
+    return `<li><input type="checkbox"/><label>${this.content}</label> <button onclick="hanlderRemove(${this.id})">Remove</button><button onclick="hanlderEdit(${this.id})">Edit</button></li>`;
   }
 }
 
@@ -93,15 +126,49 @@ function hanlderOnsubmit() {
   event.preventDefault();
 }
 
+function hanlderEdit(id) {
+  if (state.currentAction.actionName === "Edit") {
+    state.currentAction = {
+      actionName: "Edit",
+      actionEvent: event,
+      actionTagetId: id
+    };
+  } else if (state.currentAction.actionName === "Save") {
+    state.currentAction = {
+      actionName: "Save",
+      actionEvent: event,
+      actionTagetId: id
+    };
+  }
+}
+
 function hanlderRemove(id) {
+  // console.log("edit");
+  // console.log(event.target.parentNode);
+  // let pNode = event.target.parentNode;
+  // pNode.childNodes[0].nodeValue = "";
+  // let btnNode = event.target;
+  // let inputEditor = document.createElement("input");
+  // inputEditor.value = "hey";
+  // pNode.insertBefore(inputEditor, btnNode);
+
   console.log("remove");
-  // update State
+  //update State
   removeTodo(id);
-  // updaste View
+  //updaste View
   render(todoListElement, generateTodoListTmp());
 }
 
 // business logic
+function updateTodo(id, newTodo) {
+  state.todoList = state.todoList.map(todo => {
+    if (todo.id === id) {
+      return newTodo;
+    } else {
+      return todo;
+    }
+  });
+}
 
 function addTodo(todo) {
   var tmp = [...state.todoList];
@@ -119,6 +186,13 @@ function removeTodo(id) {
     }
   });
 }
+
+function getTodoObjById(id) {
+  return state.todoList.filter(todo => {
+    return todo.id === id;
+  })[0];
+}
+///
 
 /// Set get
 
@@ -170,5 +244,8 @@ function init() {
   } else {
     state.toDoCounter = 1;
   }
+
+  // init Action
+  state.currentAction = { actionName: "Edit" };
 }
 init();
