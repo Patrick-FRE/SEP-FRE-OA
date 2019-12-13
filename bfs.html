@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='root'>
+        <div>
+            <div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+
+            </div>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div class='deep'>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function bfs(root) {
+            let levels = [[root]]
+            while (levels[levels.length - 1].length != 0) {
+                console.log(levels)
+                let curlv = levels[levels.length - 1]
+                levels.push([])
+                for (let i = 0; i < curlv.length; i++) {
+                    levels[levels.length - 1] = [...levels[levels.length - 1], ...curlv[i].children]
+                }
+            }
+            
+            return levels.length - 1
+        }
+
+        function bfs_1(root) {
+            let maxLen = 0;
+            // console.log(root)
+            let levels = [[root]]
+            // console.log(levels)
+
+            while (levels[0].length != 0) {
+                // console.log(levels)
+                maxLen += 1;
+                let curlv = levels[0];
+                console.log(curlv);
+                levels[0] = [];
+                for (let i = 0; i < curlv.length; i++) {
+                    levels[0] = [...levels[0], ...curlv[i].children];
+                }
+            }
+            return maxLen;
+        }
+        console.log(bfs(document.getElementById('root')))
+        console.log(bfs(document.getElementsByTagName('body')[0]))
+        console.log(bfs(document.getElementsByTagName('html')[0]))
+        console.log(bfs_1(document.getElementById('root')))
+
+    </script>
+</body>
+
+</html>
