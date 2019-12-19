@@ -1,0 +1,28 @@
+<!-- <div>{{ title }}</div>
+<button (click)="toggler()">Display</button>
+
+<div *ngIf="isDisplay">
+
+</div>
+
+<ul *ngFor="let fruit of fruitList">
+  <li>{{fruit}}</li>
+</ul>
+
+<ul *ngFor="let fruit of fruitList; let i=index">
+  <li>{{"index = " +i}}{{"id: "+(fruit.id | multiplier: fruit.id) + "name: " +fruit.name}}</li>
+</ul>
+    <li *ngFor="let fruit of newfruitList;let i=index">
+        {{"index = "+i}}{{" id = "+(fruit.id | multiplier: fruit.id) +" name = "+fruit.name }} {{fruit.name | uppercase | lowercase}}
+    </li>
+<div>
+  {{currentDate | date:"MM/dd/yyyy"}}
+</div>
+
+<input type="text" [value]="temp" (keyup)="changeTemp($event.target.value)">
+<br>
+<input #tempVar type="text" [value]="temp" (keyup) = "changeTemp(tempVar.value)">
+<div>{{ temp }}</div>
+<div>{{ tempVar.value }}</div> -->
+
+<app-fruit-list></app-fruit-list>
