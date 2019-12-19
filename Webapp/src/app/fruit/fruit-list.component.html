@@ -1,0 +1,8 @@
+<!-- <p>fruit-list works!</p> -->
+<div>freshCounter is: {{freshCounter}}</div>
+<div>rottenCounter is: {{rottenCounter}}</div>
+<div *ngFor="let fruit of fruitList">
+  <app-fruit [fruit]="fruit" (statusChanged)=updateCounters($event)></app-fruit>
+</div>
+<!-- <app-fruit #currentFruit [fruit]="newFruit" (statusChanged)=updateCounters($event)></app-fruit>
+{{currentFruit.fruit.isFresh}} -->
