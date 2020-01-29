@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="Sign_Up.css">
+    <title>Assignment 1</title>
+</head>
+
+<body>
+ <form action="action_page.php" style="border:1px solid rgb(0, 0, 0)">
+    
+    <header>
+      <h1>Sign Up</h1>
+    </header>
+
+    <div class="container">
+      <input type="First" placeholder="First Name" name="firstName" required>
+    
+      <input type="Last" placeholder="Last Name" name="lastName" required>
+
+      <input type="num" placeholder="Mobile No." name="number" required>
+      
+      <input type="email" placeholder="Email Address" name="email" required>
+      
+      <input type="password" placeholder="Password" name="psw" required>
+      
+      <input type="confirm" placeholder="Confirm Password" name="pswConfirm" required>
+    </div>
+    
+    <label class="paragraph1">
+        <b><input type="checkbox" name="agree" style="margin-bottom:15px">I Agree</b>
+    </label>
+    
+    <label class="paragraph2">
+      <span> 
+        By clicking <button type="button" class="icon">Register</button>, you agree to the 
+          <a href="#" style="color:dodgerblue">Terms and Conditions</a> set out by this site, including our Cookie Use.
+      </span>
+    </label>
+  
+    <div class="clearfix">
+    <div class="container">
+    <button type="button" class="registerbtn">Register</button>
+    <button type="button" class="signinbtn">Sign In</button>
+    </div>
+    </div>
+  </form>
+</body>
+</html>

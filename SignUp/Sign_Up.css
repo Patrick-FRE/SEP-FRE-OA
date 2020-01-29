@@ -1,0 +1,130 @@
+* {box-sizing: border-box}
+
+h1{ text-align:center; }
+h2{ text-align:left; font-size:1%; }
+
+/* Add padding to container elements */
+.container {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  flex-grow: 1;
+}
+
+input[type=first]{
+  width: 48%;
+  padding: 15px;
+  margin: 8px 0 24px 0;
+  background: white;
+  border-radius: .25rem;
+}
+
+input[type=last] {
+  width: 48%;
+  padding: 15px;
+  margin: 8px 0 24px 0;
+  background: white;
+  border-radius: .25rem;
+}
+
+input[type=password]{
+  
+  width: 48%;
+  padding: 15px;
+  margin: 8px 0 24px 0;
+  background: white;
+  border-radius: .25rem;
+}
+
+input[type=confirm] {
+  
+  width: 48%;
+  padding: 15px;
+  margin: 8px 0 24px 0;
+  background: white;
+  border-radius: .25rem;
+}
+
+input[type=num], input[type=email] {
+  width: 98%;
+  padding: 15px;
+  margin: 8px 0 24px 0;
+  background: white;
+  border-radius: .25rem;
+}
+
+input[type=first]:focus, input[type=last]:focus, input[type=password]:focus, input[type=confirm]:focusinput[type=num]:focus, input[type=email]:focus {
+  background-color: rgba(90, 86, 86, 0.794);
+  outline: #367ff4;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.icon {
+  background-color: #367ff4;
+}
+
+button {
+  color: white;
+  margin: 16px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: .25rem;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.registerbtn {
+  float: left;
+  width: 48%;
+  padding: 16px;
+  margin: 8px 0 24px 0;
+  background-color: #367ff4;
+}
+
+.signinbtn {
+  float: right;
+  width: 48%;
+  padding: 16px;
+  margin: 8px 0 24px 0;
+  background-color: #4CAF50;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.paragraph1 {
+    justify-content: space-around;
+    padding: 5px;
+    font-size: 15px;
+    text-indent: 5%;
+}
+
+.paragraph2 {
+    padding: 5px;
+    font-size: 12px;
+    grid-column: 3 / span 2;
+    grid-row: third-line / 4;
+}
+
+/* Change styles for register button and signin button on extra small screens */
+@media screen and (max-width: 300px) {
+  .registerbtn, .signinbtn, .icon{
+     width: 100%;
+  }
+}
