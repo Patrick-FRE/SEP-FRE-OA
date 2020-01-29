@@ -4,8 +4,12 @@
   border-radius: 7px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 15px;
-  height: 47px;
+  height: 45px;
   font-size: 18px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+ 
 }
 
 .input_long{
@@ -14,20 +18,23 @@
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     padding: 15px;
-    height: 47px;
+    height: 45px;
     font-size: 18px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
 }
 .input_long:focus{
     border-radius: 7px;
     border:1px solid rgba(45, 152, 240, 0.8);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    box-shadow: 0px 0px 8px rgba(45, 152, 240, 0.5);
     outline: none;
 }
 
 .input_short:focus{
     border-radius: 7px;
     border:1px solid rgba(45, 152, 240, 0.8);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    box-shadow: 0px 0px 8px rgba(45, 152, 240, 0.5);
     outline: none;
 }
 
@@ -57,13 +64,13 @@
 .submit_button:focus{
     border-radius: 7px;
     border:1px solid rgba(45, 152, 240, 0.8);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    box-shadow: 0px 0px 8px rgba(45, 152, 240, 0.5);
     outline: none;
 }
 .signin_button:focus{
     border-radius: 7px;
     border:1px solid rgba(45, 152, 240, 0.8);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    box-shadow: 0px 0px 8px rgba(45, 152, 240, 0.5);
     outline: none;
 }
 .description{
@@ -92,5 +99,14 @@ word-break:break-all;
 }
 
 .form_container{
-    max-width: 580px;margin:auto
+    margin:auto;
+    
+    max-width: 560px;
+   
+   
+    
+   
+}
+form{
+    width:100%;
 }
