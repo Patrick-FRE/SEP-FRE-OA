@@ -1,0 +1,147 @@
+.container {
+    margin-left: 10%;
+    width: 80%;
+    height: 50%;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas:
+      "header header header header"
+      "first_n first_n last_n last_n"
+      "number number number number"
+      "email email email email"
+      "pw pw cpw cpw"
+      "agree terms terms terms"
+      "register register signin signin";
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 0.5fr);
+      grid-template-areas:
+      "header header"
+      "first_n first_n"
+      "last_n last_n"
+      "number number"
+      "email email"
+      "pw pw"
+      "cpw cpw"
+      "agree terms"
+      "register register"
+      "signin signin";
+    }
+  }
+  .signUpPadding{
+    padding:0.5em 1em 0.5em 1em;
+    box-sizing: border-box;
+  }
+  .signUp {
+    grid-area: header;
+  }
+  .fName {
+    grid-area: first_n;
+  }
+  .lName{
+    grid-area: last_n;
+  }
+  .signUp {
+    grid-area: header;
+  }
+  .number {
+    grid-area: number;
+  }
+  .email {
+    grid-area: email;
+  }
+  .passWord {
+    grid-area: pw;
+  }
+  .passWordConfirm {
+    grid-area: cpw;
+  }
+  .agree {
+    grid-area: agree;
+  }
+  .terms {
+    font-size: 1em;
+    grid-area: terms;
+  }
+  .register {
+    grid-area: register;
+  }
+  .signIn {
+    grid-area: signin;
+  }
+  #regButton{
+      background-color: rgba(49, 112, 228, 0.938);
+      border-radius: 0.5em;
+      color:white;
+      font-size: 0.8em;
+      display:inline-block;
+      
+  }
+  .register-Btn{
+    color:white;
+    background-color: #007bff;
+    border-color:#007bff;
+    width:100%;
+    height: 100%;
+  }
+  .signIn-Btn{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    width:100%;
+    height: 100%;
+  }
+  #termsLink{
+    display: inline;
+    color:rgb(0, 110, 255);
+  }
+  .buttons{
+        display: block;
+        font-weight: 400;
+        cursor: pointer;
+        opacity: 0.8;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .buttons:hover{opacity: 1;}
+  .inputs {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  h1{
+    text-align: center;
+    color: black;
+  }
+  
+  p {
+    color: black;
+  }
+  body {
+    background-color: white;
+    
+  }
+  
