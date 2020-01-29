@@ -69,6 +69,11 @@ a:hover{
 
 .icon {
   background-color: #367ff4;
+  color: white;
+  margin: 16px 0;
+  font-size: 1px;
+  border-radius: .25rem;
+  opacity: 0.9;
 }
 
 button {
