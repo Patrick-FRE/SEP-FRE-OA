@@ -1,0 +1,92 @@
+form {
+  margin-top: 30px;
+  margin-left: 5%;
+  width: 90%;
+}
+
+input[type="text"] {
+  width: 98%;
+  padding: 12px 20px;
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0px 0px 10px rgb(58, 86, 248);
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #0e0ae4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0c0e72;
+  box-shadow: 2px 2px 1px blue;
+}
+
+input[type="button"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #45a049;
+  box-shadow: 2px 2px 1px green;
+}
+
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+span {
+  font-size: smaller;
+}
+
+span[id="inline"] {
+  background-color: blue;
+  padding: 1px;
+  color: white;
+  border-radius: 4px;
+}
+
+a {
+  font-weight: 200;
+  color: green;
+}
+
+.row {
+  display: flex;
+}
+
+label {
+  width: 30%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0px;
+  border-radius: 6px;
+}
+
+.span {
+  font-size: 10px;
+  font-weight: 1000;
+}
