@@ -1,0 +1,89 @@
+.flex-container{  /*sizing the page with the screen size*/
+  display: flex;
+  height: 200px;
+  flex-wrap: wrap;
+}
+.signInheader{
+  font-size: 20px;
+  width: 100%;
+  text-align:center;
+}
+h1{
+  margin:auto;
+  vertical-align:middle;
+}
+
+body {
+    background-color: white;
+  }
+  h1 {
+    color: black;
+  }
+  h2 {
+    color: black;
+  }
+  p {
+    color: black;
+  }
+
+  input[type=text], select { /*input boxes*/
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .wideInput{
+    flex-basis: 100%;
+  }
+  .narrowInput{
+    flex-basis: 50%;
+  }
+  
+  .checkBox{
+    text-align:start;
+    flex-basis: 25%;
+  }
+  .terms{
+    flex-basis: 75%;
+  }
+  @media only screen and (max-width: 600px) {  /* if the screen exceeds by this amount of pixel,
+                                                adjust accordingly*/
+    .narrowInput{
+      flex-basis: 100% !important;
+    }
+  }
+
+  .button{
+    background-color: #008CBA; /* the small register button */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+  } 
+  
+  .button2 {background-color: #008CBA; /* The big Blue register button */
+    border: none;
+    color: white;
+    padding: 14px 230px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    cursor: pointer;
+  }
+  .button3 {background-color: #4CAF50; /* The big Green sign in button*/ 
+    border: none;
+    color: white;
+    padding: 14px 230px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    cursor: pointer;
+  }

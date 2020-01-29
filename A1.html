@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <!-- mobile devices -->
+    <meta content=
+    "width=device-width, height=device-height, initial-scale=1"
+          name="viewport">
     <title>ASSIGNMENT 1</title>
+    <link rel="stylesheet" href="A1.css">
   </head>
 <body>
+  <div class = "flex-container">
+
   <!--The sign up header at the center-->
-  <h1 style =" font-size: 20px", align = "center"> Sign Up</h1>
-  <hr>
-  <d1>
+  <div class="signInheader"><h1> Sign Up</h1></div>
+  
   <!-- the name boxes-->
-  <br> <input type="text" placeholder="First Name">  <input type="text" placeholder="Last Name">
+  <input class="narrowInput" type="text" placeholder="First Name"> 
+  <input class="narrowInput" type="text" placeholder="Last Name">
   
   <!-- the mobile number box-->
-   <br><input type="text" placeholder="Mobile No.">  
+   <br><input class="wideInput" type="text" placeholder="Mobile No.">  
   
   <!-- Email address box-->
-   <br><input type="text" placeholder="Email address"> 
+   <br><input class="wideInput" type="text" placeholder="Email address"> 
   
    <!-- the password boxes-->
-  <br><input type="text" placeholder="Password">  <input type="text" placeholder="Comfirm password">
-  
+  <input class="narrowInput" type="text" placeholder="Password"> 
+  <input class="narrowInput" type="text" placeholder="Confirm password">
+
   <!-- the check box -->
-  <br><b><input type="checkbox" name= "">I agree</b> 
-  </d1>
-  
-  <d2>
-  <!-- the check box -->
-  <p>By clicking  <button bgcolor = blue, fontcolor = white>Register</button>you agree to our <a href="#" style="color:dodgerblue">Terms and Conditions</a> set out by this site, including our cookie use.</p>
-  </d2>
-  
+  <div class="checkBox">
+  <input type="checkbox" name="agreement" id="I agree" value="I agree">
+  <label for ="I agree">I agree</label>
+  </div>
+  <!-- the register box -->
+
+  <div class="terms">
+  <p>By clicking <button class="button narrowInput">Register</button> you agree to our <a href="#" style="color:dodgerblue">Terms and Conditions</a> set out by this site, including our cookie use.
+  </p>
+  <div>
+
   <!-- sign up -->
-  <button>Register</button> <button>Sign In</button>
-  
+  <button class ="button button2 narrowInput">Register</button> 
+  <button class = "button button3 narrowInput" >Sign In</button>
+ </div>
+
 </body>
 </html>
