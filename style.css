@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: #ffffff;
+}
+div{
+    display: block;
+}
+header h1{
+    text-align: center;
+    font-size: 2.0rem;
+}
+.sign-up-form{
+    border: 1px solid black;
+    margin: 0 auto;
+    background:  #f2f2f2;
+}
+
+.sign-up-container input{
+    border:none;
+    border-radius: .25rem;
+    font-size: 1.2rem;
+    outline: none;
+    width: 100%;
+    line-height: 1.5;   
+    padding: .5rem .5rem;
+    background: #ffffff;
+}
+
+.sign-up-container input:focus{
+    box-shadow: 0 0 5px rgba(89, 153, 217, 1);
+    border: 1px solid rgba(89, 153, 217, 1);
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col{
+    padding-right: .5rem;
+    padding-left: .5rem;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.row input[type=number], input[type=email]{ 
+    margin: .5rem;
+}
+
+.row input[type=text], input[type=password]{
+    margin: .5rem auto;
+}
+
+
+.agreeTerms{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: .5rem .5rem;
+}
+
+.agreeTerms button{
+    background-color: #007BFF;
+}
+
+.agreeTerms a:link, a:visited{
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.agreeTerms a:hover{
+    text-decoration: underline;
+}
+
+.buttons-group{
+    display: flex;
+    justify-content: center;
+    flex-flow:wrap;
+}
+
+button{
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: white;
+    cursor: pointer;
+}
+button:hover{
+    background: darkblue;
+}
+.buttons-group button{
+    font-size:1.5rem;
+    padding: .5rem;
+    margin: .5rem auto;
+    width: 100%;
+}
+
+
+.buttons-group .signup-btn{
+    background-color: #007BFF;
+}
+
+.buttons-group .signup-btn:hover{
+    background: darkblue;
+}
+
+.buttons-group .login-btn{
+    background: #28A745;
+}
+
+.buttons-group .login-btn:hover{
+    background: #3e8e41;
+}
+
+@media screen and (max-width:800px){
+    .col{
+        width: 100%;
+    }
+    .buttons-group{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    
+}
