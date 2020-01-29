@@ -1,0 +1,92 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+small {
+    display:block;
+    width:50vw;
+}
+
+
+.formRow {
+    display:flex;
+    padding: 4px 0 16px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+input[type=text] {
+    margin: 0 auto;
+    padding: .7rem 1rem;
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 40%;
+    font-size: 100%;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: 1px solid #0492C2;
+    box-shadow: 0 0 7px skyblue;
+
+}
+
+input[name=mobile] {
+    width: 90%;
+}
+
+input[name=email] {
+    width: 90%;
+}
+
+small {
+    display:block;
+    margin: 0 auto;
+    width: 70%;
+    padding-left: 10vw;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+input[type=submit] {
+    background-color:  #007bff;
+    border-color: #007bff;
+    color: white;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    padding: .9rem 2rem;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 6px;
+    font-size: 100%;
+}
+
+input[type=button] {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
+    padding: .8rem 2rem;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 6px;
+    font-size: 100%;
+}
+
+span {
+    display:flexbox; 
+    padding:2px 4px; 
+    color:white; 
+    background-color:#007bff; 
+    font-size: smaller;
+    border-radius: 4px;
+}
