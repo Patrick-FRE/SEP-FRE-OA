@@ -1,0 +1,54 @@
+h1{
+    text-align: center;
+}
+
+input, button{
+    border-radius: 5px;
+}
+
+.si{
+    width: 45%;
+    border-radius: 7px;
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
+    margin: 1.5%;
+    padding: 15px ;
+}
+
+.lin{
+    width:93.4%;  
+    margin: 1.5%;
+    padding: 15px;
+}
+
+input:focus{
+    border:1px solid rgba(45, 152, 240, 0.8);
+}
+
+.b1{
+    background-color: skyblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.b2{
+    background-color: rgba(89, 146, 79, 1);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+p{
+    margin-bottom: 3px;
+}
+
+.txt{
+    display: inline-block;
+    margin-right: 0%;
+    width: 40%;
+   
+}
+
+.b3{
+    color: white;
+    background-color: rgb(63, 74, 191);
+    border: none;
+}
