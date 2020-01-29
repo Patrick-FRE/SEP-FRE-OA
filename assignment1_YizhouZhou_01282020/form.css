@@ -1,0 +1,96 @@
+.input_short {
+  width: 45%;
+  margin: 2.5%;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  height: 47px;
+  font-size: 18px;
+}
+
+.input_long{
+    width: 95%;
+    margin: 2.5%;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    height: 47px;
+    font-size: 18px;
+}
+.input_long:focus{
+    border-radius: 7px;
+    border:1px solid rgba(45, 152, 240, 0.8);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    outline: none;
+}
+
+.input_short:focus{
+    border-radius: 7px;
+    border:1px solid rgba(45, 152, 240, 0.8);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    outline: none;
+}
+
+.submit_button{
+    width: 45%;
+    margin: 2.5%;
+    border-radius: 7px;
+    border:1px solid rgba(45, 152, 240, 0.8);
+    background-color:  rgba(45, 152, 240, 1);
+    padding: 10px;
+    height: 47px;
+    font-size: 18px;
+    color: white;
+}
+.signin_button{
+    width: 45%;
+    margin: 2.5%;
+    border-radius: 7px;
+    border:1px solid rgba(7, 160, 33, 0.8);
+    background-color:  rgb(7, 160, 33);
+    padding: 10px;
+    height: 47px;
+    font-size: 18px;
+    color: white;
+}
+
+.submit_button:focus{
+    border-radius: 7px;
+    border:1px solid rgba(45, 152, 240, 0.8);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    outline: none;
+}
+.signin_button:focus{
+    border-radius: 7px;
+    border:1px solid rgba(45, 152, 240, 0.8);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(45, 152, 240, 0.5);
+    outline: none;
+}
+.description{
+    
+word-wrap:break-word; 
+word-break:break-all; 
+    
+}
+.badge{
+    display: inline-block;
+    background-color: rgb(45, 152, 240);
+    font-size: 0.3rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    height: 20px;
+    color: white;
+}
+.description_container{
+    width: calc(100% - 120px);display: inline-block; text-align: left;
+}
+
+.checkbox_container{
+    width:100px; display: inline-block; margin: auto;
+}
+
+.form_container{
+    max-width: 580px;margin:auto
+}
