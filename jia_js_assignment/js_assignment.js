@@ -13,6 +13,7 @@ function checkPalindrome(str) {
     return str === str.split("").reverse().join("");
 }
 //console.log(checkPalindrome("rar"));
+//space complexity issue
 
 
 //3.
@@ -84,3 +85,25 @@ function isPrime(num) {
 }
 //console.log(isPrime(17));
 //console.log(isPrime(18));
+
+
+//9.
+function typeOf(arg) {
+    return typeof(arg);
+}
+//console.log(typeOf("str"));
+
+
+//10.
+function identityMatrix(n) {
+    let matrix = new Array(n);
+    for (let i=0; i<n; i++) {
+        matrix[i] = new Array(n).fill(0);
+        matrix[i][i] = 1;
+    }
+    return matrix;
+}
+//console.log(identityMatrix(3));
+
+
+//11.
