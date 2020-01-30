@@ -37,6 +37,8 @@ body{
 
 
 .toolbar {
+    width: 100%;
+    position: fixed;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -63,7 +65,7 @@ body{
 
 .table-head {
     background-color: #c6bfbf;
-    padding: 20px 10vw 20px 10vw;
+    padding: 50px 10vw 20px 10vw;
 }
 
 h1 {
@@ -73,11 +75,20 @@ h1 {
 .table-body {
     padding-left: 10vw;
     padding-right: 10vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    padding: 10px 10px 10px 10px;
 }
 
 .navigation-bar {
+    position: fixed;
+    width: 100%;
     list-style-type: none;
     margin: 0;
+    bottom: 0;
     padding: 0;
     padding-left: 10vw;
     padding-right: 10vw;
@@ -100,4 +111,12 @@ h1 {
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
+}
+
+
+@media (max-width:600px) {
+    .table-body {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
