@@ -22,18 +22,10 @@ body{
     font-family: sans-serif;
 
 }
-/* .left-empty.right-empty {
-    width: 20px;
+
+a:hover {
+    cursor: pointer;
 }
-
-.left-empty {
-    float:left;
-}
-
-.right-empty {
-    float:right;
-} */
-
 
 
 .toolbar {
@@ -118,5 +110,13 @@ h1 {
     .table-body {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .navigation-bar {
+        position: static;
+    }
+
+    .navig-tabs {
+        float: none;
     }
 }
