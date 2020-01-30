@@ -3,6 +3,13 @@ h1 {
     text-align: center;
 }
 
+/*
+.form {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+*/
+
 form {
     margin: 0 auto;
     width: 80vw;
@@ -13,7 +20,7 @@ form {
 .formRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 4px 0 16px;
     align-items: flex-end;
 }
@@ -24,7 +31,7 @@ input {
 
 
 input[type=text] {
-    padding: 1rem 4rem;
+    padding: .7rem 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 100%;
@@ -36,14 +43,26 @@ input[type=text]:focus {
     box-shadow: 0 0 7px skyblue;
 }
 
+label:hover {
+    cursor: pointer;
+}
+
+input[type=checkbox]:hover {
+    cursor: pointer;
+}
+
 input[type=submit] {
     background-color:  #007bff;
     border-color: #007bff;
     color: white;
     text-align: center;
-    padding: 1rem 4rem;
+    padding: .9rem 2rem;
     border-radius: 6px;
     font-size: 100%;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
 }
 
 input[type=button] {
@@ -51,7 +70,7 @@ input[type=button] {
     border-color: #28a745;
     color: white;
     text-align: center;
-    padding: 1rem 4rem;
+    padding: .9rem 2rem;
     border-radius: 6px;
     font-size: 100%;
 }
@@ -65,7 +84,34 @@ span {
     border-radius: 4px;
 }
 
-small {
+.agree {
+    flex-basis: 30%;
+}
+
+.terms {
     width: 70%;
     padding-left: 10vw;
 }
+
+
+@media (max-width:700px){
+
+    .formRow{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-around;
+        align-items: center;
+    }
+    label{
+        font-size:0;
+    }
+
+}
+
+@media (min-width:700px){
+    form {
+        width: 700px;
+    }
+}
+
+
