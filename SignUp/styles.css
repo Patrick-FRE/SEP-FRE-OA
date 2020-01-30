@@ -113,7 +113,10 @@ a {
   .row {
     flex-wrap: wrap;
     width: 100vw;
-    padding: 10px 20px 0 10px;
+    padding: 0 20px 0 10px;
+  }
+  p {
+    padding: 0 0 0 10px;
   }
   input[type='text'] {
     font-size: 1.5rem;
