@@ -70,4 +70,17 @@ function countVowel(str) {
 
 
 //8.
-
+function isPrime(num) {
+    if (num % 2 == 0) {
+        return false;
+    }
+    for (let divisor = 3; divisor < num; divisor+=2) {
+        console.log(divisor);
+        if (num % divisor == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+//console.log(isPrime(17));
+//console.log(isPrime(18));
