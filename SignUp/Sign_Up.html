@@ -1,46 +1,77 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="Sign_Up.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment 1</title>
+    <link rel="stylesheet" type="text/css" href="Sign_Up.css">
 </head>
 
 <body>
- <form action="action_page.php" style="border:1px solid rgb(0, 0, 0)">
-    
-    <header>
-      <h1>Sign Up</h1>
-    </header>
+  <div class="container">
+    <form class="form_signup">
+      <header class="signup_header">
+        <h1>Sign Up</h1>
+      </header>
+      
+      <div class="row">
+        <div class="item">
+          <input type="text" class="firstname" placeholder="First Name">
+        </div>
+        <div class="item">
+          <input type="text" class="lastname" placeholder="Last Name">
+        </div>
+      </div>
 
-    <div class="container">
-      <input type="First" placeholder="First Name" name="firstName" required>
-    
-      <input type="Last" placeholder="Last Name" name="lastName" required>
+      <div class="row">
+        <div class="item">
+          <input type="text" class="number" placeholder="Mobile No.">
+        </div>
+      </div>
 
-      <input type="num" placeholder="Mobile No." name="number" required>
-      
-      <input type="email" placeholder="Email Address" name="email" required>
-      
-      <input type="password" placeholder="Password" name="psw" required>
-      
-      <input type="confirm" placeholder="Confirm Password" name="pswConfirm" required>
-    </div>
-    
-    <label class="paragraph1">
-        <b><input type="checkbox" name="agree" style="margin-bottom:15px">I Agree</b>
-    </label>
-    
-    <label class="paragraph2">
-        By clicking <span class="icon">Register</span>, you agree to the 
-          <a href="#" style="color:dodgerblue">Terms and Conditions</a> set out by this site, including our Cookie Use.
-    </label>
-  
-    <div class="clearfix">
-    <div class="container">
-    <button type="button" class="registerbtn">Register</button>
-    <button type="button" class="signinbtn">Sign In</button>
-    </div>
-    </div>
-  </form>
+      <div class="row">
+        <div class="item">
+          <input type="text" class="email" placeholder="Email Address">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="item">
+          <input type="text" class="psw" placeholder="Password">
+        </div>
+        <div class="item">
+          <input type="text" class="confirm" placeholder="Confirm Password">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="agree_wrapper">
+          <div class="check">
+            <input type="checkbox" id="agree" class="agree">
+            <label for="agree">I agree</label> 
+          </div>
+
+          <p class="terms">
+            By clicking
+            <span class="icon">Register</span>
+            ,you agreee to the <a href="#" class="conditions">Terms and Conditions</a>
+            set out by this site, including our Cookie Use.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="item">
+          <input type="submit" class="registerbtn" value="Register">
+        </div>
+        <div class="item">
+          <input type="button" class="signinbtn" value="Sign In">
+        </div>
+      </div>
+
+    </form>
+  </div>
 </body>
 </html>

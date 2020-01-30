@@ -1,92 +1,107 @@
-* {box-sizing: border-box}
+:root{
+  --color-primary:#4285F4;
+  --color-primary-dark:#0d47a1;
+  --color-success:#00C851;
+  --color-success-dark:#007E33;
+  --color-grey:#e0e0e0;
+  --color-grey-dark:#757575;
+}
 
-h1{ text-align:center; }
-h2{ text-align:left; font-size:1%; }
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
+html{
+  font-size: 62.25%;
+}
+
+body{
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
 
 /* Add padding to container elements */
 .container {
-  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  max-width: 50rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label{
+  cursor: pointer;
+}
+
+input[type = 'checkbox']{
+  cursor: pointer;
+}
+
+.form_signup{
   display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  flex-grow: 1;
+  flex-direction: column;
 }
 
-input[type=first]{
-  width: 48%;
-  padding: 15px;
-  margin: 8px 0 24px 0;
-  background: white;
+.form_signup .signup_header{
+  text-align: center;
+  margin: 2rem;
+}
+
+.form_signup .row{
+  display: flex;
+  flex:1 1 100%;
+  margin:1px;
+}
+
+.form_signup .row .item{
+  flex:1 1 100%;
+  margin:0.5rem 1rem;
+}
+
+.item input{
+  padding: 1rem;
+  width: 100%;
   border-radius: .25rem;
+  border: 1px solid #757575;
+  outline: none; 
 }
 
-input[type=last] {
-  width: 48%;
-  padding: 15px;
-  margin: 8px 0 24px 0;
-  background: white;
-  border-radius: .25rem;
+.item input:focus{
+  box-shadow: 0 0 2px 1px #88b8ff;
 }
 
-input[type=password]{
-  
-  width: 48%;
-  padding: 15px;
-  margin: 8px 0 24px 0;
-  background: white;
-  border-radius: .25rem;
+.row .agree_wrapper{
+  display: flex;
+  margin-top: 8px;
 }
 
-input[type=confirm] {
-  
-  width: 48%;
-  padding: 15px;
-  margin: 8px 0 24px 0;
-  background: white;
-  border-radius: .25rem;
+.row .check{
+ 
+  flex:1 1 40%;
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 2.5rem; 
+  min-width: 2rem;
 }
 
-input[type=num], input[type=email] {
-  width: 98%;
-  padding: 15px;
-  margin: 8px 0 24px 0;
-  background: white;
-  border-radius: .25rem;
+.row .terms{
+  font-size: 1.2rem;
 }
-
-input[type=first]:focus, input[type=last]:focus, input[type=password]:focus, input[type=confirm]:focusinput[type=num]:focus, input[type=email]:focus {
-  background-color: rgba(90, 86, 86, 0.794);
-  outline: #367ff4;
-}
-
-a:link{
+.row .terms a{
   text-decoration: none;
 }
-
-a:hover{
-  text-decoration: underline;
-}
-
-.icon {
-  background-color: #367ff4;
-  color: white;
-  margin: 16px 0;
-  font-size: 1px;
+.row .terms .icon{
+  background-color: var(--color-primary);
+  display: inline-block;
+  color:white;
+  padding:1px 4px;
   border-radius: .25rem;
-  opacity: 0.9;
-}
-
-button {
-  color: white;
-  margin: 16px 0;
-  border: none;
-  cursor: pointer;
-  border-radius: .25rem;
-  opacity: 0.9;
-}
-
-button:hover {
-  opacity:1;
 }
 
 .registerbtn {
@@ -94,42 +109,46 @@ button:hover {
   width: 48%;
   padding: 16px;
   margin: 8px 0 24px 0;
+  color: white;
   background-color: #367ff4;
+  border-radius: .25rem;
+  opacity: 0.9;
+}
+
+.registerbtn:hover{
+  opacity: 1.0;
+}
+
+.registerbtn:focus{
+  opacity: 1.2;
 }
 
 .signinbtn {
-  float: right;
-  width: 48%;
-  padding: 16px;
-  margin: 8px 0 24px 0;
-  background-color: #4CAF50;
+    float: right;
+    width: 48%;
+    padding: 16px;
+    margin: 8px 0 24px 0;
+    color: white;
+    background-color: #4CAF50;
+    border-radius: .25rem;
+    opacity: 0.9;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-  padding-right: .5rem;
-  padding-left: .5rem;
+.signinbtn:hover{
+  opacity: 1.0;
 }
+  
 
-.paragraph1 {
-    justify-content: space-around;
-    padding: 5px;
-    font-size: 15px;
-    text-indent: 5%;
-}
-
-.paragraph2 {
-    padding: 5px;
-    font-size: 12px;
-    grid-column: 3 / span 2;
-    grid-row: third-line / 4;
-}
-
-/* Change styles for register button and signin button on extra small screens */
-@media screen and (max-width: 300px) {
-  .registerbtn, .signinbtn, .icon{
-     width: 100%;
+@media (max-width:400px){
+  .form_signup .row{
+      flex-direction: column;
+  }
+  .check label{
+      display: none;
+  }
+  .check {
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 }
