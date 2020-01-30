@@ -7,58 +7,64 @@
         <title>Assignment 1</title>
     </head>
     <body>    
-        <section class="sign-up-form">
-            <form>
+        <div class="sign-up-container">
+            <form class="form-signup">
                 <header>
                     <h1> Sign Up</h1>
                 </header>
-                <div class="sign-up-container" >
-                    <div class='row'>
-                        <div class="col">
+                    <div class='form-row'>
+                        <div class="form-item">
                             <input type="text"  name="firstname" placeholder="First Name" />
                         </div>
-                        <div class="col">
+                        <div class="form-item">
                             <input type="text"  name="lastname" placeholder="Last Name" />
                         </div>   
                     </div>
-                    <div class="row">
-                        <input type='number' class="form-control" name="phonenumber" placeholder="Mobile No."/>
+                    <div class="form-row">
+                        <div class="form-item">
+                            <input type='number' class="form-control" name="phonenumber" placeholder="Mobile No."/>
+                        </div>                  
                     </div>
-                    <div class="row">
-                        <input type='email' class="form-control" name="email" placeholder="Email Address"/>
+                    <div class="form-row">
+                        <div class="form-item">
+                            <input type='email' class="form-control" name="email" placeholder="Email Address"/>
+                        </div>                      
                     </div>
                     
-                    <div class='row'>
-                        <div class="col">
+                    <div class='form-row'>
+                        <div class="form-item">
                             <input type="password"  name="password" placeholder="Password" />
                         </div>
-                        <div class="col">
+                        <div class="form-item">
                             <input type="password"  name="confirm_password" placeholder="Confirm Password" />
                         </div>              
                     </div>
-                </div>
 
-                <div class="agreeTerms" >
-                    <div class="terms-check">
-                        <input class="check-input" type="checkbox" id="agreeCheck"/>
-                        <label class="check-label" for="agreeCheck">
-                            <b>I Agree</b>
-                        </label>
-                    </div>
-                    <div class="terms-services">
-                        By clicking the <button>Register</button>, you agree to the<a href="#"> Terms and Conditions</a> set out by this site, including our Cookies Use</span>
-                    </div>
+                    <div class="form-row" >
+                        <div class="agree-wrapper">
+                            <div class="terms-check">
+                                <input class="check-input" type="checkbox" id="agreeCheck"/>
+                                <label class="check-label" for="agreeCheck">
+                                    I Agree
+                                </label>
+                            </div>
+                            <div class="terms">
+                                <p>
+                                By clicking the 
+                                <span class="badge-register">Register</span>, you agree to the<a href="#"> Terms and Conditions</a> set out by this site, including our Cookies Use</p>
+                            </div>
+                        </div>
                 </div>
  
-                <div class='buttons-group'>
-                    <div class="col">
-                        <button class="signup-btn">Register</button>
+                <div class='form-row'>
+                    <div class="form-item">
+                        <input type="submit" class="btn signup-btn" value="Register">
                     </div>
-                    <div class="col">
-                        <button class="login-btn">Sign In</button>
+                    <div class="form-item">
+                        <input type="button" class="btn login-btn" value="Sign In">
                     </div>  
                 </div>                   
             </form>
-        </section>      
+        </div>      
     </body>
 </html>
