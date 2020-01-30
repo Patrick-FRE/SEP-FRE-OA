@@ -3,12 +3,7 @@ h1 {
     text-align: center;
 }
 
-/*
-.form {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-*/
+
 
 form {
     margin: 0 auto;
@@ -91,6 +86,10 @@ span {
 .terms {
     width: 70%;
     padding-left: 10vw;
+}
+
+a {
+    text-decoration: none;
 }
 
 
