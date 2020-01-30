@@ -1,0 +1,134 @@
+:root{
+    --Green-primary : #0b4d14; 
+    --Black-primary : #000;
+    --Gray-primary: #c6bfbf;
+    --font-primary: Arial;
+}
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
+html{
+    font-size: 62.25%;
+    font-family: var(--font-primary);
+}
+
+body{
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.container{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.headerFooter-container{
+    display: flex;
+    justify-content: flex-start;
+    width: inherit;
+    flex-grow: 1.5;
+}
+
+header{
+    
+    background-color: var(--Black-primary);
+}
+footer{
+    
+    background-color: var(--Green-primary);
+}
+
+.nav-ul{
+    position: absolute;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content:space-around;
+    flex-direction: row;
+    display:flex;
+    width: inherit;
+    height: inherit;
+    box-sizing: border-box;
+    align-self: center;
+}
+.headerFooter-nav{
+    align-self: center;
+    justify-content:flex-start;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: inherit;
+}
+
+.nav-ul-li{
+    display:block;
+    width: auto;
+    align-self:center;
+    color:white;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.content-container{
+    width:inherit;
+    flex-grow: 14;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+.content-title{
+    width:inherit;
+    flex-grow:2;
+    background-color: var(--Gray-primary);
+    display:flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+}
+.content-article{
+    width:inherit;
+    flex-grow:7;
+    display:flex;
+    justify-content: center;
+}
+.content-article-paragraphs{
+    width: 80%;
+    margin-top: 2%;
+    display:flex;
+    justify-content: space-between;
+}
+.content-article-paragraphs p{
+    font-family: inherit;
+    font-size: inherit;
+    width: 30%;
+    height: inherit;
+}
+
+.content-title-header{
+    width:80%;
+    flex-grow: 1;
+    display:flex;
+}
+.content-title-article{
+    width:80%;
+    flex-grow: 1;
+}
+
+.content-title-header h1{
+    align-self: center;
+    font-family: var(--font-primary);
+    font-size: 2em;
+}
+
+.content-title-article article{
+    font-size: inherit;
+    font-family: var(--font-primary);
+}
