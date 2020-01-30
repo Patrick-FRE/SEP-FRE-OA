@@ -70,6 +70,10 @@ input[type=button] {
     font-size: 100%;
 }
 
+input[type=button]:hover {
+    cursor: pointer;
+}
+
 span {
     display:flexbox; 
     padding:2px 4px; 

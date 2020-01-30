@@ -1,0 +1,83 @@
+/*
+ * @Author: Jia 
+ * @Date: 2020-01-30
+ */
+
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
+html{
+    font-size: 62.25%
+}
+
+body{
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* .left-empty.right-empty {
+    width: 20px;
+}
+
+.left-empty {
+    float:left;
+}
+
+.right-empty {
+    float:right;
+} */
+
+.toolbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.tool-tabs {
+    float: left;
+}
+
+.tool-tabs a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.table-head {
+    background-color: #c6bfbf;
+}
+
+.navigation-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0b4d14;
+}
+
+.navig-tabs-left {
+    float: left;
+}
+
+.navig-tabs-right {
+    float: right;
+}
+
+.navig-tabs a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
