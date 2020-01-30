@@ -20,8 +20,8 @@ body{
     font-size: 1.6rem;
     box-sizing: border-box;
     font-family: sans-serif;
-}
 
+}
 /* .left-empty.right-empty {
     width: 20px;
 }
@@ -34,34 +34,53 @@ body{
     float:right;
 } */
 
+
+
 .toolbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    padding-left: 10vw;
+    padding-right: 10vw;
     overflow: hidden;
     background-color: #333;
 }
+
+
 
 .tool-tabs {
     float: left;
 }
 
 .tool-tabs a {
+    font-size: x-small;
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
 }
 
 .table-head {
     background-color: #c6bfbf;
+    padding: 20px 10vw 20px 10vw;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+.table-body {
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .navigation-bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    padding-left: 10vw;
+    padding-right: 10vw;
     overflow: hidden;
     background-color: #0b4d14;
 }
@@ -74,10 +93,11 @@ body{
     float: right;
 }
 
-.navig-tabs a{
+.navig-tabs a {
+    font-size: x-small;
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
 }
