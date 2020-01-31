@@ -60,11 +60,21 @@ function longestWord(str) {
 function countVowel(str) {
     let tmpArr = str.split("");
     let count = 0;
-    for (let i=0; i<tmpArr.length; i++) {
-        if (['a', 'e', 'i', 'o', 'u'].indexOf(tmpArr[i].toLowerCase()) != -1) {
+    // for (let i=0; i<tmpArr.length; i++) {
+    //     if (['a', 'e', 'i', 'o', 'u'].indexOf(tmpArr[i].toLowerCase()) != -1) {
+    //         count++;
+    //     }
+    // }
+    tmpArr.forEach(letter => {
+        if (['a', 'e', 'i', 'o', 'u'].indexOf(letter.toLowerCase()) != -1) {
             count++;
         }
-    }
+    });
+    // tmpArr.map(letter => {
+    //     if (['a', 'e', 'i', 'o', 'u'].indexOf(letter.toLowerCase()) != -1) {
+    //         count++;
+    //     }
+    // });
     return count;
 }
 //console.log(countVowel('The quick brown fox'));
@@ -107,3 +117,45 @@ function identityMatrix(n) {
 
 
 //11.
+function sortNumber(numArray) {
+    let sortedArray = numArray.sort(function(a,b) {return a-b});
+    console.log(numArray[1] + ',' + numArray[numArray.length-2]);
+    let returnArray = [numArray[1], numArray[numArray.length-2]];
+    return returnArray;
+}
+//console.log(sortNumber([11,2,4,50,6]));
+
+
+//12.
+function isPerfect(num) {
+    if (num == 0) return false;
+
+    let divisorSum = 1;
+    for (let divisor=2; divisor<=num; divisor++) {
+        if (num % divisor == 0) {
+            divisorSum += divisor;
+        }
+    }
+    return num == divisorSum / 2;
+}
+//console.log(isPerfect(496));
+
+
+//13.
+function computeFactors(num) {
+    let factors = [1, num];
+    for (let f=2; f<num; f++) {
+        if (num % f == 0 && !(f in factors)) {
+            factors.push(f);
+        }
+    }
+    return factors;
+}
+//console.log(computeFactors(18));
+
+
+//14.
+function amountToCoins(amt, coins) {
+    coins.sort(function(a,b) {return b-a});
+}
+
