@@ -1,0 +1,117 @@
+:root {
+  --color-green: #0b4d14;
+  --color-black: #000;
+  --color-gray: #c6bfbf;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.nav-container {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.nav-container .nav-head {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: var(--color-black);
+  position: fixed;
+  top: 0;
+}
+.nav-container .nav-foot {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: var(--color-green);
+  position: fixed;
+  bottom: 0;
+}
+
+.nav-item {
+  margin-left: 10%;
+  display: flex;
+  justify-content: start;
+}
+.nav-item li {
+  list-style-type: none;
+  margin: 0 10px;
+}
+.nav-item li a {
+  color: white;
+  text-decoration: none;
+}
+.nav-foot {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item-end {
+  margin-right: 10%;
+  display: flex;
+  justify-content: end;
+}
+.nav-item-end li {
+  list-style-type: none;
+  margin: 0 10px;
+}
+.nav-item-end li a {
+  color: white;
+  text-decoration: none;
+}
+li a:hover {
+  color: rgb(126, 123, 123);
+}
+
+.body-discription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: var(--color-gray);
+}
+.body-discription .body-discription__title {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 10%;
+}
+.body-discription .body-discription__content {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 10%;
+}
+
+.body-container {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 100%;
+  padding: 10px;
+  margin: 10px 10% 50px 10%;
+}
+.body-container .body-item {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+}
+
+@media (max-width: 800px) {
+  .body-container {
+    flex-direction: column;
+  }
+  .nav-foot {
+    flex-direction: column;
+  }
+  .nav-item-end {
+    margin: 20px 10% 0 10%;
+  }
+}
