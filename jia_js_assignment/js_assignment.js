@@ -156,6 +156,28 @@ function computeFactors(num) {
 
 //14.
 function amountToCoins(amt, coins) {
+    let totalCoins = [];
     coins.sort(function(a,b) {return b-a});
+    while(amt>0) {
+        coins.forEach(coin => {
+            while(amt-coin >= 0) {
+                totalCoins.push(coin);
+                amt -= coin;
+            }
+        });
+    }
+    return totalCoins;
 }
+//console.log(amountToCoins(46, [25, 10, 5, 2, 1]));
 
+
+
+//15.
+function computePower(b, n) {
+    let value = 1;
+    while(n > 0) {
+        b *= b;
+    }
+    return value;
+}
+console.log(computePower(2, 5));
