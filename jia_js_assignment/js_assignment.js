@@ -176,8 +176,13 @@ function amountToCoins(amt, coins) {
 function computePower(b, n) {
     let value = 1;
     while(n > 0) {
-        b *= b;
+        value *= b;
+        n--;
     }
     return value;
 }
-console.log(computePower(2, 5));
+//console.log(computePower(2, 5));
+
+
+//16.
+
