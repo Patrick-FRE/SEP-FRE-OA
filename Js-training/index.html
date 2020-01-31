@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="dataTable"></table>
+
+    <script>
+      const data = [
+        { title: "1", body: "afsafs" },
+        { title: "2", body: " hello" },
+        { title: "3", body: "fasfs" }
+      ];
+
+      const tableElement = document.getElementById("dataTable");
+
+      let tmplate = data
+        .map(post => {
+          return `<tr><td>${post.title}</td><td>${post.body}</td></tr>`;
+        })
+        .join("");
+      console.log(tmplate);
+      function render(tmp, element) {
+        element.innerHTML = tmp;
+      }
+      render(tmplate, tableElement);
+    </script>
+  </body>
+</html>
