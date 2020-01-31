@@ -3,7 +3,9 @@
 //1.
 function reverseNumber(num) {
     let n = num.toString();
-    return Number(n.split("").reverse().join(""));
+    return +(n.split("").reverse().join("")); 
+    //better to not use Number, will be an object
+    //join returns primitive string type
 }
 //console.log(reverseNumber(32243));
 
