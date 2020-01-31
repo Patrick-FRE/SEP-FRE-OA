@@ -1,4 +1,10 @@
-.flex-container{  /*sizing the page with the screen size*/
+
+/*
+ * Author: Yvan Gihoza
+ * Date: 01-29-2020
+ */
+ 
+ .flex-container{  /*sizing the page with the screen size*/
   display: flex;
   height: 200px;
   flex-wrap: wrap;
