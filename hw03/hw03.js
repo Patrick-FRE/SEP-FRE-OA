@@ -347,10 +347,7 @@
 //       return;
 //     }
 //     for (let i = start; i < arr.length; i++) {
-//       if (arr[i + 1] && arr[i] === arr[i + 1]) {
-//         i++;
-//         continue;
-//       }
+//       if (arr[i + 1] && arr[i] === arr[i + 1]) continue;
 //       subArr.push(arr[i]);
 //       helper(subArr, i + 1, res);
 //       subArr.pop();
@@ -359,8 +356,8 @@
 //   return res;
 // };
 // // ~test~
-// let arr = [4, 1, 2, 2, 3, 2];
-// let len = 2;
+// let arr = [4, 6, 5, 4, 2];
+// let len = 3;
 // console.log(subset(arr, len));
 
 // // 22. Write a JavaScript function that accepts two arguments, a string and a letter and the function will count the number of occurrences of the specified letter within the string.
