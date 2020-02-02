@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+}
+.page-title {
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  align-items: center;
+  background-color: cornflowerblue;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.table-container {
+  width: 90vw;
+  height: 85vh;
+  padding: 10px 0 0 0;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+.table-title,
+.table-body {
+  text-align: left;
+  padding: 10px;
+}
+thead {
+  background-color: blanchedalmond;
+}
+button {
+  background-color: chartreuse;
+  cursor: pointer;
+}
