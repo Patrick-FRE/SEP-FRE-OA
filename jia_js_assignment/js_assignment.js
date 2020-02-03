@@ -20,8 +20,17 @@ function checkPalindrome(str) {
 
 //3.
 function generateCombo(str) {
-
+    let combo = [];
+    for(let i=0; i<str.length; i++) {
+        for(let j=1; j<str.length; j++) {
+            if(j == str.length) {
+                combo.push(str.slice(i,j));
+            }
+        }
+    }
+    return combo;
 }
+console.log(generateCombo('dog' ));
 
 
 //4.
