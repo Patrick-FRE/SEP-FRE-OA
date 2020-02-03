@@ -22,15 +22,13 @@ function checkPalindrome(str) {
 function generateCombo(str) {
     let combo = [];
     for(let i=0; i<str.length; i++) {
-        for(let j=1; j<str.length; j++) {
-            if(j == str.length) {
-                combo.push(str.slice(i,j));
-            }
+        for(let j=i+1; j<=str.length; j++) {
+            combo.push(str.slice(i,j));
         }
     }
     return combo;
 }
-console.log(generateCombo('dog' ));
+//console.log(generateCombo('dog'));
 
 
 //4.
@@ -224,7 +222,30 @@ function numberLetter(str) {
 
 
 //18.
+function binarySearch(arr, element) {
+    let sorted = arr.concat().sort();
+    let startIndex = 0;
+    let endIndex = arr.length - 1;
 
+    while(startIndex <= endIndex) {
+        let middleIndex = Math.floor((startIndex + endIndex) / 2);
+        
+        if (element === sorted[middleIndex]) {
+            return arr.indexOf(sorted[middleIndex]);
+            //return middleIndex;
+        }
+
+        if(element > sorted[middleIndex]) {
+            startIndex = middleIndex + 1;
+        }
+        if(element < sorted[middleIndex]) {
+            endIndex = middleIndex - 1;
+        }
+    }
+
+    return -1;
+}
+//console.log(binarySearch([2,3,67,4,1,2], 4));
 
 
 
