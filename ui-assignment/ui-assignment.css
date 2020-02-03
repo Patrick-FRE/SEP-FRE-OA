@@ -1,0 +1,28 @@
+.table--header{
+    position:sticky; top:85px; 
+    background-color: green;
+}
+
+table{
+    border-collapse: collapse;
+    width:90%;
+    margin: auto;
+}
+
+td{
+    border: solid;
+
+    border-collapse: collapse;
+}
+
+header{
+    position: fixed;
+    width:100%;
+    background-color: aquamarine;
+    top: 0px;
+}
+
+body{
+    padding-top: 85px;
+    margin:0;
+}
