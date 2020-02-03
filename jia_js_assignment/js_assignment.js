@@ -187,4 +187,166 @@ function computePower(b, n) {
 
 
 //16.
+function extractUnique(str) {
+    let unique = [];
+    str.split("").forEach(letter => {
+        if (!unique.includes(letter)) {
+            unique.push(letter);
+        }
+    });
+    return unique.join("");
+}
+//console.log(extractUnique("thequickbrownfoxjumpsoverthelazydog"));
 
+
+//17.
+function numberLetter(str) {
+    let count = {};
+    str.split("").forEach(letter => {
+        if (letter in count) {
+            count[letter] += 1;
+        } else {
+            count[letter] = 1;
+        }
+    });
+    return count;
+}
+//console.log(numberLetter("thequickbrownfoxjumpsoverthelazydog"));
+
+
+//18.
+
+
+
+
+//19.
+function largerThan(array, num) {
+    let returnArr = [];
+    array.forEach(n => {
+        if (n > num) returnArr.push(n);
+    });
+    return returnArr;
+}
+//console.log(largerThan([4, 6, 2, 7,34], 5));
+
+
+
+//20.
+function generateRandom(len) {
+    let rand = "";
+    let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let i=0; i<len; i++) {
+        rand += base.charAt(Math.floor(Math.random() * base.length));
+    }
+    return rand;
+}
+//console.log(generateRandom(10));
+
+
+
+//21.
+function lengthSubset(arr, len) {
+    let combo = [];
+    let tempA = [];
+    for (let i=0; i<arr.length-1; i++) {
+        tempA = [arr[i]];
+        for (let j=i+1; j<arr.length; j++) {
+            tempA.push(arr[j]);
+            if (tempA.length == len) {
+                combo.push(tempA);
+                tempA = [arr[i]];
+            }
+        }
+    }
+    return combo;
+}
+//console.log(lengthSubset([1, 2, 3],2));
+
+
+
+
+//22.
+function countLetter(str, letter) {
+    let count = 0;
+    str.split("").forEach(l => {
+        if (l == letter) count++;
+    });
+    return count;
+}
+//console.log(countLetter('microsoft.com', 'o' ));
+
+
+
+//23.
+function notRepeat(str) {
+    let repeat;
+    for(let i=0; i<str.length; i++) {
+        repeat = 0;
+        for(let j=0; j<str.length; j++) {
+            if (str[i] == str[j]) {
+                repeat++;
+            }
+        }
+        if (repeat == 1) {
+            return str[i];
+        }
+    }
+}
+//console.log(notRepeat( 'abacddbec' ));
+
+
+
+
+//24.
+function bubbleSort(arr) {
+
+}
+
+
+
+
+//25.
+function longestCountryName(arr) {
+    let longest = "";
+    arr.forEach(country => {
+        if(country.length > longest.length) longest = country;
+    });
+    return longest;
+}
+//console.log(longestCountryName(["Australia", "Germany", "United States of America"]));
+
+
+
+
+//26.
+function longestNoRepeat(str) {
+
+}
+
+
+
+
+//27.
+
+
+
+
+//28.
+function program(callback) {
+    callback();
+}
+
+function func() {
+    console.log("function as parameter");
+}
+
+//program(func);
+
+
+
+
+//29.
+function funcName() {
+    return arguments.callee.name;
+}
+//console.log(funcName());
