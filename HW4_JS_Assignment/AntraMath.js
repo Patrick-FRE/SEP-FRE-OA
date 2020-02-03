@@ -1,10 +1,3 @@
-let myMath = new AntraMath(10);
-myMath.add(5);
-myMath.multiple(2);
-myMath.add(5).multiple(2);
-let res = myMath.done();
-console.log(res);
-
 class AntraMath {
   constructor(num) {
     this.num = num;
