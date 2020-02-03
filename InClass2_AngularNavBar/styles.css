@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.25%;
+  font-family: Roboto, sans-serif;
+}
+body {
+  background-color: #1976d2;
+}
+header {
+  background-color: #1976d2;
+  display: flex;
+  flex-direction: row;
+  padding: 0 16px 0 0;
+  height: 50px;
+}
+.header-icon {
+  margin: 15px;
+}
+
+.header-icon a {
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 200;
+  color: #fff;
+}
+
+.nav-bar {
+  margin: 22px 20px;
+  display: flex;
+  flex-direction: row;
+}
+.nav-icon a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+  color: #fff;
+  font-weight: 400;
+  cursor: pointer;
+}
+.nav-icon a:hover {
+  color: rgb(228, 225, 225);
+  cursor: pointer;
+}
