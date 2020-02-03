@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PostViewer</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .header {
+      height: 65px;
+      background-color: gray;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      display: inline-block;
+      padding: 0 20px;
+    }
+    .logo h1 {
+      font-size: 25px;
+      color: white;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="logo"><h1>PostViewer</h1></div>
+    </header>
+    <main>
+      <section>
+        <table id="postTable"></table>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

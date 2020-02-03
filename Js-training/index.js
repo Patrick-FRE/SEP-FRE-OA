@@ -322,15 +322,154 @@
 //   console.log(data);
 // }
 
-let myMath = new AntraMath(10);
-myMath.add(5);
-myMath.multiple(2);
-myMath.add(5).multiple(2);
-let res = myMath.done();
-console.log(res);
+// function AntraMath(num) {
+//   this._value = num;
+// }
+
+// AntraMath.prototype.add = function(numAdd) {
+//   this._value += numAdd;
+//   return this;
+// };
+
+// AntraMath.prototype.multiple = function(numM) {
+//   this._value *= numM;
+//   return this;
+// };
+// AntraMath.prototype.done = function() {
+//   return this._value;
+// };
+
+// let myMath = new AntraMath(10);
+// let b = new AntraMath(10);
+// console.log(myMath === b);
+// console.log(AntraMath.__proto__);
+// console.log(myMath);
+// myMath.add(5);
+// console.log(myMath);
+// myMath.multiple(2);
+// console.log(myMath);
+// myMath.add(5).multiple(2);
+// console.log(myMath);
+// let res = myMath.done();
+// console.log(res);
 
 // ================ //
 
-let myMath2 = AntraAdd(2)(3)(4); // 9
-let myMath2 = AntraAdd(2, 3)(3)(4); // 12
-let myMath2 = AntraAdd(2)()(); //2
+// let myMath2 = AntraAdd(2)(3)(4); // 9
+// console.log(myMath2);
+// let myMath2 = AntraAdd(2, 3)(3)(4); // 12
+// console.log(myMath2);
+// // let myMath2 = AntraAdd(2)()(); //2
+
+// let AntraAddClean = (...num1) => (...num2) => (...num3) =>
+//   [...num1, ...num2, ...num3].reduce((acc, cur) => acc + cur, 0);
+
+// function AntraAdd(...num1) {
+//   const sum1 = num1.reduce((acc, cur) => {
+//     return acc + cur;
+//   }, 0);
+//   return function(...num2) {
+//     const sum2 = num2.reduce((acc, cur) => {
+//       return acc + cur;
+//     }, 0);
+//     return function(...num3) {
+//       const sum3 = num3.reduce((acc, cur) => {
+//         return acc + cur;
+//       }, 0);
+//       return sum1 + sum2 + sum3;
+//     };
+//   };
+// }
+
+// getPostsData(url).then(posts => console.log(posts));
+
+// console.log("=============");
+// let myFirstPromise = new Promise((resolve, reject) => {
+//   // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+//   // In this example, we use setTimeout(...) to simulate async code.
+//   // In reality, you will probably be using something like XHR or an HTML5 API.
+//   setTimeout(function() {
+//     resolve("Success!"); // Yay! Everything went well!
+//   }, 2500);
+// });
+
+// myFirstPromise
+//   .then(data => {
+//     console.log(data);
+//     return data;
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.log(new Error(error));
+//   });
+
+// function fetchData(url, options = { method: "GET" }) {
+//   console.log("fetchData");
+//   return new Promise((res, rej) => {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//         // Typical action to be performed when the document is ready:
+//         let result = { json: () => JSON.parse(this.responseText) };
+//         res(result);
+//       } else if (this.readyState == 4 && this.status != 200) {
+//         console.log(this);
+//         rej(this.response);
+//       }
+//     };
+//     xhttp.open(options.method, url, true);
+//     xhttp.send();
+//   });
+// }
+
+// fetchData("https://jsonplacesdfsdfsdfholder.typicode.com/postsdddddd")
+//   .then(res => res.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.log("catch", error));
+// output the posts data
+
+// class AntraPromise {
+//   constructor(callBackFn) {
+//     this.state = "pending";
+//     this.callBackThenList = [];
+//     callBackFn(this.resolve.bind(this), this.reject.bind(this));
+//   }
+
+//   resolve(data) {
+//     this.state = "resolve";
+//     this.callBackThenList.forEach(cb => {
+//       cb(data);
+//     });
+//   }
+//   reject(data) {
+//     this.state = "reject";
+//     this.callBackFnCatch(data);
+//   }
+
+//   then(callBackFnThen) {
+//     this.callBackThenList.push(callBackFnThen);
+//     return this;
+//   }
+//   catch(callBackFnCatch) {
+//     this.callBackFnCatch = callBackFnCatch;
+//   }
+// }
+
+// const myPromise = new AntraPromise((res, rej) => {
+//   setTimeout(() => {
+//     res("Error");
+//   }, 2000);
+// })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.log("error", error);
+//   });
+
+

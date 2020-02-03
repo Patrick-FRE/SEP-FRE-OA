@@ -20,17 +20,17 @@
   <body>
     <section>
       <header><h1>Users</h1></header>
-      <table style="width:100%">
-        <tr>
+      <table style="width:100%" onclick="eventDelegation()">
+        <tr onclick="msgFn()">
           <th>Name</th>
           <th>Id</th>
           <th>Department</th>
           <th>Actions</th>
         </tr>
-        <tr>
-          <td>Patrick</td>
-          <td>1</td>
-          <td>FRE</td>
+        <tr onclick="msgFn()">
+          <td onclick="msgFn()">Patrick</td>
+          <td onclick="msgFn()">1</td>
+          <td onclick="msgFn()">FRE</td>
           <td>
             <button>Edit</button>
             <button>Delete</button>
@@ -56,5 +56,14 @@
         </tr>
       </table>
     </section>
+    <script>
+      function msgFn() {
+        console.log(event.taget);
+      }
+
+      function eventDelegation() {
+        console.log(event.target);
+      }
+    </script>
   </body>
 </html>
