@@ -1,5 +1,5 @@
 /*container styling*/
-.container{
+.boxContainer{
     position: fixed;
     border-style: solid;
     top: 50%;
@@ -20,10 +20,10 @@ input [type = text]{
 }
 /*list styling*/
 /*to add lines every time you add something on the list*/
-ul> li:nth-child(1)
-    /*margin: 0;
+ul> li:nth-child(1){
+    margin: 0;
     padding: 0;
-    overflow: hidden;*/
+    overflow: hidden;
 }
 li{
     float: left;
