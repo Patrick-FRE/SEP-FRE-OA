@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="todoList">
+          <header><h1>TodoList</h1></header>
+          <input type="text" class="todoList__inputBar" />
+          <ul class="todoList__content" id="todoList__content"></ul>
+        </div>
+      </section>
+      <script>
+        const View = (function() {
+          const domString = {
+            todoList: "#todoList__content",
+            todoListInput: ".todoList__inputBar"
+          };
+
+          return { domString };
+        })();
+
+        const Model = (function() {
+          class ListItem {
+            constructor(listText) {
+              this.listText = listText;
+            }
+          }
+
+          class TodoItem extends ListItem {
+            generateTodoItemTmp() {
+              return `<li>${this.listText}<button type="button" id="${this.listText}" class="btnDelete">Remove</button></li>`;
+            }
+          }
+
+          class FinishItem extends ListItem {
+            generateFinishItemTmp() {
+              return `<li>${this.listText}</li>`;
+            }
+          }
+
+          return {
+            TodoItem, FinishItem
+          };
+        })();
+
+        const Controller = (function(view, model) {
+          const render = (tmp, element) => {
+            element.innerHTML = tmp;
+          };
+
+          class State {
+            constructor() {
+              this._todoList = [];
+              this._finishList = [];
+            }
+
+            get todoList() {
+              console.log("get todoList");
+              return this._todoList;
+            }
+
+            set todoList(newValue) {
+              console.log("set todoList");
+              console.log(newValue);
+              this._todoList = newValue;
+              let tmp = newValue
+                .map(todoItem => todoItem.generateTodoItemTmp())
+                .join("");
+              render(tmp, elements.todoListElement);
+            }
+
+            get finishList() {
+              console.log("get finishList");
+              return this._finishList;
+            }
+
+            set finishList(newValue) {
+              console.log("set todoList");
+            }
+          }
+
+          let state = new State();
+
+          const elements = {
+            todoListElement: document.querySelector(view.domString.todoList),
+            todoListInputElement: document.querySelector(
+              view.domString.todoListInput
+            )
+          };
+
+          const setEvent = () => {
+            elements.todoListInputElement.addEventListener("keyup", e => {
+              if (event.keyCode == 13) {
+                //implement
+                //Update the todoList State
+                let newTodo = new model.TodoItem(event.target.value);
+                state.todoList = [...state.todoList, newTodo];
+              }
+            });
+          };
+
+          const deleEvent = () => {
+            elements.todoListElement.addEventListener("click", () => {
+              if (event.target.className === "btnDelete") {
+                //console.log(event.target.id);
+                state.todoList = state.todoList.filter(item => {
+                  console.log(item);
+                  if (item.listText !== event.target.id) {
+                    return true;
+                  } else {
+                    
+                    return false;  
+                    //console.log("remove");
+                  }
+                });
+              }
+            });
+          };
+
+          return {
+            initApp: function() {
+              console.log("init App");
+              setEvent();
+              deleEvent();
+            }
+          };
+        })(View, Model);
+        console.log(View);
+        console.log(Model);
+        console.log(Controller);
+        Controller.initApp();
+      </script>
+    </main>
+  </body>
+</html>

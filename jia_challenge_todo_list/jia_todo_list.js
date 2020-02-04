@@ -11,7 +11,7 @@ Object.defineProperty(state, "todoList", {
         _todoList = newTodo;
         let tmplate = newTodo
             .map(
-               todo => `<li>${todo}<button id="${todo}" class="btnDelete"></button></li>` 
+               todo => `<li>${todo}<button type="button" id="${todo}" class="btnDelete">Remove</button></li>` 
             ).join("");
         render(tmplate, todoListElement);
     }
@@ -27,7 +27,7 @@ function render(template, element) {
 
 function setUpEvent() {
     let entryElement = document.getElementById("entryBox");
-    entryElement.addEventListener("keyup", (event) => {
+    entryElement.addEventListener("keyup", () => { //don't have to explicitly name event in parameter
         // console.log(entryElement.value);
         // console.log(event.key);
         if(event.keyCode === 13) {
@@ -40,6 +40,21 @@ function setUpEvent() {
             }
         }
     });
+    
+    let deleteElement = document.getElementById("list");
+    deleteElement.addEventListener("click", () => {
+        if (event.target.className === "btnDelete") {
+          //console.log(event.target.id);
+          state.todoList = state.todoList.filter(item => {
+            if (item !== event.target.id) {
+              return true;
+            } else {
+              return false;  
+              //console.log("remove");
+            }
+          });
+        }
+      });
 }
 
 function init() {
