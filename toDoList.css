@@ -11,6 +11,7 @@
 }
 /*header styling*/
 h1{
+    color: blanchedalmond;
 }
 /*input box*/
 input [type = text]{
@@ -19,9 +20,8 @@ input [type = text]{
     box-sizing: border-box;
 }
 /*list styling*/
-/*to add lines every time you add something on the list
-ul> li:nth-child(1)*/
-ul{
+/*to add lines every time you add something on the list*/
+ul> li:nth-child(1){
     margin: 0;
     padding: 0;
     overflow: hidden;
