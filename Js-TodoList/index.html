@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="todoList">
+          <header><h1>TodoList</h1></header>
+          <input type="text" class="todoList__inputBar" />
+          <ul class="todoList__content" id="todoList__content"></ul>
+        </div>
+      </section>
+      <script>
+        const View = (function() {
+          const domString = {
+            todoList: "#todoList__content",
+            todoListInput: ".todoList__inputBar"
+          };
+
+          return { domString };
+        })();
+
+        const Model = (function() {
+          class TodoItem {
+            constructor(todoText) {
+              this.todoText = todoText;
+            }
+            generateTodoItemTmp() {
+              return `<li>${this.todoText}</li>`;
+            }
+          }
+
+          return {
+            TodoItem
+          };
+        })();
+
+        const Controller = (function(view, model) {
+          const render = (tmp, element) => {
+            element.innerHTML = tmp;
+          };
+
+          class State {
+            constructor() {
+              this._todoList = [];
+            }
+
+            get todoList() {
+              console.log("get todoList");
+              return this._todoList;
+            }
+
+            set todoList(newValue) {
+              console.log("set todoList");
+              console.log(newValue);
+              this._todoList = newValue;
+              let tmp = newValue
+                .map(todoItem => todoItem.generateTodoItemTmp())
+                .join("");
+              render(tmp, elements.todoListElement);
+            }
+          }
+
+          let state = new State();
+
+          const elements = {
+            todoListElement: document.querySelector(view.domString.todoList),
+            todoListInputElement: document.querySelector(
+              view.domString.todoListInput
+            )
+          };
+
+          const setEvent = () => {
+            elements.todoListInputElement.addEventListener("keyup", e => {
+              if (event.keyCode == 13) {
+                //implement
+                //Update the todoList State
+                let newTodo = new model.TodoItem(event.target.value);
+                state.todoList = [...state.todoList, newTodo];
+              }
+            });
+          };
+
+          return {
+            initApp: function() {
+              console.log("init App");
+              setEvent();
+            }
+          };
+        })(View, Model);
+        console.log(View);
+        console.log(Model);
+        console.log(Controller);
+        Controller.initApp();
+      </script>
+    </main>
+  </body>
+</html>
