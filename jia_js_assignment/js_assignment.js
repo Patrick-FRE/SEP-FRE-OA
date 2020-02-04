@@ -367,7 +367,7 @@ function longestNoRepeat(str) {
 
 //27.
 function longestPalindrome(str) {
-    
+
 }
 
 
@@ -376,7 +376,6 @@ function longestPalindrome(str) {
 function program(callback) {
     callback();
 }
-
 function func() {
     console.log("function as parameter");
 }

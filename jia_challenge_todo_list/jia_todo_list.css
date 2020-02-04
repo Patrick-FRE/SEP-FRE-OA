@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
+html{
+    font-size: 62.25%
+}
+
+body{
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.view {
+    margin: 50px auto;
+    width: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-items: center;
+}
+
+.entry {
+    width: 100;
+}
+
+#entryBox {
+    margin-top: 20px;
+    width: 80;
+}
+
+#list {
+    margin-top: 20px;
+}
+
+@media (min-width:700px) {
+    .view {
+        width: 700px;
+    }
+}
