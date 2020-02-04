@@ -1,0 +1,37 @@
+/*container styling*/
+.container{
+    position: fixed;
+    border-style: solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    
+}
+/*header styling*/
+h1{
+}
+/*input box*/
+input [type = text]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+/*list styling*/
+/*to add lines every time you add something on the list*/
+ul> li:nth-child(1)
+    /*margin: 0;
+    padding: 0;
+    overflow: hidden;*/
+}
+li{
+    float: left;
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
