@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="./eventList.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="todolist-container">
+        <header class="todolist-header">To Do List</header>
+
+        <div action="" class="todolist-form">
+          <input
+            id="inputevent"
+            class="inputevent"
+            type="text"
+            placeholder="Input Event"
+          />
+        </div>
+
+        <div class="todolist_table">
+          <ul class="todolist-eventlist" id="left-listevent"></ul>
+        </div>
+      </section>
+      <section class="complete-container">
+        <header class="complete-header">Complete List</header>
+        <div class="completelist_table">
+          <ul class="complete-eventlist" id="right-listevent"></ul>
+        </div>
+      </section>
+    </main>
+    <script src="./eventList.js"></script>
+  </body>
+</html>
