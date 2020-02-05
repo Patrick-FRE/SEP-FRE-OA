@@ -11,7 +11,11 @@
       <section>
         <div class="todoList">
           <header><h1>TodoList</h1></header>
-          <input type="text" class="todoList__inputBar" />
+          <input type="text" class="todoList__inputBar" /><button
+            class="btn-remove-all"
+          >
+            Delete All
+          </button>
           <ul class="todoList__content" id="todoList__content"></ul>
         </div>
       </section>
@@ -19,28 +23,55 @@
         const View = (function() {
           const domString = {
             todoList: "#todoList__content",
-            todoListInput: ".todoList__inputBar"
+            todoListInput: ".todoList__inputBar",
+            btnDeleteAll: ".btn-remove-all"
           };
 
           return { domString };
         })();
 
         const Model = (function() {
+          let todoItemId = 1;
           class TodoItem {
             constructor(todoText) {
               this.todoText = todoText;
+              this.id = todoItemId;
+              todoItemId++;
             }
             generateTodoItemTmp() {
-              return `<li>${this.todoText}</li>`;
+              return `<li><input id="${this.id}" type="checkbox"/>${this.todoText}<button class="btn-remove" id="${this.id}">Delete</button></li>`;
             }
           }
 
+          const removeTodo = function(todoList, id) {
+            return todoList.filter(todoItem => todoItem.id !== id);
+          };
+
+          const removeMultiTodo = function(todoList, idArray) {
+            console.log("remove multi");
+            return todoList.filter(todoItem => !idArray.includes(todoItem.id));
+          };
+
+          const addTodo = function(todoList, newTodo) {
+            return [...todoList, newTodo];
+          };
+
           return {
-            TodoItem
+            TodoItem,
+            removeTodo,
+            addTodo,
+            removeMultiTodo
           };
         })();
 
         const Controller = (function(view, model) {
+          const elements = {
+            todoListElement: document.querySelector(view.domString.todoList),
+            todoListInputElement: document.querySelector(
+              view.domString.todoListInput
+            ),
+            btnDeleteAll: document.querySelector(view.domString.btnDeleteAll)
+          };
           const render = (tmp, element) => {
             element.innerHTML = tmp;
           };
@@ -48,6 +79,29 @@
           class State {
             constructor() {
               this._todoList = [];
+              this._userInput = "";
+              this._showBtnDeleteAll = false;
+            }
+
+            get showBtnDeleteAll() {
+              return this._showBtnDeleteAll;
+            }
+
+            set showBtnDeleteAll(newValue) {
+              this._showBtnDeleteAll = newValue;
+              elements.btnDeleteAll.style.display = newValue
+                ? "initial"
+                : "none";
+            }
+
+            get userInput() {
+              return this._userInput;
+            }
+
+            set userInput(newValue) {
+              console.log("set userinput");
+              this._userInput = newValue;
+              elements.todoListInputElement.value = newValue;
             }
 
             get todoList() {
@@ -68,22 +122,75 @@
 
           let state = new State();
 
-          const elements = {
-            todoListElement: document.querySelector(view.domString.todoList),
-            todoListInputElement: document.querySelector(
-              view.domString.todoListInput
-            )
-          };
-
-          const setEvent = () => {
+          const setInputBarEvent = function() {
+            // enter event for the Input Bar
             elements.todoListInputElement.addEventListener("keyup", e => {
               if (event.keyCode == 13) {
                 //implement
                 //Update the todoList State
                 let newTodo = new model.TodoItem(event.target.value);
-                state.todoList = [...state.todoList, newTodo];
+                state.todoList = model.addTodo(state.todoList, newTodo);
+
+                //Update the User input State
+                state.userInput = "";
               }
             });
+          };
+
+          const ifShowDeletAllBtn = function(checkboxList) {
+            for (let i = 0; i < checkboxList.length; i++) {
+              if (checkboxList[i].checked) {
+                return true;
+              }
+            }
+            return false;
+          };
+
+          const setTodoListEvent = function() {
+            elements.todoListElement.addEventListener("click", () => {
+              if (event.target.className === "btn-remove") {
+                console.log("remove");
+                state.todoList = model.removeTodo(
+                  state.todoList,
+                  +event.target.id
+                );
+              }
+
+              if (event.target.type === "checkbox") {
+                let checkboxList = document.querySelectorAll(
+                  'input[type="checkbox"]'
+                );
+                state.showBtnDeleteAll = ifShowDeletAllBtn(checkboxList);
+              }
+            });
+          };
+
+          const setDeletAllEvent = function() {
+            elements.btnDeleteAll.style.display = state.showBtnDeleteAll
+              ? "initial"
+              : "none";
+            elements.btnDeleteAll.addEventListener("click", () => {
+              let removeIdArray = [];
+              let checkboxList = document.querySelectorAll(
+                'input[type="checkbox"]'
+              );
+
+              checkboxList.forEach(item => {
+                if (item.checked) {
+                  console.log(item.id);
+                  removeIdArray.push(+item.id);
+                }
+              });
+              state.todoList = model.removeMultiTodo(
+                state.todoList,
+                removeIdArray
+              );
+            });
+          };
+          const setEvent = () => {
+            setInputBarEvent();
+            setTodoListEvent();
+            setDeletAllEvent();
           };
 
           return {
@@ -93,9 +200,9 @@
             }
           };
         })(View, Model);
-        console.log(View);
-        console.log(Model);
-        console.log(Controller);
+        // console.log(View);
+        // console.log(Model);
+        // console.log(Controller);
         Controller.initApp();
       </script>
     </main>
