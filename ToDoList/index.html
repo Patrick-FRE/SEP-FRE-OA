@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+ <html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .lists-container{
+                display: flex;
+                margin:2rem auto;
+                padding: 1rem;
+                
+            }
+
+            .container{
+                border:1px solid black;
+                border-radius: .25rem;
+                width: 100%;
+                margin:0 5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding:1rem;
+            }
+
+            .container input{
+                font-size: 1.1rem;
+                padding:1rem;
+            }
+
+            .container ul{
+                margin: 5px auto
+            }
+            .container ul li{
+                margin: 5px;
+                font-size: 1rem;
+            }
+
+            .container ul li.active{
+                color: red;
+            }
+
+            .todo-status{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .todo-status input{
+                font-size: 1.2rem;
+                padding: 1.1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section class="lists-container">
+                <div class='container'>
+                    <div>
+                        <header>To Do List</header>
+                    </div>
+                    <div>
+                        <input type="text" class="todolist_inputBar" id="todoInput"placeholder="Enter you To Do Here....">
+                    </div>
+                    <div>
+                        <ul class="todolist_content" id="todolist_content">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="todo-status">
+                    <input type="button"value="Completed ToDo">
+                    <input type="button"value="Not Completed">
+                </div>
+                <div class="container">
+                    <div>
+                        <header>Finished List</header>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <script>
+            const Model = (function(){
+                class ToDoItem{
+                    constructor(todoText){
+                        this.todoText = todoText;
+                    }
+                    generateToDoTemplate(){
+                        return `<li>${this.todoText}
+                                <span><input type="button" 
+                                    class="btn-removeTodo"  
+                                    id=${this.todoText} 
+                                    value="Remove">
+                                </span>
+                            </li>`
+                    }
+                }
+                return {
+                    ToDoItem
+                };
+            })();
+
+            const View =( function(){
+                const DOMstring={
+                    todoList:'#todolist_content',
+                    todoInput:'.todolist_inputBar',
+                    todoRemove:'btn-removeTodo'
+                };
+                return {
+                    DOMstring
+                }
+            })(); //IIFE Immediately Invoked Function Expression
+
+            const Controller = (function(view,model){
+                const render = function (template, element) {
+                    element.innerHTML = template;
+                }
+                class State{
+                    constructor(){
+                        this._todoList = []
+                    }
+
+                    get todoList(){
+                        console.log('GET todolist')
+                        return this._todoList;
+                    }
+
+                    set todoList(newValue){
+                        console.log('SET todolist');
+                        console.log('newValue:', newValue);
+                        this._todoList = newValue;
+                        let tmp = newValue
+                        .map(todoItem => 
+                        todoItem.generateToDoTemplate())
+                        .join('');
+                        render(tmp,elements.todolistElement)
+                    }
+                }
+
+                let state = new State();
+
+                const elements ={
+                    todolistElement: document.querySelector(view.DOMstring.todoList),
+                    todolistInput: document.querySelector(view.DOMstring.todoInput),
+                    todolistRemove: document.querySelector(view.DOMstring.todoRemove),
+                }
+
+                const setEvent=()=>{
+                    elements.todolistInput.addEventListener('keyup',(e)=>{
+                        if(e.keyCode == 13){                  
+                            let newTodo = new model.ToDoItem(e.target.value);
+                            
+                            state.todoList = [...state.todoList, newTodo];
+
+                            e.target.value = '';
+                            
+                        }else if(e.target.value.length <= '0'){
+                            e.preventDefault();
+                            console.log("hi")
+                        }
+                    });
+                    
+                    // let removeBtn = document.getElementsByClassName('btn-removeTodo');
+                    elements.todolistElement.addEventListener("click",(e)=>{
+                        if(e.target.className == 'btn-removeTodo'){
+                            console.log('target:',e.target);
+                            // e.target.style.display = "none"
+                            state.todoList = state.todoList.filter( todoItem =>{
+                                if(todoItem.todoText != e.target.id){
+                                    return true
+                                }else{
+                                    return false
+                                }
+                            }
+                            )
+                        }
+                        
+                    })
+                }
+
+                return {
+                    initApp:function(){
+                        console.log('Init App');
+                        setEvent();
+                    }
+                }
+            })(View,Model);
+
+            //undefined before declare any var inside
+            console.log('Model',Model) //Model class ToDoItem{...}
+            console.log("View",View) // {DOMstring: {…}}
+            console.log('Controller', Controller) //
+            Controller.initApp(); //Init App
+            
+        </script>
+    </body>
+</html>
