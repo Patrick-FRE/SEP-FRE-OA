@@ -18,12 +18,13 @@ getData('https://jsonplaceholder.typicode.com/posts', renderData);
 //   myGetData(`https://jsonplaceholder.typicode.com/posts?id=${id}`, printData);
 // }
 
-function printData(data) {
-  console.log(data);
-}
+// function printData(data) {
+//   console.log(data);
+// }
 function deleteRow(id) {
   document.getElementById(id).style.display = 'none';
 }
+
 function renderData(data) {
   // get DOM element
   const tableElement = document.getElementById('dataTable');

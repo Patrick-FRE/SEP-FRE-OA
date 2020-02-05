@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.2em;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  border: 1px solid black;
+  min-width: 30vw;
+  height: 300px;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.completeList {
+  /* display: none; */
+}
+div {
+  margin: 10px;
+}
+hr {
+  width: 30vw;
+}
+
+ul {
+  padding: 10px 20px;
+}
+h1,
+h2 {
+  text-align: center;
+}
