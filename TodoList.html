@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List</title>
+</head>
+<style>
+      *,
+      *::before,
+      *::after{
+        margin:0;
+        padding:0;
+        box-sizing: inherit
+      }
+      
+      html{
+        font-size: 62.25%;
+        font-family: var(--font-primary);
+      }
+      
+      body{
+        font-size: 1.6rem;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+    
+    .flex-container{
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        border-width: 2px;
+        border-color: black;
+        border-style: ridge;
+        width: 50%;
+        height: 50%;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        align-items: center;
+        justify-content:space-evenly;
+        border-radius: 1rem;
+        box-shadow: 5px 10px;
+    }
+    
+    .title{
+        width: 100%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .todoList__inputBar{
+        width: 80%;
+        height: 10%;
+        border-width: 0.25em;
+        font-size:1em;
+    }
+    
+    .todoList__container{
+        width: 40%;
+        height: 90%;
+        border-width: 2px;
+        border-color: black;
+        border-style:dotted;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        
+    }
+    
+    .todoList__content{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        overflow:scroll;
+    }
+    .checkedList__content{
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        overflow:scroll;
+    }
+    button[id*="removeBTN"]{
+        height: 1.5em;
+        width: 4em;
+        box-sizing: content-box;
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        padding:2px,2px;
+    }
+    button[id*="checkBTN"]{
+        height: 1.5em;
+        width: 4em;
+        box-sizing: content-box;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        padding:2px,2px;
+    }
+</style>
+<body>
+    <main>
+        <section class = "flex-container">
+            <div class="todoList__container">
+                <header class=title>
+                    <h1>TodoList</h1>
+                </header>
+                <input class="todoList__inputBar"/>
+                <ul class="todoList__content" id="todoList__content"></ul>
+            </div>
+            <div class="todoList__container">
+                <header class=title>
+                    <h1>Checked</h1>
+                </header>
+                <ul class="checkedList__content" id="checkedList__content"></ul>
+            </div>
+        </section>
+        <script>
+            const View = (function () {
+                const domString = {
+                    todoList: "#todoList__content",
+                    checkedList: "#checkedList__content",
+                    todoListInput: ".todoList__inputBar"
+                };
+
+                return { domString };
+            })();
+
+            const Model = (function () {
+                class CheckedItem {
+                    constructor(checkedItem) {
+                        this.checkedItem = checkedItem;
+                    }
+                    generateCheckedItemTmp() {
+                        return `<li>${this.checkedItem}</li>`;
+                    }
+                }
+
+                class TodoItem {
+                    constructor(todoText) {
+                        this.todoText = todoText;
+                        this.id = Date.now();
+                    }
+                    generateTodoItemElement() {
+                        let element = document.createElement("li");
+                        element.setAttribute("id",this.id);
+                        element.innerHTML = `
+                            ${this.todoText}
+                            <button id="removeBTN${this.id}">Remove</button>
+                            <button id="checkBTN${this.id}">Check</button>
+                            `;
+                        return element;
+                    }
+                    generateListItemElement() {
+                        let element = document.createElement("li");
+                        element.setAttribute("id",this.id);
+                        element.innerHTML = `
+                            ${this.todoText}
+                            `;
+                        return element;
+                    }
+
+                }
+
+
+
+                return {
+                    TodoItem,CheckedItem
+                };
+            })();
+
+            const Controller = (function (view, model) {
+                const render = (childElements, element, type) => {
+                    console.log("childElements",childElements)
+                    while (element.firstChild) {
+                        element.removeChild(element.firstChild);
+                    }
+                    childElements.map(e=>element.append(type=="todo"?e.generateTodoItemElement():e.generateListItemElement()))
+                };
+                const addButtonEventListener = (element, keyword, enventListener)=>{
+                    element.addEventListener(keyword,enventListener);
+                }
+
+                const elements = {
+                    todoListElement: document.querySelector(view.domString.todoList),
+                    todoListInputElement: document.querySelector(view.domString.todoListInput),
+                    checkedListElement:document.querySelector(view.domString.checkedList)
+                };
+
+                class State {
+                    constructor() {
+                        this._list = [];
+                        this._checked = [];
+                        var hasStorage = (function () {
+                            try {
+                                localStorage.setItem(mod, mod);
+                                localStorage.removeItem(mod);
+                                return true;
+                            } catch (exception) {
+                                return false;
+                            }
+                        }());
+                        if(hasStorage) {
+                            console.log(localStorage.list,localStorage.checked)
+                            recover();
+                        }else{
+                            console.log("Do not support Storage")
+                        }
+                    }
+                    
+                    store(){
+                        localStorage.setItem("list",this.list);
+                        localStorage.setItem("checked",this.checked);
+                    }
+                    recover(){
+                        
+                        this.list = localStorage.getItem("list");
+                        this.checked = localStorage.getItem("checked");
+                    }
+
+                    get list() {
+                        console.log("get todoList");
+                        return this._list;
+                    }
+                    get checked(){
+                        console.log("get checked");
+                        return this._checked;
+                    }
+
+                    set list(newValue) {
+                        console.log("set todoList");
+                        console.log(newValue);
+                        this._list = newValue;
+                        this.store();
+                        render(newValue, elements.todoListElement, "todo");
+                    }
+
+                    set checked(newValue){
+                        console.log("set checkedList");
+                        this._checked = newValue;
+                        this.store();
+                        render(newValue, elements.checkedListElement, "check");
+                    }
+                }
+
+                let todoState = new State();
+                
+
+                const setEvent = () => {
+                    elements.todoListInputElement.addEventListener("keyup", e => {
+                        if (event.keyCode == 13 && event.target.value!="") {
+                            //implement
+                            //Update the todoList State
+                            let newTodo = new model.TodoItem(event.target.value);
+                            console.log("setEvent")
+                            event.target.value = ""
+                            todoState.list = [...todoState.list, newTodo];
+                        }
+                    });
+                    elements.todoListElement.addEventListener("click",()=>{
+                        console.log("click on:", event.target);
+                            todoState.list = todoState.list.filter(e=>{
+                                console.log("e.id:target.id:",e.id, event.target.id);
+                                if(e.id!=event.target.parentElement.id){           
+                                    return true;
+                                }
+                                    
+                                else {
+                                    if(event.target.id.includes("checkBTN")){
+                                        todoState.checked = [...todoState.checked,e];
+                                    }
+                                    return false;
+                                }
+                            });
+                    })
+                };
+
+                return {
+                    initApp: function () {
+                        console.log("init App");
+                        setEvent();
+                    }
+                };
+            })(View, Model);
+            console.log(View);
+            console.log(Model);
+            console.log(Controller);
+            Controller.initApp();
+        </script>
+    </main>
+</body>
+
+</html>
