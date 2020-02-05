@@ -12,6 +12,7 @@
         <div class="todoList">
           <header><h1>TodoList</h1></header>
           <input type="text" class="todoList__inputBar" />
+          <button type="button" class="removeAllButton">Delete All</button>
           <ul class="todoList__content" id="todoList__content"></ul>
         </div>
       </section>
@@ -22,11 +23,16 @@
         </div>
       </section>
       <script>
+        // var lo = document.getElementsByClassName("removeAllButton")[0];
+        // lo.style.display = "none";
+        // console.log(lo);
+
         const View = (function() {
           const domString = {
             todoList: "#todoList__content",
             todoListInput: ".todoList__inputBar",
-            finishList: "#finishList__content"
+            finishList: "#finishList__content",
+            removeAllButton: ".removeAllButton"
           };
 
           return { domString };
@@ -44,7 +50,10 @@
           class TodoItem extends ListItem {
             generateTodoItemTmp() {
               
-              return `<li>${this.listText}<button type="button" id="${this.id}" class="btnDelete">Remove</button><button type="button" id="${this.id}" class="btnCheck">Check</button></li>`;
+              return `<li><input type="checkbox" id="${this.id}" class="checkBox">
+                ${this.listText}
+                <button type="button" id="${this.id}" class="btnDelete">Remove</button>
+                <button type="button" id="${this.id}" class="btnCheck">Check</button></li>`;
             }
           }
 
@@ -68,6 +77,7 @@
             constructor() {
               this._todoList = [];
               this._finishList = [];
+              this._removeList = [];
             }
 
             get todoList() {
@@ -98,6 +108,14 @@
                 .join("");
               render(tmp, elements.finishListElement);
             }
+
+            get removeList() {
+              return this._removeList;
+            }
+
+            set removeList(newValue) {
+              this._removeList = newValue;
+            }
           }
 
           let state = new State();
@@ -107,16 +125,21 @@
             todoListInputElement: document.querySelector(
               view.domString.todoListInput
             ),
-            finishListElement: document.querySelector(view.domString.finishList)
+            finishListElement: document.querySelector(view.domString.finishList),
+            removeAllButtonElement: document.querySelector(view.domString.removeAllButton)
+            
           };
-
+          
+          // use querySelector if only want one instance
+          elements.removeAllButtonElement.style.display = "none";
           const setEvent = () => {
             elements.todoListInputElement.addEventListener("keyup", e => {
-              if (event.keyCode == 13) {
+              if (event.keyCode == 13 && event.target.value != "") {
                 //implement
                 //Update the todoList State
                 let newTodo = new model.TodoItem(event.target.value);
                 state.todoList = [...state.todoList, newTodo];
+                event.target.value = ""; //better to do in event binding to make invisible to user (make userInput property of State)
               }
             });
           };
@@ -156,12 +179,51 @@
             });
           };
 
+          const checkedEvent = () => {
+            elements.todoListElement.addEventListener("click", () => {
+              if (event.target.className === "checkBox") {
+                if (event.target.checked) {
+                  state.removeList = [...state.removeList, event.target.id];
+                  elements.removeAllButtonElement.style.display = "inline";
+                  console.log("hi",state.removeList);
+                }
+              }
+            });
+          };
+
+          const removeButtonEvent = () => {
+            console.log("clicked");
+            elements.removeAllButtonElement.addEventListener("click", () => {
+              
+              if(event.target.className === "removeAllButton") {
+                  console.log(state.removeList);
+                  state.removeList = state.removeList.filter(box => {
+                    console.log("box",typeof box);
+                    state.todoList = state.todoList.filter(item => {
+                      console.log("item",typeof item.id);
+                      
+                      if (item.id == box) {
+                        
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    });
+                    return false;
+                  });
+                
+              }
+            })
+          }
+
           return {
             initApp: function() {
               console.log("init App");
               setEvent();
               checkEvent();
               deleteEvent();
+              checkedEvent();
+              removeButtonEvent();
             }
           };
         })(View, Model);

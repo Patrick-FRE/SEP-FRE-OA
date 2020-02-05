@@ -44,5 +44,6 @@ body{
 @media (min-width:700px) {
     .view {
         width: 700px;
+        
     }
 }

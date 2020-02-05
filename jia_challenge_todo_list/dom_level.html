@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        1
+        <li>2</li>
+        <li>2</li>
+        <li>
+          2
+          <ul>
+            3
+            <li>4</li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        1
+        <li>2</li>
+        <li>2</li>
+        <li>
+          2
+          <ul>
+            3
+            <li>
+              4
+              <ul>
+                5
+                <li>6</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    
+      <script>
+          const body = document.querySelector("body");
+          console.log(body.__proto__);
+    
+          function findDeepestLevel(domElement) {
+            // easiest way to get all the elements in one dom tree, but can't see level
+            // let allElements = domElement.querySelectorAll("*");
+            // console.log(allElements);
+
+            let deepestLevel = 0;
+            traverse(domElement,0);
+            
+            function traverse(element,currentLevel) {
+                console.log(element,currentLevel);
+                deepestLevel = currentLevel > deepestLevel ? currentLevel : deepestLevel;
+                if (element.children) { //element.children == HTMLCollection
+                    let nextLevel = ++currentLevel;
+                    for(let i=0; i<element.children.length; i++) {
+                        traverse(element.children[i],nextLevel); // if level++, will use level first, then +1
+                    }
+                }
+            }
+            return deepestLevel;
+          }
+    
+          let level = findDeepestLevel(body);
+          console.log(level); //output should be 6;
+      </script>
+    
+</body>
+</html>
