@@ -310,3 +310,104 @@ function unique_char(str1)
 console.log(unique_char("thequickbrownfoxjumpsoverthelazydog"));
 
 //17
+function Char_Counts(str1) {
+  var uchars = {};
+  str1.replace(/\S/g, function(l){uchars[l] = (isNaN(uchars[l]) ? 1 : uchars[l] + 1);});
+  return uchars;
+  }
+
+//18
+function array_binarySearch(narray, delement) {
+  var mposition = Math.floor(narray.length / 2);
+
+  if (narray[mposition] === delement){
+     return mposition;
+  }
+  else if (narray.length === 1) 
+  {
+     return null;
+  }
+  else if (narray[mposition] < delement) {
+     var arr = narray.slice(mposition + 1);
+     var res = array_binarySearch(arr, delement);
+     if (res === null)
+     {
+        return null;
+     }
+     else {
+        return mposition + 1 + res;
+     }
+  }
+  else {
+     var arr1 = narray.slice(0, mposition);
+     return array_binarySearch(arr1, delement);
+  }
+}
+
+//19
+function BiggerElements(val)
+   {
+     return function(evalue, index, array)
+     {
+     return (evalue >= val);
+     };
+   }
+
+//20
+function makeid(l)
+{
+var text = "";
+var char_list = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+for(var i=0; i < l; i++ )
+{  
+text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+}
+return text;
+}
+console.log(makeid(8));
+
+//21
+function subset(arra, arra_size)
+ {
+    var result_set = [], 
+        result;
+    
+   
+for(var x = 0; x < Math.pow(2, arra.length); x++)
+  {
+    result = [];
+    i = arra.length - 1; 
+     do
+      {
+      if( (x & (1 << i)) !== 0)
+          {
+             result.push(arra[i]);
+           }
+        }  while(i--);
+
+    if( result.length >= arra_size)
+       {
+          result_set.push(result);
+        }
+    }
+
+    return result_set; 
+}
+
+console.log(subset([1, 2, 3], 2));
+
+//22
+function char_count(str, letter) 
+{
+ var letter_Count = 0;
+ for (var position = 0; position < str.length; position++) 
+ {
+    if (str.charAt(position) == letter) 
+      {
+      letter_Count += 1;
+      }
+  }
+  return letter_Count;
+}
+
+console.log(char_count('w3resource.com', 'o'));
