@@ -43,10 +43,11 @@
             .container ul li{
                 margin: 5px;
                 font-size: 1rem;
+                cursor: pointer;
             }
 
-            .container ul li.active{
-                color: red;
+            ul li .completed{
+                border: 1px solid red;
             }
 
             .todo-status{
@@ -76,15 +77,30 @@
 
                         </ul>
                     </div>
+                    <div>
+                        <select id="todo-selects">
+
+                        </select>
+                    </div>
                 </div>
 
                 <div class="todo-status">
-                    <input type="button"value="Completed ToDo">
-                    <input type="button"value="Not Completed">
+                    <input type="button" id="btn-completed"  value="Completed ToDo">
+                    <input type="button" id="btn-uncompleted" value="Not Completed">
                 </div>
                 <div class="container">
                     <div>
                         <header>Finished List</header>
+                    </div>
+                    <div>
+                        <ul id="completed-list">
+
+                        </ul>
+                    </div>
+                    <div>
+                        <select>
+
+                        </select>
                     </div>
                 </div>
             </section>
@@ -105,6 +121,8 @@
                                 </span>
                             </li>`
                     }
+                    
+                    
                 }
                 return {
                     ToDoItem
@@ -115,7 +133,6 @@
                 const DOMstring={
                     todoList:'#todolist_content',
                     todoInput:'.todolist_inputBar',
-                    todoRemove:'btn-removeTodo'
                 };
                 return {
                     DOMstring
@@ -142,7 +159,9 @@
                         this._todoList = newValue;
                         let tmp = newValue
                         .map(todoItem => 
-                        todoItem.generateToDoTemplate())
+                            todoItem.generateToDoTemplate(),
+                     
+                        )
                         .join('');
                         render(tmp,elements.todolistElement)
                     }
@@ -153,16 +172,23 @@
                 const elements ={
                     todolistElement: document.querySelector(view.DOMstring.todoList),
                     todolistInput: document.querySelector(view.DOMstring.todoInput),
-                    todolistRemove: document.querySelector(view.DOMstring.todoRemove),
+                    todolistSelectElement: document.getElementById('todo-selects'),
+                    completedTodo: document.getElementById('btn-completed')
                 }
 
                 const setEvent=()=>{
+                    //Add Todo
                     elements.todolistInput.addEventListener('keyup',(e)=>{
                         if(e.keyCode == 13){                  
-                            let newTodo = new model.ToDoItem(e.target.value);
-                            
+                            let newTodo = new model.ToDoItem(e.target.value);         
                             state.todoList = [...state.todoList, newTodo];
-
+                            //======add to select===========
+                            let option = document.createElement('option');
+                            let select = document.getElementById('todo-selects');             
+                            option.innerText = e.target.value           
+                            // console.log('option',option)
+                            select.appendChild(option);
+                            //=================
                             e.target.value = '';
                             
                         }else if(e.target.value.length <= '0'){
@@ -171,11 +197,12 @@
                         }
                     });
                     
-                    // let removeBtn = document.getElementsByClassName('btn-removeTodo');
+                    //Remove Todo
                     elements.todolistElement.addEventListener("click",(e)=>{
                         if(e.target.className == 'btn-removeTodo'){
                             console.log('target:',e.target);
-                            // e.target.style.display = "none"
+                         
+                            // elements.todolistElement.style.display = "none";
                             state.todoList = state.todoList.filter( todoItem =>{
                                 if(todoItem.todoText != e.target.id){
                                     return true
@@ -184,9 +211,30 @@
                                 }
                             }
                             )
-                        }
+                        } 
                         
-                    })
+                        
+                    });
+
+                    //Move to right
+                    // elements.completedTodo.addEventListener('click',(e)=>{
+                    //     let value = document.getElementById('todo-selects').value
+                    //     let parent = value.parentElement;
+                    //     let completedList = document.getElementById('completed-list');
+                    //     // let li = document.createElement('li');
+                    //     // li.innerText = value;
+                    //     completedList.appendChild(parent);
+                    //     console.log('value',value)
+                    // })
+
+                    // //Check Todo
+                    // elements.todolistElement.addEventListener('click',(e)=>{
+                    //     e.target.classList.add('completed');
+                    //     console.log(e.target)
+                    //     // if(e.target.className == 'todo-item'){
+                    //     //     console.log("checked")
+                    //     // }
+                    // })
                 }
 
                 return {
