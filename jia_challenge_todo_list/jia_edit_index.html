@@ -15,11 +15,18 @@
           <ul class="todoList__content" id="todoList__content"></ul>
         </div>
       </section>
+      <section>
+        <div class="finishList">
+          <header><h1>FinishList</h1></header>
+          <ul class="finishList__content" id="finishList__content"></ul>
+        </div>
+      </section>
       <script>
         const View = (function() {
           const domString = {
             todoList: "#todoList__content",
-            todoListInput: ".todoList__inputBar"
+            todoListInput: ".todoList__inputBar",
+            finishList: "#finishList__content"
           };
 
           return { domString };
@@ -29,12 +36,15 @@
           class ListItem {
             constructor(listText) {
               this.listText = listText;
+              this.id = new Date().getTime();
+              console.log("DATE",this.id);
             }
           }
 
           class TodoItem extends ListItem {
             generateTodoItemTmp() {
-              return `<li>${this.listText}<button type="button" id="${this.listText}" class="btnDelete">Remove</button></li>`;
+              
+              return `<li>${this.listText}<button type="button" id="${this.id}" class="btnDelete">Remove</button><button type="button" id="${this.id}" class="btnCheck">Check</button></li>`;
             }
           }
 
@@ -82,6 +92,11 @@
 
             set finishList(newValue) {
               console.log("set todoList");
+              this._finishList = newValue;
+              let tmp = newValue
+                .map(finishItem => finishItem.generateFinishItemTmp())
+                .join("");
+              render(tmp, elements.finishListElement);
             }
           }
 
@@ -91,7 +106,8 @@
             todoListElement: document.querySelector(view.domString.todoList),
             todoListInputElement: document.querySelector(
               view.domString.todoListInput
-            )
+            ),
+            finishListElement: document.querySelector(view.domString.finishList)
           };
 
           const setEvent = () => {
@@ -105,18 +121,35 @@
             });
           };
 
-          const deleEvent = () => {
+          const checkEvent = () => {
             elements.todoListElement.addEventListener("click", () => {
-              if (event.target.className === "btnDelete") {
+              if (event.target.className === "btnCheck") {
                 //console.log(event.target.id);
                 state.todoList = state.todoList.filter(item => {
-                  console.log(item);
-                  if (item.listText !== event.target.id) {
-                    return true;
-                  } else {
-                    
+                  console.log(typeof item.id);
+                  console.log(typeof event.target.id);
+                  if (item.id == event.target.id) {
+                    console.log("ITEM",item.listText);
+                    let newFinish = new model.FinishItem(item.listText);
+                    state.finishList = [...state.finishList, newFinish];
+                    console.log("finish",state.finishList);
                     return false;  
-                    //console.log("remove");
+                  } else {
+                    return true;
+                  }
+                });
+              }
+            });
+          };
+
+          const deleteEvent = () => {
+            elements.todoListElement.addEventListener("click", () => {
+              if (event.target.className === "btnDelete") {
+                state.todoList = state.todoList.filter(item => {
+                  if (item.id == event.target.id) {
+                    return false;
+                  } else {
+                    return true;
                   }
                 });
               }
@@ -127,7 +160,8 @@
             initApp: function() {
               console.log("init App");
               setEvent();
-              deleEvent();
+              checkEvent();
+              deleteEvent();
             }
           };
         })(View, Model);
