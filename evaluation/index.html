@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="currentTime-contianer">
+        <p class="currenntTime-p">Current Time</p>
+        <div class="currentTime-showCurTime" id="showCurTime"></div>
+      </div>
+      <div class="getTime-container" id="getTime-container">
+        <div class="getTime-dropDown">
+          <p class="getTime__H">Hour</p>
+          <select class="getTime__H-item" name="" id="hour"></select>
+          <p class="getTime__M">Minuts</p>
+          <select class="getTime__M-item" name="" id="min"></select>
+          <p class="getTime__AP">AM/PM</p>
+          <select class="getTime__AP-item" name="" id="ap">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+
+        <button class="getTime-button" id="getTime-button">Set Target</button>
+      </div>
+      <div class="get-target-container">
+        <p class="get-targetTime">Get Target Time</p>
+        <div class="show-time" id="show-time"></div>
+      </div>
+      <div class="show-countDown-container">
+        <p class="show-countDown">Count Down To Target</p>
+        <div class="show-gap" id="show-gap"></div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
