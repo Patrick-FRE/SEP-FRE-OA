@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Form Practice</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./index.css">
-    </head>
-    <body>
-        <section>
-        <header class = 'main'><h1>Sign Up</h1></header>
-        <form type = 'submit' id = 'main-form'>
-            <div class = 'line'>
-            <input type = 'text' class = 'half-line' placeholder = 'First Name'></input>    
-            <input type = 'text' class = 'half-line' placeholder = 'Last Name'></input>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form Practice</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <section>
+        <header class='main'>
+            <h1>Sign Up</h1>
+        </header>
+        <form type='submit' id='main-form'>
+            <div class='line'>
+                <input type='text' class='half-line' placeholder='First Name'></input>
+                <input type='text' class='half-line' placeholder='Last Name'></input>
             </div>
 
-            <div class = 'line'>
-            <input type = 'number' class = 'whole-line' placeholder = 'Mobile No.' ></input>
+            <div class='line'>
+                <input type='tel' class='whole-line' placeholder='Mobile No.'></input>
             </div>
 
-            <div class = 'line'>
-                <input type = 'text' class = 'whole-line' placeholder = 'Email Address'></input>
+            <div class='line'>
+                <input type='text' class='whole-line' placeholder='Email Address'></input>
             </div>
 
-            <div class = 'line'>
-                <input type = 'password' class = 'half-line' placeholder = 'Password'></input>
-                <input type = 'password' class = 'half-line' placeholder = 'Confirm Password'></input>
+            <div class='line'>
+                <input type='password' class='half-line' placeholder='Password'></input>
+                <input type='password' class='half-line' placeholder='Confirm Password'></input>
             </div>
-            <button id = 'submitButton' type = 'submit'></button>
+            <div id = 'info-box'>
+                <input type='checkbox'></input>
+                <label>I Agree</label>
+                <span id='register-tag'>
+                    <p>By clicking Register, you agree to the Terms and Conditions set out by this site, including our
+                        Cookie Use.</p>
+                </span>
+            </div>
+            <div class='line'>
+                <button id='submitButton' type='submit'>Register</button>
+                <button type='submit'>Sign In </button>
+            </div>
         </form>
     </section>
-        <script src="./index.js" async defer></script>
-    </body>
+    <script src="./index.js" async defer></script>
+</body>
+
 </html>

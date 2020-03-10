@@ -1,18 +1,31 @@
-.main {
-    display: flex;
-    justify-content: center
+header {
+    text-align: center
 }
-
-.line {
+form {
     display: flex;
     justify-content: center;
-    margin: 10px
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding: 30px;
 }
-.half-line {
+#info-box {
     display: flex;
     justify-content: space-between;
+    align-items: center
+}
+.line {
+    margin: 5px
+}
+
+.line .half-line {
     width: 150px
 }
-.whole-line {
-    width: 306px
+.line .whole-line {
+    width: 307px
+}
+
+span {
+    font-size: 10px
 }
