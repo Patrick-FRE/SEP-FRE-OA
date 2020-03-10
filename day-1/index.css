@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    justify-content: center
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    margin: 10px
+}
+.half-line {
+    display: flex;
+    justify-content: space-between;
+    width: 150px
+}
+.whole-line {
+    width: 306px
+}
