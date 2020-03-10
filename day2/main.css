@@ -67,7 +67,8 @@ label {
 #mini-R {
   background-color: royalblue;
   color: white;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 2px 3px;
 }
 
 .box:focus {
