@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>SignUp</title>
+  </head>
+  <body>
+    <form>
+      <h1>Sign Up</h1>
+      <div class="container">
+        <div class="username">
+          <input
+            type="text"
+            placeholder="First Name"
+            name="firstname"
+            required
+          />
+          <input
+            type="text"
+            id="lastname"
+            placeholder="Last Name"
+            name="lastname"
+            required
+          />
+        </div>
+
+        <div class="phone">
+          <input type="phone" placeholder="Mobile No." name="email" required />
+        </div>
+        <div class="email">
+          <input
+            type="text"
+            placeholder="Email Address"
+            name="email"
+            required
+          />
+        </div>
+        <div class="password">
+          <input type="password" placeholder="Password" name="psw" required />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="psw-repeat"
+            required
+          />
+        </div>
+        <div class="policy">
+          <label>
+            <input type="checkbox" name="remember" style="margin-bottom:15px" />
+            I Agree
+          </label>
+
+          <p>
+            By clicking <span class="register">Register</span>, you agree to the
+            <a href="#">Terms and Conditions</a>. set out by this site,
+            including our cookie use.
+          </p>
+        </div>
+
+        <div class="btns">
+          <button id="register" type="button" class="cancelbtn">
+            Register
+          </button>
+          <button id="signin" type="submit" class="signupbtn">Sign In</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+form {
+  width: 80%;
+  margin: 5% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.username,
+.phone,
+.email,
+.password,
+.policy,
+.btns {
+  width: 100%;
+}
+.username {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.username input {
+  width: 48%;
+  height: 50px;
+  border: 1px grey solid;
+  font-size: 20px;
+  margin-top: 2%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.phone {
+  width: 100%;
+}
+
+.phone input {
+  width: 100%;
+  height: 50px;
+  border: 1px grey solid;
+  font-size: 20px;
+  margin-top: 2%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.email input {
+  width: 100%;
+  height: 50px;
+  border: 1px grey solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 2%;
+}
+
+.password {
+  display: flex;
+  justify-content: space-between;
+}
+
+.password input {
+  width: 48%;
+  height: 50px;
+  border: 1px grey solid;
+  font-size: 20px;
+  margin-top: 2%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.policy {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.policy label {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.policy p {
+  width: 70%;
+  font-size: 20px;
+}
+
+.policy .register {
+  background-color: lightblue;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btns button {
+  font-size: 20px;
+  width: 48%;
+  height: 50px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btns #register {
+  background-color: lightblue;
+}
+
+.btns #signin {
+  background-color: lightgreen;
+}
