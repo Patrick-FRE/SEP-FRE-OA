@@ -20,7 +20,8 @@ h6 {
 }
 
 #check {
-  display: flex;  
+  display: flex;
+  margin-top: 5px;  
 }
 
 label {
