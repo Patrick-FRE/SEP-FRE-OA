@@ -1,0 +1,77 @@
+#sign-up {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  background-color: beige;
+  border-radius: 7px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h6 {
+  width: 360px;
+  margin: 0;
+}
+
+#check {
+  display: flex;  
+}
+
+label {
+  height: 30px;
+}
+
+#first, #last, #phone, #e-mail, #pass, #cpass {
+  margin: 5px 10px;
+  border-radius: 5px;
+  padding: 5px;
+  height: 25px;
+  
+}
+
+#first, #last, #pass, #cpass {
+  width: 186px;
+}
+
+#phone, #e-mail {
+  width: 412px;
+}
+#btn {
+  display: flex;
+}
+#register {
+  background-color: royalblue;
+}
+#sign-in {
+  background-color: lightgreen;
+}
+#register, #sign-in {
+  color: white;
+  margin: 5px 10px;
+  width: 201px;
+  font-size: 18px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+#mini-R {
+  background-color: royalblue;
+  color: white;
+  border-radius: 5px;
+}
+
+.box:focus {
+  border: 3px solid lightblue;
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
