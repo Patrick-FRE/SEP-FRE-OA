@@ -25,6 +25,7 @@ h6 {
 
 label {
   height: 30px;
+  padding-right: 10px;
 }
 
 #first, #last, #phone, #e-mail, #pass, #cpass {
