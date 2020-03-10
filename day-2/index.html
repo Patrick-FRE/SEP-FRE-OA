@@ -3,39 +3,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Md Hw</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
   </head>
   <body>
-    <h1>Sign UP</h1>
     <form>
+      <h4 class="title">Sign UP</h4>
       <div>
-        <input type="text" name="name" placeholder="First name" />
-        <input type="text" placeholder="Last name" />
-      </div>
-      <div>
-        <input type="number" name="phone" placeholder="Mobile No." />
-      </div>
-      <div>
-        <input type="text" name="email" placeholder="Email Address" />
-      </div>
-      <div>
-        <input type="password" name="password" placeholder="Password" />
         <input
+          class="double"
+          type="text"
+          name="name"
+          placeholder="First name"
+          required
+        />
+        <input class="double" type="text" placeholder="Last name" />
+      </div>
+      <div>
+        <input
+          class="single"
+          type="number"
+          name="phone"
+          placeholder="Mobile No."
+          required
+        />
+      </div>
+      <div>
+        <input
+          class="single"
+          type="text"
+          name="email"
+          placeholder="Email Address"
+          required
+        />
+      </div>
+      <div>
+        <input
+          class="double"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          class="double"
           type="password"
           name="confirmPassword"
           placeholder="Confirm password"
+          required
         />
       </div>
 
-      <div>
+      <div class="term">
         <label>
-          <input type="checkbox" />
-          By clicking Register you are agree to the term and condition.
+          <input class="agree" required type="checkbox" />
+          I Agree
         </label>
+        <span class="term-description">
+          By clicking <a href="#">Register</a> you are agree to the
+          <a href="#">terms and conditions</a> set out by this site, including
+          our Cookie use.
+        </span>
       </div>
 
       <div>
-        <button>Register</button>
-        <button>Sign In</button>
+        <button class="register-btn">Register</button>
+        <button class="signIn-btn">Sign In</button>
       </div>
     </form>
   </body>
