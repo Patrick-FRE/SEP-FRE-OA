@@ -1,31 +1,62 @@
 header {
     text-align: center
 }
+
 form {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 315px;
     margin: auto;
-    padding: 30px;
+    padding: 10px 50px 10px 50px
 }
-#info-box {
+.row {
     display: flex;
-    justify-content: space-between;
-    align-items: center
+    justify-content: center;
+    margin-top: 5px;
+    text-align: center;
 }
-.line {
-    margin: 5px
+.whole-row {
+    width: 308px
 }
-
-.line .half-line {
+.half-row {
     width: 150px
 }
-.line .whole-line {
-    width: 307px
+#info-box {
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 10px;
+}
+.first-name {
+    margin-right: 4px
 }
 
-span {
-    font-size: 10px
+input {
+    height: 2.5em;
+    border-radius: 5px;
+    border: 1px solid rgb(216,216,216)
+
+}
+
+button {
+    border-radius: 5px;
+    height: 2.5em
+}
+button:hover {
+    opacity: 0.8;
+    cursor: pointer
+}
+#submitButton {
+    background-color: #03a1fc;
+    color: white;
+    border: 0px;
+    margin-right: 4px
+}
+
+label {
+    display: flex;
+}
+#sign-in {
+    background-color: #34eba1;
+    border: 0px;
+    color: white
 }
