@@ -47,11 +47,17 @@ form {
 }
 
 #info-box {
+    justify-content: space-between;
     align-items: center;
     font-size: 10px;
 }
 .first-name {
     margin-right: 4px
+}
+#agree-box {
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 input {
@@ -84,6 +90,9 @@ label {
     border: 0px;
     color: white;
 }
+#info-span {
+    width: 240px
+}
 @media screen and (max-width:600px) {
     #submitButton {
         margin-right: 0px;
@@ -92,10 +101,12 @@ label {
  .first-name {
      margin-right: 0px
  }
+
  #info-box {
      width: 250px;
      padding-left: 30px;
-     justify-content: center;
+     flex-direction: column-reverse
+
  }
 }
 
