@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>CSS training</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      div {
+        background-color: gray;
+        margin: 10px;
+      }
+      .row {
+        display: flex;
+      }
+      .col-9 {
+        width: calc(9 / 12 * 100%);
+        background-color: blue;
+      }
+
+      .col-8 {
+        width: calc(8 / 12 * 100%);
+      }
+
+      .col-7 {
+        width: calc(7 / 12 * 100%);
+      }
+      .col-6 {
+        width: calc(6 / 12 * 100%);
+      }
+      .col-5 {
+        width: calc(5 / 12 * 100%);
+      }
+      .col-4 {
+        width: calc(4 / 12 * 100%);
+      }
+      .col-3 {
+        width: calc(3 / 12 * 100%);
+      }
+      .col-2 {
+        width: calc(2 / 12 * 100%);
+      }
+      .col-1 {
+        width: calc(7 / 12 * 100%);
+      }
+
+      @media all and (min-width: 1200px) {
+        .col-9-lg {
+          width: calc(9 / 12 * 100%);
+          background-color: blue;
+        }
+
+        .col-8-lg {
+          width: calc(8 / 12 * 100%);
+        }
+
+        .col-7-lg {
+          width: calc(7 / 12 * 100%);
+        }
+        .col-6-lg {
+          width: calc(6 / 12 * 100%);
+        }
+        .col-5-lg {
+          width: calc(5 / 12 * 100%);
+        }
+        .col-4-lg {
+          width: calc(4 / 12 * 100%);
+        }
+        .col-3-lg {
+          width: calc(3 / 12 * 100%);
+        }
+        .col-2-lg {
+          width: calc(2 / 12 * 100%);
+        }
+        .col-1-lg {
+          width: calc(7 / 12 * 100%);
+        }
+      }
+      @media all and (min-width: 500px) and (max-width: 1200px) {
+        .col-9-md {
+          width: calc(9 / 12 * 100%);
+          background-color: blue;
+        }
+
+        .col-8-md {
+          width: calc(8 / 12 * 100%);
+        }
+
+        .col-7-md {
+          width: calc(7 / 12 * 100%);
+        }
+        .col-6-md {
+          width: calc(6 / 12 * 100%);
+        }
+        .col-5-md {
+          width: calc(5 / 12 * 100%);
+        }
+        .col-4-md {
+          width: calc(4 / 12 * 100%);
+        }
+        .col-3-md {
+          width: calc(3 / 12 * 100%);
+        }
+        .col-2-md {
+          width: calc(2 / 12 * 100%);
+        }
+        .col-1-md {
+          width: calc(7 / 12 * 100%);
+        }
+      }
+      div::before {
+        content: "X";
+      }
+      div::after {
+        content: "Y";
+      }
+      div {
+        color: white;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Hello</div>
+    <button>BUTTON</button>
+    <!-- <div class="row">
+      <div class="col-9-lg col-6-md">col-9</div>
+      <div class="col-3-lg col-6-md">col-3</div>
+    </div> -->
+    <script></script>
+  </body>
+</html>

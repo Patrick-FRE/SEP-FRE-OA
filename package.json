@@ -1,0 +1,24 @@
+{
+  "name": "sep-fre-oa",
+  "version": "1.0.0",
+  "description": "This is a repo to record the SEP-FRE-TRAINING assignments.",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^1.26.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-convert": "sass SASS/main.scss SASS/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patrick-FRE/SEP-FRE-OA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Patrick-FRE/SEP-FRE-OA/issues"
+  },
+  "homepage": "https://github.com/Patrick-FRE/SEP-FRE-OA#readme"
+}
