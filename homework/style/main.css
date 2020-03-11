@@ -1,0 +1,145 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.25%;
+}
+
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+/* common */
+.form-container {
+  position: fixed;
+  width: 100%;
+  max-width: 50rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hide {
+  display: none;
+}
+
+.btn {
+  border: none;
+  background-color: #757575;
+  outline: none;
+}
+
+.primary {
+  color: #fff;
+  background-color: #4285f4;
+}
+
+.primary:active {
+  background-color: #0d47a1;
+}
+
+.success {
+  color: #fff;
+  background-color: #00c851;
+}
+
+.success:active {
+  background-color: #007e33;
+}
+
+.form-signup {
+  display: flex;
+  flex-direction: column;
+}
+.form-signup .form-signup__header {
+  text-align: center;
+  margin: 5px 0;
+}
+.form-signup .form-row {
+  display: flex;
+  flex: 1 1 100%;
+  margin: 1px;
+}
+.form-signup .form-row .form-item {
+  flex: 1 1 100%;
+  margin: 0.5rem 1rem;
+}
+
+.form-item input {
+  padding: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid --color-grey;
+  outline: none;
+}
+
+.form-item input:focus {
+  box-shadow: 0 0 2px 1px #88b8ff;
+}
+
+.form-row .agree-wrapper {
+  display: flex;
+  margin-top: 8px;
+}
+
+.agree-wrapper {
+  display: flex;
+  margin-top: 80px;
+}
+
+.form-row .check-agree {
+  flex: 1 1 40%;
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  min-width: 2rem;
+}
+
+.form-row .terms {
+  font-size: 1.2rem;
+}
+
+.form-row .terms a {
+  text-decoration: none;
+}
+
+.form-row .terms .badge-register {
+  background-color: --color-primary;
+  display: inline-block;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+@media (max-width: 400px) {
+  .form-signup .form-row {
+    flex-direction: column;
+  }
+
+  .check-agree label {
+    display: none;
+  }
+
+  .check-agree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
