@@ -1,0 +1,68 @@
+form {
+    width: 600px;
+    margin: auto;
+    text-align:center;
+    font-family: sans-serif;
+ }
+ 
+ h1 {
+    font-weight: normal;
+ }
+ .user-info-flex {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   color: grey;
+ }
+ 
+ input, button {
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 9px;
+    border:1px solid #ccc; 
+ }
+ input[type="text"], input[type="password"], button{
+    width: 43%;
+ }
+ input[name="mobile"], input[name="email"]{
+    width: 100%;
+ }
+ #agree-check {
+    display:inline-block;
+    margin-top: 0;
+    color: black;
+    font-weight: 600;
+ }
+ 
+ p {
+    display:inline-block;
+    width:80%;
+    margin-top:0;
+    font-weight: lighter;
+    text-align: left;
+    font-size: 1rem;
+ }
+ span {
+    padding: 2px 8px;
+    color: white;
+    border-radius: 5px;
+ }
+
+ a {
+    text-decoration: none;
+    color: #0076ff
+
+ }
+ button {
+     color: white;
+ }
+
+ #btn-register, span {
+     background-color: #3d84d4;
+ }
+ 
+ #btn-signin{
+    background-color:#67ae55;
+}
+ 
