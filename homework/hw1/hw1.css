@@ -1,57 +1,132 @@
-form {
+:root{
+    --color-input:#e0e0e0;
+    --color-input-focus: #88b8ff;
+    --color-registerbtn:#4285F4;
+    --color-registerbtn-active:#0d47a1;
+    --color-signinbtn:#00C851;
+    --color-signinbtn-active:#007E33;
+}
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: inherit
+}
+
+html{
+    font-size: 62.25%;
+}
+
+body{
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+input[type="checkbox"], label{
+    cursor:pointer;
+}
+
+.form-container {
+    position: fixed;
+    width: 100%;
+    max-width: 50rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-signup {
     display: flex;
-    width: 40%;
-    margin: auto;
     flex-direction: column;
 }
-.rows {
+
+.form-signup__header {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.form-signup .form-row {
     display: flex;
-    height: 30px;
-    padding: 5px;
+    flex: 1 1 100%;
+    margin: 1px;
 }
 
-.twoitemsrow {
-    width: 48%;
+.form-signup .form-row .form-item {
+    flex: 1 1 100%;
+    margin: 0.5rem 1rem;
 }
 
-.oneitemrow {
+.form-signup .form-row .form-item input{
+    padding: 1rem;
     width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--color-input);
+    outline: none;
 }
 
-.rowfirstitem {
-    margin-right: 4%;
+.form-signup .form-row .form-item input:focus {
+    box-shadow: 0 0 2px 1px var(--color-input-focus);
 }
 
-.roundedge {
-    border-radius: 0.4em;
-    border: 1px solid #ccc;
+.agree-container {
+    display: flex;
+    margin-top: 8px;
 }
 
-.agreecheck {
-    margin-top: 3%;
-    margin-bottom: 3%;
+.agreecheck-container {
+    flex: 1 1 40%;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2.5rem; 
+    min-width: 2rem;
 }
 
-#iagree {
-    width: 20%;
-    font-size: 0.5em;
+.form-signup .form-row .agree-terms {
+    font-size: 1.2rem;
 }
 
-#agreetermscontainer {
-    display: inline;
-    margin-left: 30%;
+.badge-register{
+    background-color: var(--color-registerbtn);
+    display: inline-block;
+    color:white;
+    padding: 1px 4px;
+    border-radius: 3px;
 }
 
-#agreetermstext {
-    font-size: 0.5em;
-}
-
-.register {
-    background-color: blue;
+.button-register {
     color: white;
+    background-color: var(--color-registerbtn);
 }
 
-#signinbutton {
-    background-color: green;
+.button-register:active {
+    background-color: var(--color-registerbtn-active);
+}
+
+.button-signin {
     color: white;
+    background-color: var(--color-signinbtn);
+}
+
+.button-signin:active {
+    background-color: var(--color-signinbtn-active);
+}
+
+@media all and (max-width: 500px) {
+    .form-signup .form-row {
+        flex-direction: column;
+    }
+
+    .agreecheck-container label {
+        display: none;
+    }
+
+    .agreecheck-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 }

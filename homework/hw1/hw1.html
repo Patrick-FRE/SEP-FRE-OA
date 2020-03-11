@@ -5,33 +5,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1 align="center" name="signuptext" id="signuptext">Sign Up</h1>
-        <form name="signupform" id="signupform">
-            <div id="row1" class="rows">
-                <input type="text" id="fname" class="twoitemsrow rowfirstitem roundedge" name="fname" placeholder="First Name">
-                <input type="text" id="lname" class="twoitemsrow roundedge" name="lname" placeholder="Last Name">
-            </div>
-            <div id="row2" class="rows">
-                <input type="text" id="mobileno" class="oneitemrow roundedge" name="mobileno" placeholder="Mobile No.">
-            </div>
-            <div id="row3" class="rows">
-                <input type="text" id="email" class="oneitemrow roundedge" name="email" placeholder="Email Address">
-            </div>
-            <div id="row4" class="rows">
-                <input type="text" id="password" class="twoitemsrow rowfirstitem roundedge" name="password" placeholder="Password">
-                <input type="text" id="confirmpassword" class="twoitemsrow roundedge" name="confirmpassword" placeholder="Confirm Password">
-            </div>
-            <div id="row5" class="rows">
-                <input type="checkbox" class="agreecheck" id="agreeterms" name="agreeterms">
-                <b class="agreecheck" name="iagree" id="iagree"> I Agree</b>
-                <div id="agreetermscontainer">
-                    <p id="agreetermstext" name="agreetermstext">By clicking <span id="registerspan" class="register">Register</span>, you agree to the <a href=”url”>Terms and Conditions</a> set out by this site, including our Cookie Use.</p>
+        <div class="form-container">
+            <form class="form-signup">
+                <header class="form-signup__header">
+                    <h1>Sign Up</h1>
+                </header>
+                <div class="form-row">
+                    <div class="form-item">
+                        <input type="text" class="fname" placeholder="First Name">
+                    </div>
+                    <div class="form-item">
+                        <input type="text" class="lname" placeholder="Last Name">
+                    </div>
                 </div>
-            </div>
-            <div id="row6" class="rows">
-                <input type="submit" id="registerbutton" class="twoitemsrow rowfirstitem register roundedge" name="registerbutton" value="Register" >
-                <input type="submit" id="signinbutton" class="twoitemsrow roundedge" name="signinbutton" value="Sign In">
-            </div>
-        </form>
+                <div class="form-row">
+                    <div class="form-item">
+                        <input type="text" class="phonenum" placeholder="Mobile No.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-item">
+                        <input type="text" class="email" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-item">
+                        <input type="text" class="password" placeholder="Password">
+                    </div>
+                    <div class="form-item">
+                        <input type="text" class="confirmpassword" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="agree-container">
+                        <div class="agreecheck-container">
+                            <input type="checkbox" class="agreecheck">
+                            <label for="agreecheck">  I Agree</label>
+                        </div>
+                        <p class="agree-terms">By clicking <span class="badge-register">Register</span>, you agree to the <a href=”url”>Terms and Conditions</a> set out by this site, including our Cookie Use.</p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-item">
+                        <input type="submit" class="button button-register" value="Register" >
+                    </div>
+                    <div class="form-item">
+                        <input type="button" class="button button-signin" value="Sign In">
+                    </div>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
