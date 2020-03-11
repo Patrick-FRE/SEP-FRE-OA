@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+body {
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+div.form-container {
+  position: fixed;
+  width: 100%;
+  max-width: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form.form-signup {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  margin: 10px 1px;
+}
+
+div.form-row {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 5px;
+}
+
+div.form-item {
+  flex: 1 1 100%;
+  margin-right: 20px;
+}
+
+div.agree-container {
+  display: flex;
+}
+
+.agree-checkbox {
+  display: flex;
+  width: 23%;
+  margin-top: 23px;
+}
+.agree {
+  margin-right: 5px;
+}
+.form-item input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline:  none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px lightblue;
+}
+
+span.fake-btn {
+  color: white;
+  background-color: royalblue;
+  border-radius: 5px;
+  padding: 1px 0px 1px 4px;
+}
+.terms {
+  font-size: 12px;
+  margin: 20px;
+}
+.terms-conditions {
+  text-decoration: none;
+}
+
+.register, .sign-in {
+  font-size: 16px;
+  color: white;
+}
+
+.register {
+  background-color: royalblue;
+}
+
+.sign-in {
+  background-color: limegreen;
+}
+
+@media (max-width: 455px) {
+  .form-container .form-row {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .form-row .form-item {
+    margin: 5px;
+  }
+
+  .agree-container {
+    flex-direction: column;
+  }
+
+}
