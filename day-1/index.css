@@ -4,6 +4,7 @@ header {
 
 form {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     width: 315px;
     margin: auto;
@@ -15,14 +16,37 @@ form {
     margin-top: 5px;
     text-align: center;
 }
+
+@media screen and (max-width:600px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center
+    }
+    form {
+        padding: 0px
+    }
+
+}
 .whole-row {
     width: 308px
 }
 .half-row {
     width: 150px
 }
+@media screen and (max-width:600px) {
+    .half-row {
+        width: 250px
+    }
+    .whole-row {
+        width: 250px
+    }
+    .first-name {
+        margin-bottom: 4px
+    }
+}
+
 #info-box {
-    justify-content: flex-end;
     align-items: center;
     font-size: 10px;
 }
@@ -36,7 +60,6 @@ input {
     border: 1px solid rgb(216,216,216)
 
 }
-
 button {
     border-radius: 5px;
     height: 2.5em
@@ -49,7 +72,8 @@ button:hover {
     background-color: #03a1fc;
     color: white;
     border: 0px;
-    margin-right: 4px
+    margin-right: 8px;
+    border-radius: 5px
 }
 
 label {
@@ -58,5 +82,20 @@ label {
 #sign-in {
     background-color: #34eba1;
     border: 0px;
-    color: white
+    color: white;
 }
+@media screen and (max-width:600px) {
+    #submitButton {
+        margin-right: 0px;
+        margin-bottom: 5px
+ }
+ .first-name {
+     margin-right: 0px
+ }
+ #info-box {
+     width: 250px;
+     padding-left: 30px;
+     justify-content: center;
+ }
+}
+
