@@ -59,6 +59,7 @@ div.footer, ul.menu, .second-content, ul.footer-row {
   display: flex;
   list-style: none;
   outline: none;
+  justify-content: space-between;
 }
 
 li a {
@@ -86,4 +87,36 @@ li a:visited {
 
 .header-text {
   font-size: 28px;
+}
+
+.footer-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+@media (max-width: 1000) {
+  div.footer,
+  ul.menu,
+  .second-content,
+  ul.footer-row {
+    display: flex;
+    list-style: none;
+    outline: none;
+    justify-content: space-evenly;
+  }
+
+  .menu, .footer-container {
+    justify-content: space-evenly;
+  }
+
+  .content-items {
+    display: initial;
+    margin-left: 16%;
+    margin-right: 16%;
+  }
+
+  .second-content {
+    flex-direction: row;
+  }
 }
