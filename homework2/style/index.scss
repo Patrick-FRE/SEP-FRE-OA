@@ -20,7 +20,15 @@ body {
   font-family: Arial, Helvetica, sans-seri;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-container {
+  position: relative;
   width: 100%;
   height: 50px;
   background-color: $Black;
@@ -28,7 +36,9 @@ body {
   align-items: center;
 
   .nav-antra {
-    width: 50%;
+    position: absolute;
+    left: 50px;
+    width: 40%;
     .nav-list {
       display: flex;
       width: 100%;
@@ -48,9 +58,13 @@ body {
 
 .content-container {
   width: 100%;
+  position: relative;
 }
 
 .content-row__top {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   padding: 5% 10% 0 10%;
   background-color: $Gray;
   display: flex;
@@ -64,6 +78,9 @@ body {
 }
 
 .content-row__bottom {
+  position: relative;
+  left: 0px;
+  top: 150px;
   padding: 0% 10% 10% 10%;
   justify-content: space-between;
   display: flex;
@@ -73,6 +90,8 @@ body {
 }
 
 .footer-row {
+  position: relative;
+  top: 100px;
   width: 100%;
   background-color: $Green;
   .footer-wrapper {
