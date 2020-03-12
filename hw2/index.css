@@ -41,6 +41,9 @@ li {
     padding-left: 2.5rem;
     height: 100%
 }
+a {
+    color: white
+}
 li:hover {
     opacity:0.8;
     cursor: pointer;
@@ -65,6 +68,12 @@ article > * {
     width: 27%
 }
 
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem
+    
+}
 @media screen and (max-width:768px) {
     .article-contents {
         flex-direction: column
@@ -73,12 +82,12 @@ article > * {
         width: 100%;
         margin-bottom: 5rem
     }
+    .footer-info {
+        flex-direction: column
+    }
 
-}
-#footer-info {
-    justify-content: space-between
 }
 
 ul {
-    width: 50%
+    display: flex;
 }
