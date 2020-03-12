@@ -1,3 +1,26 @@
+:root {
+    --color-primary: #03a1fc;
+    --color-secondary: #34eba1;
+    --color-contrast: rgb(216,216,216);
+
+}
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit
+}
+
+html {
+    font-size: 62.25%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 header {
     text-align: center
 }
@@ -6,79 +29,74 @@ form {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 315px;
-    margin: auto;
-    padding: 10px 50px 10px 50px
+    max-width: 38rem;
+    margin: 0 auto;
 }
-.row {
+
+.form-row {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
-    text-align: center;
+    flex: 1 1 100%
+}
+
+.form-row * {
+    width: 100%;
+    margin: 0.5rem;
+    font-size: 1.0rem
 }
 
 @media screen and (max-width:600px) {
-    .row {
+    .form-row {
         flex-direction: column;
         align-items: center;
-        justify-content: center
+        justify-content: center;
+        width: 30rem;
     }
     form {
-        padding: 0px
-    }
-
-}
-.whole-row {
-    width: 308px
-}
-.half-row {
-    width: 150px
-}
-@media screen and (max-width:600px) {
-    .half-row {
-        width: 250px
-    }
-    .whole-row {
-        width: 250px
-    }
-    .first-name {
-        margin-bottom: 4px
+        align-items: center
     }
 }
 
 #info-box {
-    justify-content: space-between;
-    align-items: center;
-    font-size: 10px;
-}
-.first-name {
-    margin-right: 4px
-}
-#agree-box {
-    display: flex;
     justify-content: center;
+    align-items: center;
+    flex: 40% 1;
+    font-size: 1.5rem;
+    padding-left: 5px;
+}
+.agree-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%
+}
+
+span .info-span {
+    display: flex;  
     align-items: center
 }
 
 input {
     height: 2.5em;
     border-radius: 5px;
-    border: 1px solid rgb(216,216,216)
+    border: 1px solid var(--color-contrast)
 
 }
+
 button {
     border-radius: 5px;
     height: 2.5em
 }
+
 button:hover {
     opacity: 0.8;
     cursor: pointer
 }
+
 #submitButton {
-    background-color: #03a1fc;
+    background-color: var(--color-primary);
     color: white;
-    border: 0px;
-    margin-right: 8px;
+    border: none;
     border-radius: 5px
 }
 
@@ -86,27 +104,27 @@ label {
     display: flex;
 }
 #sign-in {
-    background-color: #34eba1;
+    background-color: var(--color-secondary);
     border: 0px;
     color: white;
 }
-#info-span {
-    width: 240px
-}
+
 @media screen and (max-width:600px) {
     #submitButton {
-        margin-right: 0px;
+        margin-right: 5px;
         margin-bottom: 5px
- }
- .first-name {
-     margin-right: 0px
- }
-
- #info-box {
-     width: 250px;
-     padding-left: 30px;
-     flex-direction: column-reverse
-
- }
+    }
+    #info-box {
+     width: 30rem;
+     flex-direction: row
+     
+    }
+    .agree-text {
+        display: none
+    }
+    .agree-box {
+        width: 2rem;
+    }
+    
 }
 
