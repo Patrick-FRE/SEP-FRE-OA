@@ -1,0 +1,110 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+    font-size: 62.25%;
+}
+
+.container {
+    position: fixed;
+    width: 100%;
+    max-width: 50rem;
+    top: 50%; 
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    flex-direction: column;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-size: 40;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form .form-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.form .form-item .name {
+    width: 48%;
+}
+
+.form .form-item .phone {
+    width:100%;
+}
+
+.form .form-item .email {
+    width:100%;
+}
+
+.form .form-item .password {
+    width: 48%;
+}
+
+.form-conditions {
+    display: flex;
+    /* justify-content: space-between; */
+}
+.form-agree {
+    display: flex;
+    min-width: 100px;
+    /* background-color: red; */
+    font-weight: bolder;
+}
+
+.form .form-item .submit {
+    width: 48%;
+    text-transform: none;
+    font-size: 12px;
+}
+
+#register{
+    color:white;
+    background-color: #4285F4;
+}
+
+#sign-in {
+    color: white;
+    background-color: #00C851;
+}
+
+.terms {
+   font-size: 1.2rem;    
+}
+.reg {
+    background-color: rgb(19, 145, 248); 
+    color: white; 
+    padding: 3px; 
+    border-radius: 4px;
+}
+
+ /* style="width: 70vw; max-width: 500px; */
