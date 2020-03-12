@@ -23,6 +23,9 @@ body {
 
 nav {
     background-color: var(--color-primary);
+    position: fixed;
+    top: 0;
+    width: 100%
 }
 
 .nav-info {
@@ -51,6 +54,7 @@ li:hover {
 }
 .header-intro {
     background-color: var(--color-tertiary);
+    margin-top: 5rem
 }
 footer {
     background-color: var(--color-secondary);
@@ -62,13 +66,18 @@ article > * {
 .article-contents {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5rem
 }
 
 .article-contents p {
-    width: 27%
+    width: 27%;
 }
 
 .footer-info {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 5rem
@@ -85,10 +94,16 @@ article > * {
     .footer-info {
         flex-direction: column;
         align-items: center;
+        height: 6rem;
+        padding: 1rem
     }
 
 }
 
 ul {
     display: flex;
+}
+
+header {
+    margin-bottom: 2rem
 }
