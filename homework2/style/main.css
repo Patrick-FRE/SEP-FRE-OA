@@ -1,0 +1,92 @@
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.25%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-seri;
+}
+
+.nav-container {
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+}
+.nav-container .nav-antra {
+  width: 50%;
+}
+.nav-container .nav-antra .nav-list {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+.nav-container .nav-antra .nav-list li {
+  margin-right: 5%;
+}
+.nav-container .nav-antra .nav-list li a {
+  color: white;
+  text-decoration: none;
+}
+
+.content-container {
+  width: 100%;
+}
+
+.content-row__top {
+  padding: 5% 10% 0 10%;
+  background-color: #c6bfbf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content-row__top header {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.content-row__bottom {
+  padding: 0% 10% 10% 10%;
+  justify-content: space-between;
+  display: flex;
+}
+.content-row__bottom .content-item {
+  margin-right: 5%;
+}
+
+.footer-row {
+  width: 100%;
+  background-color: #0b4d14;
+}
+.footer-row .footer-wrapper {
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-row .footer-wrapper ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.footer-row .footer-wrapper ul li {
+  margin-right: 10%;
+}
+.footer-row .footer-wrapper ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=main.css.map */
