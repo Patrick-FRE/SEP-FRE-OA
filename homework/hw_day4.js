@@ -33,6 +33,7 @@ function q3(str) {
     console.log(substrings);
 }
 // q3("dog");
+// q3("bird");
 
 function q4(str) {
     var ordered = new Array();
@@ -50,9 +51,10 @@ function q4(str) {
             freq[i] -= 1;
         }
     }
-    console.log(ordered.join(""));
+    return ordered.join("");
 }
-// q4("webmaster");
+// console.log(q4("webmaster") === "abeemrstw");
+// console.log(q4("alphabetical") === "aaabcehillpt");
 
 function q5(str) {
     var converted = new Array();
@@ -62,9 +64,10 @@ function q5(str) {
         word = words[i];
         converted.push(word[0].toUpperCase()+word.substr(1));
     }
-    console.log(converted.join(" "));
+    return converted.join(" ");
 }
-// q5("the quick brown fox");
+// console.log(q5("the quick brown fox") == "The Quick Brown Fox");
+// console.log(q5("see You toMorrow") == "See You ToMorrow");
 
 function q6(str) {
     var words = str.split(" ");
@@ -76,27 +79,29 @@ function q6(str) {
             max = word.length;
         }
     });
-    console.log(longestWord);
+    return longestWord;
 }
-// q6("Web Development Tutorial");
+// console.log(q6("Web Development Tutorial") == "Development");
+// console.log(q6("longest this word") == "longest");
 
 function q7(str) {
     var match = str.match(/[aeiou]/g);
-    console.log(match.length);
+    return match.length;
 }
-// q7("The quick brown fox");
-// q7("eeeeee");
+// console.log(q7("The quick brown fox") == 5);
+// console.log(q7("eeeeee") == 6);
+// console.log(q7("aeioui") == 6);
 
 function q8(num) {
     if(num <= 1) return false;
     if(num == 2) return true;
     for(var factor = 2; factor <= num/factor; factor++) {
-        if(num%factor == 0) return true;
+        if(num%factor == 0) return false;
     }
-    return false;
+    return true;
 }
-// console.log(q8(16));
-// console.log(q8(37));
+// console.log(q8(16) === false);
+// console.log(q8(37) === true);
 
 function q9(arg) {
     return typeof arg;
@@ -127,7 +132,7 @@ function q11(array) {
     console.log(array[1], array[array.length-2]);
 }
 // q11([1,2,3,4,5]);
-// q11([-13,0,3,100,50,70]);
+// q11([0,-13,3,100,50,70]);
 
 function q12(num) {
     if(num <= 1) return false;
@@ -139,7 +144,7 @@ function q12(num) {
     }
     return num == aliquotSum;
 }
-// below should print 6,28,496,8218
+// below should print 6,28,496,8128
 // for(var n = 0; n <= 8219; n++) {
 //     if(q12(n)) console.log(n);
 // }
@@ -251,7 +256,7 @@ function q20(len) {  // charset is 128 ascii characters
 // q20(5);
 // q20(20);
 
-// TODO: doesn't work for arrays with duplicated elements
+// Note: doesn't work for arrays with duplicated elements
 function q21(array, len) { // assuming valid inputs
     var subsets = new Array();
     if(len == 1) {
@@ -338,25 +343,106 @@ function q25(names) {
 // console.log(q25(["country", "countryy", "countryy","countryyy", "countryyyyy"]) === "countryyyyy");
 // console.log(q25(["countryyyyyyyyyyy", "countryy", "countryy","countryyy", "countryyyyy"]) === "countryyyyyyyyyyy");
 
-function q26() {
+// If there are multiple longest substrings, choose the first one
+function q26(str) {
+// Find longest among all substrings without repeating characters that end with each character in string
+    if(str.length == 0) return str;
+    var start = 0;
+    var longestLen = 1;
+    var longestStart = 0;
+    var longestEnd = 0;
+    var lastOccurance = new Array(52).fill(-1);
+    const a = "a";
+    const offset = a.charCodeAt(0);
 
+    var index, lastOccurIndex;
+    for(var i = 1; i < str.length; i++) {
+        index = str[i].charCodeAt(0) - offset;
+        lastOccurIndex = lastOccurance[index];
+        if(lastOccurIndex != -1 && start <= lastOccurIndex) {
+            // need to start a new substring
+            if(i-start > longestLen) {
+                longestStart = start;
+                longestEnd = i-1;
+                longestLen = i-start;
+            }
+            start = lastOccurIndex+1;
+        }
+        else { // extend the current substring
+            if(i-start+1 > longestLen) {
+                longestStart = start;
+                longestEnd = i;
+                longestLen = i-start+1;
+            }
+        }
+        lastOccurance[index] = i;
+    }
+    return str.substring(longestStart, longestEnd+1);
 }
+// console.log(q26("abcde") === "abcde");
+// console.log(q26("abcdecmnoptlabdo") === "decmnoptlab");
+// console.log(q26("abcdecxy") === "abcde");
+// console.log(q26("abbaxyzxy") === "baxyz");
 
-function q27() {
-
+// If there are multiple longest substrings, choose the first one
+function q27_longest_pal_centered_at(str, i, i) {
+    var start = i;
+    var end = i;
+    while(start > 0 && end < str.length-1) {
+        if(str[start-1] === str[end+1]) {
+            start -= 1;
+            end += 1;
+        }
+        else return [start, end];
+    }
+    return [start, end];
 }
+function q27(str) {
+    if(str.length == 0) return str;
+    var i = 0;
+    var longestLen = 1;
+    var longestStart = 0;
+    var longestEnd = 0;
+    var odd_center, even_center;
+    var pal_len;
+    for(i = 1; i < str.length-1; i++) {
+        odd_center = q27_longest_pal_centered_at(str,i,i);
+        pal_len = odd_center[1] - odd_center[0] + 1;
+        if(pal_len > longestLen) {
+            longestLen = pal_len;
+            longestStart = odd_center[0];
+            longestEnd = odd_center[1];
+        }
+        if(str[i] === str[i+1]) {
+            even_center = q27_longest_pal_centered_at(str,i,i+1);
+            pal_len = even_center[1] - even_center[0] + 1;
+            if(pal_len > longestLen) {
+                longestLen = pal_len;
+                longestStart = even_center[0];
+                longestEnd = even_center[1];
+            }
+        }
+    }
+    return str.substring(longestStart, longestEnd+1);
+}
+// console.log(q27("bananas") === "anana");
+// console.log(q27("abracadabra") === "aca");
+// console.log(q27("abcdefgh") === "a");
+// console.log(q27("vbananabv") === "vbananabv");
+// console.log(q27("cccceeeeeeec") == "ceeeeeeec");
 
 function q28(func, parameter_func) {
     func(parameter_func);
 }
-function myFunc(cb) {
-    var a = 20;
-    console.log(cb(a));
-}
-// q28(myFunc, item=>item*2); // print 40
+// function foo(cb) {console.log(cb(20));}
+// q28(foo, item=>item*2); // print 40
+// function foo2(cb) {console.log(cb(4));}
+// q28(foo2, item=>item+10); // print 14
 
 function q29(func) {
     console.log(func.name);
 }
-// function myFunc2(){}
-// q29(myFunc2); // print myFunc2
+// function myFuncName(){console.log("hello");}
+// q29(myFuncName); // print myFuncName
+// function myFuncName2(){console.log("hello");}
+// q29(myFuncName2); // print myFuncName2
