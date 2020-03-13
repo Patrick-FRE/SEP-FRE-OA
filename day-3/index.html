@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Hw</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div class="form-container">
+    <form class="form-body">
+      <header class="form-row">
+        <h4 class="title">Sign Up</h4>
+      </header>
+      <div class="form-row">
+        <input class="fName half" type="text" name="name" placeholder="First name" required />
+        <input class="lName half" type="text" placeholder="Last name" />
+      </div>
+      <div class="form-row">
+        <input class="phone full" type="text" name="phone" placeholder="Mobile No." required />
+      </div>
+      <div class="form-row">
+        <input class="email full" type="text" name="email" placeholder="Email Address" required />
+      </div>
+      <div class="form-row">
+        <input class="password half" type="password" name="password" placeholder="Password" required />
+        <input class="rePassword half" type="password" name="confirmPassword" placeholder="Confirm password" required />
+      </div>
+
+      <div class="form-row">
+        <div class="label-agree">
+          <input class="agree" id="agree" required type="checkbox" />
+          <label for="agree"> I Agree </label>
+        </div>
+        <div class="term">
+          <span class="term-description">
+            By clicking <span class="register-term">Register</span> you are agree to the
+            <a href="#">terms and conditions</a> set out by this site, including
+            our Cookie use.
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <button class="register-btn full">Register</button>
+        <button class="signIn-btn full">Sign In</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
