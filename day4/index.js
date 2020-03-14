@@ -395,4 +395,118 @@ console.log(larger(50, numsArr));
 console.log("*/---------------------------------------/*\n");
 
 // ----------------------------------------------------
-// 
+// Write a function that generates a string id (specified length) of random characters
+let generateID = len => {
+  let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let id = "";
+  for (let i = 0; i < len; i++) {
+    id += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return id;
+};
+
+console.log(generateID(8));
+console.log(generateID(10));
+console.log(generateID(12));
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// Write a JavaScript function to get all possible subset with a fixed length
+// (for example 2)combinations in an array.
+// Sample array : [1, 2, 3] and subset length is 2
+// Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]]
+let combinations = arr => {
+  let combinations = [];
+
+  return combinations;
+};
+
+console.log(combinations([1, 2, 3]));
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// count the number of occurrences of the specified letter within the string
+let countOccurrences = (c, str) => {
+  let occurrences = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (c == str.charAt(i)) occurrences++;
+  }
+  return occurrences;
+};
+console.log(countOccurrences("o", "thequickbrownfoxjumpsoverthelazydog"));
+console.log(countOccurrences("r", "thequickbrownfoxjumpsoverthelazydog"));
+console.log(countOccurrences("a", "thequickbrownfoxjumpsoverthelazydog"));
+console.log(countOccurrences("o", "microsoft.com"));
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// Find the first non repeated character
+let firstNonRepChar = str => {
+  let occ = occurrences(str);
+  // console.log(occ);
+  const keys = Object.keys(occ);
+  for (const key of keys) {
+    if (occ[key] === 1) return key;
+  }
+  return -1;
+};
+
+console.log(firstNonRepChar("abacddbec"));
+console.log(firstNonRepChar("abacfddbec"));
+console.log(firstNonRepChar("abacddbecg"));
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// Bubble sort Algorithm
+let bubbleSort = arr => {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] < arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+};
+
+console.log(bubbleSort(binArr));
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// Return the longest string in a list of strings
+let longestString = list => {
+  let longest = "";
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].length > longest.length) longest = list[i];
+  }
+  return longest;
+};
+
+console.log(
+  longestString(["Australia", "Germany", "United States of America"])
+);
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// pass a function as a parameter
+let func1 = cb => {
+  cb();
+};
+
+let cb = () => {
+  console.log("call back function");
+};
+
+func1(cb);
+console.log("*/---------------------------------------/*\n");
+
+// ----------------------------------------------------
+// Javascript function to get the function name
+let functionNAme = f => {
+  console.log(f.name);
+};
+
+functionNAme(func1);
+functionNAme(bubbleSort);
