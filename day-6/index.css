@@ -1,0 +1,27 @@
+.App{
+     text-align: center;
+     background-color: rgb(235, 229, 230);
+}
+.todos-container{
+     background-color: aliceblue;
+     border-radius: 5px;
+}
+ul{
+     text-align: start;
+     padding-bottom: 10px;
+}
+h1{
+     padding: 0px;
+     text-transform: uppercase;
+     font-weight: bold;
+     margin: 0;
+}
+li{
+     list-style: none;
+     text-transform: uppercase;
+     background-color: rgb(219, 219, 177);
+     padding-top: 5px;
+     border-radius: 5px;
+     margin: auto 3vw;
+     padding-left: 2vw;
+}
