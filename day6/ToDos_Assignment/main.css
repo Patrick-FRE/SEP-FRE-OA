@@ -1,0 +1,38 @@
+.container {
+  height: 1000px;
+  width: 900px;
+}
+
+
+
+.header-container { 
+  background-color: grey;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.add-do-item {
+  background-color: aquamarine;
+  font-weight: 700;
+}
+
+.clear-do-item {
+  background-color: beige;
+  font-weight: 700;
+}
+
+.content {
+  background-color: cadetblue;
+  border-radius: 5px;
+  height: 3900px;
+}
+
+li {
+  list-style-type: none;
+}
