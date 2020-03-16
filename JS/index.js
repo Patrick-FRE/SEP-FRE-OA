@@ -253,6 +253,121 @@
 //         return c + cur;
 //       }, 0);
 //       return sum1 + sum2 + sum3;
+// Arrow function
+// let testObj = {
+//   name: "patrick"
+// };
+
+// let obj = {
+//   foo: () => {
+//     console.log(this);
+//   },
+//   foo2: function() {
+//     console.log(this);
+//   }.bind(this)
+// };
+
+// obj.foo2();
+
+// apply call bind
+
+//let myfoo2 = obj.foo2;
+// console.log(myfoo2);
+
+// myfoo2();
+
+// function main() {
+//   myfoo2();
+// }
+// main();
+
+// destructure
+
+// let obj = { name: "patrick" };
+// let name = obj.name;
+// let age = obj.age;
+// //let { name, age } = obj;
+// console.log(name, age);
+
+// spread operator
+// let obj = { name: { value: "patrick" }, age: new Date() };
+
+// console.log(JSON.parse(JSON.stringify(obj)));
+
+// let obj3 = obj; // shadow copy
+
+// obj3.name = "changed";
+// console.log("obj", obj);
+// console.log("obj3", obj3);
+
+// let obj2 = { ...obj };
+
+// console.log("obj", obj);
+// console.log("obj2", obj2);
+// console.log(obj2 === obj);
+// console.log(obj2.name === obj.name);
+
+// let a = { name: "patrick" };
+// let b = { name: "patrick" };
+// console.log(a == b);
+
+// rest operater
+
+// function foo(hey, a, b, c, ...hello) {
+//   console.log(arguments);
+//   console.log(hello);
+// }
+
+// foo(1, 2, 3, "hello");
+
+// closure
+
+// function outer() {
+//   let outerData = 5;
+//   return function inner() {
+//     console.log(outerData);
+//   };
+// }
+
+// let a = outer();
+// console.log(a);
+
+// IIFE
+// module design patter
+// let counter = (function() {
+//   count = 0;
+//   return {
+//     increament: function() {
+//       count++;
+//     },
+//     getCount: function() {
+//       return count;
+//     }
+//   };
+// })();
+// counter.increament();
+// console.log(counter.getCount());
+
+// currying
+
+// const myAdd = (...num) => (...num2) => (...num3) =>
+//   [...num, ...num2, ...num3].reduce((acc, cur) => acc + cur, 0);
+// let res = myAdd(5, 5, 3)()(5, 8, 1);
+// console.log(res); // 16;
+
+// function myAdd(...num) {
+//   let sum = num.reduce((acc, cur) => {
+//     return acc + cur;
+//   }, 0);
+//   return function(...num2) {
+//     let sum2 = num2.reduce((acc, cur) => {
+//       return acc + cur;
+//     }, 0);
+//     return function(...num3) {
+//       let sum3 = num3.reduce((acc, cur) => {
+//         return acc + cur;
+//       }, 0);
+//       return sum + sum2 + sum3;
 //     };
 //   };
 // }
@@ -267,24 +382,150 @@
 // let res3 = myAdd3(1, 1, 1)(2, 2, 2)(3, 3, 3);
 // console.log(res, res2, res3);
 
-function myFetch(url) {
-  const p = new Promise((resolve, reject) => {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        resolve({
-          json: function() {
-            return JSON.parse(xhttp.responseText);
-          }
-        });
-      }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-  });
-  return p;
-}
+// function myFetch(url) {
+//   const p = new Promise((resolve, reject) => {
+//     let xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//         resolve({
+//           json: function() {
+//             return JSON.parse(xhttp.responseText);
+//           }
+//         });
+//       }
+//     };
+//     xhttp.open("GET", url, true);
+//     xhttp.send();
+//   });
+//   return p;
+// }
 
-myFetch("https://jsonplaceholder.typicode.com/todos/")
-  .then(response => response.json())
-  .then(data => console.log(data));
+// myFetch("https://jsonplaceholder.typicode.com/todos/")
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
+// function myFetch2(url) {
+//   const p = new Promise((resolve, reject) => {
+//     let xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//         resolve({
+//           json: function() {
+//             return JSON.parse(xhttp.responseText);
+//           }
+//         });
+//       } else if (this.readyState == 4 && this.status == 404) {
+//         throw "404 not found";
+//       }
+//     };
+//     xhttp.open("GET", url, true);
+//     xhttp.send();
+//   });
+//   return p;
+// }
+
+// myFetch2("https://jsonplaceholder.typicode.com/todos/").catch(error =>
+//   console.log(error)
+// );
+
+// Promise.myAll = function(arr) {
+//   // if all promises in the arr fulfils, passed the results as a new arry to user defined fn
+//   const res = [];
+//   for(let i = 0; i<arr.length;i++){
+//     // check if each promise resolves or reject
+
+//   }
+//   return {
+//     myThen: function(fn) {
+//       fn(res);
+//     }
+//   };
+// };
+
+// function myFetch3(arr) {
+//   const p = new Promise((resolve, reject) => {
+//     for (let i = 0; i < arr.length; i++) {
+//       let xhttp = new XMLHttpRequest();
+//       xhttp.open("GET", arr[i], true);
+//       xhttp.send();
+//       xhttp.onreadystatechange = function() {
+//         if (this.readyState == 4 && this.status == 200) {
+//           resolve(`this is ${i} success`);
+//         } else if (this.readyState == 4 && this.status == 404) {
+//           throw "404 not found";
+//         }
+//       };
+//     }
+//   });
+//   return p;
+// }
+
+// myFetch3([
+//   "https://jsonplaceholder.typicode.com/todos/1",
+//   "https://jsonplaceholder.typicode.com/todos/2",
+//   "https://jsonplaceholder.typicode.com/todos/3"
+// ]).then(response => console.log(response));
+
+/// string template
+// let world = "world";
+// let a = "hello \n" + world;
+// let b = `hello
+// ${world}`;
+// console.log(a);
+// console.log(b);
+// 1 4 0 3 2
+// setTimeout(() => {
+//   console.log(0);
+// }, 0);
+// console.log(1);
+// setTimeout(() => {
+//   console.log(2);
+// }, 1000);
+// setTimeout(() => {
+//   console.log(3);
+// }, 500);
+// console.log(4);
+
+// function foo() {
+//   function foo2(val) {
+//     return function() {
+//       console.log(val);
+//     };
+//   }
+//   for (var i = 0; i < 10; i++) {
+//     setTimeout(() => {
+//       let j = foo2(i);
+//       j();
+//     }, 1000);
+//   }
+// }
+// foo();
+/// 9 - 10
+/// 10 - 10
+
+// class Animal {
+//   speak() {
+//     console.log(this);
+//   }
+//   static eat() {
+//     console.log(this);
+//   }
+// }
+
+<header>
+  <h1 class="main-header">Selectors!</h1>
+  <nav class="main-nav">
+    <a href="#" class="nav-item">
+      Home
+    </a>
+    <a href="#" class="nav-item">
+      About
+    </a>
+    <a href="#" class="nav-item">
+      Blog
+    </a>
+    <a href="#" class="nav-item">
+      Contact
+    </a>
+  </nav>
+</header>;
