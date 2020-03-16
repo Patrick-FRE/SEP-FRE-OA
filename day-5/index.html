@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<script>
+     function myFetch(url) {
+          return new Promise((resolve, rej) => {
+               let request = new XMLHttpRequest();
+               request.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                         resolve({
+                              json: function () {
+                                   return JSON.parse(request.responseText)
+                              }
+                         });
+                    }
+               };
+               request.open("GET", url, true);
+               request.send();
+          });
+     }
+     myFetch("https://jsonplaceholder.typicode.com/todos/?limit=5")
+          .then(d => d.json())
+          .then(d => console.log(d))
+</script>
+
+<body>
+     <h1> Hello</h1>
+     <button onclick=""> My Todo List:</button>
+
+</body>
+
+</html>
