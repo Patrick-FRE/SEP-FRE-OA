@@ -314,10 +314,10 @@
 
 // currying
 
-const myAdd = (...num) => (...num2) => (...num3) =>
-  [...num, ...num2, ...num3].reduce((acc, cur) => acc + cur, 0);
-let res = myAdd(5, 5, 3)()(5, 8, 1);
-console.log(res); // 16;
+// const myAdd = (...num) => (...num2) => (...num3) =>
+//   [...num, ...num2, ...num3].reduce((acc, cur) => acc + cur, 0);
+// let res = myAdd(5, 5, 3)()(5, 8, 1);
+// console.log(res); // 16;
 
 // function myAdd(...num) {
 //   let sum = num.reduce((acc, cur) => {
@@ -372,3 +372,85 @@ console.log(res); // 16;
 // foo();
 /// 9 - 10
 /// 10 - 10
+
+class MyPromise {
+  constructor(callbackFn) {
+    callbackFn(this.resolve.bind(this), () => {});
+    // create thenCallbackQueue
+    this.thenCallbackQueue = [];
+    this.status = "pending";
+  }
+  resolve(msg) {
+    this.status = "fulfilled";
+    this.data = msg;
+    //console.log(msg);
+    // get the callback from the queue
+    // call the callback with msg arguement
+    console.log(this);
+    while (this.thenCallbackQueue.length > 0) {
+      let curCallback = this.thenCallbackQueue.shift();
+      this.data = curCallback(this.data);
+    }
+  }
+  then(thenCallbackFn) {
+    // push the new Callback to the queue
+    this.thenCallbackQueue.push(thenCallbackFn);
+    return this;
+  }
+}
+// let p = new MyPromise((patrick, rej) => {
+//   setTimeout(() => {
+//     patrick("hello patrick");
+//   }, 1000);
+// });
+
+// p.then(data => {
+//   console.log(data);
+//   return "data2";
+// }).then(data2 => {
+//   console.log(data2);
+// });
+
+function getData() {
+  let time = Math.random() * 10000;
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res(time);
+    }, time);
+  });
+}
+
+// getData().then(data => {
+//   console.log(data);
+// });
+// getData().then(data => {
+//   console.log(data);
+// });
+// getData().then(data => {
+//   console.log(data);
+// });
+
+// function MyAll(promiseArray) {
+//   let successCount = 0;
+//   let finalCount = promiseArray.length;
+//   let result = [];
+
+//   return new Promise((res, rej) => {
+//     promiseArray.forEach(promise => {
+//       promise.then(data => {
+//         console.log(data);
+//         result.push(data);
+//         successCount++;
+//         if (successCount === finalCount) {
+//           res(result);
+//         }
+//       });
+//     });
+//   });
+// }
+
+// MyAll([getData(), getData(), getData()]).then(function(values) {
+//   console.log(values);
+// });
+
+// // async // await
