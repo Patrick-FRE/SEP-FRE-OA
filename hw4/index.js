@@ -1,24 +1,35 @@
-const getButton = document.querySelector('.get-todos')
-const deleteButton = document.querySelector('.delete-todos')
-const list = document.querySelector('.todos')
+const getBtn = document.querySelector('.get-todos')
+const deleteBtn = document.querySelector('.delete-todos')
+const todos = document.querySelector('.todos-container')
+
+const renderList = (data) => {
+    const list = document.createElement('ul');
+    let text = '';
+    for (let user of data) {
+       const { id, title, completed } = user;
+       text += `<div>
+                    <li>
+                        ${id}: ${title}
+                    </li>   
+                 completed: ${completed}
+                </div>`;
+    }
+    list.innerHTML = text;
+    todos.appendChild(list);
+}
+
+const removeList = () => {
+    return todos.removeChild(document.querySelector('ul'));
+}
 
 const getTodos = () => {
     fetch('https://jsonplaceholder.typicode.com/todos/')
-    .then(response=> response.json())
-    .then(data => {
-        for (let i = 0; i < data.length; i++) {
-            const z = document.createElement('li');
-            z.innerHTML = `${data[i].id}: ${data[i].title}`;
-            list.appendChild(z);
-        }
-    }).catch(err => {
+    .then(response => response.json())
+    .then(data => renderList(data))
+    .catch(err => {
         console.log('error:', err);
-    })
+    });
 }
-getButton.addEventListener('click', getTodos)
 
-deleteButton.addEventListener('click', () => {
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-})
+getBtn.addEventListener('click', getTodos)
+deleteBtn.addEventListener('click', removeList);
