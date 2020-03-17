@@ -442,30 +442,99 @@
 //   };
 // };
 
-// function myFetch3(arr) {
-//   const p = new Promise((resolve, reject) => {
-//     for (let i = 0; i < arr.length; i++) {
-//       let xhttp = new XMLHttpRequest();
-//       xhttp.open("GET", arr[i], true);
-//       xhttp.send();
-//       xhttp.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200) {
-//           resolve(`this is ${i} success`);
-//         } else if (this.readyState == 4 && this.status == 404) {
-//           throw "404 not found";
-//         }
-//       };
+// class MyPromise {
+//   constructor(callback) {
+//     callback(this.resolve.bind(this), () => {});
+
+//     // then callback queue
+//     this.cbQueue = [];
+//   }
+//   resolve(msg) {
+//     this.data = msg;
+//     // get the callback from then queue
+//     // for (let i = 0; i < this.cbQueue.length; i++) {
+//     //   // call the callback with msg arguments
+//     //   this.cbQueue[i](msg);
+//     // }
+//     while (this.cbQueue.length > 0) {
+//       let currentCb = this.cbQueue.shift();
+//       this.data = currentCb(this.data);
 //     }
-//   });
-//   return p;
+//   }
+
+//   reject(msg) {
+//     console.log(msg);
+//   }
+//   then(thenCallback) {
+//     // push the new callback to the queue
+//     this.cbQueue.push(thenCallback);
+//     console.log(this);
+//     return this;
+//   }
 // }
 
-// myFetch3([
-//   "https://jsonplaceholder.typicode.com/todos/1",
-//   "https://jsonplaceholder.typicode.com/todos/2",
-//   "https://jsonplaceholder.typicode.com/todos/3"
-// ]).then(response => console.log(response));
+// let p = new MyPromise((res, rej) => {
+//   setTimeout(() => {
+//     res("something");
+//   }, 5000);
+// });
 
+// p.then(data => {
+//   console.log("1", data);
+//   return "first round";
+// })
+//   .then(data => {
+//     console.log("2", data);
+//     return "second round";
+//   })
+//   .then(data => {
+//     console.log("3", data);
+//     return "third round";
+//   });
+
+// console.log(p);
+
+// function getData() {
+//   let time = Math.random() * 1000;
+//   console.log(time);
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       res(time);
+//     }, time);
+//   });
+// }
+
+// getData().then(data => console.log(data));
+// getData().then(data => console.log(data));
+// getData().then(data => console.log(data));
+
+// Promise.myAll = function(promiseArr) {
+//   // if all promises in the arr fulfils, passed the results as a new arry to user defined fn
+
+//   return new Promise((res, rej) => {
+//     let successCount = 0;
+//     let finalCount = promiseArr.length;
+//     let result = [];
+
+//     promiseArr.forEach(promise => {
+//       promise.then(data => {
+//         console.log(data);
+//         result.push(data);
+//         successCount++;
+
+//         if (successCount === finalCount) {
+//           res(result);
+//         }
+//       });
+//     });
+//   });
+// };
+
+// Promise.myAll([getData(), getData(), getData()]).then(values =>
+//   console.log(values)
+// );
+
+// function lastOne() {}
 /// string template
 // let world = "world";
 // let a = "hello \n" + world;
@@ -504,28 +573,31 @@
 /// 10 - 10
 
 // class Animal {
-//   speak() {
-//     console.log(this);
+//   constructor(name, fn) {
+//     this.name = name;
+//     fn(this.speak.bind(this));
 //   }
-//   static eat() {
+//   speak() {
 //     console.log(this);
 //   }
 // }
 
-<header>
-  <h1 class="main-header">Selectors!</h1>
-  <nav class="main-nav">
-    <a href="#" class="nav-item">
-      Home
-    </a>
-    <a href="#" class="nav-item">
-      About
-    </a>
-    <a href="#" class="nav-item">
-      Blog
-    </a>
-    <a href="#" class="nav-item">
-      Contact
-    </a>
-  </nav>
-</header>;
+// function s(a) {
+//   a();
+// }
+// function y(b) {
+//   b();
+// }
+
+// function Animal(name, fn) {
+//   this.name = name;
+//   fn(this.speak);
+// }
+
+// Animal.prototype.speak = function() {
+//   console.log(this);
+// };
+
+// const myAnimal1 = new Animal(1, s);
+
+// const myAnimal2 = new Animal(2, y);

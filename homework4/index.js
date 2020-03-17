@@ -2,6 +2,8 @@ const btnGet = document.querySelector(".get");
 const btnClear = document.querySelector(".clear");
 const todos = document.querySelector(".list");
 
+console.log(todos);
+
 function addTodosToDom(val) {
   const li = todos.appendChild(document.createElement("li"));
   li.innerHTML = val;
