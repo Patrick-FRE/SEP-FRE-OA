@@ -26,7 +26,7 @@ const Model = (() => {
     }
 
     generateTemplate() {
-      return `<li class="todo-list-content__item" >${this.title}<span><button data-id=${this.id} class="btn-delete">delete</button></span></li>`;
+      return `<li class="todo-list-content__item" >${this.title}<span><button data-id=${this.id} class="btn-edit">Edit</button></span><span><button data-id=${this.id} class="btn-delete">delete</button></span></li>`;
     }
   }
 
@@ -55,8 +55,6 @@ const Controller = ((view, model) => {
     }
 
     set todoList(newValue) {
-      console.log("set TodoList");
-
       this._todoList = newValue;
 
       let tmp = this._todoList
@@ -64,17 +62,14 @@ const Controller = ((view, model) => {
           return todo.generateTemplate();
         })
         .join("");
-      console.log("Tmp", tmp);
       view.render(tmp, todoListContent);
     }
 
     get userInput() {
-      console.log("get");
       return this._userInput;
     }
 
     set userInput(newValue) {
-      console.log("set");
       this._userInput = newValue;
       inputEle.value = this._userInput;
     }
@@ -88,11 +83,22 @@ const Controller = ((view, model) => {
 
   const removeTodo = id => {
     state.todoList = state.todoList.filter(todo => todo.id !== id);
-    console.log("after", state.todoList);
+  };
+
+  const editTodo = (id, newTitle) => {
+    state.todoList = state.todoList.map(todo => {
+      if (todo.id === id) {
+        todo.title = newTitle;
+        return todo;
+      }
+      return todo;
+    });
   };
 
   const setUpEvent = () => {
     console.log("setUpEvent");
+    let edit = false;
+    let editId;
     let inputElement = document.querySelector(view.DOMString.inputElement);
     let todoListContainer = document.querySelector(
       view.DOMString.todoListContent
@@ -103,19 +109,27 @@ const Controller = ((view, model) => {
       if (event.keyCode === 13) {
         let newTodo = new model.Todo(state.userInput);
 
-        addTodo(newTodo);
+        edit ? editTodo(editId, event.target.value) : addTodo(newTodo);
 
         state.userInput = "";
+        edit = false;
       }
     });
     todoListContainer.addEventListener("click", e => {
       let todoId = Number(e.target.dataset.id);
-      removeTodo(todoId);
+      if (e.target.className === "btn-delete") {
+        removeTodo(todoId);
+      } else if (e.target.className === "btn-edit") {
+        edit = true;
+        editId = todoId;
+        state.userInput = state.todoList.filter(
+          todo => todo.id === todoId
+        )[0].title;
+      }
     });
   };
 
   const init = () => {
-    console.log("app is working");
     setUpEvent();
   };
 
