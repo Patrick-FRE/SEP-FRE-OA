@@ -32,7 +32,8 @@
 const View = (() => {
   const DOMString = {
     inputElement: ".input-bar",
-    todoListContent: ".todo-list-content"
+    todoListContent: ".todo-list-content",
+    todoListContentItem: ".todo-list-content__item"
   };
 
   const render = (template, element) => {
@@ -55,7 +56,7 @@ const Model = (() => {
     }
 
     generateTemplate() {
-      return ` <li class="todo-list-content__item">${this.title}</li>`;
+      return ` <li class="todo-list-content__item" >${this.title} <button id=${this.id} class="btn btn-remove"  >Remove </button></li>`;
     }
   }
 
@@ -73,6 +74,49 @@ const Controller = ((view, model) => {
   const todo = new model.Todo("test");
   console.log(todo);
 
+  const setUpUIbtnRemoveClick = () => {
+    const todoListContent = document.querySelector(
+      view.DOMString.todoListContent
+    );
+    todoListContent.addEventListener("click", event => {
+      if (event.target.className === "btn btn-remove") {
+        removeTodo(event.target.id);
+      }
+    });
+  };
+
+  const setUpUIbtnRemoveToggle = () => {
+    const todoListContentItem = document.querySelectorAll(
+      view.DOMString.todoListContentItem
+    );
+    todoListContentItem.forEach(liElement => {
+      liElement.addEventListener("mouseenter", mouseenterHanlder);
+
+      liElement.addEventListener("mouseleave", mouseleaveHanlder);
+    });
+  };
+
+  // event bubbling vs event capturing
+
+  const mouseenterHanlder = event => {
+    let btn = event.target.querySelector(".btn-remove");
+    btn.style.visibility = "visible";
+  };
+  const mouseleaveHanlder = event => {
+    let btn = event.target.querySelector(".btn-remove");
+    btn.style.visibility = "hidden";
+  };
+
+  const updateUItodoList = (todoList, renderElement) => {
+    let tmp = todoList
+      .map(todo => {
+        return todo.generateTemplate();
+      })
+      .join("");
+    console.log("Tmp", tmp);
+    view.render(tmp, renderElement);
+  };
+
   class State {
     constructor() {
       this._userInput = "";
@@ -86,14 +130,8 @@ const Controller = ((view, model) => {
     set todoList(newValue) {
       console.log("set TodoList");
       this._todoList = newValue;
-
-      let tmp = this._todoList
-        .map(todo => {
-          return todo.generateTemplate();
-        })
-        .join("");
-      console.log("Tmp", tmp);
-      view.render(tmp, todoListContent);
+      updateUItodoList(this._todoList, todoListContent);
+      setUpUIbtnRemoveToggle();
     }
 
     get userInput() {
@@ -114,6 +152,10 @@ const Controller = ((view, model) => {
     state.todoList = [...state.todoList, newTodo];
   };
 
+  const removeTodo = id => {
+    state.todoList = state.todoList.filter(todo => todo.id != id);
+  };
+
   const setUpEvent = () => {
     console.log("setUpEvent");
     let inputElement = document.querySelector(view.DOMString.inputElement);
@@ -130,6 +172,17 @@ const Controller = ((view, model) => {
         state.userInput = "";
       }
     });
+    setUpUIbtnRemoveClick();
+    // hover event
+
+    // let todoListContent = document.querySelector(
+    //   view.DOMString.todoListContent
+    // );
+    // console.log(todoListContent);
+
+    // todoListContent.addEventListener("mouseenter", () => {
+    //   console.log(event.target);
+    // });
   };
 
   const init = () => {
