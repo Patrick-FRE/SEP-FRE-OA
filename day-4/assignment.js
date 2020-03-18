@@ -240,7 +240,7 @@ function numberOfOccurence(str) {
      })
      return obj;
 }
-console.log(numberOfOccurence("tTdf ygvubhinom;,hhhh   ldcakkdjshddnsk"));
+// console.log(numberOfOccurence("tTdf ygvubhinom;,hhhh   ldcakkdjshddnsk"));
 
 // 18. Write a function for searching JavaScript arrays with a binary search. 
 // Note : A binary search searches by splitting an array into smaller and 
@@ -248,23 +248,10 @@ console.log(numberOfOccurence("tTdf ygvubhinom;,hhhh   ldcakkdjshddnsk"));
 
 function binarySearchArray(arr, val) {
      arr.sort((a, b) => a - b);
-     let len = Math.floor(arr.length / 2);
 
-     if (val < arr[len]) {
-          let newArr = arr.slice(0, len);
-          len = binarySearchArray(newArr, val)
-     } else if (val > arr[len]) {
-          let newArr = arr.slice(len)
-          len = binarySearchArray(newArr, val)
-     }
-     if (val === arr[len]) {
-          return true
-     } else {
-          return false
-     }
 }
 
-console.log(binarySearchArray([1, 2, 3, 4, 5, 6, 7], 7));
+console.log(binarySearchArray([1, 2, 3, 4, 5, 6, 7], 5));
 
 
 // 19. Write a JavaScript function that returns array elements larger than a number. 
