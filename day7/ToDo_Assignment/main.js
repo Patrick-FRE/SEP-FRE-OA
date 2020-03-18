@@ -23,7 +23,7 @@ const Model = (() => {
       id++;
     }
     generateTemplate() {
-      return `<li class="todo-list-content__item">${this.title}</li>`;
+      return `<li class="todo-list-content__item">${this.title}<span><button data-id=${this.id} class="btn-delete">delete</button></span></li>`;
     }
   }
   return {
@@ -102,7 +102,9 @@ const Controller = ((view, model) => {
     });
     todoList__Container.addEventListener("click", event => {
       let todo_Id = Number(event.target.dataset.id);
-      if (event.target.className === 'btn-delete') removeTodo(todo_Id);
+      if (event.target.className === 'btn-delete') {
+        removeTodo(todo_Id);
+      }
     });
   };
 
@@ -114,7 +116,7 @@ const Controller = ((view, model) => {
   return {
     init
   };
-})(View, Modal);
+})(View, Model);
 
 window.addEventListener("DOMContentLoaded", () => {
   Controller.init();
