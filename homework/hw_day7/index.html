@@ -66,7 +66,7 @@
         max-width: 90%;
         max-height: 80%;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        overflow: scroll;
+        
       }
       .todos-content {
         display: flex;
@@ -98,6 +98,8 @@
         text-align: center;
       }
       .todo-list-content {
+        height: calc(100% - 80px);
+        overflow: scroll;
         list-style-type: none;
         display: flex;
         flex-direction: column;
@@ -117,6 +119,7 @@
         height: 40px;
         font-size: 20px;
         color: gray;
+        flex-shrink: 0;
       }
 
       .todo-list-content .todo-list-content__item:hover {
