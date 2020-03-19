@@ -81,12 +81,14 @@ const Controller = ((view, model) => {
   const updateUItodoList = (renderElement) => {
     fetch(url, {
       method: "GET",
+      mode: "cors",
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "bearer " + token,
       }
     })
     .then((response) => response.json())
     .then((responseData) => {
+      console.log(responseData);
       let newTodoList = [];
       let tmp = responseData.data
       .map(obj => {
@@ -142,8 +144,10 @@ const Controller = ((view, model) => {
     console.log(token);
     fetch(url, {
       method: "POST",
+      mode: "cors",
       headers: {
-        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json",
+        "Authorization": "bearer " + token,
       },
       body: JSON.stringify(data)
     })
@@ -160,8 +164,9 @@ const Controller = ((view, model) => {
     }
     fetch(url, {
       method: "DELETE",
+      mode: "cors",
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "bearer " + token,
       },
       body: JSON.stringify(data)
     })
