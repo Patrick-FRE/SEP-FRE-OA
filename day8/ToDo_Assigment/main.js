@@ -134,8 +134,9 @@ const Controller = ((view, model) => {
     // state.todoList = state.todoList.filter(todo => todo.id !== id);
     fetch(apiUrl, {
       method: "DELETE",
-      headers: todoListHeaders
-    })
+      headers: todoListHeaders,
+      body: JSON.stringify({ todoId: id })
+    }).then(response => setUpTodo());
   }
   const setUpTodo = () => {
     fetch(url, {
@@ -144,8 +145,8 @@ const Controller = ((view, model) => {
       })
     })
     .then(response => response.json())
-    .then(data => {
-      state.todoList = 
+    .then(todoData => {
+      state.todoList = todoData.data;
     });
   };
 
