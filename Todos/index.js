@@ -46,13 +46,63 @@ const View = (() => {
   };
 })();
 
-const Model = (() => {
-  let id = 0;
+const TodosAPI = (() => {
+  const baseURL = "https://us-central1-todos-server.cloudfunctions.net/api";
+  const todosPath = "todos";
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwIiwidXNlcm5hbWUiOiJ0ZXN0MCIsInBhc3N3b3JkIjoidGVzdDAiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NDU1NDI4MiwiZXhwIjoxNTg0ODU0MjgyfQ.K5dkBd6x0h3dzyv4NXuNpsaitZF7E-ZFVuBiEJbi90Q";
+  const BearerToken = "Bearer " + token;
+  const getTodos = () => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "GET";
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        Authorization: BearerToken,
+        "Content-Type": "application/json"
+      }
+    });
+  };
+
+  const addTodo = title => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "POST";
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        Authorization: BearerToken,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ todo: title })
+    });
+  };
+
+  const removeTodo = id => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "DELETE";
+    console.log(id);
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        Authorization: BearerToken,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ todoId: id })
+    });
+  };
+
+  return {
+    getTodos,
+    addTodo,
+    removeTodo
+  };
+})();
+
+const Model = (todoAPI => {
   class Todo {
-    constructor(title) {
+    constructor(title, id) {
       this.title = title;
       this.id = id;
-      id++;
     }
 
     generateTemplate() {
@@ -60,10 +110,31 @@ const Model = (() => {
     }
   }
 
-  return {
-    Todo
+  const getTodos = () => {
+    return todoAPI
+      .getTodos()
+      .then(data => data.json())
+      .then(data => {
+        //console.log(data);
+        return data.data;
+      });
   };
-})();
+
+  const addTodo = title => {
+    return todoAPI.addTodo(title).then(data => data.json());
+  };
+
+  const removeTodo = id => {
+    return todoAPI.removeTodo(id).then(data => data.json());
+  };
+
+  return {
+    Todo,
+    getTodos,
+    addTodo,
+    removeTodo
+  };
+})(TodosAPI);
 
 const Controller = ((view, model) => {
   const inputEle = document.querySelector(view.DOMString.inputElement);
@@ -71,16 +142,19 @@ const Controller = ((view, model) => {
     view.DOMString.todoListContent
   );
 
-  const todo = new model.Todo("test");
-  console.log(todo);
-
   const setUpUIbtnRemoveClick = () => {
     const todoListContent = document.querySelector(
       view.DOMString.todoListContent
     );
     todoListContent.addEventListener("click", event => {
       if (event.target.className === "btn btn-remove") {
-        removeTodo(event.target.id);
+        model.removeTodo(event.target.id).then(data => {
+          console.log(data);
+          if (data.errno === 0) {
+            console.log("setup");
+            setUpData();
+          }
+        });
       }
     });
   };
@@ -148,13 +222,13 @@ const Controller = ((view, model) => {
 
   let state = new State();
 
-  const addTodo = newTodo => {
-    state.todoList = [...state.todoList, newTodo];
-  };
+  // const addTodo = newTodo => {
+  //   state.todoList = [...state.todoList, newTodo];
+  // };
 
-  const removeTodo = id => {
-    state.todoList = state.todoList.filter(todo => todo.id != id);
-  };
+  // const removeTodo = id => {
+  //   state.todoList = state.todoList.filter(todo => todo.id != id);
+  // };
 
   const setUpEvent = () => {
     console.log("setUpEvent");
@@ -164,10 +238,11 @@ const Controller = ((view, model) => {
       if (event.keyCode === 13) {
         console.log("Enter");
         /// Add New Todo
-        let newTodo = new model.Todo(state.userInput);
-        console.log(newTodo);
-        addTodo(newTodo);
-        console.log(state);
+        model.addTodo(state.userInput).then(data => {
+          if (data.errno === 0) {
+            setUpData();
+          }
+        });
         /// clean the UserInput
         state.userInput = "";
       }
@@ -184,10 +259,17 @@ const Controller = ((view, model) => {
     //   console.log(event.target);
     // });
   };
+  const setUpData = () => {
+    Model.getTodos().then(data => {
+      console.log(data);
+      state.todoList = data.map(todo => new model.Todo(todo.content, todo.id));
+    });
+  };
 
   const init = () => {
     console.log("app is working");
     setUpEvent();
+    setUpData();
   };
 
   return {
