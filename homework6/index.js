@@ -1,5 +1,17 @@
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzIiwidXNlcm5hbWUiOiJ0ZXN0MyIsInBhc3N3b3JkIjoidGVzdDMiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NDU1Mzg2MCwiZXhwIjoxNTg0ODUzODYwfQ.5sNbfNMCMc2ob_woYWQsAIwepTOz-z6kzc_wLT9JBxw";
+
+function fetchData(url, token) {
+  return fetch(url, {
+    headers: new Headers({
+      Authorization: `Bearer ${token}`
+    })
+  });
+}
+
 const View = (() => {
   const DOMString = {
+    bodyElement: "body",
     inputElement: ".input-bar",
     todoListContent: ".todo-list-content",
     deleteButton: ".btn-delete"
@@ -9,24 +21,21 @@ const View = (() => {
     element.innerHTML = template;
   };
 
+  const generateTemplate = (content, id) => {
+    return `<li class="todo-list-content__item" >${content}<span><button data-id=${id} class="btn-edit">Edit</button></span><span><button data-id=${id} class="btn-delete">delete</button></span></li>`;
+  };
+
   return {
     DOMString,
-    render
+    render,
+    generateTemplate
   };
 })();
 
 const Model = (() => {
-  let id = 0;
-
   class Todo {
-    constructor(title) {
-      this.title = title;
-      this.id = id;
-      id++;
-    }
-
-    generateTemplate() {
-      return `<li class="todo-list-content__item" >${this.title}<span><button data-id=${this.id} class="btn-edit">Edit</button></span><span><button data-id=${this.id} class="btn-delete">delete</button></span></li>`;
+    constructor(content) {
+      this.todo = content;
     }
   }
 
@@ -40,9 +49,6 @@ const Controller = ((view, model) => {
   const todoListContent = document.querySelector(
     view.DOMString.todoListContent
   );
-
-  const todo = new model.Todo("test");
-  console.log(todo);
 
   class State {
     constructor() {
@@ -59,7 +65,7 @@ const Controller = ((view, model) => {
 
       let tmp = this._todoList
         .map(todo => {
-          return todo.generateTemplate();
+          return view.generateTemplate(todo.content, todo.id);
         })
         .join("");
       view.render(tmp, todoListContent);
@@ -77,12 +83,39 @@ const Controller = ((view, model) => {
 
   let state = new State();
 
+  const setupTodo = () => {
+    fetchData(
+      "https://us-central1-todos-server.cloudfunctions.net/api/todos",
+      token
+    )
+      .then(res => res.json())
+      .then(data => {
+        state.todoList = data.data;
+      });
+  };
+
   const addTodo = newTodo => {
-    state.todoList = [...state.todoList, newTodo];
+    // state.todoList = [...state.todoList, newTodo];
+    fetch("https://us-central1-todos-server.cloudfunctions.net/api/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: JSON.stringify(newTodo)
+    }).then(res => setupTodo());
   };
 
   const removeTodo = id => {
-    state.todoList = state.todoList.filter(todo => todo.id !== id);
+    // state.todoList = state.todoList.filter(todo => todo.id !== id);
+    fetch("https://us-central1-todos-server.cloudfunctions.net/api/todos", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: JSON.stringify({ todoId: id })
+    }).then(res => setupTodo());
   };
 
   const editTodo = (id, newTitle) => {
@@ -97,31 +130,29 @@ const Controller = ((view, model) => {
 
   const setUpEvent = () => {
     console.log("setUpEvent");
-    let edit = false;
-    let editId;
+
     let inputElement = document.querySelector(view.DOMString.inputElement);
     let todoListContainer = document.querySelector(
       view.DOMString.todoListContent
     );
 
+    setupTodo();
+
     inputElement.addEventListener("keyup", event => {
       state.userInput = event.target.value;
       if (event.keyCode === 13) {
         let newTodo = new model.Todo(state.userInput);
-
-        edit ? editTodo(editId, event.target.value) : addTodo(newTodo);
+        addTodo(newTodo);
 
         state.userInput = "";
-
-        edit = false;
       }
     });
     todoListContainer.addEventListener("click", e => {
-      let todoId = Number(e.target.dataset.id);
+      let todoId = e.target.dataset.id;
+      console.log(todoId);
       if (e.target.className === "btn-delete") {
         removeTodo(todoId);
       } else if (e.target.className === "btn-edit") {
-        edit = true;
         editId = todoId;
         state.userInput = state.todoList.filter(
           todo => todo.id === todoId
