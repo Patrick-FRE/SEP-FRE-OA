@@ -83,7 +83,7 @@ const Controller = ((view, model) => {
       method: "GET",
       mode: "cors",
       headers: {
-        "Authorization": "bearer " + token,
+        "Authorization": "Bearer " + token,
       }
     })
     .then((response) => response.json())
@@ -166,7 +166,7 @@ const Controller = ((view, model) => {
       method: "DELETE",
       mode: "cors",
       headers: {
-        "Authorization": "bearer " + token,
+        "Authorization": "Bearer " + token,
       },
       body: JSON.stringify(data)
     })
