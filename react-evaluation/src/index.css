@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit
+}
+
+html {
+    font-size: 62.25%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.itunes-header {
+    background-color: blue;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 2em
+}
+
+input {
+height: 3rem;
+border-radius: 5px;
+width: 200px;
+}
+
+button {
+    height: 3rem;
+    width: 100px;
+    border-radius: 5px
+}
+
+.flex-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+
+  }
+  .col {
+      width: 49%;
+      margin: 20px 0px
+  }
+
+  @media (max-width: 600px) {
+    .flex-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .col {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px 0px;
+        width: 130px
+    }
+  }
+  
+  .results-container {
+    padding-left: 20rem;
+  }
+
+  .album-name {
+      width: 40%
+  }
