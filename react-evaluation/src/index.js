@@ -1,6 +1,6 @@
 const input = document.querySelector('.input-bar')
 const albumListContent = document.querySelector('.album-list-content');
-const displaySpan = document.querySelector('.result');
+const displayMsg = document.querySelector('.search-message');
 
 
 const render = (template, element) => {
@@ -29,8 +29,10 @@ const fetchAblum = async (ARTIST_NAME) => {
     let albums = data.results.map(artist => `<li class="album-item"><div class="album-detail"><img src="${artist.artworkUrl60}"/>${artist.collectionName}</div></li>`).join('');
     //console.log('albums', albums)
     render(albums, albumListContent)
-    let resultTemplate = `Found ${albums.length} Results, see below`
-    render(resultTemplate, displaySpan);
+    let resultTemplate = `${albums.length} Results for ${ARTIST_NAME}`
+    
+    console.log('here', resultTemplate)
+    render(resultTemplate, displayMsg);
 
   }
 

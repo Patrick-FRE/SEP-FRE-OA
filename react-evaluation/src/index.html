@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ITunes Search</title>
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
         <style>
             * {
               margin: 0;
@@ -20,7 +21,7 @@
                 left: 0;
                 height: 65px;
                 display: flex;
-                background-color:green;
+                background-color:#087C73;
             
             } 
 
@@ -30,7 +31,7 @@
                 font-size: 20px;
                 text-align: center;
                 border-radius: 15px;
-                background-color: lightcyan;
+                background-color: #E8EDED;
             }     
             
             ul {
@@ -41,36 +42,49 @@
             }
 
             li {
-                display: flex;
-                flex-direction: column;
-                width: 100px;
-                height: 190px;
-                background-color: rgb(238, 244, 247);
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 200px;
+                background-color:#E8EDED;
                 margin: 10px;
-                border: 1px solid rgb(238, 244, 247);
+                border: 1px solid #087C73;
                 list-style-type: none;
+            }
+
+            .search-message{
+                width: 40%;
+                margin: auto;
+                text-align: center;
+                text-decoration: underline;
+                margin-top: 80px; 
             }
 
             .album-detail {
                 padding: 10px;
                 overflow: auto;
+                text-align: center
+
             }
             img {
+                margin: auto;
+                width: 100px;
+                height: 100px;
                 display: block;
+                padding-bottom: 10px;
             }
-
-           
         </style>
     </head>
 
     <body>
         <div class="input-box">
             <header class="searchbar-header">
-                <input class="input-bar" />
+                <input class="input-bar" placeholder="Search.."/>
             </header>
        </div>
-        <div class="result-info">
-            <h1 class="result">Found</h1>
+        <div class="search-result-header">
+            <h1 class="search-message">Search Albums by Artist Name:</h1>
         </div>
 
         <main class="images-content">
