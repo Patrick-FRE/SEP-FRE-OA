@@ -120,31 +120,42 @@
 // window.addEventListener("DOMContentLoaded", () => {
 //   Controller.init();
 // });
-const itunesSubmit = document.querySelector('.itunes-submit');
+
+
 const inputElement = document.querySelector('.itunes-search-bar');
 const itunesListContent = document.querySelector('.itunes-list-content');
-let ARTIST_NAME =  inputElement.value;
-const itunesURL = `https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=50`;
 
 
 function clickHandler () {
-  itunesSubmit.addEventListener('submit', event => {
+  inputElement.addEventListener('keyup', event => {
     event.preventDefault();
-    fetch(itunesURL)
-      .then(response => response.json())
-      .then(data => {
-        let artistAlbum = '';
-        data.forEach(album => {
-          const {collectionName, artworkUrl100} = album.results;
-          artistAlbum += `<li class="itunes-list-content__item">
-                      <div class="itunes-list-content__item-container>
-                        <img src=${artworkUrl100} />
-                        <span class="title">${collectionName}</span>
-                      </div>
-                    </li>`
-        }).join("");
+    const ARTIST_NAME =  document.querySelector('.itunes-search-bar').value;
+    const itunesURL = `https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=50`;
+    if (event.keyCode === 13 && inputElement.value) {
+      fetch(itunesURL).then(response => {
+        console.log(itunesURL);
+        console.log(response, response.json());
+        if (response.ok){
+          return response.json()
+        }
       })
-      .catch(error => console.error(error))
+      .then(data => {
+          let artistAlbum = '';
+          for (let i = 0; i < data.resultCount; i++){
+            const {collectionName, artworkUrl100} = data.results;
+            console.log(collectionName, artworkUrl100);
+            artistAlbum += `<li class="itunes-list-content__item">
+                        <div class="itunes-list-content__item-container>
+                          <img src=${artworkUrl100} />
+                          <span class="title">${collectionName}</span>
+                        </div>
+                      </li>`.join('');
+          }
+          console.log("artistALBUM");
+          console.log(artistAlbum);
+          itunesListContent.innerHTML = artistAlbum;
+      });
+    }
   });
   //insert innerHTML
 }
@@ -154,3 +165,5 @@ function init() {
 }
 
 init();
+
+// 
