@@ -38,8 +38,8 @@ const Model = (ITunesAPI => {
     }
     generateTemplate() {
       return `<div class="itunes-list-content__item">
-                <div class="itunes-list-content__item-container>
-                  <img src="${this.artworkUrl}" />
+                <div class="itunes-list-content__item-container">
+                  <img class="cover" src="${this.artworkUrl.split(' ').join('/')}" />
                   <span class="title">${this.collectionName}</span>
                 </div>
               </div>`;

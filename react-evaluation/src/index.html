@@ -45,15 +45,19 @@
     flex-wrap: wrap;
   }
 
-  .itunes-list-content__item, .itunes-list-content__item-container {
+  .itunes-list-content__item .itunes-list-content__item-container {
     margin: 5px;
     width: 240px;
     height: 300px;
     border: 1px solid grey;
   }
+  .itunes-list-content__item-container {
+    display: flex;
+    flex-direction: column;
+  }
   img {
-    width: 240px;
-    height: 150px;
+    width: 238px;
+    height: 210px;
   }
   </style>
 </head>
