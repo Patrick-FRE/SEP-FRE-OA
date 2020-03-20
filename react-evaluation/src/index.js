@@ -14,7 +14,7 @@ const View = (() => {
 
 const Model = (() => {
      const generateTemplate = (list) => {
-          return ` <li class="album-list-content__item"  id=${list.artistId} > <img class="album-list-image" src=${list.artworkUrl60}/> <p> ${list.collectionName} </p> </li>`;
+          return ` <li class="album-list-content__item"  id=${list.artistId} > <img class="album-list-image" src=${list.artworkUrl100}/> <p> ${list.collectionName} </p> </li>`;
      }
      const generateResultTemplate = (res, name) => {
           return `<p>${res} results for "${name}"</P>`
