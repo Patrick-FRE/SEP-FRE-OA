@@ -15,7 +15,7 @@ const View = (() => {
     };
   })();
   
-const TodosAPI = (() => {
+const ITunesAPI = (() => {
     const baseURL_front = "https://itunes.apple.com/search?term=";
     const baseURL_end = "&media=music&entity=album&attribute=artistTerm&limit=50";
 
@@ -35,7 +35,7 @@ const TodosAPI = (() => {
     };
 })();
   
-const Model = (todoAPI => {
+const Model = (ITunesAPI => {
     class Album {
         constructor(coverSrc, name) {
             this.coverSrc = coverSrc;
@@ -49,7 +49,7 @@ const Model = (todoAPI => {
     }
   
     const getAlbum = (artistName) => {
-        return todoAPI
+        return ITunesAPI
             .getAlbum(artistName)
             .then(data => data.json())
             .then(data => {
@@ -62,14 +62,14 @@ const Model = (todoAPI => {
         Album,
         getAlbum
     };
-})(TodosAPI);
+})(ITunesAPI);
   
 const Controller = ((view, model) => {
     const inputEle = document.querySelector(view.DOMString.inputElement);
     const searchContentList = document.querySelector(
         view.DOMString.searchContentList
     );
-    const searchContentItem = document.querySelector(view.DOMString.searchContentItem);
+    //const searchContentItem = document.querySelector(view.DOMString.searchContentItem);
   
     const updateUISearchList = (searchList, renderElement) => {
         let tmp = searchList
