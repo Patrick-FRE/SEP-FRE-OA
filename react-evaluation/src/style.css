@@ -9,7 +9,7 @@ body{
      text-align: center;
 }
 .album-header{
-     background-color: blueviolet;
+     background-color: grey;
      padding: 10px;
 }
 
@@ -20,7 +20,7 @@ body{
      padding: 5px;
      min-height: 20px;
      min-width: 20rem;
-     border-radius: 5px;
+     border-radius: 15px;
      text-align: center;
      font-size: 15px;
      font-weight: bolder;
@@ -69,4 +69,8 @@ ul{
      font-size: 10px;
      display: flex;
      flex-wrap: wrap;
+}
+
+.total-search-count{
+     width: 80vw;
 }
