@@ -1,5 +1,33 @@
-const url = "https://us-central1-todos-server.cloudfunctions.net/api/todos";
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwidXNlcm5hbWUiOiJ0ZXN0MiIsInBhc3N3b3JkIjoidGVzdDIiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NDU1MzkxMiwiZXhwIjoxNTg0ODUzOTEyfQ.9ABhEKQ-IMANOw_5__wY6avjF5fVP3TMuMbwdwRrIEk";
+// MVC Model View Controller Angular, || MVVM Model View ViewModel React Angular 2+
+// Data binding :  View to model(use event to do the binding) || Model to View(DOM change + Setter)
+// What is State:
+
+/// wirte you business logic to change the state
+/// rerender the newState to the UI.
+
+// const inputElement = document.querySelector(".input-bar");
+// console.log(textElement);
+// console.log(inputElement);
+
+// let state = {};
+// let _userInput = "";
+
+// Object.defineProperty(state, "userInput", {
+//   get() {
+//     console.log("get");
+//     return _userInput;
+//   },
+//   set(newValue) {
+//     _userInput = newValue;
+//     textElement.innerHTML = _userInput;
+//   }
+// });
+
+// inputElement.addEventListener("keypress", event => {
+//   textElement.innerHTML = event.target.value;
+// });
+
+/// strict mode
 
 const View = (() => {
   const DOMString = {
@@ -18,25 +46,95 @@ const View = (() => {
   };
 })();
 
-const Model = (() => {
-  let id = 0;
+const TodosAPI = (() => {
+  const baseURL = "https://us-central1-todos-server.cloudfunctions.net/api";
+  const todosPath = "todos";
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwIiwidXNlcm5hbWUiOiJ0ZXN0MCIsInBhc3N3b3JkIjoidGVzdDAiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NDU1NDI4MiwiZXhwIjoxNTg0ODU0MjgyfQ.K5dkBd6x0h3dzyv4NXuNpsaitZF7E-ZFVuBiEJbi90Q";
+  const BearerToken = "Bearer " + token;
+  const getTodos = () => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "GET";
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        "Authorization": BearerToken,
+        "Content-Type": "application/json"
+      }
+    });
+  };
+
+  const addTodo = title => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "POST";
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        "Authorization": BearerToken,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ "todo": title })
+    });
+  };
+
+  const removeTodo = id => {
+    const apiUrl = baseURL + "/" + todosPath;
+    const method = "DELETE";
+    console.log(id);
+    return fetch(apiUrl, {
+      method: method,
+      headers: {
+        "Authorization": BearerToken,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ "todoId": id })
+    });
+  };
+
+  return {
+    getTodos,
+    addTodo,
+    removeTodo
+  };
+})();
+
+const Model = (todoAPI => {
   class Todo {
-    constructor(title, todoId) {
+    constructor(title, id) {
       this.title = title;
       this.id = id;
-      this.todoId = todoId;
-      id++;
     }
 
     generateTemplate() {
-      return ` <li class="todo-list-content__item" >${this.title} <button id=${this.todoId} class="btn btn-remove"  >Remove </button></li>`;
+      return ` <li class="todo-list-content__item" >${this.title} <button id=${this.id} class="btn btn-remove"  >Remove </button></li>`;
     }
   }
 
-  return {
-    Todo
+  const getTodos = () => {
+    return todoAPI
+      .getTodos()
+      .then(data => data.json())
+      .then(data => {
+        //console.log(data);
+        return data.data;
+      });
   };
-})();
+
+  const addTodo = title => {
+    return todoAPI.addTodo(title).then(data => data.json());
+  };
+
+  const removeTodo = id => {
+    return todoAPI.removeTodo(id).then(data => data.json());
+  };
+
+  return {
+    Todo,
+    getTodos,
+    addTodo,
+    removeTodo
+  };
+})(TodosAPI);
 
 const Controller = ((view, model) => {
   const inputEle = document.querySelector(view.DOMString.inputElement);
@@ -50,8 +148,13 @@ const Controller = ((view, model) => {
     );
     todoListContent.addEventListener("click", event => {
       if (event.target.className === "btn btn-remove") {
-        removeTodo(event.target.id);
-        updateUItodoList(todoListContent);
+        model.removeTodo(event.target.id).then(data => {
+          console.log(data);
+          if (data.errno === 0) {
+            console.log("setup");
+            setUpData();
+          }
+        });
       }
     });
   };
@@ -78,31 +181,14 @@ const Controller = ((view, model) => {
     btn.style.visibility = "hidden";
   };
 
-  const updateUItodoList = (renderElement) => {
-    fetch(url, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Authorization": "Bearer " + token,
-      }
-    })
-    .then((response) => response.json())
-    .then((responseData) => {
-      console.log(responseData);
-      let newTodoList = [];
-      let tmp = responseData.data
-      .map(obj => {
-        let todo = new model.Todo(obj.content, obj.id);
-        newTodoList.push(todo);
+  const updateUItodoList = (todoList, renderElement) => {
+    let tmp = todoList
+      .map(todo => {
         return todo.generateTemplate();
       })
       .join("");
-      state.todoList = newTodoList;
-      view.render(tmp, renderElement);
-    });
-
-    //console.log("Tmp", tmp);
-    //view.render(tmp, renderElement);
+    console.log("Tmp", tmp);
+    view.render(tmp, renderElement);
   };
 
   class State {
@@ -116,9 +202,9 @@ const Controller = ((view, model) => {
     }
 
     set todoList(newValue) {
-      //console.log("set TodoList");
+      console.log("set TodoList");
       this._todoList = newValue;
-      updateUItodoList(todoListContent);
+      updateUItodoList(this._todoList, todoListContent);
       setUpUIbtnRemoveToggle();
     }
 
@@ -136,59 +222,27 @@ const Controller = ((view, model) => {
 
   let state = new State();
 
-  const addTodo = newTodo => {
-    state.todoList = [...state.todoList, newTodo];
-    let data = {
-      "todo": newTodo.title
-    };
-    console.log(token);
-    fetch(url, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "bearer " + token,
-      },
-      body: JSON.stringify(data)
-    })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-    });
-  };
+  // const addTodo = newTodo => {
+  //   state.todoList = [...state.todoList, newTodo];
+  // };
 
-  const removeTodo = id => {
-    state.todoList = state.todoList.filter(todo => todo.id != id);
-    let data = {
-      "todoId": id
-    }
-    fetch(url, {
-      method: "DELETE",
-      mode: "cors",
-      headers: {
-        "Authorization": "Bearer " + token,
-      },
-      body: JSON.stringify(data)
-    })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-    });
-  };
+  // const removeTodo = id => {
+  //   state.todoList = state.todoList.filter(todo => todo.id != id);
+  // };
 
   const setUpEvent = () => {
-    //console.log("setUpEvent");
+    console.log("setUpEvent");
     let inputElement = document.querySelector(view.DOMString.inputElement);
     inputElement.addEventListener("keyup", event => {
       state.userInput = event.target.value;
       if (event.keyCode === 13) {
-        //console.log("Enter");
+        console.log("Enter");
         /// Add New Todo
-        let newTodo = new model.Todo(state.userInput, -1);
-        //console.log(newTodo);
-        addTodo(newTodo);
-        updateUItodoList(view.DOMString.todoListContent);
-        //console.log(state);
+        model.addTodo(state.userInput).then(data => {
+          if (data.errno === 0) {
+            setUpData();
+          }
+        });
         /// clean the UserInput
         state.userInput = "";
       }
@@ -205,10 +259,17 @@ const Controller = ((view, model) => {
     //   console.log(event.target);
     // });
   };
+  const setUpData = () => {
+    Model.getTodos().then(data => {
+      console.log(data);
+      state.todoList = data.map(todo => new model.Todo(todo.content, todo.id));
+    });
+  };
 
   const init = () => {
-    //console.log("app is working");
+    console.log("app is working");
     setUpEvent();
+    setUpData();
   };
 
   return {
