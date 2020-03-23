@@ -5,19 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Album Search</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <style>
+      #banner-message {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <header class="album-header">
-      <input class="input-bar" placeholder="...search" />
+      <button class="content"></button>
+      <button class="content"></button>
+      <p id="banner-message">Hidden box</p>
+      <div id="button-container">
+        <button>show</button>
+      </div>
     </header>
     <main class="album-content">
-      <header class="album-list-header">
-        <p class="album-header-content">Search Album by ArtistName:</p>
-      </header>
-      <ul class="album-list-content"></ul>
+      <script>
+        class myQuery {
+          constructor(selector) {
+            if (selector === document || selector === window) {
+              this.els = [selector];
+            } else {
+              this.els = document.querySelectorAll(selector);
+            }
+          }
+          html(content) {
+            this.el.innerHTML = content;
+          }
+          on(event, cb) {
+            let msg = "hello";
+            this.els.forEach(el => {
+              el.addEventListener(event, event => {
+                cb(event, msg);
+              });
+            });
+          }
+          show() {
+            this.els.forEach(el => {
+              el.style.display = "initial";
+            });
+          }
+        }
 
-      <script src="index.js"></script>
+        const $ = selector => {
+          return new myQuery(selector);
+        };
+
+        let hiddenBox = $("#banner-message");
+        $("#button-container button").on("click", function(event, msg) {
+          console.log(msg);
+          hiddenBox.show();
+        });
+
+        $.ajax = function(obj) {
+          fetch(obj.url)
+            .then(res => res.json())
+            .then(data => obj.success(data));
+        };
+
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/todos/1",
+          success: function(result) {
+            console.log(result);
+          }
+        });
+      </script>
     </main>
   </body>
 </html>
