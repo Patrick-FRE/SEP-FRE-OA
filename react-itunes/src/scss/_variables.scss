@@ -1,4 +1,10 @@
-$lightOrange: #FFCA08;
-$darkOrange: #F57921;
-$lightBlue: #ACCEEC;
-$darkBlue: #398BD4;
+$primary: rgb(74,72,68);
+$secondary: #47e0e6;
+$white: white;
+
+
+:export {
+    primary: $primary;
+    secondary: $secondary;
+    tertiary: $white
+  }

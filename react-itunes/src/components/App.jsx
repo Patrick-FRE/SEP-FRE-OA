@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import SearchBar from './SearchBar';
 
 
 
 const App = () => {
 
+
   return (
-    <div>React App Starter</div>
+    <Fragment>
+      <section>
+        <SearchBar/>
+      </section>
+    </Fragment>
   )
 }
 
