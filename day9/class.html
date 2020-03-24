@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button class="continue"></button>
+  <button class="continue"></button>
+
+  <script>
+    class MyQuery {
+      constructor(selector) {
+        if (selector === document || selector === window) {
+          this.elements = [selector];
+        } else {
+          this.elements = document.querySelectorAll(selector);
+        }
+      }
+      html(content) {
+        this.elements.forEach(el => el.innerHTML = content);
+      }
+      on(str, cb) {
+        this.elements.forEach(el => el.addEventListener(str, cb));
+      }
+      off(str, cb) {
+        this.elements.forEach(el => el.removeEventListener(str, cb));
+      }
+      show() {
+        this.elements.forEach(element => {
+          element.style.display = "initial";
+        });
+      }
+      hide() {
+        this.elements.forEach(element => {
+          element.style.display = 
+        })
+      }
+    }
+
+    const $ = selector => {
+      return new MyQuery(selector);
+    };
+
+    $('button.continue').html("Next Step...");
+
+    var hiddenBox = $('#banner-message');
+    $('#button-container button').on('click', function(event){
+      hiddenBox.show();
+    });
+  </script>
+</body>
+</html>
