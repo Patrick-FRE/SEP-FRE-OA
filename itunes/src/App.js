@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import SearchArtist from './components/SearchArtist';
 import ItunesAlbumsList from './components/ItunesAlbumsList';
-
+import SearchResults from './components/SearchResults';
 
 class App extends React.Component {
   state = {
@@ -18,6 +18,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <SearchArtist search={this.searchArtist} />
+          <SearchResults albumCount={this.state.albums.length} artist={this.state.artist}/>
           <ItunesAlbumsList albums={this.state.albums}/>
         </header>
       </div>

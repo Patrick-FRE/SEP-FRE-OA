@@ -46,7 +46,7 @@ code {
 .itunes-list-content {
   width: 100vw;
   height: 100vh;
-  padding-top: 65px;
+  padding-top: 20px;
 }
 
 .itunes-list-content {
@@ -69,4 +69,9 @@ code {
 img {
   width: 238px;
   height: 210px;
+}
+
+.album-count-container {
+  margin-top: 110px;
+  border-bottom: 2px solid grey;
 }
