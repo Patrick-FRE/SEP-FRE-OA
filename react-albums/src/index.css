@@ -17,28 +17,28 @@
 
 } 
 
-input {
+.input-bar {
     margin: 15px auto;
     width: 40%;
     font-size: 20px;
     text-align: center;
     border-radius: 15px;
     background-color: #E8EDED;
+    outline:none;
 }     
 
-ul {
-    padding: 65px 80px;
+.album-list-content {
+    padding: 65px 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-li {
+.album-item {
     display:flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     width: 200px;
-    height: 200px;
+    height: 270px;
     background-color:#E8EDED;
     margin: 10px;
     border: 1px solid #087C73;
@@ -53,16 +53,17 @@ li {
     margin-top: 80px; 
 }
 
-.album-detail {
-    padding: 10px;
-    overflow: auto;
-    text-align: center
-
+.album-item {
+    display:flex;
+    flex-direction: column;
+    padding: 5px;
 }
+
 img {
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    display: block;
-    padding-bottom: 10px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.collection-name {
+  text-align: center;
 }
