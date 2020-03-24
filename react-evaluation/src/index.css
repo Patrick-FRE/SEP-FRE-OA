@@ -7,27 +7,38 @@
   }
 
 .search-header {
-    height: 40px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: purple;
+    background-color: green;
+}
+
+.search-header__search-bar {
+    border-radius: 10px;
+    height: 50%;
+    width: 200px;
+    font-size: 15px;
 }
 
 .search-content-header {
-    height: 40px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-h3 {
+.search-content-header__text {
+    width: 80%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid green;
 }
 
 .search-content-list {
     width: 90%;
-    height: calc(100% - 80px);
+    height: calc(100% - 120px);
     overflow-x: hidden;
     overflow-y: scroll;
     list-style-type: none;
@@ -43,7 +54,7 @@ h3 {
     height: 300px;
     padding: 5px;
     margin: 10px;
-    border: 1px solid;
+    border: 1px solid green;
 }
 
 .album-image {
@@ -52,4 +63,5 @@ h3 {
 
 .figcaption {
     line-height: 20px;
+    text-align: center;
 }

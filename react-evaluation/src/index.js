@@ -2,7 +2,8 @@ const View = (() => {
     const DOMString = {
         inputElement: ".search-header__search-bar",
         searchContentList: ".search-content-list",
-        searchContentItem: ".search-content-list__item"
+        searchContentItem: ".search-content-list__item",
+        searchContentHeaderText: ".search-content-header__text"
     };
   
     const render = (template, element) => {
@@ -53,7 +54,7 @@ const Model = (ITunesAPI => {
             .getAlbum(artistName)
             .then(data => data.json())
             .then(data => {
-                //console.log(data);
+                console.log(data);
                 return data.results;
             });
     };
@@ -69,6 +70,7 @@ const Controller = ((view, model) => {
     const searchContentList = document.querySelector(
         view.DOMString.searchContentList
     );
+    const searchContentHeaderText = document.querySelector(view.DOMString.searchContentHeaderText);
     //const searchContentItem = document.querySelector(view.DOMString.searchContentItem);
   
     const updateUISearchList = (searchList, renderElement) => {
@@ -114,11 +116,12 @@ const Controller = ((view, model) => {
         //console.log(inputElement);
         inputElement.addEventListener("keyup", event => {
             state.userInput = event.target.value;
+            let artistName = state.userInput;
             if (event.keyCode === 13) {
                 //console.log("Enter");
             /// Add New Todo
                 model.getAlbum(state.userInput).then(data => {
-                    setUpData(data);
+                    setUpData(data, artistName);
                 });
             /// clean the UserInput
                 state.userInput = "";
@@ -126,8 +129,9 @@ const Controller = ((view, model) => {
         });
     };
 
-    const setUpData = (data) => {
-        //console.log(data);
+    const setUpData = (data, artistName) => {
+        console.log(data);
+        searchContentHeaderText.innerHTML = `${data.length} results for "${artistName}"`;
         state.searchList = data.map(album => new model.Album(album.artworkUrl60, album.collectionName));
     };
   
