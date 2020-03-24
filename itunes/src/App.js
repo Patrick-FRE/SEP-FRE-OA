@@ -5,8 +5,11 @@ import ItunesAlbumsList from './components/ItunesAlbumsList';
 import SearchResults from './components/SearchResults';
 
 class App extends React.Component {
-  state = {
-    albums: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      albums: []
+    };
   }
   searchArtist = artist => {
     fetch(`https://itunes.apple.com/search?term=${artist}&media=music&entity=album&attribute=artistTerm&limit=50`)
