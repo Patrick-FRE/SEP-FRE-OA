@@ -1,6 +1,6 @@
 import React from 'react';
 
-class InputBar extends React.Component {
+class InputBar extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -20,8 +20,9 @@ class InputBar extends React.Component {
     console.log('InputBar: KeyPressHandler')
     if(e.key === 'Enter') {
       this.props.addTodo(this.state.userInput);
-    }
-  }
+    };
+  };
+  
   
   render() {
     console.log('InputBar: render')
