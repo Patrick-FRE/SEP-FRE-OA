@@ -19,6 +19,7 @@ code {
 }
 
 .todos-content {
+  text-align: center;
   z-index: 1000;
   width: 100vw;
   height: 100vh;
@@ -101,4 +102,20 @@ section.todolist {
 .todolist-content .todolist-items:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
   0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.todos-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 65px;
+}
+
+.logo {
+  display: inline-block;
+  color: #fff;
+  line-height: 65px;
+  font-size: 25px;
+  padding: 0 20px;
 }

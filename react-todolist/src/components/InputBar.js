@@ -23,6 +23,7 @@ class InputBar extends React.Component {
                 value={this.state.input}
                 onChange={this.inputHandler}
                 onKeyPress={this.enterHandler}
+                placeholder="Please input a new todo..."
         />
       </>
     );

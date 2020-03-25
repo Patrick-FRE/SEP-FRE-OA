@@ -25,6 +25,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header className="todos-header primary">
+          <span className="logo">Todos</span>
+        </header>
         <main className="todos-content">
           <section className="todolist">
             <header className="todolist-header">
