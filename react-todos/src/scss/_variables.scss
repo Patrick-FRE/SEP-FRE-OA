@@ -1,10 +1,12 @@
-  $primary: rgb(74,72,68);
+$primary: rgb(24, 86, 151);
 $secondary: #47e0e6;
-$white: white;
+$tertiary: transparent;
+$btnHover: rgba(255, 255, 255, 0.3)
 
 
 :export {
     primary: $primary;
     secondary: $secondary;
-    tertiary: $white
+    tertiary: $tertiary;
+    btnHover: $btnHover;
   }

@@ -1,11 +1,16 @@
-import React from 'react';
-import variables from '../scss/_variables.scss'
+import React, { Fragment } from 'react';
+import Header from './Header';
+import TodosContainer from './TodosContainer';
+//import variables from '../scss/_variables.scss'
 
 
 const App = () => {
 
   return (
-    <div>React App Starter</div>
+    <Fragment>
+        <Header />
+        <TodosContainer />
+    </Fragment>
   )
 }
 

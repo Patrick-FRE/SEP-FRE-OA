@@ -28,6 +28,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1",
     "webpack": "^4.42.0"
   },
   "devDependencies": {
