@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #banner-message {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="continue"></button>
+    <button class="continue"></button>
+    <p id="banner-message">Hidden Box</p>
+    <div id="button-container">
+      <button>Show</button>
+    </div>
+
+    <!-- <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"
+    ></script> -->
+    <script>
+      class MyQuery {
+        constructor(selector) {
+          if (selector === document || selector === window) {
+            this.elements = [selector];
+          } else {
+            this.elements = document.querySelectorAll(selector);
+          }
+        }
+        html(content) {
+          this.elements.forEach(element => {
+            element.innerHTML = content;
+          });
+        }
+        on(eventType, callBackFn) {
+          let msg = "hello";
+          this.elements.forEach(element => {
+            element.addEventListener(eventType, event => {
+              callBackFn(event, msg);
+            });
+          });
+        }
+
+        show() {
+          this.elements.forEach(element => {
+            element.style.display = "initial";
+          });
+        }
+      }
+
+      const $ = selector => {
+        return new MyQuery(selector);
+      };
+
+      // facade dessign pattern
+
+      $("button.continue").html("Next Step");
+
+      var hiddenBox = $("#banner-message");
+      $("#button-container button").on("click", function(event, msg) {
+        console.log(event);
+        console.log(msg);
+        console.log("click");
+        hiddenBox.show();
+      });
+
+      $.ajax = options => {
+        fetch(options.url)
+          .then(data => data.json())
+          .then(data => {
+            options.success(data);
+          });
+      };
+
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/todos/1",
+        success: function(result) {
+          console.log(result);
+        }
+      });
+    </script>
+  </body>
+</html>
