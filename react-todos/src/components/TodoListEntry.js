@@ -1,17 +1,34 @@
 import React from 'react';
 
 
-const TodoListEntry = ({ removeTodo, todo, id}) => {
-  const onRemoveClick = () => {
-    removeTodo(id)
+class TodoListEntry extends React.Component {
+  state = {
+    showButton: false
   }
- 
-  return(
-    <li className="todo-list-content__item" >{ todo } 
-      <button onClick={ onRemoveClick }id={ id } className="btn btn-remove"  >Remove </button>
-    </li>
+  onRemoveClick = () => {
+    this.props.removeTodo(this.props.id)
+  }
 
-  )
+  btnVisibilityToggle = () => {
+    
+    this.setState((preState, props) => {
+      return {
+        showButton: !preState.showButton
+      }
+    })
+    console.log('toggle', this.state.showButton)
+  }
+
+  render() {
+    return(
+      <li className="todo-list-content__item" onMouseLeave={ this.btnVisibilityToggle } onMouseEnter={this.btnVisibilityToggle}>
+        { this.props.todo } 
+        <button onClick={ this.onRemoveClick }id={ this.props.id } className={`btn btn-remove ${this.state.showButton? ' show' : ''} `} >Remove </button>
+      </li>
+  
+    )
+  }
+  
 }
 
 export default TodoListEntry;

@@ -120,6 +120,10 @@ section.todo-list {
   visibility: hidden;
 }
 
+button.show {
+  visibility: visible;
+}
+
 .todo-list-content .todo-list-content__item:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
