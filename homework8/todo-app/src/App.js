@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoList from "./components/TodoList";
 import AddTodoForm from "./components/AddTodoForm";
+import Header from "./components/Header";
 import { getTodos } from "./util/todoAPI";
 
 import "./App.css";
@@ -20,7 +21,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-container">
+        <Header />
         <AddTodoForm setUpTodos={this.setUpTodos} />
         <TodoList todoList={this.state.todoList} setUpTodos={this.setUpTodos} />
       </div>

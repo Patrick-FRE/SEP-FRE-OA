@@ -19,17 +19,19 @@ class TodoList extends Component {
 
   render() {
     return (
-      <ul>
-        {this.props.todoList &&
-          this.props.todoList.map(todo => (
-            <Todo
-              key={todo.id}
-              id={todo.id}
-              content={todo.content}
-              clickHandler={this.clickHandler}
-            />
-          ))}
-      </ul>
+      <div className="todo-list-container">
+        <ul className="todo-list">
+          {this.props.todoList &&
+            this.props.todoList.map(todo => (
+              <Todo
+                key={todo.id}
+                id={todo.id}
+                content={todo.content}
+                clickHandler={this.clickHandler}
+              />
+            ))}
+        </ul>
+      </div>
     );
   }
 }
