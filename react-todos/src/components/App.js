@@ -1,20 +1,39 @@
 import React from 'react';
 import Header from './Header'
-import SearchBar from './SearchBar';
+import InputBar from './InputBar';
 import TodoList from './TodoList';
 import TodoListEntry from './TodoListEntry';
 
 
-const App = () => {
-  return(
-    <div>
-      <Header />
-      <SearchBar />
-      <TodoList />
-      <TodoListEntry />
-    </div>
+class App extends React.Component {
+  // state = {
+  //   newTodo: ''
+  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      newTodo: ''
+    }
+    console.log('App: constructor')
+  }
 
-  )
-}
+  addTodo = newTodo => {
+    console.log('App, addTodo')
+    console.log('App, addTodo', newTodo);
+  }
+
+  render(){
+    console.log('App: render')
+    return(
+      <div>
+        <Header />
+        <InputBar addTodo={ this.addTodo }/>
+        <TodoList />
+        <TodoListEntry />
+      </div>
+  
+    );
+  };
+};
 
 export default App;
