@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import variables from '../scss/_variables.scss'
 
 const Header = () => {
+    const [str, setStr] = useState('Todo Manager')
+    const whiteArr = str.split('').map(el => 'white');
 
+    const [colors, setColors] = useState(whiteArr);
+    const setBg = () => {
+        return '#' + Math.floor(Math.random()*16777215).toString(16);
+      }
+      useEffect(() => {
+        const interval = setInterval(() => {
+            return setColors(str.split('').map(el => setBg()));
+        }, 1000);
+            return () => clearInterval(interval);
+      }, []);
+      
+      const headLabel = str.split('').map((el, i) => {
+            return (
+                <p style = {{color: colors[i]}} key = {i}>{el}</p>
+            )
+      })
+      
+    
     return (
         <Head>
-            <button className = 'btn clear-btn'>Clear Todos</button>
+            {headLabel}
+            {/*<button className = 'btn clear-btn'>Clear Todos</button>*/}
         </Head>
         )
 }
@@ -20,6 +41,7 @@ const Head = styled.header`
     height: 6rem;
     width: 100%;
     align-items: center;
+    color: white;
 
     .btn {
         height: 3rem;
