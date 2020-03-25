@@ -38,9 +38,10 @@ class App extends React.Component {
   }
 
   removeTodo = id => {
+    console.log('remove todo', id)
     this.setState((preState, prop) => {
       return {
-        todoList: preState.todoList.filter(todo => todo.id === id)
+        todoList: preState.todoList.filter(todo => todo.id !== id)
       }
     })
   }

@@ -6,6 +6,7 @@ class TodoListEntry extends React.Component {
     showButton: false
   }
   onRemoveClick = () => {
+    console.log(this.props.removeTodo)
     this.props.removeTodo(this.props.id)
   }
 
