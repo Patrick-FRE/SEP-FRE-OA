@@ -86,6 +86,13 @@ section.todolist {
   border-radius: 5px;
 }
 
+.todolist-items .btn-delete {
+    visibility: hidden;
+}
+.todolist-items:hover .btn-delete {
+    visibility: visible;
+}
+
 .todolist-content .todolist-items {
   height: 40px;
   font-size: 20px;
