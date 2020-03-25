@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.todos-content {
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.todolist {
+  width: 500px;
+  height: 600px;
+  max-width: 90%;
+  max-height: 80%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.todolist-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-list-header__item {
+  height: 40px;
+}
+
+.todo-list-title {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 40px;
+}
+
+.primary {
+  background-color: rgb(35, 79, 201);
+}
+.input-bar {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.todolist-content {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 20px;
+  font-size: 16px;
+}
+.btn-delete {
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.todolist-content .todolist-items {
+  height: 40px;
+  font-size: 20px;
+  color: gray;
+}
+.todolist-content .todolist-items:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+}
