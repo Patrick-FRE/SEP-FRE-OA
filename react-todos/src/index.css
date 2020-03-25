@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.todos-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 65px;
+  display: flex;
+}
+
+.logo {
+  display: inline-block;
+  color: #fff;
+  line-height: 65px;
+  font-size: 25px;
+  padding: 0 20px;
+}
+
+.todos-header-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -105px;
+}
+main.todos-content {
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 65px;
+}
+.btn {
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 20px;
+  font-size: 16px;
+  color: rgb(35, 79, 201);
+}
+
+.primary {
+  background-color: rgb(35, 79, 201);
+}
+
+.secondary {
+  background-color: rgb(207, 212, 238);
+}
+section.todo-list {
+  width: 500px;
+  height: 600px;
+  max-width: 90%;
+  max-height: 80%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.todos-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.todo-list-header {
+  display: flex;
+  flex-direction: column;
+}
+.todo-list-header__item {
+  height: 40px;
+}
+.todo-list__title {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.input-bar {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+}
+.todo-list-content {
+  width: 100%;
+  height: calc(100% - 80px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.todo-list-content .todo-list-content__item {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  color: gray;
+  flex-shrink: 0;
+  line-height: 40px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-remove {
+  padding: 2px 4px;
+  font-size: 12px;
+  height: 30px;
+  visibility: hidden;
+}
+
+.todo-list-content .todo-list-content__item:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
