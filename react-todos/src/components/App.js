@@ -3,13 +3,11 @@ import InputBar from './InputBar';
 import TodoList from './TodoList';
 
 class App extends React.Component {
-  // state = {
-  //   newTodo: ''
-  // }
+ 
   constructor(props) {
     super(props);
     this.state = {
-      newTodo: '',
+      todo: {},
       todoList: [],
       id: 1
     }
@@ -22,14 +20,14 @@ class App extends React.Component {
 
     this.setState((preState, prop) => {
       return {
-        newTodo: {title: newTodo, id: preState.id},
+        todo: {title: newTodo, id: preState.id},
         id: preState.id + 1
       };
     })
 
     this.setState((preState, prop) => {
       return {
-        todoList: [...preState.todoList, preState.newTodo]
+        todoList: [...preState.todoList, preState.todo]
       }
     })
 
