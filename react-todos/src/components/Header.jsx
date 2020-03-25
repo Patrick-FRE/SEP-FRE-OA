@@ -27,9 +27,11 @@ const Head = styled.header`
         color: white;
         background-color:${variables.tertiary};
         border-radius: 5px;
-        font-size: 16px
+        font-size: 16px;
     }
     .btn:hover {
         background-color: ${variables.btnHover}; 
+        border: 1px solid aqua;
+        color: aqua;
     }
 `

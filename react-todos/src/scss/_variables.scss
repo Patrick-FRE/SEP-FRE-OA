@@ -1,7 +1,8 @@
 $primary: rgb(24, 86, 151);
 $secondary: #47e0e6;
 $tertiary: transparent;
-$btnHover: rgba(255, 255, 255, 0.3)
+$btnHover: rgba(255, 255, 255, 0.3);
+$listHover: rgba(62,72,68, 0.3)
 
 
 :export {
@@ -9,4 +10,5 @@ $btnHover: rgba(255, 255, 255, 0.3)
     secondary: $secondary;
     tertiary: $tertiary;
     btnHover: $btnHover;
+    listHover: $listHover;
   }

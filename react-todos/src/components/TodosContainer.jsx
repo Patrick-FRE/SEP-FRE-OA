@@ -16,6 +16,11 @@ const TodosContainer = () => {
         setTodo([...todos, text]);
         setText('');
     }
+
+    const deleteTodo = (e, item) => {
+        e.preventDefault();
+        setTodo(todos.filter(el => el !==item));
+    }
     return (
         <Fragment>
             <Section>
@@ -34,7 +39,7 @@ const TodosContainer = () => {
                             </form>
                         </div>
                     </header>
-                    <List todos = {todos}/>
+                    <List todos = {todos} deleteTodo = {deleteTodo}/>
                 </div>
             </Section>
 
@@ -57,6 +62,8 @@ const Section = styled.section`
         align-items: center;
         width: 400px;
         height: 600px;
+        margin-top: -1px;
+        z-index: 1
     }
     .header-item {
         display: flex;
