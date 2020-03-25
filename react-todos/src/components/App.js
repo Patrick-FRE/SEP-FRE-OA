@@ -12,7 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTodo: ''
+      newTodo: '',
+      todoList: []
     }
     console.log('App: constructor')
   }
@@ -20,6 +21,15 @@ class App extends React.Component {
   addTodo = newTodo => {
     console.log('App, addTodo')
     console.log('App, addTodo', newTodo);
+
+    this.setState((preState, prop) => {
+      return {
+        todoList: [...this.state.todoList, newTodo]
+      }
+    })
+
+    console.log(this.state.todoList)
+    
   }
 
   render(){
@@ -28,7 +38,7 @@ class App extends React.Component {
       <div>
         <Header />
         <InputBar addTodo={ this.addTodo }/>
-        <TodoList />
+        <TodoList todoList={ this.state.todoList }/>
         <TodoListEntry />
       </div>
   
