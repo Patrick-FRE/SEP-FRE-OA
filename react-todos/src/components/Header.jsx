@@ -4,7 +4,8 @@ import variables from '../scss/_variables.scss'
 
 const Header = () => {
     const [str, setStr] = useState('Todo Manager')
-    const whiteArr = str.split('').map(el => 'white');
+    const whiteArr = Array.from(str).fill('white');
+    //const whiteArr = str.split('').map(el => 'white');
 
     const [colors, setColors] = useState(whiteArr);
     const setBg = () => {
@@ -17,7 +18,7 @@ const Header = () => {
             return () => clearInterval(interval);
       }, []);
       
-      const headLabel = str.split('').map((el, i) => {
+      const headLabel = Array.from(str).map((el, i) => {
             return (
                 <p style = {{color: colors[i]}} key = {i}>{el}</p>
             )

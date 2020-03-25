@@ -13,13 +13,15 @@ const TodosContainer = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTodo([...todos, text]);
-        setText('');
+        if (text.length > 0) {
+            setTodo([...todos, text]);
+            setText('');
+        }
     }
 
     const deleteTodo = (e, item) => {
         e.preventDefault();
-        setTodo(todos.filter(el => el !==item));
+        setTodo(todos.filter(el => el !== item));
     }
     return (
         <Fragment>
@@ -28,18 +30,18 @@ const TodosContainer = () => {
                     <header className='todos-label'>
                         <div className='header-item'>Today</div>
                         <div className='header-item'>
-                            <form type='submit' 
-                                  className = 'header-item'
-                                  onSubmit = {handleSubmit}>
-                                <input type='text' 
-                                       placeholder='add todo...'
-                                       onChange = {e=>handleChange(e)}
-                                       value = {text}>
+                            <form type='submit'
+                                className='header-item'
+                                onSubmit={handleSubmit}>
+                                <input type='text'
+                                    placeholder='add todo...'
+                                    onChange={e => handleChange(e)}
+                                    value={text}>
                                 </input>
                             </form>
                         </div>
                     </header>
-                    <List todos = {todos} deleteTodo = {deleteTodo}/>
+                    <List todos={todos} deleteTodo={deleteTodo} />
                 </div>
             </Section>
 
