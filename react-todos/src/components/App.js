@@ -1,6 +1,7 @@
 import React from 'react';
 import InputBar from './InputBar';
 import TodoList from './TodoList';
+import Header from './Header';
 
 class App extends React.Component {
  
@@ -48,18 +49,21 @@ class App extends React.Component {
     console.log('App: render')
     return(
       <>
-        <header className="todos-header primary">
-          <span className="logo">Todos</span>
-        </header>
+        <Header />
         <main className="todos-content">
           <section className="todo-list">
             <header className="todo-list-header">
+              <div class="todo-list-header__item">
+                <div class="todo-list__title">TODOS</div>
+              </div>
               <InputBar addTodo={ this.addTodo }/>
             </header>
             <TodoList todoList={ this.state.todoList } removeTodo={ this.removeTodo }/>
           </section>
         </main>  
       </>
+
+
   
     );
   };

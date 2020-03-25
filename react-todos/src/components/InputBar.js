@@ -26,6 +26,7 @@ class InputBar extends React.PureComponent {
   
   
   render() {
+    
     console.log('InputBar: render')
     return(
       <div className="todo-list-header__item">
