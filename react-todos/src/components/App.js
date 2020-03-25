@@ -1,9 +1,6 @@
 import React from 'react';
-import Header from './Header'
 import InputBar from './InputBar';
 import TodoList from './TodoList';
-import TodoListEntry from './TodoListEntry';
-
 
 class App extends React.Component {
   // state = {
@@ -13,7 +10,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       newTodo: '',
-      todoList: []
+      todoList: [],
+      id: 1
     }
     console.log('App: constructor')
   }
@@ -24,7 +22,14 @@ class App extends React.Component {
 
     this.setState((preState, prop) => {
       return {
-        todoList: [...this.state.todoList, newTodo]
+        newTodo: {title: newTodo, id: preState.id},
+        id: preState.id + 1
+      };
+    })
+
+    this.setState((preState, prop) => {
+      return {
+        todoList: [...preState.todoList, preState.newTodo]
       }
     })
 
@@ -32,15 +37,30 @@ class App extends React.Component {
     
   }
 
+  removeTodo = id => {
+    this.setState((preState, prop) => {
+      return {
+        todoList: preState.todoList.filter(todo => todo.id === id)
+      }
+    })
+  }
+
   render(){
     console.log('App: render')
     return(
-      <div>
-        <Header />
-        <InputBar addTodo={ this.addTodo }/>
-        <TodoList todoList={ this.state.todoList }/>
-        <TodoListEntry />
-      </div>
+      <>
+        <header className="todos-header primary">
+          <span className="logo">Todos</span>
+        </header>
+        <main className="todos-content">
+          <section className="todo-list">
+            <header className="todo-list-header">
+              <InputBar addTodo={ this.addTodo }/>
+            </header>
+            <TodoList todoList={ this.state.todoList } removeTodo={ this.removeTodo }/>
+          </section>
+        </main>  
+      </>
   
     );
   };
