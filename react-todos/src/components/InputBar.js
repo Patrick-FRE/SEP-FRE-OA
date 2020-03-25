@@ -20,6 +20,7 @@ class InputBar extends React.PureComponent {
     console.log('InputBar: KeyPressHandler')
     if(e.key === 'Enter') {
       this.props.addTodo(this.state.userInput);
+      this.setState({ userInput: '' })
     };
   };
   
