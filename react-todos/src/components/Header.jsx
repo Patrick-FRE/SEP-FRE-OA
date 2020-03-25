@@ -9,28 +9,28 @@ const Header = () => {
 
     const [colors, setColors] = useState(whiteArr);
     const setBg = () => {
-        return '#' + Math.floor(Math.random()*16777215).toString(16);
-      }
-      useEffect(() => {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+    useEffect(() => {
         const interval = setInterval(() => {
             return setColors(str.split('').map(el => setBg()));
         }, 1000);
-            return () => clearInterval(interval);
-      }, []);
-      
-      const headLabel = Array.from(str).map((el, i) => {
-            return (
-                <p style = {{color: colors[i]}} key = {i}>{el}</p>
-            )
-      })
-      
-    
+        return () => clearInterval(interval);
+    }, []);
+
+    const headLabel = Array.from(str).map((el, i) => {
+        return (
+            <p style={{ color: colors[i] }} key={i}>{el}</p>
+        )
+    })
+
+
     return (
         <Head>
             {headLabel}
             {/*<button className = 'btn clear-btn'>Clear Todos</button>*/}
         </Head>
-        )
+    )
 }
 
 export default Header;
