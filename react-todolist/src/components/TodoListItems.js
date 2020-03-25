@@ -7,7 +7,7 @@ const TodoListItems = ({todo, removeTodo}) => {
   return (
       <li className="todolist-items">
         {todo.input}
-        <button onClick={removeTodo} className="btn btn-delete">X</button>
+        <button onClick={() => removeTodo(todo.id)} className="btn btn-delete">X</button>
       </li>
   );
 };
