@@ -1,9 +1,12 @@
 import React from "react";
+import ColoredText from "./components/ColoredText/ColoredText.js";
 
 // class component vs function component
 // state
 // Declarative vs imperative
 // call bind apply
+
+function foo2() {}
 
 function isEqualByValue(obj, obj2) {
   return JSON.stringify(obj) === JSON.stringify(obj2);
@@ -114,11 +117,25 @@ class App extends React.Component {
 
     let typeName = "patrick";
     let typeValue = "two";
+    let p = "Hello World";
 
     return (
       <>
         <Layout typeName={typeName} typeValue={typeValue}></Layout>
-        <p>{this.state.counter}</p>
+        <p>
+          {p.split(" ").map((word, index) => {
+            if (index === p.split(" ").length - 1) {
+              return <ColoredText text={word} key={index}></ColoredText>;
+            } else {
+              return (
+                <>
+                  <ColoredText text={word} key={index}></ColoredText>
+                  &nbsp;
+                </>
+              );
+            }
+          })}
+        </p>
       </>
     );
     // return <h1 onClick={this.onClickHanlder}>{this.state.counter}</h1>;
@@ -130,14 +147,14 @@ class App extends React.Component {
   }
   componentDidMount() {
     console.log("App: componentDidMount");
-    this.actionTime = setInterval(() => {
-      console.log("update Counter");
-      this.setState(preState => {
-        return {
-          counter: preState.counter + 1
-        };
-      });
-    }, 1000);
+    // this.actionTime = setInterval(() => {
+    //   console.log("update Counter");
+    //   this.setState(preState => {
+    //     return {
+    //       counter: preState.counter + 1
+    //     };
+    //   });
+    // }, 1000);
   }
 
   componentDidUpdate() {
