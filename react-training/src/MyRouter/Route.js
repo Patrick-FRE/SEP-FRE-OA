@@ -1,6 +1,24 @@
 import React from "react";
 
 // Regex
+export const RouteInstance = [];
+
+const register = route => {
+  RouteInstance.push(route);
+};
+
+const unregister = route => {
+  RouteInstance.splice(RouteInstance.indexOf(route), 1);
+};
+
+export const updateUrl = path => {
+  window.history.pushState({}, "", path);
+  RouteInstance.forEach(route => {
+    console.log(route);
+    route.forceUpdate();
+  });
+};
+
 const matchPath = (path, locationPathname, exact = false) => {
   if (exact && path === locationPathname) {
     return true;
@@ -25,5 +43,16 @@ export class Route extends React.Component {
     if (children) {
       return children;
     }
+  }
+
+  componentDidMount() {
+    register(this);
+    this.popStateEvent = window.addEventListener("popstate", () => {
+      this.forceUpdate();
+    });
+  }
+  componentWillUnmount() {
+    unregister(this);
+    window.removeEventListener(this.popStateEvent);
   }
 }

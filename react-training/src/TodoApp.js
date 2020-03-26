@@ -7,8 +7,7 @@ import TodoItem from "./components/TodoList/TodoItem/TodoItem";
 import ColoerdTodoItem from "./components/ColoredTodoItem/ColoredTodoItem";
 //import { Route } from "react-router-dom";
 
-import { Route } from "./MyRouter/Route";
-
+import { Route, RouteInstance } from "./MyRouter/Route";
 const Todo = () => (
   <TodoData>
     {(todoList, deleteHandler) => {
@@ -42,7 +41,15 @@ const ColoredTodo = () => (
 
 const Login = () => {
   console.log(window.location.pathname);
-  return <h1>Login</h1>;
+  return (
+    <h1
+      onClick={() => {
+        window.history.pushState({}, "", "/test");
+      }}
+    >
+      Login
+    </h1>
+  );
 };
 
 const Home = () => {

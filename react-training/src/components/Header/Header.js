@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "./Header.css";
+import { Link } from "../../MyRouter/Link";
 
 /// CSS module
 const Logo = () => {
@@ -23,7 +24,9 @@ export default class Header extends React.Component {
           </div>
           <div className="flex-grow"></div>
           <div className="header-list-item">
-            <Link to="/login">LOGIN</Link>
+            <Link to="/login">
+              <span>Login</span>
+            </Link>
           </div>
         </div>
       </header>
