@@ -5,7 +5,9 @@ import TodoList from "./components/TodoList/TodoList";
 import TodoData from "./components/TodoData/TodoData";
 import TodoItem from "./components/TodoList/TodoItem/TodoItem";
 import ColoerdTodoItem from "./components/ColoredTodoItem/ColoredTodoItem";
-import { Route } from "react-router-dom";
+//import { Route } from "react-router-dom";
+
+import { Route } from "./MyRouter/Route";
 
 const Todo = () => (
   <TodoData>
@@ -39,11 +41,12 @@ const ColoredTodo = () => (
 );
 
 const Login = () => {
+  console.log(window.location.pathname);
   return <h1>Login</h1>;
 };
 
 const Home = () => {
-  //console.log(location.pathname);
+  console.log(window.location.pathname);
   return <h1>HOME</h1>;
 };
 
@@ -52,9 +55,10 @@ export default class TodoApp extends React.Component {
     return (
       <Layout header={<Header></Header>}>
         <main>
-          <Route path="/" component={Home} exact />
-          <Route path="/todo" component={Todo} exact />
-          <Route path="/coloredtodo" component={ColoredTodo} exact />
+          <Route path="/todo" component={Todo} name="patrick" exact />
+          <Route path="/coloredtodo" exact>
+            <ColoredTodo></ColoredTodo>
+          </Route>
           <Route path="/login" component={Login} exact />
         </main>
       </Layout>
