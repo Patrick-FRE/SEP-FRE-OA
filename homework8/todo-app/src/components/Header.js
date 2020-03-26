@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ColoredText from "./ColoredText";
+import Navbar from "./Navbar";
 
 let word = "TODO MANAGER";
 class Header extends Component {
@@ -9,12 +10,15 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.state.word);
     return (
       <header className="todo-header">
-        {this.state.word.map((w, idx) => (
-          <ColoredText key={idx} letter={w} />
-        ))}
+        <div>
+          {this.state.word.map((w, idx) => (
+            <ColoredText key={idx} letter={w} />
+          ))}
+        </div>
+
+        <Navbar navbarClickHandler={this.props.navbarClickHandler} />
       </header>
     );
   }

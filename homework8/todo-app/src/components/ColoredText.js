@@ -10,14 +10,23 @@ class ColoredText extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    this.actionTime = setInterval(() => {
       this.setState({
         color: getRandomColor()
       });
     }, 1000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.actionTime);
+  }
+
   render() {
-    return <span style={{ color: this.state.color }}>{this.props.letter}</span>;
+    return (
+      <span className={this.props.clsName} style={{ color: this.state.color }}>
+        {this.props.letter}
+      </span>
+    );
   }
 }
 

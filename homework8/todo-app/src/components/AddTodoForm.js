@@ -4,19 +4,19 @@ import { addTodo } from "../util/todoAPI";
 class AddTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { todo: "" };
+    this.state = { inputValue: "" };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
 
   changeHandler(event) {
-    this.setState({ todo: event.target.value });
+    this.setState({ inputValue: event.target.value });
   }
 
   submitHandler(event) {
     event.preventDefault();
-    addTodo(this.state.todo);
-    this.setState({ todo: "" });
+    addTodo(this.state.inputValue);
+    this.setState({ inputValue: "" });
     this.props.setUpTodos();
   }
 
@@ -24,13 +24,12 @@ class AddTodoForm extends Component {
     return (
       <div className="todo-form-container">
         <form className="todo-form" onSubmit={this.submitHandler}>
-          <input
-            className="input-bar"
-            type="text"
-            value={this.state.todo}
-            onChange={this.changeHandler}
-            placeholder="add todo ..."
-          />
+          {this.props.render(
+            "text",
+            this.state.inputValue,
+            "add todo",
+            this.changeHandler
+          )}
         </form>
       </div>
     );
