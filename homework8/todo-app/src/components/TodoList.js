@@ -20,6 +20,7 @@ class TodoList extends Component {
   }
 
   render() {
+    console.log(this.props.showColored);
     return (
       <div className="todo-list-container">
         <ul className="todo-list">
