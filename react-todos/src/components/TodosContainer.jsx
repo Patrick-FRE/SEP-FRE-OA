@@ -1,10 +1,11 @@
 import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import List from './List';
+import variables from '../scss/_variables.scss'
 
-const TodosContainer = () => {
+const TodosContainer = (props) => {
     const [text, setText] = useState('');
-    const [todos, setTodo] = useState([]);
+    const { todos, setTodo } = props;
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -23,29 +24,36 @@ const TodosContainer = () => {
         e.preventDefault();
         setTodo(todos.filter(el => el !== item));
     }
+    const listItems = todos.map((todo, index) => {
+        return (
+            <Li key={index}>
+                {todo}
+                <button onClick={(e) => deleteTodo(e, todo)}>remove</button>
+            </Li>
+        )
+    })
     return (
-        <Fragment>
-            <Section>
-                <div className='todos-container'>
-                    <header className='todos-label'>
-                        <div className='header-item'>Today</div>
-                        <div className='header-item'>
-                            <form type='submit'
-                                className='header-item'
-                                onSubmit={handleSubmit}>
-                                <input type='text'
-                                    placeholder='add todo...'
-                                    onChange={e => handleChange(e)}
-                                    value={text}>
-                                </input>
-                            </form>
-                        </div>
-                    </header>
-                    <List todos={todos} deleteTodo={deleteTodo} />
-                </div>
-            </Section>
-
-        </Fragment>
+        <Section>
+            <div className='todos-container'>
+                <header className='todos-label'>
+                    <div className='header-item'>Today</div>
+                    <div className='header-item'>
+                        <form type='submit'
+                            className='header-item'
+                            onSubmit={handleSubmit}>
+                            <input type='text'
+                                placeholder='add todo...'
+                                onChange={e => handleChange(e)}
+                                value={text}>
+                            </input>
+                        </form>
+                    </div>
+                </header>
+                <List>
+                    {listItems}
+                </List>
+            </div>
+        </Section>
     )
 }
 
@@ -82,4 +90,37 @@ const Section = styled.section`
         font-size: 1.7rem;
         border: none;
     }
+    Li:hover {
+        background-color: rgb(208,208,208);
+    }
+    button {
+        padding: 5px 10px;
+        outline: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 20px;
+        font-size: 16px;
+        color: ${variables.primary};
+        background-color: white;
+        z-index: 3;    
+    }
+    button:hover {
+        color: ${variables.secondary};
+        background-color: rgba(24, 86, 151,0.3);
+        border: 1px solid aqua;
+    }
+
+`
+
+const Li = styled.li`
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: none;
+    padding-left: 15px;
+
 `
