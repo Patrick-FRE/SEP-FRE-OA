@@ -1,10 +1,13 @@
 import React from 'react';
 
-const LoginPage = () => {
+const LoginPage = (props) => {
     return (
         <React.Fragment>
-            <input type = 'text' label = 'username'></input>
-            <input type = 'password' label = 'password'></input>
+            username:
+            <input type = 'text'></input>
+            password:
+            <input type = 'password'></input>
+            <button onClick = {(e) => {props.togglePage(e)}}>Login</button>
         </React.Fragment>
     )
 }

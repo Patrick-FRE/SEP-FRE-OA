@@ -24,7 +24,7 @@ const App = () => {
           <button onClick = {(e) => {togglePage(e)}}className = 'btn clear-btn'>{login}</button>
         </Header>
         {login==='Sign Out' && <TodosContainer setTodo = {setTodo} todos = {todos}/>}
-        {login==='Login' && <LoginPage/>}
+        {login==='Login' && <LoginPage togglePage = {togglePage}/>}
     </Fragment>
   )
 }
