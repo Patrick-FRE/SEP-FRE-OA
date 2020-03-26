@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import variables from '../scss/_variables.scss'
 import { getRandomRbg } from '../utils';
 
-const Header = ({todos, login, children}) => {
+const Header = ({children}) => {
+    /*
     const [colors, setColors] = useState([]);
 
     useEffect(() => {
@@ -19,13 +20,15 @@ const Header = ({todos, login, children}) => {
         <span key = {i} style = {{color: colors[i]}}>{i+1}. {el}</span>
         )
     })
-    
+    */
 
     return (
         <Head>
+            {/*
             <ul>
                 {todos.length>0 && headLabel}
             </ul>
+            */}
             {children}
         </Head>
     )
@@ -38,7 +41,7 @@ const Head = styled.header`
     background-color: ${variables.primary};
     height: 6rem;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 
 

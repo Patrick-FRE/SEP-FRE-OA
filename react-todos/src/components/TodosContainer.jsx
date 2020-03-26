@@ -5,7 +5,8 @@ import variables from '../scss/_variables.scss'
 
 const TodosContainer = (props) => {
     const [text, setText] = useState('');
-    const { todos, setTodo } = props;
+    const [todos, setTodo] = useState([]);
+    //const { todos, setTodo } = props;
 
     const handleChange = (e) => {
         e.preventDefault()
