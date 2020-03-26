@@ -34,11 +34,12 @@ const Header = ({todos, login, children}) => {
 export default Header;
 
 const Head = styled.header`
-    display: block;
+    display: flex;
     background-color: ${variables.primary};
     height: 6rem;
     width: 100%;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
 
 
     ul {
