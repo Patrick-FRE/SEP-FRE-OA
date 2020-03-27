@@ -5,9 +5,9 @@ const historyPush = path => {
   window.location.pushState({}, null, path);
 }
 
-const historyReplace = path => {
-  window.location.replaceState({}, null, path);
-}
+// const historyReplace = path => {
+//   window.location.replaceState({}, null, path);
+// }
 
 
 export default class Link extends React.Component {
@@ -28,6 +28,8 @@ export default class Link extends React.Component {
   render() {
     const {to, children} = this.props;
 
-    return <a href={to} onClick={this.clickHandler}>{children}</>
+    return (
+      <a href={to} onClick={this.clickHandler}>{children}</a>
+    );
   }
 };

@@ -29,3 +29,11 @@ export const removeData = id => {
     }, 1000);
   });
 };
+
+// export const login = user => {
+//   return $.ajax({
+//     method:'POST',
+//     url: `window.location.pathname/login`,
+//     data: { user }
+//   })
+// }

@@ -35,7 +35,7 @@ ul {
   max-width: 90%;
   max-height: 80%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-  0 3px 6px rgba(0, 0, 0, 0.23);
+    0 3px 6px rgba(0, 0, 0, 0.23);
   list-style-type: none;
 }
 
@@ -51,4 +51,9 @@ main {
 
 li {
   padding: 10px;
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
 }

@@ -28,8 +28,8 @@ export class Route extends React.Component {
     }
     return null;
   }
-}
+  componenDidMount() {
+    RouteInstance.push(this);
+  }
+};
 
-componenDidMount() {
-  RouteInstance.push(this);
-}
