@@ -1,35 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import TodoApp from "./TodoApp";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
-class Test extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isShow: true
-    };
-    this.onClickHandler = this.onClickHandler.bind(this);
-  }
+// class Test extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isShow: true
+//     };
+//     this.onClickHandler = this.onClickHandler.bind(this);
+//   }
 
-  onClickHandler() {
-    this.setState({
-      isShow: false
-    });
-  }
+//   onClickHandler() {
+//     this.setState({
+//       isShow: false
+//     });
+//   }
 
-  render() {
-    return (
-      <>
-        <button onClick={this.onClickHandler}>Remove</button>
-        {this.state.isShow ? <App></App> : "Hide"}
-      </>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <>
+//         <button onClick={this.onClickHandler}>Remove</button>
+//         {this.state.isShow ? <App></App> : "Hide"}
+//       </>
+//     );
+//   }
+// }
 
-ReactDOM.render(<Test />, document.getElementById("root"));
+ReactDOM.render(
+  <BrowserRouter>
+    <TodoApp />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
