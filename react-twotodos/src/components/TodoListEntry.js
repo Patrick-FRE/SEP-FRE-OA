@@ -38,9 +38,10 @@ class TodoListEntry extends React.Component {
 
   render() {
     return(
-      <li className="todo-list-content__item" onMouseLeave={ this.mouseLeaveHandler } onMouseEnter={this.mouseEnterHandler}>
+      <li className="todo-list-content__item" style={{listStyleType:'none'}} onMouseLeave={ this.mouseLeaveHandler } onMouseEnter={this.mouseEnterHandler}>
         { this.props.todo } 
-        <button onClick={ this.onRemoveClick }id={ this.props.id } className={`btn btn-remove ${this.state.showButton === 'visible'? ' show' : ''} `} >Remove </button>
+        {console.log(this.props)}
+        <button id={ this.props.id } className={`btn btn-remove ${this.state.showButton === 'visible'? ' show' : ''} `} >Remove </button>
       </li>
   
     )
@@ -49,3 +50,23 @@ class TodoListEntry extends React.Component {
 }
 
 export default TodoListEntry;
+
+// import React from "react";
+
+// const TodoListEntry = props => {
+//   return(
+  
+//   <li id={props.id}>
+//     {props.title}{" "}
+//     <button
+//       onClick={() => {
+//         props.onClick(props.id);
+//       }}
+//     >
+//       Remove
+//     </button>
+//   </li>
+//   )
+// }
+
+// export default TodoListEntry;
