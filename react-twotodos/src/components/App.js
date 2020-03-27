@@ -2,6 +2,8 @@ import React from 'react';
 import InputBar from './InputBar';
 import TodoList from './TodoList';
 import Header from './Header';
+import {Link }from 'react-router-dom';
+
 
 class App extends React.Component {
  
@@ -9,8 +11,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       todo: {},
-      todoList: [],
-      id: 1
+      todoList: [{id: 1, title: 'Buy A Book'},{id: 2, title: 'Buy A Car'},{id: 3, title: 'Buy A Ball'}],
+      id: 4,
+      type: 'regular'
     }
     console.log('App: constructor')
   }
@@ -45,22 +48,33 @@ class App extends React.Component {
     })
   }
 
+  getType = (type) => {
+    this.setState({
+      type
+    })
+
+    console.log(this.state.type)
+  }
+
   render(){
     console.log('App: render')
     return(
       <>
-        <Header />
+        <Header todos={this.state.todoList} getType={this.getType}/>
+        
         <main className="todos-content">
           <section className="todo-list">
             <header className="todo-list-header">
-            <div class="todo-list-header__item">
-              <div class="todo-list__title">TODOS</div>
-            </div>
+              <div className="todo-list-header__item">
+                <div className="todo-list__title">TODOS</div>
+              </div>
               <InputBar addTodo={ this.addTodo }/>
             </header>
-            <TodoList todoList={ this.state.todoList } removeTodo={ this.removeTodo }/>
+            <TodoList type={this.state.type} todoList={ this.state.todoList } removeTodo={ this.removeTodo }/>
           </section>
         </main>  
+        <Link to="/header" classname="header">Header</Link>
+       
       </>
 
 
