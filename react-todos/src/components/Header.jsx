@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import variables from '../scss/_variables.scss'
-import { getRandomRbg } from '../utils';
+//import { getRandomRbg } from '../utils';
 
 const Header = ({children}) => {
     /*
@@ -24,11 +24,6 @@ const Header = ({children}) => {
 
     return (
         <Head>
-            {/*
-            <ul>
-                {todos.length>0 && headLabel}
-            </ul>
-            */}
             {children}
         </Head>
     )
