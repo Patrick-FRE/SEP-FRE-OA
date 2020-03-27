@@ -1,7 +1,7 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
-import { Link } from "../../MyRouter/Link";
+//import { Link } from "../../MyRouter/Link";
 
 /// CSS module
 const Logo = () => {

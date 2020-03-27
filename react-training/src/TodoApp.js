@@ -5,9 +5,9 @@ import TodoList from "./components/TodoList/TodoList";
 import TodoData from "./components/TodoData/TodoData";
 import TodoItem from "./components/TodoList/TodoItem/TodoItem";
 import ColoerdTodoItem from "./components/ColoredTodoItem/ColoredTodoItem";
-//import { Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-import { Route, RouteInstance } from "./MyRouter/Route";
+//import { Route, RouteInstance } from "./MyRouter/Route";
 const Todo = () => (
   <TodoData>
     {(todoList, deleteHandler) => {
