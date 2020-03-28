@@ -6,6 +6,7 @@ class ColoredText extends Component {
     super(props);
     this.state = {
       color: getRandomColor()
+      
     };
   }
 

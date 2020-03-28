@@ -5,6 +5,7 @@ import TodoListEntry from './components/TodoListEntry';
 import Header from './components/Header';
 import ColoredTodoListEntry from './components/ColoredTodoListEntry'
 import {Route} from 'react-router-dom';
+import Login from './components/Login';
 import './index.css';
 
 const Todo = () => {
@@ -33,10 +34,6 @@ const ColoredTodo = () => {
   )
 }
 
-const Login = () => {
-  console.log(window.location.pathname);
-  return <h1>Login</h1>;
-};
 
 class TodoApp extends React.Component {
   render() {
