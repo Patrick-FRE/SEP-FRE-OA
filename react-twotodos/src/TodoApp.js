@@ -1,11 +1,11 @@
 import React from 'react';
-import TodoList from './components/TodoList';
-import Layout from './components/Layout';
-import TodoListEntry from './components/TodoListEntry';
-import Header from './components/Header';
-import ColoredTodoListEntry from './components/ColoredTodoListEntry'
+import TodoList from './components/TodoList/TodoList';
+import Layout from './components/Layout/Layout';
+import TodoListEntry from './components/TodoListEntry/TodoListEntry';
+import Header from './components/Header/Header';
+import ColoredTodoListEntry from './components/ColoredTodoListEntry/ColoredTodoListEntry'
 import {Route} from 'react-router-dom';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import './index.css';
 
 const Todo = () => {
