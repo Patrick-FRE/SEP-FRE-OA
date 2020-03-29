@@ -44,7 +44,7 @@ class TodoList extends React.Component {
               </div>
               <InputBar addTodoHandler={ this.addTodoHandler }/>
             </header>
-            {console.log(this.props.children)}
+             {console.log(this.props)}
             {this.props.children(this.state.todoList, this.removeTodoHandler)}
           </section>
   </>;

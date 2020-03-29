@@ -27,11 +27,11 @@ class Login extends React.Component{
     .then(data => {
       if(data.message === 'login Sucessful') {
         this.props.isUserLoggedIn(true)
+        // history.push('/coloredTodo')
       } else {
         this.props.isUserLoggedIn(false);
       }
     })
-  
   }
 
 

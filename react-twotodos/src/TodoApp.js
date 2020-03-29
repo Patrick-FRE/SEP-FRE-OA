@@ -4,7 +4,7 @@ import Layout from './components/Layout/Layout';
 import TodoListEntry from './components/TodoListEntry/TodoListEntry';
 import Header from './components/Header/Header';
 import ColoredTodoListEntry from './components/ColoredTodoListEntry/ColoredTodoListEntry'
-import {Route, Redirect} from 'react-router-dom';
+import {Route, Redirect, withRouter} from 'react-router-dom';
 import Login from './components/Login/Login';
 import './index.css';
 
@@ -41,18 +41,23 @@ class TodoApp extends React.Component {
   }
 
   isUserLoggedIn = (isLogin) => {
-    
+   
     this.setState({ loggedIn: isLogin})
+    if(this.state.loggedIn === true) {
+      this.props.history.push('/coloredtodo')
+    }
     console.log('login', this.state.loggedIn)
   }
   render() {
+    console.log(this.props)
     return (
       <Layout header={<Header/>}>
         <main>
+          <Route path="/" component={Todo} exact />
           <Route path="/todo" component={Todo} exact />
           <Route path="/coloredtodo" exact render={
-            () => (
-             this.state.loggedIn? <ColoredTodo /> : <Redirect to={'/login'} />
+            (location) => (
+             this.state.loggedIn? <ColoredTodo /> : <Redirect to={{pathname:'/login', from:location}} />
             )
           }>   
            </Route>
@@ -63,4 +68,4 @@ class TodoApp extends React.Component {
   }
 }
 
-export default TodoApp
+export default withRouter(TodoApp);
