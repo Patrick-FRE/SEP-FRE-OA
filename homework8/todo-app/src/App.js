@@ -1,22 +1,30 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TodoList from "./components/TodoList";
 import AddTodoForm from "./components/AddTodoForm";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Login from "./components/Login";
 import Button from "./components/Button";
-import { getTodos } from "./util/todoAPI";
-import Route from "./MyRouter/Route";
+import { getTodos, login } from "./util/todoAPI";
+// import Route from "./MyRouter/Route";
 
 import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { todoList: [], showColored: false, showLogin: false };
+    this.state = {
+      todoList: [],
+      showColored: false,
+      showLogin: false,
+      username: "",
+      password: ""
+    };
     this.setUpTodos = this.setUpTodos.bind(this);
     this.navbarClickHandler = this.navbarClickHandler.bind(this);
+    this.loginChangeHandler = this.loginChangeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   setUpTodos() {
@@ -36,7 +44,22 @@ class App extends Component {
     }
   }
 
+  loginChangeHandler(e) {
+    console.log("login");
+    console.log(e.target.name);
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  submitHandler(e) {
+    e.preventDefault(e);
+    console.log(this.state);
+    login(this.state.username, this.state.password)
+      .then(res => res.json())
+      .then(data);
+  }
+
   render() {
+    console.log(this.state.username);
     return (
       // <div className="todo-container">
       //   <Header navbarClickHandler={this.navbarClickHandler} />
@@ -139,11 +162,24 @@ class App extends Component {
               </Route>
               <Route exact path="/login">
                 <Login
+                  submitHandler={this.submitHandler}
                   render={() => {
                     return (
                       <>
-                        <Input placeholder="username" />
-                        <Input placeholder="password" />
+                        <Input
+                          type="text"
+                          inputValue={this.state.username}
+                          changeHandler={this.loginChangeHandler}
+                          name="username"
+                          placeholder="username"
+                        />
+                        <Input
+                          type="text"
+                          inputValue={this.state.password}
+                          changeHandler={this.loginChangeHandler}
+                          name="password"
+                          placeholder="password"
+                        />
                         <Button title="login" />
                       </>
                     );

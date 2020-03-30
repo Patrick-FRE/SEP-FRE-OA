@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class Login extends Component {
   render() {
-    return <form>{this.props.render()}</form>;
+    return (
+      <form onSubmit={this.props.submitHandler}>{this.props.render()}</form>
+    );
   }
 }
 

@@ -2,7 +2,7 @@ const baseURL = "https://us-central1-todos-server.cloudfunctions.net/api";
 const todosPath = "todos";
 const loginPath = "user/login";
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzIiwidXNlcm5hbWUiOiJ0ZXN0MyIsInBhc3N3b3JkIjoidGVzdDMiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NTA5NzM3NiwiZXhwIjoxNTg1Mzk3Mzc2fQ.2TxZTIQOllaQMwOaSNAFSpdNo16UpDoDx7oeZN7oLuE";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzIiwidXNlcm5hbWUiOiJ0ZXN0MyIsInBhc3N3b3JkIjoidGVzdDMiLCJyb2xlciI6Im1lbWJlciIsImlhdCI6MTU4NTUwMDk4NSwiZXhwIjoxNTg1ODAwOTg1fQ.Zw_0N2OT7EhC-2b76ADVirT8BmQP7pZxeIWcaBgGQMU";
 const BearerToken = "Bearer " + token;
 
 export const login = (username, password) => {
@@ -29,7 +29,7 @@ export const getTodos = () => {
   });
 };
 
-export const addTodo = title => {
+export const addTodo = newTodo => {
   const apiUrl = baseURL + "/" + todosPath;
   const method = "POST";
   return fetch(apiUrl, {
@@ -38,7 +38,7 @@ export const addTodo = title => {
       Authorization: BearerToken,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ todo: title })
+    body: JSON.stringify({ todo: newTodo })
   });
 };
 
