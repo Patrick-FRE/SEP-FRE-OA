@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import { Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import TodosContainer from './TodosContainer';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';
+import AuthButton from './AuthButton';
 
 
 const Layout = () => {
     const [todos, setTodo] = useState([]);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [auth, setAuth] = useState(false)
     return (
         <>
             <Header>
+                <AuthButton auth = {auth}/>
             </Header>
             <Switch>
                 <Route path="/" exact>
@@ -21,7 +24,9 @@ const Layout = () => {
                            password = {password}
                            setPassword = {setPassword}/>
                 </Route>
-                <PrivateRoute path="/todos" 
+                <PrivateRoute path="/todos"
+                              setAuth = {setAuth} 
+                              auth = {auth}
                               password={password}
                               username={username}>
                     <TodosContainer todos = {todos} setTodo = {setTodo} />

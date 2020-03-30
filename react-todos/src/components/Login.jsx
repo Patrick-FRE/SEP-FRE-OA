@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
 const LoginPage = (props) => {
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
+
     const { username, password, setUsername, setPassword } = props;
 
     const onNameChange = (e) => {
@@ -17,9 +15,8 @@ const LoginPage = (props) => {
         e.preventDefault();
     }
 
-
     return (
-    <Form>
+        <Form onSubmit={(e) => handleSubmit(e)}>
             username:
             <input className='form-item'
                 type='text'
@@ -31,7 +28,9 @@ const LoginPage = (props) => {
                 value={password}
                 onChange={(e) => { onPassChange(e) }}
             ></input>
-        <button className = 'form-item'><Link to ='/todos'>Login</Link></button>
+   
+                <Link to='/todos' className = 'form-item'
+                      style={{textDecoration: 'none', color: 'black'}}><button style={{width: '100%'}}>Login</button></Link>
         </Form>
     )
 }

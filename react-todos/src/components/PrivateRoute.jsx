@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { authControl } from '../utils'
-const PrivateRoute =  ({username, password, children, ...rest}) => {
-    console.log('private route');
-    const [promiseResolved, setPromiseResolved] = useState(false)
+const PrivateRoute =  ({username, password, children, setAuth, auth, ...rest}) => {
     useEffect(() => {
         authControl.authenticate(username, password).then(data => {
-            setPromiseResolved(true);
-            console.log(data);
+            setAuth(true)
         })
     })
-    if (promiseResolved) return (
+    if (auth) return (
       <Route
         {...rest}
         render={({ location }) =>
