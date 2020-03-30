@@ -4,7 +4,7 @@ const todoData = [
   {id: 3, title: "Buy A Ball"}
 ];
 
-export const getData = () => {
+export const getTodos = () => {
   return new Promise((res, rej) => {
     setTimeout(() => {
       res(todoData);
