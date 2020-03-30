@@ -4,6 +4,7 @@
   "description": "This is a repo to record the SEP-FRE-TRAINING assignments.",
   "main": "index.js",
   "dependencies": {
+    "redux": "^4.0.5",
     "sass": "^1.26.2"
   },
   "devDependencies": {},
