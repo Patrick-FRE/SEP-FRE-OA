@@ -5,8 +5,9 @@ import variables from '../scss/_variables.scss'
 
 const TodosContainer = (props) => {
     const [text, setText] = useState('');
-    const [todos, setTodo] = useState([]);
-    //const { todos, setTodo } = props;
+    //const [todos, setTodo] = useState([]);
+    const { todos, setTodo } = props;
+    console.log('todos', todos)
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -25,14 +26,18 @@ const TodosContainer = (props) => {
         e.preventDefault();
         setTodo(todos.filter(el => el !== item));
     }
+
     const listItems = todos.map((todo, index) => {
+
         return (
             <Li key={index}>
                 {todo}
                 <button onClick={(e) => deleteTodo(e, todo)}>remove</button>
             </Li>
         )
+        
     })
+
     return (
         <Section>
             <div className='todos-container'>
@@ -50,7 +55,7 @@ const TodosContainer = (props) => {
                         </form>
                     </div>
                 </header>
-                <List>
+                <List todos = {todos}>
                     {listItems}
                 </List>
             </div>

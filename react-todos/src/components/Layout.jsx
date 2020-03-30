@@ -1,33 +1,31 @@
-import React, {useState } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import Header from './Header';
 import TodosContainer from './TodosContainer';
-//import variables from '../scss/_variables.scss'
-import LoginPage from './Login';
+import Login from './Login';
+import PrivateRoute from './PrivateRoute';
+
 
 const Layout = () => {
-    const [loggedIn, setLogin] = useState(false);
-    const handleLogin = (e) => {
-        e.preventDefault();
-        setLogin(true);
-    }
+    const [todos, setTodo] = useState([]);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     return (
         <>
             <Header>
-                <div>
-                    {/*<Link to="/todos"><button>Login</button></Link>*/}
-<Link to="/"><button>Sign Out</button></Link>
-                </div>
             </Header>
             <Switch>
                 <Route path="/" exact>
-                    <LoginPage handleLogin = {handleLogin}>
-                        <Link to="/todos"><button>Login</button></Link>
-                    </LoginPage>
+                    <Login username = {username} 
+                           setUsername = {setUsername} 
+                           password = {password}
+                           setPassword = {setPassword}/>
                 </Route>
-                <Route path="/todos" exact>
-                    <TodosContainer />
-                </Route>
+                <PrivateRoute path="/todos" 
+                              password={password}
+                              username={username}>
+                    <TodosContainer todos = {todos} setTodo = {setTodo} />
+                </PrivateRoute>
             </Switch>
         </>
     )

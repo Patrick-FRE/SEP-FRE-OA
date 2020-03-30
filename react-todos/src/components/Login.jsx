@@ -1,14 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import { Link } from 'react-router-dom';
 const LoginPage = (props) => {
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    const { username, password, setUsername, setPassword } = props;
+
+    const onNameChange = (e) => {
+        setUsername(e.target.value);
+    }
+    const onPassChange = (e) => {
+        setPassword(e.target.value);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+
     return (
-        <Form type = 'submit' onSubmit = {(e)=>props.handleLogin(e)}>
+    <Form>
             username:
-            <input className = 'form-item' type = 'text'></input>
+            <input className='form-item'
+                type='text'
+                value={username}
+                onChange={(e) => { onNameChange(e) }}></input>
             password:
-            <input className = 'form-item' type = 'password'></input>
-            {props.children}
- 
+            <input className='form-item'
+                type='password'
+                value={password}
+                onChange={(e) => { onPassChange(e) }}
+            ></input>
+        <button className = 'form-item'><Link to ='/todos'>Login</Link></button>
         </Form>
     )
 }
