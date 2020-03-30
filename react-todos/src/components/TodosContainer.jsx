@@ -1,13 +1,14 @@
 import React, { useState, Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo, deleteTodo } from '../actions';
 import styled from 'styled-components';
 import List from './List';
 import variables from '../scss/_variables.scss'
 
-const TodosContainer = (props) => {
+const TodosContainer = () => {
     const [text, setText] = useState('');
-    //const [todos, setTodo] = useState([]);
-    const { todos, setTodo } = props;
-    console.log('todos', todos)
+    const todos = useSelector(state => state.todos);
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -17,26 +18,26 @@ const TodosContainer = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (text.length > 0) {
-            setTodo([...todos, text]);
+            dispatch(addTodo(text));
             setText('');
         }
     }
 
-    const deleteTodo = (e, item) => {
-        e.preventDefault();
-        setTodo(todos.filter(el => el !== item));
-    }
-
-    const listItems = todos.map((todo, index) => {
+    // const deleteTodo = (e, item) => {
+    //     e.preventDefault();
+    //     setTodo(todos.filter(el => el !== item));
+    // }
+    let listItems = todos.map((todo, index) => {
 
         return (
             <Li key={index}>
                 {todo}
-                <button onClick={(e) => deleteTodo(e, todo)}>remove</button>
+                <button onClick={() => dispatch(deleteTodo(todo))}>remove</button>
             </Li>
         )
         
     })
+
 
     return (
         <Section>
@@ -61,8 +62,8 @@ const TodosContainer = (props) => {
             </div>
         </Section>
     )
-}
 
+    }
 export default TodosContainer;
 
 const Section = styled.section`

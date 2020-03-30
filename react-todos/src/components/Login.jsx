@@ -26,11 +26,16 @@ const LoginPage = (props) => {
             <input className='form-item'
                 type='password'
                 value={password}
-                onChange={(e) => { onPassChange(e) }}
-            ></input>
-   
-                <Link to='/todos' className = 'form-item'
-                      style={{textDecoration: 'none', color: 'black'}}><button style={{width: '100%'}}>Login</button></Link>
+                onChange={(e) => { onPassChange(e) }}>
+            </input>
+
+            <Link to='/todos' className='form-item'
+                style={{ textDecoration: 'none', color: 'black' }}>
+                <button
+                    style={{ width: '100%' }}>
+                    Login
+              </button>
+            </Link>
         </Form>
     )
 }
