@@ -37,16 +37,16 @@ class TodoList extends React.Component {
   render(){
     //return this.props.children(this.state.todoList, this.removeTodoHandler)
   return <>
-         <section className="todo-list">
-          <header className="todo-list-header">
-            <div className="todo-list-header__item">
-              <div className="todo-list__title">TODOS</div>
-              </div>
-              <InputBar addTodoHandler={ this.addTodoHandler }/>
-            </header>
-             {console.log(this.props)}
-            {this.props.children(this.state.todoList, this.removeTodoHandler)}
-          </section>
+    <section className="todo-list">
+      <header className="todo-list-header">
+        <div className="todo-list-header__item">
+          <div className="todo-list__title">TODOS</div>
+          </div>
+          <InputBar addTodoHandler={ this.addTodoHandler }/>
+        </header>
+    
+        {this.props.children(this.state.todoList, this.removeTodoHandler)}
+      </section>
   </>;
 }
 };
