@@ -10,7 +10,6 @@ import loginReducer from "./reducers/loginReducer";
 import * as serviceWorker from "./serviceWorker";
 
 const store = createStore(loginReducer, applyMiddleware(thunk));
-console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>
