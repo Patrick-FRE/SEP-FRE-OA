@@ -6,71 +6,205 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import todoAPI from "./utils/todosAPI";
+import { Provider, connect } from "react-redux";
 
 // core concept:
 // one store / pure function / data imutable
 // Store / Reducer / Action / ActionCreator / Action Type / combineReducer / dispatch / applyMiddleware / subscribe
-
 // Action type
 const ADDONETODO = "ADDONETODO";
 const REMOVETODO = "REMOVETODO";
+const GET_TODOS_START = "GET_TODOS_START";
+const GET_TODOS_SUCCESS = "GET_TODOS_SUCCESS";
+const GET_TODOS_FAIL = "GET_TODOS_FAIL";
+const REMOVE_TODOS_START = "REMOVE_TODOS_START";
+const REMOVE_TODOS_SUCCESS = "REMOVE_TODOS_SUCCESS";
+const REMOVE_TODOS_FAIL = "REMOVE_TODOS_FAIL";
 
 const ActionType = {
   ADDONETODO,
-  REMOVETODO
+  REMOVETODO,
+  GET_TODOS_START,
+  GET_TODOS_SUCCESS,
+  GET_TODOS_FAIL,
+  REMOVE_TODOS_START,
+  REMOVE_TODOS_SUCCESS,
+  REMOVE_TODOS_FAIL
 };
 
 // Action Creator
-const addtodo = newTodo => {
-  return { type: ActionType.ADDONETODO, payload: { newTodo } };
-};
-const delayRemove = id => {
-  return function(dispatch) {
-    setTimeout(() => {
-      console.log(id);
-      console.log(dispatch);
-      dispatch(ActionCreator.removeTodo(id));
-    }, 1000);
+
+const removeTodo = id => {
+  console.log("removeTodo");
+  return dispatch => {
+    dispatch(removeTodoStart());
+    todoAPI
+      .removeTodo(id)
+      .then(data => {
+        console.log("remove res:", data);
+        if (data.errno === 0) {
+          dispatch(removeTodoSuccess());
+          dispatch(getTodoStart());
+          todoAPI
+            .getTodos()
+            .then(data => {
+              if (data.errno === 0) {
+                dispatch(getTodoSuccess(data.data));
+              } else {
+                dispatch(getTodoFail(data));
+              }
+            })
+            .catch(error => {
+              console.log("error");
+              getTodoFail(error);
+            });
+        } else {
+          dispatch(removeTodoFail(data));
+        }
+      })
+      .catch(error => {
+        dispatch(removeTodoFail(error));
+      });
   };
 };
 
-const removeTodo = id => {
-  return { type: ActionType.REMOVETODO, payload: { id } };
+const removeTodoStart = () => {
+  return { type: ActionType.REMOVE_TODOS_START };
 };
+const removeTodoSuccess = () => {
+  return { type: ActionType.REMOVE_TODOS_SUCCESS };
+};
+
+const removeTodoFail = () => {
+  return { type: ActionType.REMOVE_TODOS_FAIL };
+};
+const fetchTodos = () => {
+  console.log("fetch");
+  return dispatch => {
+    console.log("async fetch");
+    dispatch(getTodoStart());
+    todoAPI
+      .getTodos()
+      .then(data => {
+        console.log(data);
+        if (data.errno === 0) {
+          dispatch(getTodoSuccess(data.data));
+        } else {
+          dispatch(getTodoFail(data));
+        }
+      })
+      .catch(error => {
+        console.log("error");
+        getTodoFail(error);
+      });
+  };
+};
+
+const getTodoStart = () => {
+  console.log("getTodoStart");
+  return { type: ActionType.GET_TODOS_START };
+};
+
+const getTodoSuccess = todoList => {
+  return { type: ActionType.GET_TODOS_SUCCESS, payload: { todoList } };
+};
+const getTodoFail = error => {
+  return { type: ActionType.GET_TODOS_FAIL, payload: { error: error } };
+};
+
+// const addtodo = newTodo => {
+//   return { type: ActionType.ADDONETODO, payload: { newTodo } };
+// };
+// const delayRemove = id => {
+//   return function(dispatch) {
+//     setTimeout(() => {
+//       console.log(id);
+//       console.log(dispatch);
+//       dispatch(ActionCreator.removeTodo(id));
+//     }, 1000);
+//   };
+// };
+
+// const removeTodo = id => {
+//   return { type: ActionType.REMOVETODO, payload: { id } };
+// };
 const ActionCreator = {
-  addtodo,
+  // addtodo,
+  // removeTodo,
+  // delayRemove
   removeTodo,
-  delayRemove
+  fetchTodos
 };
 
 // Reducer
-const todoReducer = (state = { todoList: [] }, action) => {
+const initailState = {
+  isLoading: false,
+  todoList: [],
+  error: null
+};
+
+const todoReducer = (state = initailState, action) => {
   switch (action.type) {
-    case ActionType.ADDONETODO:
+    case ActionType.REMOVE_TODOS_START:
       return {
         ...state,
-        todoList: [...state.todoList, action.payload.newTodo]
+        isLoading: true
       };
-      break;
-    case ActionType.REMOVETODO:
-      console.log("remove");
+    case ActionType.REMOVE_TODOS_SUCCESS:
       return {
         ...state,
-        todoList: state.todoList.filter(todo => {
-          return todo.id !== action.payload.id;
-        })
+        isLoading: false
       };
-      break;
+    case ActionType.REMOVE_TODOS_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      };
+    case ActionType.GET_TODOS_START:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case ActionType.GET_TODOS_SUCCESS:
+      return {
+        ...state,
+        todoList: action.payload.todoList,
+        isLoading: false
+      };
+    case ActionType.GET_TODOS_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      };
+    // case ActionType.ADDONETODO:
+    //   return {
+    //     ...state,
+    //     todoList: [...state.todoList, action.payload.newTodo]
+    //   };
+    //   break;
+    // case ActionType.REMOVETODO:
+    //   console.log("remove");
+    //   return {
+    //     ...state,
+    //     todoList: state.todoList.filter(todo => {
+    //       return todo.id !== action.payload.id;
+    //     })
+    //   };
+    //   break;
     default:
       return state;
       break;
   }
 };
+const store = createStore(todoReducer, applyMiddleware(thunk));
 
-let obj = {
-  type: ActionType.ADDONETODO,
-  payload: { newTodo: { id: 1, message: "Hello 1" } }
-};
+// let obj = {
+//   type: ActionType.ADDONETODO,
+//   payload: { newTodo: { id: 1, message: "Hello 1" } }
+// };
 
 // class ObjA {
 //   constructor(type) {
@@ -82,18 +216,16 @@ let obj = {
 // let objA = new ObjA("test");
 // console.log(objA);
 
-const store = createStore(todoReducer, applyMiddleware(thunk));
-
-console.log(store);
-console.log(store.getState());
-store.dispatch(obj);
-console.log(store.getState());
-store.subscribe(() => {
-  console.log("hello subscribe");
-});
-store.dispatch(ActionCreator.addtodo({ id: 2, message: "Hello 2" }));
-store.dispatch(ActionCreator.addtodo({ id: 3, message: "Hello 3" }));
-store.dispatch(ActionCreator.addtodo({ id: 4, message: "Hello 4" }));
+// console.log(store);
+// console.log(store.getState());
+// store.dispatch(obj);
+// console.log(store.getState());
+// store.subscribe(() => {
+//   console.log("hello subscribe");
+// });
+// store.dispatch(ActionCreator.addtodo({ id: 2, message: "Hello 2" }));
+// store.dispatch(ActionCreator.addtodo({ id: 3, message: "Hello 3" }));
+// store.dispatch(ActionCreator.addtodo({ id: 4, message: "Hello 4" }));
 
 class ReduxApp extends React.Component {
   constructor(props) {
@@ -103,19 +235,18 @@ class ReduxApp extends React.Component {
 
   onClickhandle(id) {
     const { dispatch, getState } = this.props.store;
-    dispatch(ActionCreator.delayRemove(id));
-    console.log(getState());
+    dispatch(ActionCreator.removeTodo(id));
   }
   render() {
-    const { getState } = this.props.store;
-    console.log(getState());
-    const todos = getState()
-      ? getState().todoList.map(todo => {
+    console.log("render");
+    const { todoList } = this.props;
+    console.log(todoList);
+    const todos = todoList
+      ? todoList.map(todo => {
           return (
             <div key={todo.id}>
-              <span>{todo.message}</span>
+              <span>{todo.content}</span>
               <button onClick={() => this.onClickhandle(todo.id)}>
-                {" "}
                 remove
               </button>
             </div>
@@ -126,12 +257,27 @@ class ReduxApp extends React.Component {
   }
 
   componentDidMount() {
-    const { subscribe } = this.props.store;
-    subscribe(() => {
-      this.forceUpdate();
-    });
+    this.props.fetchTodos();
+
+    // const { subscribe } = this.props.store;
+    // subscribe(() => {
+    //   this.forceUpdate();
+    // });
   }
 }
+const mapStateToProps = state => {
+  return {
+    todoList: state.todoList,
+    error: state.error,
+    isLoading: state.isLoading
+  };
+};
+const mapDispatchToProps = {
+  fetchTodos,
+  removeTodo
+};
+
+const MyApp = connect(mapStateToProps, mapDispatchToProps)(ReduxApp);
 
 // class Test extends React.Component {
 //   constructor(props) {
@@ -159,9 +305,11 @@ class ReduxApp extends React.Component {
 // }
 
 ReactDOM.render(
-  <BrowserRouter>
-    <ReduxApp store={store} />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <MyApp />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
