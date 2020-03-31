@@ -7,7 +7,11 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import todoAPI from "./utils/todosAPI";
-import { Provider, connect } from "react-redux";
+//import { Provider, connect } from "react-redux";
+import { Provider, connect } from "./React-Redux/ReactRedux";
+
+// Provider is Component provide the context data;
+// connect is HOC provide the props to WrappedComponnet;
 
 // core concept:
 // one store / pure function / data imutable
@@ -168,6 +172,7 @@ const todoReducer = (state = initailState, action) => {
         isLoading: true
       };
     case ActionType.GET_TODOS_SUCCESS:
+      console.log("GET TODO SUCCESS");
       return {
         ...state,
         todoList: action.payload.todoList,
@@ -234,8 +239,8 @@ class ReduxApp extends React.Component {
   }
 
   onClickhandle(id) {
-    const { dispatch, getState } = this.props.store;
-    dispatch(ActionCreator.removeTodo(id));
+    console.log(id);
+    this.props.removeTodo(id);
   }
   render() {
     console.log("render");
@@ -268,7 +273,6 @@ class ReduxApp extends React.Component {
 const mapStateToProps = state => {
   return {
     todoList: state.todoList,
-    error: state.error,
     isLoading: state.isLoading
   };
 };
@@ -304,12 +308,26 @@ const MyApp = connect(mapStateToProps, mapDispatchToProps)(ReduxApp);
 //   }
 // }
 
+// class ChildComponent extends React.Component {
+//   render() {
+//     console.log(this.context);
+//     return <div>ChildComponent{this.props.children}</div>;
+//   }
+// }
+
+// ChildComponent.contextType = ReduxContext;
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <MyApp />
     </BrowserRouter>
   </Provider>,
+  // <Provider store={store}>
+  //   <ChildComponent>
+  //     <ChildComponent></ChildComponent>
+  //   </ChildComponent>
+  // </Provider>,
   document.getElementById("root")
 );
 
