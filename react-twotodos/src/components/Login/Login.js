@@ -1,15 +1,15 @@
 import React from 'react';
 import {getUserLogin} from '../../utility/api';
 import { Field, reduxForm } from 'redux-form';
+import { User } from '../../model/user';
 
 class Login extends React.Component{
   onSubmit = ({username, password}) => {
     getUserLogin(username, password)
-    .then(data => {
-      if(data.message === 'login Sucessful') {
-        this.props.isUserLoggedIn(true)
-      } else {
-        this.props.isUserLoggedIn(false);
+    .then(res => {
+      if(res.data.verifyInfo){
+        const { userId, username, exp, roler } = res.data.verifyInfo;
+        this.props.updateUserInfo(new User(userId, username, exp, roler));
       }
     })
   }
@@ -35,5 +35,5 @@ class Login extends React.Component{
 };
 
 export default reduxForm({
-  form:'login'
+  form:'Login'
 })(Login);

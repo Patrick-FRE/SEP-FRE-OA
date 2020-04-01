@@ -1,5 +1,7 @@
 const baseURL = "https://us-central1-todos-server.cloudfunctions.net/api"
-export const addTodo = (input, todoList, id) => {
+const userPath = "user";
+const loginPath = "login";
+const addTodo = (input, todoList, id) => {
   let newTodo =  {title: input, id: id}
   id = id + 1;
   todoList = [...todoList, newTodo];
@@ -7,23 +9,26 @@ export const addTodo = (input, todoList, id) => {
   return {id, todoList};  
 }
 
-export const removeTodo = (todoList, id) => {
+const removeTodo = (todoList, id) => {
   return todoList.filter(todo => todo.id !== id);
 }
 
-export const getUserLogin = (username, password) => {
-  let userInfo = {
-    "username": username,
-    "password": password
-  }
-
-  return fetch(`${baseURL}/user/login`, {
+const getUserLogin = (username, password) => {
+  let endpoint = baseURL + '/' + userPath + '/' + loginPath;
+  return fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(userInfo)
+    body: JSON.stringify({username, password})
+    }).then(res => {
+      return res.json();
     })
-    .then(response => response.json())
 }
 
+
+export {
+  getUserLogin, 
+  addTodo,
+  removeTodo
+}

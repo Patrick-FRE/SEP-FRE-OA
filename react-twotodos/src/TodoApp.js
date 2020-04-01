@@ -39,13 +39,9 @@ const ColoredTodo = () => {
 
 class TodoApp extends React.Component {
  
-  isUserLoggedIn = (isLoggedIn) => {
-    if(isLoggedIn) {
-      this.props.logIn(true);
+  updateUserInfo = (userInfo) => {
+      this.props.logIn(userInfo);
       this.props.history.push('/coloredtodo')
-    } else {
-      this.props.logIn(false);
-    }
   }
   render() {
     
@@ -61,7 +57,7 @@ class TodoApp extends React.Component {
             )
           }>   
            </Route>
-          <Route path="/login" component={() => <Login isUserLoggedIn = {this.isUserLoggedIn}/>} exact />
+          <Route path="/login" component={() => <Login updateUserInfo = {this.updateUserInfo}/>} exact />
         </main>
       </Layout>
     );
