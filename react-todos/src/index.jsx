@@ -44,7 +44,14 @@ const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 
 //   }
 // }
-
+// class ChildComponent extends React.Component {
+//   render() {
+//     console.log(this.context);
+//     return <div>{this.props.children}</div>
+//   }
+// }
+// ChildComponent.contextType = Context;
+//<Provider store={store}><ChildComponent /></Provider>, 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
