@@ -17,8 +17,12 @@ export const login = (username, password) => {
                 body: JSON.stringify({ username, password })
             }).then(response => response.json())
               .then(res => {
-                  authControl.isAuthenticated = true;
-                  console.log('log in successful')
+
+                  if (res.data.token) {
+                    authControl.isAuthenticated = true;
+                    console.log('log in successful')
+                    resolve(res.data.token)
+                  }
                   resolve(res.data);
             }).catch(err => reject(err));
     })

@@ -9,7 +9,10 @@ const todosReducer = (todos=[],action) => {
         
         case (types.DELETE_TODO):
             return todos.filter(todo => todo!==action.todo)
-        
+
+        case (types.FETCH_TODOS):
+            return [...todos, ...action.todos]
+
         default: return todos;
     }
 

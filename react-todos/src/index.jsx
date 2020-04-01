@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import 'regenerator-runtime/runtime';
 import { BrowserRouter } from 'react-router-dom';

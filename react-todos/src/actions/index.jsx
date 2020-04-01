@@ -22,3 +22,21 @@ export const deleteTodo = todo => {
         todo
     }
 }
+
+export const fetchTodos = token => async dispatch => {
+    const bearer = "Bearer " + token;
+    const url = 'https://us-central1-todos-server.cloudfunctions.net/api/todos/'
+    const response = await fetch(url, {
+        method: 'GET',
+        withCredentials: true,
+        headers: {
+            'Authorization': bearer,
+            'Content-Type': 'application/json',
+        }
+    })
+    const res = await response.json();
+    dispatch({
+        type: types.FETCH_TODOS,
+        todos: res.data
+    })
+}

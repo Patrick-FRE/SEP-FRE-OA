@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, deleteTodo } from '../actions';
 import styled from 'styled-components';
@@ -27,12 +27,12 @@ const TodosContainer = () => {
     //     e.preventDefault();
     //     setTodo(todos.filter(el => el !== item));
     // }
-    let listItems = todos.map((todo, index) => {
+    let listItems = todos.map((todo) => {
 
         return (
-            <Li key={index}>
-                {todo}
-                <button onClick={() => dispatch(deleteTodo(todo))}>remove</button>
+            <Li key={todo.id}>
+                {todo.content}
+                <button onClick={() => dispatch(deleteTodo(todo.id))}>remove</button>
             </Li>
         )
         
