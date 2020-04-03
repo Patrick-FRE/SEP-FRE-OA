@@ -34,32 +34,32 @@ const ActionType = {
   GET_TODOS_FAIL,
   REMOVE_TODOS_START,
   REMOVE_TODOS_SUCCESS,
-  REMOVE_TODOS_FAIL
+  REMOVE_TODOS_FAIL,
 };
 
 // Action Creator
 
-const removeTodo = id => {
+const removeTodo = (id) => {
   console.log("removeTodo");
-  return dispatch => {
+  return (dispatch) => {
     dispatch(removeTodoStart());
     todoAPI
       .removeTodo(id)
-      .then(data => {
+      .then((data) => {
         console.log("remove res:", data);
         if (data.errno === 0) {
           dispatch(removeTodoSuccess());
           dispatch(getTodoStart());
           todoAPI
             .getTodos()
-            .then(data => {
+            .then((data) => {
               if (data.errno === 0) {
                 dispatch(getTodoSuccess(data.data));
               } else {
                 dispatch(getTodoFail(data));
               }
             })
-            .catch(error => {
+            .catch((error) => {
               console.log("error");
               getTodoFail(error);
             });
@@ -67,7 +67,7 @@ const removeTodo = id => {
           dispatch(removeTodoFail(data));
         }
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch(removeTodoFail(error));
       });
   };
@@ -85,12 +85,12 @@ const removeTodoFail = () => {
 };
 const fetchTodos = () => {
   console.log("fetch");
-  return dispatch => {
+  return (dispatch) => {
     console.log("async fetch");
     dispatch(getTodoStart());
     todoAPI
       .getTodos()
-      .then(data => {
+      .then((data) => {
         console.log(data);
         if (data.errno === 0) {
           dispatch(getTodoSuccess(data.data));
@@ -98,7 +98,7 @@ const fetchTodos = () => {
           dispatch(getTodoFail(data));
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("error");
         getTodoFail(error);
       });
@@ -110,10 +110,10 @@ const getTodoStart = () => {
   return { type: ActionType.GET_TODOS_START };
 };
 
-const getTodoSuccess = todoList => {
+const getTodoSuccess = (todoList) => {
   return { type: ActionType.GET_TODOS_SUCCESS, payload: { todoList } };
 };
-const getTodoFail = error => {
+const getTodoFail = (error) => {
   return { type: ActionType.GET_TODOS_FAIL, payload: { error: error } };
 };
 
@@ -138,14 +138,14 @@ const ActionCreator = {
   // removeTodo,
   // delayRemove
   removeTodo,
-  fetchTodos
+  fetchTodos,
 };
 
 // Reducer
 const initailState = {
   isLoading: false,
   todoList: [],
-  error: null
+  error: null,
 };
 
 const todoReducer = (state = initailState, action) => {
@@ -153,36 +153,36 @@ const todoReducer = (state = initailState, action) => {
     case ActionType.REMOVE_TODOS_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case ActionType.REMOVE_TODOS_SUCCESS:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       };
     case ActionType.REMOVE_TODOS_FAIL:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.error,
       };
     case ActionType.GET_TODOS_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case ActionType.GET_TODOS_SUCCESS:
       console.log("GET TODO SUCCESS");
       return {
         ...state,
         todoList: action.payload.todoList,
-        isLoading: false
+        isLoading: false,
       };
     case ActionType.GET_TODOS_FAIL:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.error,
       };
     // case ActionType.ADDONETODO:
     //   return {
@@ -247,7 +247,7 @@ class ReduxApp extends React.Component {
     const { todoList } = this.props;
     console.log(todoList);
     const todos = todoList
-      ? todoList.map(todo => {
+      ? todoList.map((todo) => {
           return (
             <div key={todo.id}>
               <span>{todo.content}</span>
@@ -270,15 +270,15 @@ class ReduxApp extends React.Component {
     // });
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     todoList: state.todoList,
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
   };
 };
 const mapDispatchToProps = {
   fetchTodos,
-  removeTodo
+  removeTodo,
 };
 
 const MyApp = connect(mapStateToProps, mapDispatchToProps)(ReduxApp);
@@ -320,7 +320,7 @@ const MyApp = connect(mapStateToProps, mapDispatchToProps)(ReduxApp);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <MyApp />
+      <TodoApp />
     </BrowserRouter>
   </Provider>,
   // <Provider store={store}>
