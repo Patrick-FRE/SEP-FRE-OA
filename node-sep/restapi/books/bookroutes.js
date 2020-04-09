@@ -1,5 +1,5 @@
 const express = require('express')
-
+const getBookDetailsById = require('../services/bookService')
 const bookRouter = express.Router()
 
 function router(Book) {
@@ -72,11 +72,22 @@ function router(Book) {
       })
       .delete((req, res) => {
          const { book } = req
-         book.remove((err) => {})
+         book.remove((err) => {
+            if (err) res.send(err)
+            return res.sendStatus(204)
+         })
       })
 
    bookRouter.route('addBook').post((req, res) => {})
-
+   bookRouter.route('/details/:id').get((req, res) => {
+      const { id } = req.params
+      let response = {}(async function mongo() {
+         response = await bookService.getBookDetailsById(id)
+         if (response.status === 401) {
+            res.send('unauthenticated!')
+         }
+      })
+   })
    return bookRouter
 }
 

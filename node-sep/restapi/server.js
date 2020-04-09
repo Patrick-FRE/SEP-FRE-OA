@@ -1,10 +1,13 @@
 const express = require('express')
 const bookRouter = require('./books/bookroutes')
+const authorRouter = require('./authors/authors')
 const mongoose = require('mongoose')
 const Book = require('./books/book')
+const Author = require('./authors/authorSchema')
 const app = express()
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
+const bookService = require('./api/services/bookService')
 dotenv.config()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -17,7 +20,8 @@ const port = process.env.PORT || 3000
 //    // we're connected!
 //    console.log('were connected!')
 // })
-app.use('/books', bookRouter(Book))
+app.use('/books', bookRouter(Book, BookService))
+app.use('/authors', authorRouter(Author))
 app.get('/', (req, res) => {
    res.send('Our Nodemon REST API works')
 })
