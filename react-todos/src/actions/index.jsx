@@ -1,4 +1,5 @@
 import * as types from "./types";
+import { getData, addData } from '../utils';
 
 export const dummyAction = payload => {
     return {
@@ -7,12 +8,10 @@ export const dummyAction = payload => {
     }
 }
 
-export const addTodo = todo => {
+export const addTodo = todo => async dispatch => {
     console.log('adding todo..')
-    return {
-        type: types.ADD_TODO,
-        todo
-    }
+    const response = await addData(todo)
+
 }
 
 export const deleteTodo = todo => {
@@ -24,17 +23,7 @@ export const deleteTodo = todo => {
 }
 
 export const fetchTodos = token => async dispatch => {
-    const bearer = "Bearer " + token;
-    const url = 'https://us-central1-todos-server.cloudfunctions.net/api/todos/'
-    const response = await fetch(url, {
-        method: 'GET',
-        withCredentials: true,
-        headers: {
-            'Authorization': bearer,
-            'Content-Type': 'application/json',
-        }
-    })
-    const res = await response.json();
+    const res = await getData(token);
     dispatch({
         type: types.FETCH_TODOS,
         todos: res.data

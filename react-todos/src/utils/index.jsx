@@ -16,14 +16,14 @@ export const login = (username, password) => {
                 },
                 body: JSON.stringify({ username, password })
             }).then(response => response.json())
-              .then(res => {
+            .then(res => {
 
-                  if (res.data.token) {
+                if (res.data.token) {
                     authControl.isAuthenticated = true;
                     console.log('log in successful')
                     resolve(res.data.token)
-                  }
-                  resolve(res.data);
+                }
+                resolve(res.data);
             }).catch(err => reject(err));
     })
 }
@@ -31,4 +31,37 @@ export const login = (username, password) => {
 export const authControl = {
     isAuthenticated: false,
     authenticate: login,
+}
+
+
+const url = 'https://us-central1-todos-server.cloudfunctions.net/api/todos/'
+let token;
+export const getData = async (data) => {
+    token = data
+    const response = await fetch(url, {
+        method: 'GET',
+        withCredentials: true,
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json',
+        }
+    })
+    return await response.json();
+}
+
+export const addData = async (value) => {
+    const request = { 'todo': `${value}` }
+    const response = await fetch(url, {
+        method: 'POST',
+        withCredentials: true,
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(request)
+    })
+    const res = await response.json()
+    if (res.message==='add successful') {
+        return res;
+    }
 }
