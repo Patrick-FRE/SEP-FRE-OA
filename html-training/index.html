@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      text-align: center;
+      border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <section>
+      <header><h1>Users</h1></header>
+      <table style="width:100%" onclick="eventDelegation()">
+        <tr onclick="msgFn()">
+          <th>Name</th>
+          <th>Id</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+        <tr onclick="msgFn()">
+          <td onclick="msgFn()">Patrick</td>
+          <td onclick="msgFn()">1</td>
+          <td onclick="msgFn()">FRE</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Sonny</td>
+          <td>2</td>
+          <td>FRE</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Zihao</td>
+          <td>3</td>
+          <td>Java</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <script>
+      function msgFn() {
+        console.log(event.taget);
+      }
+
+      function eventDelegation() {
+        console.log(event.target);
+      }
+    </script>
+  </body>
+</html>

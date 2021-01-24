@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <ul>
+      1
+      <li>2</li>
+      <li>2</li>
+      <li>
+        2
+        <ul>
+          3
+          <li>4</li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      1
+      <li>2</li>
+      <li>2</li>
+      <li>
+        2
+        <ul>
+          3
+          <li>
+            4
+            <ul>
+              5
+              <li>6</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      const body = document.querySelector("body");
+      console.log(body.children);
+
+      function findDeepestLevel(domElement) {
+        // let allElemnts = domElement.querySelectorAll("*");
+        // console.log(allElemnts);
+        let deepestLevel = 0;
+        traverse(domElement, 0);
+
+        function traverse(element, level) {
+          deepestLevel = level > deepestLevel ? level : deepestLevel;
+          if (element.children) {
+            let nextLevel = ++level;
+            for (let i = 0; i < element.children.length; i++) {
+              traverse(element.children[i], nextLevel);
+            }
+          }
+        }
+        return deepestLevel;
+      }
+
+      let level = findDeepestLevel(body);
+      console.log(level); // output should be 6;
+    </script>
+  </body>
+</html>
