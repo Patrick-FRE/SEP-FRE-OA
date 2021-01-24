@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="t-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./normalize.css"> -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header class='demo-header'>
+        <div class="demo-header-list">
+            <div class="demo-header-list_item">
+                <button class="btn btn-primary btn-get-posts">GET POSTS</button>
+            </div>
+            <div class="demo-header-list">
+                <div class="demo-header-list_item">
+                    <button class="btn btn-primary btn-clear-posts">CLEAR POSTS</button>
+
+                    <!-- static element -->
+                    <!-- <button class='btn-modal-comments'>Comments</button> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class='demo-main'>
+        <!-- demo-posts 存table data在js的array中, 不显示在html中-->
+        <section class="demo-posts"></section>
+        <table class="table-posts-body">
+            <!-- js -->
+        </table>
+    </main>
+
+    <!-- <div class="backdrop" hidden> -->
+    <div class="modal-container">
+        <div class="backdrop">
+            <div class="modal">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
+
+
+<!-- http://192.168.198.51:8080/ -->
+<!-- http://192.168.198.51:50864/ -->

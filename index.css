@@ -1,0 +1,121 @@
+/** css reset **/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    /* font-size: 16px; */
+    font-size: 1.6rem;
+}
+
+/** general **/
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* header */
+
+.demo-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    background-color: cadetblue;
+}
+
+.demo-header .demo-header-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.demo-header-list .demo-header-list_item {
+    margin-right: 2rem;
+}
+
+/* main */
+
+.demo-main {
+    padding: 2rem;
+    margin-top: 7rem;
+}
+
+/* table */
+
+.table-posts-body {
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid rgb(123, 177, 199);
+    /* border-style: hidden; */
+}
+
+.table-posts-body th {
+    padding: 0.8 rem;
+    background-color: wheat;
+    font-size: large;
+}
+
+.table-posts-body td {
+    padding: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f79646 #ccc;
+}
+
+/* modal */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop .modal {
+    width: 80%;
+    height: 80%;
+    min-width: 50rem;
+    min-height: 40rem;
+    background-color: rgba(255, 255, 255, 0.95);
+}
